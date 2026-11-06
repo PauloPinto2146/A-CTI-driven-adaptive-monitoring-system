@@ -1,0 +1,75 @@
+{
+    "attack_pattern_dict": {
+        "attack_patterns_ids": [
+            "attack-pattern--03d7999c-1f4c-42cc-8373-e7690d318104",
+            "attack-pattern--045d0922-2310-4e60-b5e4-3302302cb3c5",
+            "attack-pattern--09a60ea3-a8d1-4ae5-976e-5783248b72a4",
+            "attack-pattern--1996eef1-ced3-4d7f-bf94-33298cabbf72",
+            "attack-pattern--2959d63f-73fd-46a1-abd2-109d7dcede32",
+            "attack-pattern--354a7f88-63fb-41b5-a801-ce3b377b36f1",
+            "attack-pattern--3ccef7ae-cb5e-48f6-8302-897105fbf55c",
+            "attack-pattern--42e8de7b-37b2-4258-905a-6897815e58e0",
+            "attack-pattern--54a649ff-439a-41a4-9856-8d144a2551ba",
+            "attack-pattern--57340c81-c025-4189-8fa0-fc7ede51bae4",
+            "attack-pattern--707399d6-ab3e-4963-9315-d9d3818cd6a0",
+            "attack-pattern--9efb1ea7-c37b-4595-9640-b7680cd84279",
+            "attack-pattern--b3d682b6-98f2-4fb0-aa3b-b4df007ca70a",
+            "attack-pattern--c32f7008-9fea-41f7-8366-5eb9b74bd896",
+            "attack-pattern--d1fcf083-a721-4223-aedf-bf8960798d62",
+            "attack-pattern--d63a3fb8-9452-4e9d-a60a-54be68d5998c",
+            "attack-pattern--dcaa092b-7de9-4a21-977f-7fcb77e89c48",
+            "attack-pattern--e358d692-23c0-4a31-9eb6-ecc13a8d7735",
+            "attack-pattern--f7827069-0bf2-4764-af4f-23fae0d181b7"
+        ],
+        "attack_patterns_names": [
+            "T1033",
+            "T1218.011",
+            "T1056.001",
+            "T1071.004",
+            "T1543.003",
+            "T1082",
+            "T1140",
+            "T1036",
+            "T1021",
+            "T1112",
+            "T1016",
+            "T1547.001",
+            "T1027",
+            "T1012",
+            "T1059.003",
+            "T1070.004",
+            "T1134",
+            "T1018",
+            "T1102.001"
+        ]
+    },
+    "ioc_dict": {
+        "file": [
+            {
+                "md5": "a70af400ba66597c11ef1e15aba5c6c3",
+                "sha1": "8f7ea0fc8f16028937855554d0ac5fa2113f85a2",
+                "sha256": "ebba8f4342b65faccdd2a48be9f2654d3fa523360f17ff68d5498a453f76c205",
+                "ssdeep": "6144:yraxNx1Gc9N6xJ/MO2N89M4qjGggUA0CthK1KLAb+AfQQIh+K+TuAubWq49OU/Cv:ygVhNrAM1qgg22",
+                "vhash": "045046655d15509013z3002933013z50a5z32z221z71z5514z1",
+                "filename": "wiseman.EXE"
+            },
+            {
+                "md5": "04c3c443f6ad7582b6e61d0480594d83",
+                "sha1": "293db0268a5bb138c7d4119d569cd6c6791f94c4",
+                "sha256": "fda9864b1aa230b60d0c736559415ac9c79e240cce411daed5da2facb9ced87c",
+                "ssdeep": "6144:PQJf3uMxrbLgEN6S7KzA5x3S5+y3D82oC0UdkgxgfOq:4J130ENL7kArI+y3XipfO",
+                "vhash": "06507d1d1d1d1d5d0617z11z301hz11z15z17z",
+                "filename": "wininet.dll"
+            }
+        ]
+    },
+    "cves": [
+        "CVE-2023-27350"
+    ],
+    "hash_algorithms": [
+        "MD5",
+        "SHA1",
+        "SHA256"
+    ],
+    "threat_description": "A sophisticated malware campaign is distributing both Gh0st Remote Access Trojan and CloverPlus adware simultaneously through obfuscated loaders. The loader drops encrypted payloads from its resource section, with one being adware and another a Gh0st RAT DLL module executed via rundll32.exe. The RAT employs multiple persistence mechanisms including registry run keys, Windows services, and Remote Access service manipulation. It features capabilities for token manipulation, DNS hijacking, keylogging targeting RDP sessions, system reconnaissance, and dead drop resolver techniques for C2 communication. The malware specifically targets security tools by blocking antivirus domains through DNS spoofing and hosts file modification. This dual-payload approach provides attackers with long-term system access while generating immediate profit through adware monetization."
+}

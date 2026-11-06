@@ -1,0 +1,94 @@
+{
+	"Network_Exposure_test" :[
+		{
+		    "host_name" : "Server_1",
+		    "Asset_Type": "Server", 
+		    "Data_classification":"Public",
+		    "Description": "",
+		    "Properties" : {
+		        "Availability": "HIGH",
+		        "Confidentiality": "LOW",
+		        "Integrity": "HIGH"
+		    },
+		    "Network_Exposure": "HIGH",
+		    "Impact": "MEDIUM"
+		},
+		{
+		    "host_name" : "Server_1",
+		    "Asset_Type": "Server", 
+		    "Data_classification":"Public",
+		    "Description": "",
+		    "Properties" : {
+		        "Availability": "HIGH",
+		        "Confidentiality": "LOW",
+		        "Integrity": "HIGH"
+		    },
+		    "Network_Exposure": "MEDIUM",
+		    "Impact": "MEDIUM"
+		},
+			{
+		    "host_name" : "Server_1",
+		    "Asset_Type": "Server", 
+		    "Data_classification":"Public",
+		    "Description": "",
+		    "Properties" : {
+		        "Availability": "HIGH",
+		        "Confidentiality": "LOW",
+		        "Integrity": "HIGH"
+		    },
+		    "Network_Exposure": "LOW",
+		    "Impact": "MEDIUM"
+		},
+			{
+		    "host_name" : "Server_1",
+		    "Asset_Type": "Server", 
+		    "Data_classification":"Private",
+		    "Description": "",
+		    "Properties" : {
+		        "Availability": "HIGH",
+		        "Confidentiality": "LOW",
+		        "Integrity": "HIGH"
+		    },
+		    "Network_Exposure": "NONE",
+		    "Impact": "MEDIUM"
+		}
+	],
+	"Impact_test":[
+		{
+		    "host_name" : "Server_1",
+		    "Asset_Type": "Server", 
+		    "Data_classification":"Private",
+		    "Properties" : {
+		        "Availability": "HIGH",
+		        "Confidentiality": "LOW",
+		        "Integrity": "HIGH"
+		    },
+		    "Network_Exposure": "HIGH",
+		    "Impact": "LOW"
+		},
+		{
+		    "host_name" : "Server_1",
+		    "Asset_Type": "Server", 
+		    "Data_classification":"Private",
+		    "Properties" : {
+		        "Availability": "HIGH",
+		        "Confidentiality": "LOW",
+		        "Integrity": "HIGH"
+		    },
+		    "Network_Exposure": "HIGH",
+		    "Impact": "MEDIUM"
+		},
+			{
+		    "host_name" : "Server_1",
+		    "Asset_Type": "Server", 
+		    "Data_classification":"Private",
+		    "Properties" : {
+		        "Availability": "HIGH",
+		        "Confidentiality": "LOW",
+		        "Integrity": "HIGH"
+		    },
+		    "Network_Exposure": "HIGH",
+		    "Impact": "HIGH"
+		}
+	]
+}

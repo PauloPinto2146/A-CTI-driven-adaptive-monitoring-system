@@ -1,0 +1,1693 @@
+{
+    "response": {
+        "version": "3.86",
+        "format": "json",
+        "status": "200",
+        "lang": "en",
+        "items": 7,
+        "consumption": 7,
+        "remaining": 0,
+        "querylimit": 7,
+        "querylimitmax": 7,
+        "timestamp": "1773140347",
+        "rtt": 1,
+        "etag": "3f26-6dcd-dcca"
+    },
+    "request": {
+        "timestamp": "1773140346",
+        "apikey": "valid",
+        "userid": "96189",
+        "details": 1,
+        "sort": "entry_timestamp_create",
+        "cti": 0,
+        "type": "recent",
+        "value": "100"
+    },
+    "result": [
+        {
+            "entry": {
+                "id": "349946",
+                "title": "HCL Sametime 12.0.21 on Android Application Log log file",
+                "summary": "A vulnerability was found in HCL Sametime 12.0.21 on Android (Android App Software). It has been rated as problematic. Affected by this issue is some unknown functionality of the component Application Log Handler. There is no information about possible countermeasures known. It may be suggested to replace the affected object with an alternative product.",
+                "details": {
+                    "affected": "A vulnerability was found in HCL Sametime 12.0.21 on Android (Android App Software). It has been rated as problematic.",
+                    "vulnerability": "Using CWE to declare the problem leads to CWE-532. Information written to log files can be of a sensitive nature and give valuable guidance to an attacker or expose sensitive user information.",
+                    "impact": "Impacted is confidentiality.",
+                    "countermeasure": "There is no information about possible countermeasures known. It may be suggested to replace the affected object with an alternative product."
+                },
+                "timestamp": {
+                    "create": "1773138888",
+                    "change": "1773138888"
+                }
+            },
+            "software": {
+                "vendor": "HCL",
+                "name": "Sametime",
+                "version": [
+                    "12.0.21"
+                ],
+                "platform": "Android",
+                "component": "Application Log Handler",
+                "type": "Android App Software",
+                "license": {
+                    "type": "commercial"
+                },
+                "cpe": [
+                    "cpe:/a:hcl:sametime:12.0.21"
+                ],
+                "cpe23": [
+                    "cpe:2.3:a:hcl:sametime:12.0.21:*:*:*:*:*:*:*"
+                ]
+            },
+            "vulnerability": {
+                "risk": {
+                    "value": "1",
+                    "name": "low"
+                },
+                "class": "log file",
+                "cwe": "CWE-532",
+                "capec": [
+                    "19",
+                    "116",
+                    "215"
+                ],
+                "attck": "T1592",
+                "cvss2": {
+                    "vuldb": {
+                        "basescore": "1.7",
+                        "tempscore": "1.7",
+                        "baseseverity": "Low",
+                        "tempseverity": "Low",
+                        "av": "L",
+                        "ac": "L",
+                        "au": "S",
+                        "ci": "P",
+                        "ii": "N",
+                        "ai": "N",
+                        "e": "ND",
+                        "rl": "ND",
+                        "rc": "C"
+                    }
+                },
+                "cvss3": {
+                    "meta": {
+                        "basescore": "3.3",
+                        "tempscore": "3.3",
+                        "baseseverity": "Low",
+                        "tempseverity": "Low"
+                    },
+                    "vuldb": {
+                        "confidence": "High",
+                        "basescore": "3.3",
+                        "tempscore": "3.3",
+                        "basevector": "AV:L/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N",
+                        "tempvector": "E:X/RL:X/RC:C",
+                        "baseseverity": "Low",
+                        "tempseverity": "Low",
+                        "av": "L",
+                        "ac": "L",
+                        "pr": "L",
+                        "ui": "N",
+                        "s": "U",
+                        "c": "L",
+                        "i": "N",
+                        "a": "N",
+                        "e": "X",
+                        "rl": "X",
+                        "rc": "C"
+                    },
+                    "cna": {
+                        "basescore": "3.3",
+                        "basevector": "AV:L/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N",
+                        "baseseverity": "Low",
+                        "av": "L",
+                        "ac": "L",
+                        "pr": "L",
+                        "ui": "N",
+                        "s": "U",
+                        "c": "L",
+                        "i": "N",
+                        "a": "N"
+                    }
+                },
+                "cvss4": {
+                    "vuldb": {
+                        "confidence": "High",
+                        "bscore": "4.8",
+                        "btscore": "4.8",
+                        "bvector": "AV:L/AC:L/AT:N/PR:L/UI:N/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N",
+                        "btvector": "AV:L/AC:L/AT:N/PR:L/UI:N/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N/E:X",
+                        "bseverity": "Medium",
+                        "btseverity": "Medium",
+                        "av": "L",
+                        "ac": "L",
+                        "at": "N",
+                        "pr": "L",
+                        "ui": "N",
+                        "vc": "L",
+                        "vi": "N",
+                        "va": "N",
+                        "sc": "N",
+                        "si": "N",
+                        "sa": "N",
+                        "e": "X"
+                    }
+                },
+                "timeline": [
+                    {
+                        "date": "1767567600",
+                        "event": "CVE reserved",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773097200",
+                        "event": "Advisory disclosed",
+                        "diff": "+64 days",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773100800",
+                        "event": "VulDB entry created",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?recent.20260310",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773138888",
+                        "event": "VulDB entry last update",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?id.349946",
+                        "color": "blue"
+                    }
+                ]
+            },
+            "advisory": {
+                "date": "1773097200",
+                "url": "https://support.hcl-software.com/csm?id=kb_article&sysparm_article=KB0129451",
+                "identifier": "KB0129451",
+                "reportconfidence": "confirmed"
+            },
+            "exploit": {
+                "physical": "Partially",
+                "local": "Yes",
+                "remote": "No",
+                "exploitability": "not defined",
+                "price": {
+                    "0day": "$0-$5k",
+                    "today": "$0-$5k"
+                }
+            },
+            "countermeasure": {
+                "remediationlevel": "not defined"
+            },
+            "source": {
+                "cve": {
+                    "id": "CVE-2026-21791",
+                    "assigned": "1767567600",
+                    "cna": "HCL",
+                    "summary": "HCL Sametime for Android is impacted by a sensitive information disclosure.  Hostnames information is written in application logs and certain URL"
+                },
+                "gcve": {
+                    "cve": "GCVE-0-2026-21791",
+                    "vuldb": "GCVE-100-349946"
+                },
+                "sciplabs": {
+                    "url": [
+                        "https://www.scip.ch/en/?labs.20130704"
+                    ]
+                }
+            }
+        },
+        {
+            "entry": {
+                "id": "349945",
+                "title": "NextScripts Plugin up to 4.4.6 on WordPress Shortcode nxs_fbembed snapFB cross site scripting",
+                "summary": "A vulnerability was found in NextScripts Plugin up to 4.4.6 on WordPress (WordPress Plugin). It has been declared as problematic. Affected by this vulnerability is the function nxs_fbembed of the component Shortcode Handler. There is no information about possible countermeasures known. It may be suggested to replace the affected object with an alternative product.",
+                "details": {
+                    "affected": "A vulnerability was found in NextScripts Plugin up to 4.4.6 on WordPress (WordPress Plugin). It has been declared as problematic.",
+                    "vulnerability": "The manipulation of the argument snapFB with an unknown input leads to a unknown weakness. The CWE definition for the vulnerability is CWE-79. The product does not neutralize or incorrectly neutralizes user-controllable input before it is placed in output that is used as a web page that is served to other users.",
+                    "impact": "As an impact it is known to affect integrity.",
+                    "countermeasure": "There is no information about possible countermeasures known. It may be suggested to replace the affected object with an alternative product."
+                },
+                "timestamp": {
+                    "create": "1773138854",
+                    "change": "1773138854"
+                }
+            },
+            "software": {
+                "name": "NextScripts Plugin",
+                "version": [
+                    "4.4.0",
+                    "4.4.1",
+                    "4.4.2",
+                    "4.4.3",
+                    "4.4.4",
+                    "4.4.5",
+                    "4.4.6"
+                ],
+                "platform": "WordPress",
+                "component": "Shortcode Handler",
+                "function": "nxs_fbembed",
+                "argument": "snapFB",
+                "type": "WordPress Plugin",
+                "cpe": [
+                    "cpe:/a:nextscripts_plugin:nextscripts_plugin:4.4.0",
+                    "cpe:/a:nextscripts_plugin:nextscripts_plugin:4.4.1",
+                    "cpe:/a:nextscripts_plugin:nextscripts_plugin:4.4.2",
+                    "cpe:/a:nextscripts_plugin:nextscripts_plugin:4.4.3",
+                    "cpe:/a:nextscripts_plugin:nextscripts_plugin:4.4.4",
+                    "cpe:/a:nextscripts_plugin:nextscripts_plugin:4.4.5",
+                    "cpe:/a:nextscripts_plugin:nextscripts_plugin:4.4.6"
+                ],
+                "cpe23": [
+                    "cpe:2.3:a:nextscripts_plugin:nextscripts_plugin:4.4.0:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:nextscripts_plugin:nextscripts_plugin:4.4.1:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:nextscripts_plugin:nextscripts_plugin:4.4.2:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:nextscripts_plugin:nextscripts_plugin:4.4.3:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:nextscripts_plugin:nextscripts_plugin:4.4.4:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:nextscripts_plugin:nextscripts_plugin:4.4.5:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:nextscripts_plugin:nextscripts_plugin:4.4.6:*:*:*:*:*:*:*"
+                ]
+            },
+            "vulnerability": {
+                "risk": {
+                    "value": "1",
+                    "name": "low"
+                },
+                "class": "cross site scripting",
+                "cwe": "CWE-79",
+                "capec": [
+                    "10",
+                    "209",
+                    "242"
+                ],
+                "attck": "T1059.007",
+                "cvss2": {
+                    "vuldb": {
+                        "basescore": "4.0",
+                        "tempscore": "3.8",
+                        "baseseverity": "Medium",
+                        "tempseverity": "Low",
+                        "av": "N",
+                        "ac": "L",
+                        "au": "S",
+                        "ci": "N",
+                        "ii": "P",
+                        "ai": "N",
+                        "e": "ND",
+                        "rl": "ND",
+                        "rc": "UR"
+                    }
+                },
+                "cvss3": {
+                    "meta": {
+                        "basescore": "4.9",
+                        "tempscore": "4.9",
+                        "baseseverity": "Medium",
+                        "tempseverity": "Medium"
+                    },
+                    "vuldb": {
+                        "confidence": "High",
+                        "basescore": "3.5",
+                        "tempscore": "3.4",
+                        "basevector": "AV:N/AC:L/PR:L/UI:R/S:U/C:N/I:L/A:N",
+                        "tempvector": "E:X/RL:X/RC:R",
+                        "baseseverity": "Low",
+                        "tempseverity": "Low",
+                        "av": "N",
+                        "ac": "L",
+                        "pr": "L",
+                        "ui": "R",
+                        "s": "U",
+                        "c": "N",
+                        "i": "L",
+                        "a": "N",
+                        "e": "X",
+                        "rl": "X",
+                        "rc": "R"
+                    },
+                    "cna": {
+                        "basescore": "6.4",
+                        "basevector": "AV:N/AC:L/PR:L/UI:N/S:C/C:L/I:L/A:N",
+                        "baseseverity": "Medium",
+                        "av": "N",
+                        "ac": "L",
+                        "pr": "L",
+                        "ui": "N",
+                        "s": "C",
+                        "c": "L",
+                        "i": "L",
+                        "a": "N"
+                    }
+                },
+                "cvss4": {
+                    "vuldb": {
+                        "confidence": "High",
+                        "bscore": "5.1",
+                        "btscore": "5.1",
+                        "bvector": "AV:N/AC:L/AT:N/PR:L/UI:P/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N",
+                        "btvector": "AV:N/AC:L/AT:N/PR:L/UI:P/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N/E:X",
+                        "bseverity": "Medium",
+                        "btseverity": "Medium",
+                        "av": "N",
+                        "ac": "L",
+                        "at": "N",
+                        "pr": "L",
+                        "ui": "P",
+                        "vc": "N",
+                        "vi": "L",
+                        "va": "N",
+                        "sc": "N",
+                        "si": "N",
+                        "sa": "N",
+                        "e": "X"
+                    }
+                },
+                "timeline": [
+                    {
+                        "date": "1771974000",
+                        "event": "CVE reserved",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773097200",
+                        "event": "Advisory disclosed",
+                        "diff": "+13 days",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773100800",
+                        "event": "VulDB entry created",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?recent.20260310",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773138854",
+                        "event": "VulDB entry last update",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?id.349945",
+                        "color": "blue"
+                    }
+                ]
+            },
+            "advisory": {
+                "date": "1773097200",
+                "url": "https://www.wordfence.com/threat-intel/vulnerabilities/id/923c51ba-0ec2-4e32-a86e-404f3fe2ac7c?source=cve",
+                "reportconfidence": "uncorroborated",
+                "person": {
+                    "name": "Muhammad Yudha"
+                }
+            },
+            "exploit": {
+                "physical": "No",
+                "local": "No",
+                "remote": "Yes",
+                "exploitability": "not defined",
+                "price": {
+                    "0day": "$0-$5k",
+                    "today": "$0-$5k"
+                }
+            },
+            "countermeasure": {
+                "remediationlevel": "not defined"
+            },
+            "source": {
+                "cve": {
+                    "id": "CVE-2026-3228",
+                    "assigned": "1771974000",
+                    "cna": "Wordfence",
+                    "summary": "The NextScripts: Social Networks Auto-Poster plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the `[nxs_fbembed]` shortcode in all versions up to, and including, 4.4.6. This is due to insufficient input sanitization and output escaping on the `snapFB` post meta value. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page."
+                },
+                "gcve": {
+                    "cve": "GCVE-0-2026-3228",
+                    "vuldb": "GCVE-100-349945"
+                }
+            }
+        },
+        {
+            "entry": {
+                "id": "349944",
+                "title": "Wpmet MetForm Pro Plugin up to 3.9.6 on WordPress Quiz Feature cross site scripting",
+                "summary": "A vulnerability was found in Wpmet MetForm Pro Plugin up to 3.9.6 on WordPress (WordPress Plugin). It has been classified as problematic. Affected is an unknown function of the component Quiz Feature. There is no information about possible countermeasures known. It may be suggested to replace the affected object with an alternative product.",
+                "details": {
+                    "affected": "A vulnerability was found in Wpmet MetForm Pro Plugin up to 3.9.6 on WordPress (WordPress Plugin). It has been classified as problematic.",
+                    "vulnerability": "CWE is classifying the issue as CWE-79. The product does not neutralize or incorrectly neutralizes user-controllable input before it is placed in output that is used as a web page that is served to other users.",
+                    "impact": "This is going to have an impact on integrity.",
+                    "countermeasure": "There is no information about possible countermeasures known. It may be suggested to replace the affected object with an alternative product."
+                },
+                "timestamp": {
+                    "create": "1773138838",
+                    "change": "1773138838"
+                }
+            },
+            "software": {
+                "vendor": "Wpmet",
+                "name": "MetForm Pro Plugin",
+                "version": [
+                    "3.9.0",
+                    "3.9.1",
+                    "3.9.2",
+                    "3.9.3",
+                    "3.9.4",
+                    "3.9.5",
+                    "3.9.6"
+                ],
+                "platform": "WordPress",
+                "component": "Quiz Feature",
+                "type": "WordPress Plugin",
+                "cpe": [
+                    "cpe:/a:wpmet:metform_pro_plugin:3.9.0",
+                    "cpe:/a:wpmet:metform_pro_plugin:3.9.1",
+                    "cpe:/a:wpmet:metform_pro_plugin:3.9.2",
+                    "cpe:/a:wpmet:metform_pro_plugin:3.9.3",
+                    "cpe:/a:wpmet:metform_pro_plugin:3.9.4",
+                    "cpe:/a:wpmet:metform_pro_plugin:3.9.5",
+                    "cpe:/a:wpmet:metform_pro_plugin:3.9.6"
+                ],
+                "cpe23": [
+                    "cpe:2.3:a:wpmet:metform_pro_plugin:3.9.0:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:wpmet:metform_pro_plugin:3.9.1:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:wpmet:metform_pro_plugin:3.9.2:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:wpmet:metform_pro_plugin:3.9.3:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:wpmet:metform_pro_plugin:3.9.4:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:wpmet:metform_pro_plugin:3.9.5:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:wpmet:metform_pro_plugin:3.9.6:*:*:*:*:*:*:*"
+                ]
+            },
+            "vulnerability": {
+                "risk": {
+                    "value": "1",
+                    "name": "low"
+                },
+                "class": "cross site scripting",
+                "cwe": "CWE-79",
+                "capec": [
+                    "10",
+                    "209",
+                    "242"
+                ],
+                "attck": "T1059.007",
+                "cvss2": {
+                    "vuldb": {
+                        "basescore": "5.0",
+                        "tempscore": "4.8",
+                        "baseseverity": "Medium",
+                        "tempseverity": "Medium",
+                        "av": "N",
+                        "ac": "L",
+                        "au": "N",
+                        "ci": "N",
+                        "ii": "P",
+                        "ai": "N",
+                        "e": "ND",
+                        "rl": "ND",
+                        "rc": "UR"
+                    }
+                },
+                "cvss3": {
+                    "meta": {
+                        "basescore": "5.7",
+                        "tempscore": "5.7",
+                        "baseseverity": "Medium",
+                        "tempseverity": "Medium"
+                    },
+                    "vuldb": {
+                        "confidence": "High",
+                        "basescore": "4.3",
+                        "tempscore": "4.2",
+                        "basevector": "AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:N",
+                        "tempvector": "E:X/RL:X/RC:R",
+                        "baseseverity": "Medium",
+                        "tempseverity": "Medium",
+                        "av": "N",
+                        "ac": "L",
+                        "pr": "N",
+                        "ui": "R",
+                        "s": "U",
+                        "c": "N",
+                        "i": "L",
+                        "a": "N",
+                        "e": "X",
+                        "rl": "X",
+                        "rc": "R"
+                    },
+                    "cna": {
+                        "basescore": "7.2",
+                        "basevector": "AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:N",
+                        "baseseverity": "High",
+                        "av": "N",
+                        "ac": "L",
+                        "pr": "N",
+                        "ui": "N",
+                        "s": "C",
+                        "c": "L",
+                        "i": "L",
+                        "a": "N"
+                    }
+                },
+                "cvss4": {
+                    "vuldb": {
+                        "confidence": "High",
+                        "bscore": "5.3",
+                        "btscore": "5.3",
+                        "bvector": "AV:N/AC:L/AT:N/PR:N/UI:P/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N",
+                        "btvector": "AV:N/AC:L/AT:N/PR:N/UI:P/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N/E:X",
+                        "bseverity": "Medium",
+                        "btseverity": "Medium",
+                        "av": "N",
+                        "ac": "L",
+                        "at": "N",
+                        "pr": "N",
+                        "ui": "P",
+                        "vc": "N",
+                        "vi": "L",
+                        "va": "N",
+                        "sc": "N",
+                        "si": "N",
+                        "sa": "N",
+                        "e": "X"
+                    }
+                },
+                "timeline": [
+                    {
+                        "date": "1768863600",
+                        "event": "CVE reserved",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773097200",
+                        "event": "Advisory disclosed",
+                        "diff": "+49 days",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773100800",
+                        "event": "VulDB entry created",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?recent.20260310",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773138839",
+                        "event": "VulDB entry last update",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?id.349944",
+                        "color": "blue"
+                    }
+                ]
+            },
+            "advisory": {
+                "date": "1773097200",
+                "url": "https://www.wordfence.com/threat-intel/vulnerabilities/id/e6361ada-f2ba-404e-b9d3-b169da44aa90?source=cve",
+                "reportconfidence": "uncorroborated",
+                "person": {
+                    "name": "Andrea Bocchetti"
+                }
+            },
+            "exploit": {
+                "physical": "No",
+                "local": "No",
+                "remote": "Yes",
+                "exploitability": "not defined",
+                "price": {
+                    "0day": "$0-$5k",
+                    "today": "$0-$5k"
+                }
+            },
+            "countermeasure": {
+                "remediationlevel": "not defined"
+            },
+            "source": {
+                "cve": {
+                    "id": "CVE-2026-1261",
+                    "assigned": "1768863600",
+                    "cna": "Wordfence",
+                    "summary": "The MetForm Pro plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the Quiz feature in all versions up to, and including, 3.9.6 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page."
+                },
+                "gcve": {
+                    "cve": "GCVE-0-2026-1261",
+                    "vuldb": "GCVE-100-349944"
+                }
+            }
+        },
+        {
+            "entry": {
+                "id": "349943",
+                "title": "unitecms Unlimited Elements for Elementor Plugin up to 2.0.5 on WordPress Form Submission cross site scripting",
+                "summary": "A vulnerability was found in unitecms Unlimited Elements for Elementor Plugin up to 2.0.5 on WordPress (WordPress Plugin) and classified as problematic. This issue affects some unknown processing of the component Form Submission Handler. There is no information about possible countermeasures known. It may be suggested to replace the affected object with an alternative product.",
+                "details": {
+                    "affected": "A vulnerability was found in unitecms Unlimited Elements for Elementor Plugin up to 2.0.5 on WordPress (WordPress Plugin) and classified as problematic.",
+                    "vulnerability": "Using CWE to declare the problem leads to CWE-79. The product does not neutralize or incorrectly neutralizes user-controllable input before it is placed in output that is used as a web page that is served to other users.",
+                    "impact": "Impacted is integrity.",
+                    "countermeasure": "There is no information about possible countermeasures known. It may be suggested to replace the affected object with an alternative product."
+                },
+                "timestamp": {
+                    "create": "1773138833",
+                    "change": "1773138833"
+                }
+            },
+            "software": {
+                "vendor": "unitecms",
+                "name": "Unlimited Elements for Elementor Plugin",
+                "version": [
+                    "2.0.0",
+                    "2.0.1",
+                    "2.0.2",
+                    "2.0.3",
+                    "2.0.4",
+                    "2.0.5"
+                ],
+                "platform": "WordPress",
+                "component": "Form Submission Handler",
+                "type": "WordPress Plugin",
+                "cpe": [
+                    "cpe:/a:unitecms:unlimited_elements_for_elementor_plugin:2.0",
+                    "cpe:/a:unitecms:unlimited_elements_for_elementor_plugin:2.0.1",
+                    "cpe:/a:unitecms:unlimited_elements_for_elementor_plugin:2.0.2",
+                    "cpe:/a:unitecms:unlimited_elements_for_elementor_plugin:2.0.3",
+                    "cpe:/a:unitecms:unlimited_elements_for_elementor_plugin:2.0.4",
+                    "cpe:/a:unitecms:unlimited_elements_for_elementor_plugin:2.0.5"
+                ],
+                "cpe23": [
+                    "cpe:2.3:a:unitecms:unlimited_elements_for_elementor_plugin:2.0.1:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:unitecms:unlimited_elements_for_elementor_plugin:2.0.2:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:unitecms:unlimited_elements_for_elementor_plugin:2.0.3:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:unitecms:unlimited_elements_for_elementor_plugin:2.0.4:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:unitecms:unlimited_elements_for_elementor_plugin:2.0.5:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:unitecms:unlimited_elements_for_elementor_plugin:2.0:*:*:*:*:*:*:*"
+                ]
+            },
+            "vulnerability": {
+                "risk": {
+                    "value": "1",
+                    "name": "low"
+                },
+                "class": "cross site scripting",
+                "cwe": "CWE-79",
+                "capec": [
+                    "10",
+                    "209",
+                    "242"
+                ],
+                "attck": "T1059.007",
+                "cvss2": {
+                    "vuldb": {
+                        "basescore": "5.0",
+                        "tempscore": "4.8",
+                        "baseseverity": "Medium",
+                        "tempseverity": "Medium",
+                        "av": "N",
+                        "ac": "L",
+                        "au": "N",
+                        "ci": "N",
+                        "ii": "P",
+                        "ai": "N",
+                        "e": "ND",
+                        "rl": "ND",
+                        "rc": "UR"
+                    }
+                },
+                "cvss3": {
+                    "meta": {
+                        "basescore": "5.7",
+                        "tempscore": "5.7",
+                        "baseseverity": "Medium",
+                        "tempseverity": "Medium"
+                    },
+                    "vuldb": {
+                        "confidence": "High",
+                        "basescore": "4.3",
+                        "tempscore": "4.2",
+                        "basevector": "AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:N",
+                        "tempvector": "E:X/RL:X/RC:R",
+                        "baseseverity": "Medium",
+                        "tempseverity": "Medium",
+                        "av": "N",
+                        "ac": "L",
+                        "pr": "N",
+                        "ui": "R",
+                        "s": "U",
+                        "c": "N",
+                        "i": "L",
+                        "a": "N",
+                        "e": "X",
+                        "rl": "X",
+                        "rc": "R"
+                    },
+                    "cna": {
+                        "basescore": "7.2",
+                        "basevector": "AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:N",
+                        "baseseverity": "High",
+                        "av": "N",
+                        "ac": "L",
+                        "pr": "N",
+                        "ui": "N",
+                        "s": "C",
+                        "c": "L",
+                        "i": "L",
+                        "a": "N"
+                    }
+                },
+                "cvss4": {
+                    "vuldb": {
+                        "confidence": "High",
+                        "bscore": "5.3",
+                        "btscore": "5.3",
+                        "bvector": "AV:N/AC:L/AT:N/PR:N/UI:P/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N",
+                        "btvector": "AV:N/AC:L/AT:N/PR:N/UI:P/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N/E:X",
+                        "bseverity": "Medium",
+                        "btseverity": "Medium",
+                        "av": "N",
+                        "ac": "L",
+                        "at": "N",
+                        "pr": "N",
+                        "ui": "P",
+                        "vc": "N",
+                        "vi": "L",
+                        "va": "N",
+                        "sc": "N",
+                        "si": "N",
+                        "sa": "N",
+                        "e": "X"
+                    }
+                },
+                "timeline": [
+                    {
+                        "date": "1771369200",
+                        "event": "CVE reserved",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773097200",
+                        "event": "Advisory disclosed",
+                        "diff": "+20 days",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773100800",
+                        "event": "VulDB entry created",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?recent.20260310",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773138833",
+                        "event": "VulDB entry last update",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?id.349943",
+                        "color": "blue"
+                    }
+                ]
+            },
+            "advisory": {
+                "date": "1773097200",
+                "url": "https://www.wordfence.com/threat-intel/vulnerabilities/id/68d4aa8c-70f9-46ba-92ce-fbb427954e86?source=cve",
+                "reportconfidence": "uncorroborated",
+                "person": {
+                    "name": [
+                        "Athiwat Tiprasaharn",
+                        "Itthidej Aramsri",
+                        "Tharadol Suksamran"
+                    ]
+                }
+            },
+            "exploit": {
+                "physical": "No",
+                "local": "No",
+                "remote": "Yes",
+                "exploitability": "not defined",
+                "price": {
+                    "0day": "$0-$5k",
+                    "today": "$0-$5k"
+                }
+            },
+            "countermeasure": {
+                "remediationlevel": "not defined"
+            },
+            "source": {
+                "cve": {
+                    "id": "CVE-2026-2724",
+                    "assigned": "1771369200",
+                    "cna": "Wordfence",
+                    "summary": "The Unlimited Elements for Elementor plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the form entry fields in all versions up to, and including, 2.0.5. This is due to insufficient input sanitization and output escaping on form submission data displayed in the admin Form Entries Trash view. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever an administrator views the trashed form entries."
+                },
+                "gcve": {
+                    "cve": "GCVE-0-2026-2724",
+                    "vuldb": "GCVE-100-349943"
+                }
+            }
+        },
+        {
+            "entry": {
+                "id": "349942",
+                "title": "ASSA ABLOY Visionline up to 1.32 default permission",
+                "summary": "A vulnerability has been found in ASSA ABLOY Visionline up to 1.32 and classified as critical. This vulnerability affects an unknown code block. Upgrading to version 1.33 eliminates this vulnerability.",
+                "details": {
+                    "affected": "A vulnerability has been found in ASSA ABLOY Visionline up to 1.32 and classified as critical.",
+                    "vulnerability": "The CWE definition for the vulnerability is CWE-276. During installation, installed file permissions are set to allow anyone to modify those files.",
+                    "impact": "As an impact it is known to affect confidentiality, integrity, and availability.",
+                    "countermeasure": "Upgrading to version 1.33 eliminates this vulnerability."
+                },
+                "timestamp": {
+                    "create": "1773138820",
+                    "change": "1773138820"
+                }
+            },
+            "software": {
+                "vendor": "ASSA ABLOY",
+                "name": "Visionline",
+                "version": [
+                    "1.0",
+                    "1.1",
+                    "1.2",
+                    "1.3",
+                    "1.4",
+                    "1.5",
+                    "1.6",
+                    "1.7",
+                    "1.8",
+                    "1.9",
+                    "1.10",
+                    "1.11",
+                    "1.12",
+                    "1.13",
+                    "1.14",
+                    "1.15",
+                    "1.16",
+                    "1.17",
+                    "1.18",
+                    "1.19",
+                    "1.20",
+                    "1.21",
+                    "1.22",
+                    "1.23",
+                    "1.24",
+                    "1.25",
+                    "1.26",
+                    "1.27",
+                    "1.28",
+                    "1.29",
+                    "1.30",
+                    "1.31",
+                    "1.32"
+                ],
+                "cpe": [
+                    "cpe:/a:assa_abloy:visionline:1.0",
+                    "cpe:/a:assa_abloy:visionline:1.1",
+                    "cpe:/a:assa_abloy:visionline:1.2",
+                    "cpe:/a:assa_abloy:visionline:1.3",
+                    "cpe:/a:assa_abloy:visionline:1.4",
+                    "cpe:/a:assa_abloy:visionline:1.5",
+                    "cpe:/a:assa_abloy:visionline:1.6",
+                    "cpe:/a:assa_abloy:visionline:1.7",
+                    "cpe:/a:assa_abloy:visionline:1.8",
+                    "cpe:/a:assa_abloy:visionline:1.9",
+                    "cpe:/a:assa_abloy:visionline:1.10",
+                    "cpe:/a:assa_abloy:visionline:1.11",
+                    "cpe:/a:assa_abloy:visionline:1.12",
+                    "cpe:/a:assa_abloy:visionline:1.13",
+                    "cpe:/a:assa_abloy:visionline:1.14",
+                    "cpe:/a:assa_abloy:visionline:1.15",
+                    "cpe:/a:assa_abloy:visionline:1.16",
+                    "cpe:/a:assa_abloy:visionline:1.17",
+                    "cpe:/a:assa_abloy:visionline:1.18",
+                    "cpe:/a:assa_abloy:visionline:1.19",
+                    "cpe:/a:assa_abloy:visionline:1.20",
+                    "cpe:/a:assa_abloy:visionline:1.21",
+                    "cpe:/a:assa_abloy:visionline:1.22",
+                    "cpe:/a:assa_abloy:visionline:1.23",
+                    "cpe:/a:assa_abloy:visionline:1.24",
+                    "cpe:/a:assa_abloy:visionline:1.25",
+                    "cpe:/a:assa_abloy:visionline:1.26",
+                    "cpe:/a:assa_abloy:visionline:1.27",
+                    "cpe:/a:assa_abloy:visionline:1.28",
+                    "cpe:/a:assa_abloy:visionline:1.29",
+                    "cpe:/a:assa_abloy:visionline:1.30",
+                    "cpe:/a:assa_abloy:visionline:1.31",
+                    "cpe:/a:assa_abloy:visionline:1.32"
+                ],
+                "cpe23": [
+                    "cpe:2.3:a:assa_abloy:visionline:1.0:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:assa_abloy:visionline:1.1:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:assa_abloy:visionline:1.2:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:assa_abloy:visionline:1.3:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:assa_abloy:visionline:1.4:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:assa_abloy:visionline:1.5:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:assa_abloy:visionline:1.6:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:assa_abloy:visionline:1.7:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:assa_abloy:visionline:1.8:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:assa_abloy:visionline:1.9:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:assa_abloy:visionline:1.10:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:assa_abloy:visionline:1.11:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:assa_abloy:visionline:1.12:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:assa_abloy:visionline:1.13:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:assa_abloy:visionline:1.14:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:assa_abloy:visionline:1.15:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:assa_abloy:visionline:1.16:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:assa_abloy:visionline:1.17:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:assa_abloy:visionline:1.18:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:assa_abloy:visionline:1.19:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:assa_abloy:visionline:1.20:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:assa_abloy:visionline:1.21:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:assa_abloy:visionline:1.22:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:assa_abloy:visionline:1.23:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:assa_abloy:visionline:1.24:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:assa_abloy:visionline:1.25:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:assa_abloy:visionline:1.26:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:assa_abloy:visionline:1.27:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:assa_abloy:visionline:1.28:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:assa_abloy:visionline:1.29:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:assa_abloy:visionline:1.30:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:assa_abloy:visionline:1.31:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:assa_abloy:visionline:1.32:*:*:*:*:*:*:*"
+                ]
+            },
+            "vulnerability": {
+                "risk": {
+                    "value": "2",
+                    "name": "medium"
+                },
+                "class": "default permission",
+                "cwe": "CWE-276",
+                "capec": [
+                    "1"
+                ],
+                "attck": "T1222",
+                "cvss2": {
+                    "vuldb": {
+                        "basescore": "4.3",
+                        "tempscore": "3.7",
+                        "baseseverity": "Medium",
+                        "tempseverity": "Low",
+                        "av": "L",
+                        "ac": "L",
+                        "au": "S",
+                        "ci": "P",
+                        "ii": "P",
+                        "ai": "P",
+                        "e": "ND",
+                        "rl": "OF",
+                        "rc": "C"
+                    }
+                },
+                "cvss3": {
+                    "meta": {
+                        "basescore": "5.3",
+                        "tempscore": "5.1",
+                        "baseseverity": "Medium",
+                        "tempseverity": "Medium"
+                    },
+                    "vuldb": {
+                        "confidence": "High",
+                        "basescore": "5.3",
+                        "tempscore": "5.1",
+                        "basevector": "AV:L/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L",
+                        "tempvector": "E:X/RL:O/RC:C",
+                        "baseseverity": "Medium",
+                        "tempseverity": "Medium",
+                        "av": "L",
+                        "ac": "L",
+                        "pr": "L",
+                        "ui": "N",
+                        "s": "U",
+                        "c": "L",
+                        "i": "L",
+                        "a": "L",
+                        "e": "X",
+                        "rl": "O",
+                        "rc": "C"
+                    }
+                },
+                "cvss4": {
+                    "vuldb": {
+                        "confidence": "High",
+                        "bscore": "2.0",
+                        "btscore": "2.0",
+                        "bvector": "AV:L/AC:L/AT:P/PR:L/UI:N/VC:L/VI:L/VA:L/SC:L/SI:L/SA:L",
+                        "btvector": "AV:L/AC:L/AT:P/PR:L/UI:N/VC:L/VI:L/VA:L/SC:L/SI:L/SA:L/E:X",
+                        "bseverity": "Low",
+                        "btseverity": "Low",
+                        "av": "L",
+                        "ac": "L",
+                        "at": "P",
+                        "pr": "L",
+                        "ui": "N",
+                        "vc": "L",
+                        "vi": "L",
+                        "va": "L",
+                        "sc": "L",
+                        "si": "L",
+                        "sa": "L",
+                        "e": "X"
+                    },
+                    "cna": {
+                        "bscore": "5.8",
+                        "btscore": "5.8",
+                        "bvector": "AV:L/AC:L/AT:P/PR:L/UI:N/VC:L/VI:H/VA:L/SC:L/SI:L/SA:L",
+                        "btvector": "AV:L/AC:L/AT:P/PR:L/UI:N/VC:L/VI:H/VA:L/SC:L/SI:L/SA:L/E:X",
+                        "bseverity": "Medium",
+                        "btseverity": "Medium",
+                        "av": "L",
+                        "ac": "L",
+                        "at": "P",
+                        "pr": "L",
+                        "ui": "N",
+                        "vc": "L",
+                        "vi": "H",
+                        "va": "L",
+                        "sc": "L",
+                        "si": "L",
+                        "sa": "L",
+                        "e": "X"
+                    }
+                },
+                "timeline": [
+                    {
+                        "date": "1772146800",
+                        "event": "CVE reserved",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773097200",
+                        "event": "Advisory disclosed",
+                        "diff": "+11 days",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773100800",
+                        "event": "VulDB entry created",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?recent.20260310",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773138820",
+                        "event": "VulDB entry last update",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?id.349942",
+                        "color": "blue"
+                    }
+                ]
+            },
+            "advisory": {
+                "date": "1773097200",
+                "url": "https://www.vingcard.com/en/service-and-support/product-security-center",
+                "reportconfidence": "confirmed"
+            },
+            "exploit": {
+                "physical": "Partially",
+                "local": "Yes",
+                "remote": "No",
+                "exploitability": "not defined",
+                "price": {
+                    "0day": "$0-$5k",
+                    "today": "$0-$5k"
+                }
+            },
+            "countermeasure": {
+                "remediationlevel": "official fix",
+                "name": "Upgrade",
+                "upgrade": {
+                    "version": "1.33"
+                }
+            },
+            "source": {
+                "cve": {
+                    "id": "CVE-2026-3315",
+                    "assigned": "1772146800",
+                    "cna": "NCSC-FI",
+                    "summary": "Incorrect Default Permissions, : Execution with Unnecessary Privileges, : Incorrect Permission Assignment for Critical Resource vulnerability in ASSA ABLOY Visionline on Windows allows Configuration/Environment Manipulation.This issue affects Visionline: from 1.0 before 1.33."
+                },
+                "gcve": {
+                    "cve": "GCVE-0-2026-3315",
+                    "vuldb": "GCVE-100-349942"
+                }
+            }
+        },
+        {
+            "entry": {
+                "id": "349941",
+                "title": "Apache PDFBox up to 2.0.36/3.0.7 Example PDComplexFileSpecification.getFilename path traversal",
+                "summary": "A vulnerability, which was classified as critical, was found in Apache PDFBox up to 2.0.36/3.0.7. This affects the function PDComplexFileSpecification.getFilename of the component Example. There is no information about possible countermeasures known. It may be suggested to replace the affected object with an alternative product.",
+                "details": {
+                    "affected": "A vulnerability, which was classified as critical, was found in Apache PDFBox up to 2.0.36/3.0.7.",
+                    "vulnerability": "CWE is classifying the issue as CWE-22. The product uses external input to construct a pathname that is intended to identify a file or directory that is located underneath a restricted parent directory, but the product does not properly neutralize special elements within the pathname that can cause the pathname to resolve to a location that is outside of the restricted directory.",
+                    "impact": "This is going to have an impact on confidentiality, integrity, and availability.",
+                    "countermeasure": "There is no information about possible countermeasures known. It may be suggested to replace the affected object with an alternative product."
+                },
+                "timestamp": {
+                    "create": "1773138801",
+                    "change": "1773138801"
+                }
+            },
+            "software": {
+                "vendor": "Apache",
+                "name": "PDFBox",
+                "version": [
+                    "2.0.0",
+                    "2.0.1",
+                    "2.0.2",
+                    "2.0.3",
+                    "2.0.4",
+                    "2.0.5",
+                    "2.0.6",
+                    "2.0.7",
+                    "2.0.8",
+                    "2.0.9",
+                    "2.0.10",
+                    "2.0.11",
+                    "2.0.12",
+                    "2.0.13",
+                    "2.0.14",
+                    "2.0.15",
+                    "2.0.16",
+                    "2.0.17",
+                    "2.0.18",
+                    "2.0.19",
+                    "2.0.20",
+                    "2.0.21",
+                    "2.0.22",
+                    "2.0.23",
+                    "2.0.24",
+                    "2.0.25",
+                    "2.0.26",
+                    "2.0.27",
+                    "2.0.28",
+                    "2.0.29",
+                    "2.0.30",
+                    "2.0.31",
+                    "2.0.32",
+                    "2.0.33",
+                    "2.0.34",
+                    "2.0.35",
+                    "2.0.36",
+                    "3.0.0",
+                    "3.0.1",
+                    "3.0.2",
+                    "3.0.3",
+                    "3.0.4",
+                    "3.0.5",
+                    "3.0.6",
+                    "3.0.7"
+                ],
+                "component": "Example",
+                "function": "PDComplexFileSpecification.getFilename",
+                "website": {
+                    "vendor": "https://www.apache.org/"
+                },
+                "license": {
+                    "type": "open-source"
+                },
+                "cpe": [
+                    "cpe:/a:apache:pdfbox:2.0",
+                    "cpe:/a:apache:pdfbox:2.0.1",
+                    "cpe:/a:apache:pdfbox:2.0.2",
+                    "cpe:/a:apache:pdfbox:2.0.3",
+                    "cpe:/a:apache:pdfbox:2.0.4",
+                    "cpe:/a:apache:pdfbox:2.0.5",
+                    "cpe:/a:apache:pdfbox:2.0.6",
+                    "cpe:/a:apache:pdfbox:2.0.7",
+                    "cpe:/a:apache:pdfbox:2.0.8",
+                    "cpe:/a:apache:pdfbox:2.0.9",
+                    "cpe:/a:apache:pdfbox:2.0.10",
+                    "cpe:/a:apache:pdfbox:2.0.11",
+                    "cpe:/a:apache:pdfbox:2.0.12",
+                    "cpe:/a:apache:pdfbox:2.0.13",
+                    "cpe:/a:apache:pdfbox:2.0.14",
+                    "cpe:/a:apache:pdfbox:2.0.15",
+                    "cpe:/a:apache:pdfbox:2.0.16",
+                    "cpe:/a:apache:pdfbox:2.0.17",
+                    "cpe:/a:apache:pdfbox:2.0.18",
+                    "cpe:/a:apache:pdfbox:2.0.19",
+                    "cpe:/a:apache:pdfbox:2.0.20",
+                    "cpe:/a:apache:pdfbox:2.0.21",
+                    "cpe:/a:apache:pdfbox:2.0.22",
+                    "cpe:/a:apache:pdfbox:2.0.23",
+                    "cpe:/a:apache:pdfbox:2.0.24",
+                    "cpe:/a:apache:pdfbox:2.0.25",
+                    "cpe:/a:apache:pdfbox:2.0.26",
+                    "cpe:/a:apache:pdfbox:2.0.27",
+                    "cpe:/a:apache:pdfbox:2.0.28",
+                    "cpe:/a:apache:pdfbox:2.0.29",
+                    "cpe:/a:apache:pdfbox:2.0.30",
+                    "cpe:/a:apache:pdfbox:2.0.31",
+                    "cpe:/a:apache:pdfbox:2.0.32",
+                    "cpe:/a:apache:pdfbox:2.0.33",
+                    "cpe:/a:apache:pdfbox:2.0.34",
+                    "cpe:/a:apache:pdfbox:2.0.35",
+                    "cpe:/a:apache:pdfbox:2.0.36",
+                    "cpe:/a:apache:pdfbox:3.0",
+                    "cpe:/a:apache:pdfbox:3.0.1",
+                    "cpe:/a:apache:pdfbox:3.0.2",
+                    "cpe:/a:apache:pdfbox:3.0.3",
+                    "cpe:/a:apache:pdfbox:3.0.4",
+                    "cpe:/a:apache:pdfbox:3.0.5",
+                    "cpe:/a:apache:pdfbox:3.0.6",
+                    "cpe:/a:apache:pdfbox:3.0.7"
+                ],
+                "cpe23": [
+                    "cpe:2.3:a:apache:pdfbox:2.0.1:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:apache:pdfbox:2.0.2:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:apache:pdfbox:2.0.3:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:apache:pdfbox:2.0.4:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:apache:pdfbox:2.0.5:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:apache:pdfbox:2.0.6:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:apache:pdfbox:2.0.7:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:apache:pdfbox:2.0.8:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:apache:pdfbox:2.0.9:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:apache:pdfbox:2.0.10:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:apache:pdfbox:2.0.11:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:apache:pdfbox:2.0.12:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:apache:pdfbox:2.0.13:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:apache:pdfbox:2.0.14:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:apache:pdfbox:2.0.15:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:apache:pdfbox:2.0.16:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:apache:pdfbox:2.0.17:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:apache:pdfbox:2.0.18:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:apache:pdfbox:2.0.19:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:apache:pdfbox:2.0.20:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:apache:pdfbox:2.0.21:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:apache:pdfbox:2.0.22:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:apache:pdfbox:2.0.23:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:apache:pdfbox:2.0.24:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:apache:pdfbox:2.0.25:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:apache:pdfbox:2.0.26:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:apache:pdfbox:2.0.27:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:apache:pdfbox:2.0.28:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:apache:pdfbox:2.0.29:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:apache:pdfbox:2.0.30:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:apache:pdfbox:2.0.31:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:apache:pdfbox:2.0.32:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:apache:pdfbox:2.0.33:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:apache:pdfbox:2.0.34:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:apache:pdfbox:2.0.35:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:apache:pdfbox:2.0.36:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:apache:pdfbox:2.0:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:apache:pdfbox:3.0.1:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:apache:pdfbox:3.0.2:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:apache:pdfbox:3.0.3:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:apache:pdfbox:3.0.4:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:apache:pdfbox:3.0.5:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:apache:pdfbox:3.0.6:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:apache:pdfbox:3.0.7:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:apache:pdfbox:3.0:*:*:*:*:*:*:*"
+                ]
+            },
+            "vulnerability": {
+                "risk": {
+                    "value": "2",
+                    "name": "medium"
+                },
+                "class": "path traversal",
+                "cwe": "CWE-22",
+                "capec": [
+                    "126"
+                ],
+                "attck": "T1006",
+                "cvss2": {
+                    "vuldb": {
+                        "basescore": "6.5",
+                        "tempscore": "6.2",
+                        "baseseverity": "Medium",
+                        "tempseverity": "Medium",
+                        "av": "N",
+                        "ac": "L",
+                        "au": "S",
+                        "ci": "P",
+                        "ii": "P",
+                        "ai": "P",
+                        "e": "ND",
+                        "rl": "ND",
+                        "rc": "UR"
+                    }
+                },
+                "cvss3": {
+                    "meta": {
+                        "basescore": "6.3",
+                        "tempscore": "6.1",
+                        "baseseverity": "Medium",
+                        "tempseverity": "Medium"
+                    },
+                    "vuldb": {
+                        "confidence": "High",
+                        "basescore": "6.3",
+                        "tempscore": "6.1",
+                        "basevector": "AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L",
+                        "tempvector": "E:X/RL:X/RC:R",
+                        "baseseverity": "Medium",
+                        "tempseverity": "Medium",
+                        "av": "N",
+                        "ac": "L",
+                        "pr": "L",
+                        "ui": "N",
+                        "s": "U",
+                        "c": "L",
+                        "i": "L",
+                        "a": "L",
+                        "e": "X",
+                        "rl": "X",
+                        "rc": "R"
+                    }
+                },
+                "cvss4": {
+                    "vuldb": {
+                        "confidence": "High",
+                        "bscore": "5.3",
+                        "btscore": "5.3",
+                        "bvector": "AV:N/AC:L/AT:N/PR:L/UI:N/VC:L/VI:L/VA:L/SC:N/SI:N/SA:N",
+                        "btvector": "AV:N/AC:L/AT:N/PR:L/UI:N/VC:L/VI:L/VA:L/SC:N/SI:N/SA:N/E:X",
+                        "bseverity": "Medium",
+                        "btseverity": "Medium",
+                        "av": "N",
+                        "ac": "L",
+                        "at": "N",
+                        "pr": "L",
+                        "ui": "N",
+                        "vc": "L",
+                        "vi": "L",
+                        "va": "L",
+                        "sc": "N",
+                        "si": "N",
+                        "sa": "N",
+                        "e": "X"
+                    }
+                },
+                "timeline": [
+                    {
+                        "date": "1768777200",
+                        "event": "CVE reserved",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773097200",
+                        "event": "Advisory disclosed",
+                        "diff": "+50 days",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773100800",
+                        "event": "VulDB entry created",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?recent.20260310",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773138801",
+                        "event": "VulDB entry last update",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?id.349941",
+                        "color": "blue"
+                    }
+                ]
+            },
+            "advisory": {
+                "date": "1773097200",
+                "url": "https://github.com/JoakimBulow/",
+                "reportconfidence": "uncorroborated",
+                "company": {
+                    "name": "Neo4j Security Team"
+                }
+            },
+            "exploit": {
+                "physical": "No",
+                "local": "No",
+                "remote": "Yes",
+                "exploitability": "not defined",
+                "price": {
+                    "0day": "$5k-$25k",
+                    "today": "$5k-$25k"
+                }
+            },
+            "countermeasure": {
+                "remediationlevel": "not defined"
+            },
+            "source": {
+                "cve": {
+                    "id": "CVE-2026-23907",
+                    "assigned": "1768777200",
+                    "cna": "apache",
+                    "summary": "This issue affects the \nExtractEmbeddedFiles example in Apache PDFBox: from 2.0.24 through 2.0.36, from 3.0.0 through 3.0.7.\n\n\nThe ExtractEmbeddedFiles example contains a path traversal vulnerability (CWE-22) because \nthe filename that is obtained from \nPDComplexFileSpecification.getFilename() is appended to the extraction path.\n\nUsers who have copied this example into their production code should \nreview it to ensure that the extraction path is acceptable. The example \nhas been changed accordingly, now the initial path and the extraction \npaths are converted into canonical paths and it is verified that \nextraction path contains the initial path. The documentation has also \nbeen adjusted."
+                },
+                "gcve": {
+                    "cve": "GCVE-0-2026-23907",
+                    "vuldb": "GCVE-100-349941"
+                }
+            }
+        },
+        {
+            "entry": {
+                "id": "349940",
+                "title": "Weidmueller ENERGY METER 750-230/ENERGY METER 750-24 up to 3.13 Modbus-TCP/Modbus-RTU os command injection",
+                "summary": "A vulnerability, which was classified as very critical, has been found in Weidmueller ENERGY METER 750-230 and ENERGY METER 750-24 up to 3.13. Affected by this issue is an unknown part of the component Modbus-TCP/Modbus-RTU. There is no information about possible countermeasures known. It may be suggested to replace the affected object with an alternative product.",
+                "details": {
+                    "affected": "A vulnerability, which was classified as very critical, has been found in Weidmueller ENERGY METER 750-230 and ENERGY METER 750-24 up to 3.13.",
+                    "vulnerability": "Using CWE to declare the problem leads to CWE-78. The product constructs all or part of an OS command using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the intended OS command when it is sent to a downstream component.",
+                    "impact": "Impacted is confidentiality, integrity, and availability.",
+                    "countermeasure": "There is no information about possible countermeasures known. It may be suggested to replace the affected object with an alternative product."
+                },
+                "timestamp": {
+                    "create": "1773135215",
+                    "change": "1773135215"
+                }
+            },
+            "software": {
+                "vendor": "Weidmueller",
+                "name": [
+                    "ENERGY METER 750-230",
+                    "ENERGY METER 750-24"
+                ],
+                "version": [
+                    "3.0",
+                    "3.1",
+                    "3.2",
+                    "3.3",
+                    "3.4",
+                    "3.5",
+                    "3.6",
+                    "3.7",
+                    "3.8",
+                    "3.9",
+                    "3.10",
+                    "3.11",
+                    "3.12",
+                    "3.13"
+                ],
+                "component": "Modbus-TCP/Modbus-RTU",
+                "cpe": [
+                    "cpe:/a:weidmueller:energy_meter_750-24:3.0",
+                    "cpe:/a:weidmueller:energy_meter_750-24:3.1",
+                    "cpe:/a:weidmueller:energy_meter_750-24:3.2",
+                    "cpe:/a:weidmueller:energy_meter_750-24:3.3",
+                    "cpe:/a:weidmueller:energy_meter_750-24:3.4",
+                    "cpe:/a:weidmueller:energy_meter_750-24:3.5",
+                    "cpe:/a:weidmueller:energy_meter_750-24:3.6",
+                    "cpe:/a:weidmueller:energy_meter_750-24:3.7",
+                    "cpe:/a:weidmueller:energy_meter_750-24:3.8",
+                    "cpe:/a:weidmueller:energy_meter_750-24:3.9",
+                    "cpe:/a:weidmueller:energy_meter_750-24:3.10",
+                    "cpe:/a:weidmueller:energy_meter_750-24:3.11",
+                    "cpe:/a:weidmueller:energy_meter_750-24:3.12",
+                    "cpe:/a:weidmueller:energy_meter_750-24:3.13",
+                    "cpe:/a:weidmueller:energy_meter_750-230:3.0",
+                    "cpe:/a:weidmueller:energy_meter_750-230:3.1",
+                    "cpe:/a:weidmueller:energy_meter_750-230:3.2",
+                    "cpe:/a:weidmueller:energy_meter_750-230:3.3",
+                    "cpe:/a:weidmueller:energy_meter_750-230:3.4",
+                    "cpe:/a:weidmueller:energy_meter_750-230:3.5",
+                    "cpe:/a:weidmueller:energy_meter_750-230:3.6",
+                    "cpe:/a:weidmueller:energy_meter_750-230:3.7",
+                    "cpe:/a:weidmueller:energy_meter_750-230:3.8",
+                    "cpe:/a:weidmueller:energy_meter_750-230:3.9",
+                    "cpe:/a:weidmueller:energy_meter_750-230:3.10",
+                    "cpe:/a:weidmueller:energy_meter_750-230:3.11",
+                    "cpe:/a:weidmueller:energy_meter_750-230:3.12",
+                    "cpe:/a:weidmueller:energy_meter_750-230:3.13"
+                ],
+                "cpe23": [
+                    "cpe:2.3:a:weidmueller:energy_meter_750-24:3.0:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:weidmueller:energy_meter_750-24:3.1:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:weidmueller:energy_meter_750-24:3.2:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:weidmueller:energy_meter_750-24:3.3:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:weidmueller:energy_meter_750-24:3.4:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:weidmueller:energy_meter_750-24:3.5:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:weidmueller:energy_meter_750-24:3.6:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:weidmueller:energy_meter_750-24:3.7:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:weidmueller:energy_meter_750-24:3.8:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:weidmueller:energy_meter_750-24:3.9:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:weidmueller:energy_meter_750-24:3.10:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:weidmueller:energy_meter_750-24:3.11:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:weidmueller:energy_meter_750-24:3.12:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:weidmueller:energy_meter_750-24:3.13:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:weidmueller:energy_meter_750-230:3.0:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:weidmueller:energy_meter_750-230:3.1:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:weidmueller:energy_meter_750-230:3.2:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:weidmueller:energy_meter_750-230:3.3:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:weidmueller:energy_meter_750-230:3.4:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:weidmueller:energy_meter_750-230:3.5:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:weidmueller:energy_meter_750-230:3.6:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:weidmueller:energy_meter_750-230:3.7:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:weidmueller:energy_meter_750-230:3.8:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:weidmueller:energy_meter_750-230:3.9:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:weidmueller:energy_meter_750-230:3.10:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:weidmueller:energy_meter_750-230:3.11:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:weidmueller:energy_meter_750-230:3.12:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:weidmueller:energy_meter_750-230:3.13:*:*:*:*:*:*:*"
+                ]
+            },
+            "vulnerability": {
+                "risk": {
+                    "value": "2",
+                    "name": "high"
+                },
+                "class": "os command injection",
+                "cwe": "CWE-78",
+                "capec": [
+                    "10",
+                    "108",
+                    "136"
+                ],
+                "attck": "T1202",
+                "cvss2": {
+                    "vuldb": {
+                        "basescore": "10.0",
+                        "tempscore": "9.5",
+                        "baseseverity": "High",
+                        "tempseverity": "High",
+                        "av": "N",
+                        "ac": "L",
+                        "au": "N",
+                        "ci": "C",
+                        "ii": "C",
+                        "ai": "C",
+                        "e": "ND",
+                        "rl": "ND",
+                        "rc": "UR"
+                    }
+                },
+                "cvss3": {
+                    "meta": {
+                        "basescore": "9.8",
+                        "tempscore": "9.6",
+                        "baseseverity": "Critical",
+                        "tempseverity": "Critical"
+                    },
+                    "vuldb": {
+                        "confidence": "High",
+                        "basescore": "9.8",
+                        "tempscore": "9.5",
+                        "basevector": "AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+                        "tempvector": "E:X/RL:X/RC:R",
+                        "baseseverity": "Critical",
+                        "tempseverity": "Critical",
+                        "av": "N",
+                        "ac": "L",
+                        "pr": "N",
+                        "ui": "N",
+                        "s": "U",
+                        "c": "H",
+                        "i": "H",
+                        "a": "H",
+                        "e": "X",
+                        "rl": "X",
+                        "rc": "R"
+                    },
+                    "cna": {
+                        "basescore": "9.8",
+                        "basevector": "AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+                        "baseseverity": "Critical",
+                        "av": "N",
+                        "ac": "L",
+                        "pr": "N",
+                        "ui": "N",
+                        "s": "U",
+                        "c": "H",
+                        "i": "H",
+                        "a": "H"
+                    }
+                },
+                "cvss4": {
+                    "vuldb": {
+                        "confidence": "High",
+                        "bscore": "9.3",
+                        "btscore": "9.3",
+                        "bvector": "AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+                        "btvector": "AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N/E:X",
+                        "bseverity": "Critical",
+                        "btseverity": "Critical",
+                        "av": "N",
+                        "ac": "L",
+                        "at": "N",
+                        "pr": "N",
+                        "ui": "N",
+                        "vc": "H",
+                        "vi": "H",
+                        "va": "H",
+                        "sc": "N",
+                        "si": "N",
+                        "sa": "N",
+                        "e": "X"
+                    }
+                },
+                "timeline": [
+                    {
+                        "date": "1744754400",
+                        "event": "CVE reserved",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773097200",
+                        "event": "Advisory disclosed",
+                        "diff": "+328 days",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773100800",
+                        "event": "VulDB entry created",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?recent.20260310",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773135215",
+                        "event": "VulDB entry last update",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?id.349940",
+                        "color": "blue"
+                    }
+                ]
+            },
+            "advisory": {
+                "date": "1773097200",
+                "url": "https://certvde.com/en/advisories/VDE-2025-079/",
+                "identifier": "VDE-2025-079",
+                "reportconfidence": "uncorroborated"
+            },
+            "exploit": {
+                "physical": "No",
+                "local": "No",
+                "remote": "Yes",
+                "exploitability": "not defined",
+                "price": {
+                    "0day": "$0-$5k",
+                    "today": "$0-$5k"
+                }
+            },
+            "countermeasure": {
+                "remediationlevel": "not defined"
+            },
+            "source": {
+                "cve": {
+                    "id": "CVE-2025-41709",
+                    "assigned": "1744754400",
+                    "cna": "CERTVDE",
+                    "summary": "[PROBLEMTYPE] in [COMPONENT] in [VENDOR] [PRODUCT] [VERSION] on [PLATFORMS] allows [ATTACKER] to [IMPACT] via [VECTOR]"
+                },
+                "gcve": {
+                    "cve": "GCVE-0-2025-41709",
+                    "vuldb": "GCVE-100-349940"
+                }
+            }
+        }
+    ]
+}

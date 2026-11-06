@@ -1,0 +1,11 @@
+[project]
+name = "application-for-sysmon"
+version = "0.1.0"
+requires-python = ">=3.14"
+dependencies = [
+    "fastapi[standard]>=0.141.1",
+    "psutil>=7.2.2",
+    "pywin32>=312",
+    "requests>=2.34.2",
+    "uvicorn[standard]>=0.52.4",
+]

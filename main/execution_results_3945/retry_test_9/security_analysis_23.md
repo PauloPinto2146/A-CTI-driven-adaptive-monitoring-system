@@ -1,0 +1,5 @@
+[IOC] Image: * TargetFilename: *\wiseman.EXE Hashes: ebba8f4342b65faccdd2a48be9f2654d3fa523360f17ff68d5498a453f76c205 IsExecutable: true Archived: true | Source: IoC sha256 ebba8f4342b65faccdd2a48be9f2654d3fa523360f17ff68d5498a453f76c205  
+
+[IOC] Image: * TargetFilename: *\wininet.dll Hashes: fda9864b1aa230b60d0c736559415ac9c79e240cce411daed5da2facb9ced87c IsExecutable: true Archived: true | Source: IoC sha256 fda9864b1aa230b60d0c736559415ac9c79e240cce411daed5da2facb9ced87c  
+
+[BEHAVIOR] Image: *SDelete* TargetFilename: * Hashes: * IsExecutable: * Archived: true | Source: T1070.004  

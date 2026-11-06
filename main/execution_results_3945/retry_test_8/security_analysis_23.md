@@ -1,0 +1,4 @@
+[IOC] Image: * | TargetFilename: *wiseman.EXE* | Hashes: ebba8f4342b65faccdd2a48be9f2654d3fa523360f17ff68d5498a453f76c205 | IsExecutable: true | Archived: true | Source: IoC (wiseman.EXE SHA‑256)  
+[IOC] Image: * | TargetFilename: *wininet.dll* | Hashes: fda9864b1aa230b60d0c736559415ac9c79e240cce411daed5da2facb9ced87c | IsExecutable: false | Archived: true | Source: IoC (wininet.dll SHA‑256)  
+[BEHAVIOR] Image: *\del.exe, *\erase.exe, *\sdelete.exe, *\cmd.exe, *\powershell.exe | TargetFilename: * | Hashes: * | IsExecutable: * | Archived: * | Source: T1070.004 (File Deletion)  
+[DERIVED] Image: * (process executing with SYSTEM privileges) | TargetFilename: * | Hashes: * | IsExecutable: * | Archived: * | Source: CVE-2023-27350 (post‑exploitation cleanup)  

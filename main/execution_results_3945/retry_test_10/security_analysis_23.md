@@ -1,0 +1,5 @@
+[IOC] Monitor Event ID 23 for deletions where the deleted file’s SHA‑256 hash equals **ebba8f4342b65faccdd2a48be9f2654d3fa523360f17ff68d5498a453f76c205** (filename **wiseman.EXE**); record the **Image** of the deleting process, **TargetFilename**, **Hashes**, set **IsExecutable** = true, and verify **Archived** = true. | Source: wiseman.EXE (sha256)
+
+[IOC] Monitor Event ID 23 for deletions where the deleted file’s SHA‑256 hash equals **fda9864b1aa230b60d0c736559415ac9c79e240cce411daed5da2facb9ced87c** (filename **wininet.dll**); record the **Image** of the deleting process, **TargetFilename**, **Hashes**, set **IsExecutable** = false (DLL), and verify **Archived** = true. | Source: wininet.dll (sha256)
+
+[BEHAVIOR] Monitor Event ID 23 for any deletion of executable files (**IsExecutable** = true) performed by a process whose lineage or timing is unusual (e.g., not a standard system utility or occurring shortly after a suspicious binary execution), and ensure the file is captured (**Archived** = true). | Source: T1070.004 (File Deletion)

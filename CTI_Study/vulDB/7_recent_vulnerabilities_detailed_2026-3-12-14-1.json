@@ -1,0 +1,1335 @@
+{
+    "response": {
+        "version": "3.86",
+        "format": "json",
+        "status": "200",
+        "lang": "en",
+        "items": 7,
+        "consumption": 7,
+        "remaining": 33,
+        "querylimit": 7,
+        "querylimitmax": 40,
+        "timestamp": "1773324110",
+        "rtt": 1,
+        "etag": "b637-3dde-dcca"
+    },
+    "request": {
+        "timestamp": "1773324109",
+        "apikey": "valid",
+        "userid": "96189",
+        "details": 1,
+        "sort": "entry_timestamp_create",
+        "cti": 0,
+        "type": "recent",
+        "value": "7"
+    },
+    "result": [
+        {
+            "entry": {
+                "id": "350657",
+                "title": "projectsend up to r1945 Auth.php ldap_email response discrepancy",
+                "summary": "A vulnerability was found in projectsend up to r1945 (Project Management Software). It has been rated as problematic. This issue affects some unknown processing of the file includes/Classes/Auth.php. There is no information about possible countermeasures known. It may be suggested to replace the affected object with an alternative product.",
+                "details": {
+                    "affected": "A vulnerability was found in projectsend up to r1945 (Project Management Software). It has been rated as problematic.",
+                    "vulnerability": "The manipulation of the argument ldap_email with an unknown input leads to a unknown weakness. Using CWE to declare the problem leads to CWE-204. The product provides different responses to incoming requests in a way that reveals internal state information to an unauthorized actor outside of the intended control sphere.",
+                    "impact": "Impacted is confidentiality.",
+                    "exploit": "The exploit is available at drive.google.com. It is declared as proof-of-concept. The vendor was contacted early about this disclosure but did not respond in any way. By approaching the search of inurl:includes/Classes/Auth.php it is possible to find vulnerable targets with Google Hacking.",
+                    "countermeasure": "There is no information about possible countermeasures known. It may be suggested to replace the affected object with an alternative product."
+                },
+                "timestamp": {
+                    "create": "1773306818",
+                    "change": "1773306818"
+                }
+            },
+            "software": {
+                "name": "projectsend",
+                "version": [
+                    "r1945"
+                ],
+                "file": "includes/Classes/Auth.php",
+                "argument": "ldap_email",
+                "type": "Project Management Software",
+                "cpe": [
+                    "cpe:/a:projectsend:projectsend:r1945"
+                ],
+                "cpe23": [
+                    "cpe:2.3:a:projectsend:projectsend:r1945:*:*:*:*:*:*:*"
+                ]
+            },
+            "vulnerability": {
+                "risk": {
+                    "value": "1",
+                    "name": "low"
+                },
+                "class": "response discrepancy",
+                "cwe": "CWE-204",
+                "capec": [
+                    "116",
+                    "189",
+                    "331"
+                ],
+                "attck": "T1592",
+                "cvss2": {
+                    "vuldb": {
+                        "basescore": "2.6",
+                        "tempscore": "2.2",
+                        "baseseverity": "Low",
+                        "tempseverity": "Low",
+                        "av": "N",
+                        "ac": "H",
+                        "au": "N",
+                        "ci": "P",
+                        "ii": "N",
+                        "ai": "N",
+                        "e": "POC",
+                        "rl": "ND",
+                        "rc": "UR"
+                    }
+                },
+                "cvss3": {
+                    "meta": {
+                        "basescore": "3.7",
+                        "tempscore": "3.4",
+                        "baseseverity": "Low",
+                        "tempseverity": "Low"
+                    },
+                    "vuldb": {
+                        "confidence": "High",
+                        "basescore": "3.7",
+                        "tempscore": "3.4",
+                        "basevector": "AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N",
+                        "tempvector": "E:P/RL:X/RC:R",
+                        "baseseverity": "Low",
+                        "tempseverity": "Low",
+                        "av": "N",
+                        "ac": "H",
+                        "pr": "N",
+                        "ui": "N",
+                        "s": "U",
+                        "c": "L",
+                        "i": "N",
+                        "a": "N",
+                        "e": "P",
+                        "rl": "X",
+                        "rc": "R"
+                    }
+                },
+                "cvss4": {
+                    "vuldb": {
+                        "confidence": "High",
+                        "bscore": "6.3",
+                        "btscore": "2.9",
+                        "bvector": "AV:N/AC:H/AT:N/PR:N/UI:N/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N",
+                        "btvector": "AV:N/AC:H/AT:N/PR:N/UI:N/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N/E:P",
+                        "bseverity": "Medium",
+                        "btseverity": "Low",
+                        "av": "N",
+                        "ac": "H",
+                        "at": "N",
+                        "pr": "N",
+                        "ui": "N",
+                        "vc": "L",
+                        "vi": "N",
+                        "va": "N",
+                        "sc": "N",
+                        "si": "N",
+                        "sa": "N",
+                        "e": "P"
+                    }
+                },
+                "timeline": [
+                    {
+                        "date": "1773270000",
+                        "event": "Advisory disclosed",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773273600",
+                        "event": "VulDB entry created",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?recent.20260312",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773306818",
+                        "event": "VulDB entry last update",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?id.350657",
+                        "color": "blue"
+                    }
+                ]
+            },
+            "advisory": {
+                "date": "1773270000",
+                "url": "https://drive.google.com/file/d/1TNwWNTcra2ykx0yXpATPmsPgJxIxOrWb/view?usp=sharing",
+                "reportconfidence": "uncorroborated"
+            },
+            "exploit": {
+                "availability": "1",
+                "publicity": "public",
+                "url": "https://drive.google.com/file/d/1TNwWNTcra2ykx0yXpATPmsPgJxIxOrWb/view?usp=sharing",
+                "physical": "No",
+                "local": "No",
+                "remote": "Yes",
+                "exploitability": "proof-of-concept",
+                "googlehack": "inurl:includes/Classes/Auth.php",
+                "price": {
+                    "0day": "$0-$5k",
+                    "today": "$0-$5k"
+                }
+            },
+            "countermeasure": {
+                "remediationlevel": "not defined"
+            },
+            "source": {
+                "cve": {
+                    "id": "CVE-2026-4045"
+                },
+                "gcve": {
+                    "cve": "GCVE-0-2026-4045",
+                    "vuldb": "GCVE-100-350657"
+                },
+                "sciplabs": {
+                    "url": [
+                        "https://www.scip.ch/en/?labs.20161013"
+                    ]
+                }
+            },
+            "cna": {
+                "responsible": "VulDB",
+                "response": {
+                    "summary": "The vendor was contacted early about this disclosure but did not respond in any way."
+                }
+            }
+        },
+        {
+            "entry": {
+                "id": "350656",
+                "title": "projectsend up to r1945 Delete /import-orphans.php realpath files[] path traversal",
+                "summary": "A vulnerability was found in projectsend up to r1945 (Project Management Software). It has been declared as problematic. This vulnerability affects the function realpath of the file /import-orphans.php of the component Delete Handler. There is no information about possible countermeasures known. It may be suggested to replace the affected object with an alternative product.",
+                "details": {
+                    "affected": "A vulnerability was found in projectsend up to r1945 (Project Management Software). It has been declared as problematic.",
+                    "vulnerability": "The manipulation of the argument files[] with an unknown input leads to a unknown weakness. The CWE definition for the vulnerability is CWE-22. The product uses external input to construct a pathname that is intended to identify a file or directory that is located underneath a restricted parent directory, but the product does not properly neutralize special elements within the pathname that can cause the pathname to resolve to a location that is outside of the restricted directory.",
+                    "impact": "As an impact it is known to affect integrity, and availability.",
+                    "exploit": "It is possible to download the exploit at drive.google.com. It is declared as proof-of-concept. The vendor was contacted early about this disclosure but did not respond in any way. By approaching the search of inurl:import-orphans.php it is possible to find vulnerable targets with Google Hacking.",
+                    "countermeasure": "There is no information about possible countermeasures known. It may be suggested to replace the affected object with an alternative product."
+                },
+                "timestamp": {
+                    "create": "1773306813",
+                    "change": "1773306813"
+                }
+            },
+            "software": {
+                "name": "projectsend",
+                "version": [
+                    "r1945"
+                ],
+                "component": "Delete Handler",
+                "file": "/import-orphans.php",
+                "function": "realpath",
+                "argument": "files[]",
+                "type": "Project Management Software",
+                "cpe": [
+                    "cpe:/a:projectsend:projectsend:r1945"
+                ],
+                "cpe23": [
+                    "cpe:2.3:a:projectsend:projectsend:r1945:*:*:*:*:*:*:*"
+                ]
+            },
+            "vulnerability": {
+                "risk": {
+                    "value": "2",
+                    "name": "low"
+                },
+                "class": "path traversal",
+                "cwe": "CWE-22",
+                "capec": [
+                    "126"
+                ],
+                "attck": "T1006",
+                "cvss2": {
+                    "vuldb": {
+                        "basescore": "4.7",
+                        "tempscore": "4.2",
+                        "baseseverity": "Medium",
+                        "tempseverity": "Medium",
+                        "av": "N",
+                        "ac": "L",
+                        "au": "M",
+                        "ci": "N",
+                        "ii": "P",
+                        "ai": "P",
+                        "e": "POC",
+                        "rl": "ND",
+                        "rc": "C"
+                    }
+                },
+                "cvss3": {
+                    "meta": {
+                        "basescore": "3.8",
+                        "tempscore": "3.6",
+                        "baseseverity": "Low",
+                        "tempseverity": "Low"
+                    },
+                    "vuldb": {
+                        "confidence": "High",
+                        "basescore": "3.8",
+                        "tempscore": "3.6",
+                        "basevector": "AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:L/A:L",
+                        "tempvector": "E:P/RL:X/RC:C",
+                        "baseseverity": "Low",
+                        "tempseverity": "Low",
+                        "av": "N",
+                        "ac": "L",
+                        "pr": "H",
+                        "ui": "N",
+                        "s": "U",
+                        "c": "N",
+                        "i": "L",
+                        "a": "L",
+                        "e": "P",
+                        "rl": "X",
+                        "rc": "C"
+                    }
+                },
+                "cvss4": {
+                    "vuldb": {
+                        "confidence": "High",
+                        "bscore": "5.1",
+                        "btscore": "2.0",
+                        "bvector": "AV:N/AC:L/AT:N/PR:H/UI:N/VC:N/VI:L/VA:L/SC:N/SI:N/SA:N",
+                        "btvector": "AV:N/AC:L/AT:N/PR:H/UI:N/VC:N/VI:L/VA:L/SC:N/SI:N/SA:N/E:P",
+                        "bseverity": "Medium",
+                        "btseverity": "Low",
+                        "av": "N",
+                        "ac": "L",
+                        "at": "N",
+                        "pr": "H",
+                        "ui": "N",
+                        "vc": "N",
+                        "vi": "L",
+                        "va": "L",
+                        "sc": "N",
+                        "si": "N",
+                        "sa": "N",
+                        "e": "P"
+                    }
+                },
+                "timeline": [
+                    {
+                        "date": "1773270000",
+                        "event": "Advisory disclosed",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773273600",
+                        "event": "VulDB entry created",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?recent.20260312",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773306815",
+                        "event": "VulDB entry last update",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?id.350656",
+                        "color": "blue"
+                    }
+                ]
+            },
+            "advisory": {
+                "date": "1773270000",
+                "url": "https://drive.google.com/file/d/1BOWm9FvhmM90oP91rOWpI4GoWdbI06wg/view?usp=sharing",
+                "reportconfidence": "confirmed"
+            },
+            "exploit": {
+                "availability": "1",
+                "publicity": "public",
+                "url": "https://drive.google.com/file/d/1BOWm9FvhmM90oP91rOWpI4GoWdbI06wg/view?usp=sharing",
+                "physical": "No",
+                "local": "No",
+                "remote": "Yes",
+                "exploitability": "proof-of-concept",
+                "googlehack": "inurl:import-orphans.php",
+                "price": {
+                    "0day": "$0-$5k",
+                    "today": "$0-$5k"
+                }
+            },
+            "countermeasure": {
+                "remediationlevel": "not defined"
+            },
+            "source": {
+                "cve": {
+                    "id": "CVE-2026-4044"
+                },
+                "gcve": {
+                    "cve": "GCVE-0-2026-4044",
+                    "vuldb": "GCVE-100-350656"
+                },
+                "sciplabs": {
+                    "url": [
+                        "https://www.scip.ch/en/?labs.20161013"
+                    ]
+                }
+            },
+            "cna": {
+                "responsible": "VulDB",
+                "response": {
+                    "summary": "The vendor was contacted early about this disclosure but did not respond in any way."
+                }
+            }
+        },
+        {
+            "entry": {
+                "id": "350655",
+                "title": "Tenda i12 1.0.0.6(2204) /goform/wifiSSIDget formwrlSSIDget index stack-based overflow",
+                "summary": "A vulnerability was found in Tenda i12 1.0.0.6(2204) (Router Operating System). It has been classified as critical. This affects the function formwrlSSIDget of the file /goform/wifiSSIDget. There is no information about possible countermeasures known. It may be suggested to replace the affected object with an alternative product.",
+                "details": {
+                    "affected": "A vulnerability was found in Tenda i12 1.0.0.6(2204) (Router Operating System). It has been classified as critical.",
+                    "vulnerability": "The manipulation of the argument index with an unknown input leads to a unknown weakness. CWE is classifying the issue as CWE-121. A stack-based buffer overflow condition is a condition where the buffer being overwritten is allocated on the stack (i.e., is a local variable or, rarely, a parameter to a function).",
+                    "impact": "This is going to have an impact on confidentiality, integrity, and availability.",
+                    "exploit": "The exploit is shared for download at github.com. It is declared as proof-of-concept.",
+                    "countermeasure": "There is no information about possible countermeasures known. It may be suggested to replace the affected object with an alternative product."
+                },
+                "timestamp": {
+                    "create": "1773304522",
+                    "change": "1773304522"
+                }
+            },
+            "software": {
+                "vendor": "Tenda",
+                "name": "i12",
+                "version": [
+                    "1.0.0.6(2204)"
+                ],
+                "file": "/goform/wifiSSIDget",
+                "function": "formwrlSSIDget",
+                "argument": "index",
+                "type": "Router Operating System",
+                "website": {
+                    "vendor": "https://www.tenda.com.cn/"
+                },
+                "license": {
+                    "type": "commercial"
+                },
+                "cpe": [
+                    "cpe:/h:tenda:i12:1.0.6_2204_"
+                ],
+                "cpe23": [
+                    "cpe:2.3:h:tenda:i12:1.0.6_2204_:*:*:*:*:*:*:*"
+                ]
+            },
+            "vulnerability": {
+                "risk": {
+                    "value": "2",
+                    "name": "medium"
+                },
+                "class": "stack-based overflow",
+                "cwe": "CWE-121",
+                "capec": [
+                    "10"
+                ],
+                "cvss2": {
+                    "vuldb": {
+                        "basescore": "9.0",
+                        "tempscore": "7.7",
+                        "baseseverity": "High",
+                        "tempseverity": "High",
+                        "av": "N",
+                        "ac": "L",
+                        "au": "S",
+                        "ci": "C",
+                        "ii": "C",
+                        "ai": "C",
+                        "e": "POC",
+                        "rl": "ND",
+                        "rc": "UR"
+                    }
+                },
+                "cvss3": {
+                    "meta": {
+                        "basescore": "8.8",
+                        "tempscore": "8.0",
+                        "baseseverity": "High",
+                        "tempseverity": "High"
+                    },
+                    "vuldb": {
+                        "confidence": "High",
+                        "basescore": "8.8",
+                        "tempscore": "8.0",
+                        "basevector": "AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+                        "tempvector": "E:P/RL:X/RC:R",
+                        "baseseverity": "High",
+                        "tempseverity": "High",
+                        "av": "N",
+                        "ac": "L",
+                        "pr": "L",
+                        "ui": "N",
+                        "s": "U",
+                        "c": "H",
+                        "i": "H",
+                        "a": "H",
+                        "e": "P",
+                        "rl": "X",
+                        "rc": "R"
+                    }
+                },
+                "cvss4": {
+                    "vuldb": {
+                        "confidence": "High",
+                        "bscore": "8.7",
+                        "btscore": "7.4",
+                        "bvector": "AV:N/AC:L/AT:N/PR:L/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+                        "btvector": "AV:N/AC:L/AT:N/PR:L/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N/E:P",
+                        "bseverity": "High",
+                        "btseverity": "High",
+                        "av": "N",
+                        "ac": "L",
+                        "at": "N",
+                        "pr": "L",
+                        "ui": "N",
+                        "vc": "H",
+                        "vi": "H",
+                        "va": "H",
+                        "sc": "N",
+                        "si": "N",
+                        "sa": "N",
+                        "e": "P"
+                    }
+                },
+                "timeline": [
+                    {
+                        "date": "1773270000",
+                        "event": "Advisory disclosed",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773273600",
+                        "event": "VulDB entry created",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?recent.20260312",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773304522",
+                        "event": "VulDB entry last update",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?id.350655",
+                        "color": "blue"
+                    }
+                ]
+            },
+            "advisory": {
+                "date": "1773270000",
+                "url": "https://github.com/Jimi-Lab/cve/issues/3",
+                "type": "Issue",
+                "reportconfidence": "uncorroborated"
+            },
+            "exploit": {
+                "availability": "1",
+                "publicity": "public",
+                "url": "https://github.com/Jimi-Lab/cve/issues/3",
+                "physical": "No",
+                "local": "No",
+                "remote": "Yes",
+                "exploitability": "proof-of-concept",
+                "price": {
+                    "0day": "$0-$5k",
+                    "today": "$0-$5k"
+                }
+            },
+            "countermeasure": {
+                "remediationlevel": "not defined"
+            },
+            "source": {
+                "cve": {
+                    "id": "CVE-2026-4043"
+                },
+                "gcve": {
+                    "cve": "GCVE-0-2026-4043",
+                    "vuldb": "GCVE-100-350655"
+                },
+                "sciplabs": {
+                    "url": [
+                        "https://www.scip.ch/en/?labs.20161013"
+                    ]
+                }
+            },
+            "cna": {
+                "responsible": "VulDB"
+            }
+        },
+        {
+            "entry": {
+                "id": "350654",
+                "title": "Tenda i12 1.0.0.6(2204) /goform/WifiMacFilterGet formWifiMacFilterGet index stack-based overflow",
+                "summary": "A vulnerability was found in Tenda i12 1.0.0.6(2204) (Router Operating System) and classified as critical. Affected by this issue is the function formWifiMacFilterGet of the file /goform/WifiMacFilterGet. There is no information about possible countermeasures known. It may be suggested to replace the affected object with an alternative product.",
+                "details": {
+                    "affected": "A vulnerability was found in Tenda i12 1.0.0.6(2204) (Router Operating System) and classified as critical.",
+                    "vulnerability": "The manipulation of the argument index with an unknown input leads to a unknown weakness. Using CWE to declare the problem leads to CWE-121. A stack-based buffer overflow condition is a condition where the buffer being overwritten is allocated on the stack (i.e., is a local variable or, rarely, a parameter to a function).",
+                    "impact": "Impacted is confidentiality, integrity, and availability.",
+                    "exploit": "The exploit is available at github.com. It is declared as proof-of-concept.",
+                    "countermeasure": "There is no information about possible countermeasures known. It may be suggested to replace the affected object with an alternative product."
+                },
+                "timestamp": {
+                    "create": "1773304521",
+                    "change": "1773304521"
+                }
+            },
+            "software": {
+                "vendor": "Tenda",
+                "name": "i12",
+                "version": [
+                    "1.0.0.6(2204)"
+                ],
+                "file": "/goform/WifiMacFilterGet",
+                "function": "formWifiMacFilterGet",
+                "argument": "index",
+                "type": "Router Operating System",
+                "website": {
+                    "vendor": "https://www.tenda.com.cn/"
+                },
+                "license": {
+                    "type": "commercial"
+                },
+                "cpe": [
+                    "cpe:/h:tenda:i12:1.0.6_2204_"
+                ],
+                "cpe23": [
+                    "cpe:2.3:h:tenda:i12:1.0.6_2204_:*:*:*:*:*:*:*"
+                ]
+            },
+            "vulnerability": {
+                "risk": {
+                    "value": "2",
+                    "name": "medium"
+                },
+                "class": "stack-based overflow",
+                "cwe": "CWE-121",
+                "capec": [
+                    "10"
+                ],
+                "cvss2": {
+                    "vuldb": {
+                        "basescore": "9.0",
+                        "tempscore": "7.7",
+                        "baseseverity": "High",
+                        "tempseverity": "High",
+                        "av": "N",
+                        "ac": "L",
+                        "au": "S",
+                        "ci": "C",
+                        "ii": "C",
+                        "ai": "C",
+                        "e": "POC",
+                        "rl": "ND",
+                        "rc": "UR"
+                    }
+                },
+                "cvss3": {
+                    "meta": {
+                        "basescore": "8.8",
+                        "tempscore": "8.0",
+                        "baseseverity": "High",
+                        "tempseverity": "High"
+                    },
+                    "vuldb": {
+                        "confidence": "High",
+                        "basescore": "8.8",
+                        "tempscore": "8.0",
+                        "basevector": "AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+                        "tempvector": "E:P/RL:X/RC:R",
+                        "baseseverity": "High",
+                        "tempseverity": "High",
+                        "av": "N",
+                        "ac": "L",
+                        "pr": "L",
+                        "ui": "N",
+                        "s": "U",
+                        "c": "H",
+                        "i": "H",
+                        "a": "H",
+                        "e": "P",
+                        "rl": "X",
+                        "rc": "R"
+                    }
+                },
+                "cvss4": {
+                    "vuldb": {
+                        "confidence": "High",
+                        "bscore": "8.7",
+                        "btscore": "7.4",
+                        "bvector": "AV:N/AC:L/AT:N/PR:L/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+                        "btvector": "AV:N/AC:L/AT:N/PR:L/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N/E:P",
+                        "bseverity": "High",
+                        "btseverity": "High",
+                        "av": "N",
+                        "ac": "L",
+                        "at": "N",
+                        "pr": "L",
+                        "ui": "N",
+                        "vc": "H",
+                        "vi": "H",
+                        "va": "H",
+                        "sc": "N",
+                        "si": "N",
+                        "sa": "N",
+                        "e": "P"
+                    }
+                },
+                "timeline": [
+                    {
+                        "date": "1773270000",
+                        "event": "Advisory disclosed",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773273600",
+                        "event": "VulDB entry created",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?recent.20260312",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773304521",
+                        "event": "VulDB entry last update",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?id.350654",
+                        "color": "blue"
+                    }
+                ]
+            },
+            "advisory": {
+                "date": "1773270000",
+                "url": "https://github.com/Jimi-Lab/cve/issues/2",
+                "type": "Issue",
+                "reportconfidence": "uncorroborated"
+            },
+            "exploit": {
+                "availability": "1",
+                "publicity": "public",
+                "url": "https://github.com/Jimi-Lab/cve/issues/2",
+                "physical": "No",
+                "local": "No",
+                "remote": "Yes",
+                "exploitability": "proof-of-concept",
+                "price": {
+                    "0day": "$0-$5k",
+                    "today": "$0-$5k"
+                }
+            },
+            "countermeasure": {
+                "remediationlevel": "not defined"
+            },
+            "source": {
+                "cve": {
+                    "id": "CVE-2026-4042"
+                },
+                "gcve": {
+                    "cve": "GCVE-0-2026-4042",
+                    "vuldb": "GCVE-100-350654"
+                },
+                "sciplabs": {
+                    "url": [
+                        "https://www.scip.ch/en/?labs.20161013"
+                    ]
+                }
+            },
+            "cna": {
+                "responsible": "VulDB"
+            }
+        },
+        {
+            "entry": {
+                "id": "350653",
+                "title": "Tenda i12 1.0.0.6(2204) /goform/exeCommand vos_strcpy cmdinput stack-based overflow",
+                "summary": "A vulnerability has been found in Tenda i12 1.0.0.6(2204) (Router Operating System) and classified as critical. Affected by this vulnerability is the function vos_strcpy of the file /goform/exeCommand. There is no information about possible countermeasures known. It may be suggested to replace the affected object with an alternative product.",
+                "details": {
+                    "affected": "A vulnerability has been found in Tenda i12 1.0.0.6(2204) (Router Operating System) and classified as critical.",
+                    "vulnerability": "The manipulation of the argument cmdinput with an unknown input leads to a unknown weakness. The CWE definition for the vulnerability is CWE-121. A stack-based buffer overflow condition is a condition where the buffer being overwritten is allocated on the stack (i.e., is a local variable or, rarely, a parameter to a function).",
+                    "impact": "As an impact it is known to affect confidentiality, integrity, and availability.",
+                    "exploit": "It is possible to download the exploit at github.com. It is declared as proof-of-concept.",
+                    "countermeasure": "There is no information about possible countermeasures known. It may be suggested to replace the affected object with an alternative product."
+                },
+                "timestamp": {
+                    "create": "1773304517",
+                    "change": "1773304517"
+                }
+            },
+            "software": {
+                "vendor": "Tenda",
+                "name": "i12",
+                "version": [
+                    "1.0.0.6(2204)"
+                ],
+                "file": "/goform/exeCommand",
+                "function": "vos_strcpy",
+                "argument": "cmdinput",
+                "type": "Router Operating System",
+                "website": {
+                    "vendor": "https://www.tenda.com.cn/"
+                },
+                "license": {
+                    "type": "commercial"
+                },
+                "cpe": [
+                    "cpe:/h:tenda:i12:1.0.6_2204_"
+                ],
+                "cpe23": [
+                    "cpe:2.3:h:tenda:i12:1.0.6_2204_:*:*:*:*:*:*:*"
+                ]
+            },
+            "vulnerability": {
+                "risk": {
+                    "value": "2",
+                    "name": "medium"
+                },
+                "class": "stack-based overflow",
+                "cwe": "CWE-121",
+                "capec": [
+                    "10"
+                ],
+                "cvss2": {
+                    "vuldb": {
+                        "basescore": "9.0",
+                        "tempscore": "7.7",
+                        "baseseverity": "High",
+                        "tempseverity": "High",
+                        "av": "N",
+                        "ac": "L",
+                        "au": "S",
+                        "ci": "C",
+                        "ii": "C",
+                        "ai": "C",
+                        "e": "POC",
+                        "rl": "ND",
+                        "rc": "UR"
+                    }
+                },
+                "cvss3": {
+                    "meta": {
+                        "basescore": "8.8",
+                        "tempscore": "8.0",
+                        "baseseverity": "High",
+                        "tempseverity": "High"
+                    },
+                    "vuldb": {
+                        "confidence": "High",
+                        "basescore": "8.8",
+                        "tempscore": "8.0",
+                        "basevector": "AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+                        "tempvector": "E:P/RL:X/RC:R",
+                        "baseseverity": "High",
+                        "tempseverity": "High",
+                        "av": "N",
+                        "ac": "L",
+                        "pr": "L",
+                        "ui": "N",
+                        "s": "U",
+                        "c": "H",
+                        "i": "H",
+                        "a": "H",
+                        "e": "P",
+                        "rl": "X",
+                        "rc": "R"
+                    }
+                },
+                "cvss4": {
+                    "vuldb": {
+                        "confidence": "High",
+                        "bscore": "8.7",
+                        "btscore": "7.4",
+                        "bvector": "AV:N/AC:L/AT:N/PR:L/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+                        "btvector": "AV:N/AC:L/AT:N/PR:L/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N/E:P",
+                        "bseverity": "High",
+                        "btseverity": "High",
+                        "av": "N",
+                        "ac": "L",
+                        "at": "N",
+                        "pr": "L",
+                        "ui": "N",
+                        "vc": "H",
+                        "vi": "H",
+                        "va": "H",
+                        "sc": "N",
+                        "si": "N",
+                        "sa": "N",
+                        "e": "P"
+                    }
+                },
+                "timeline": [
+                    {
+                        "date": "1773270000",
+                        "event": "Advisory disclosed",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773273600",
+                        "event": "VulDB entry created",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?recent.20260312",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773304518",
+                        "event": "VulDB entry last update",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?id.350653",
+                        "color": "blue"
+                    }
+                ]
+            },
+            "advisory": {
+                "date": "1773270000",
+                "url": "https://github.com/Jimi-Lab/cve/issues/1",
+                "type": "Issue",
+                "reportconfidence": "uncorroborated"
+            },
+            "exploit": {
+                "availability": "1",
+                "publicity": "public",
+                "url": "https://github.com/Jimi-Lab/cve/issues/1",
+                "physical": "No",
+                "local": "No",
+                "remote": "Yes",
+                "exploitability": "proof-of-concept",
+                "price": {
+                    "0day": "$0-$5k",
+                    "today": "$0-$5k"
+                }
+            },
+            "countermeasure": {
+                "remediationlevel": "not defined"
+            },
+            "source": {
+                "cve": {
+                    "id": "CVE-2026-4041"
+                },
+                "gcve": {
+                    "cve": "GCVE-0-2026-4041",
+                    "vuldb": "GCVE-100-350653"
+                },
+                "sciplabs": {
+                    "url": [
+                        "https://www.scip.ch/en/?labs.20161013"
+                    ]
+                }
+            },
+            "cna": {
+                "responsible": "VulDB"
+            }
+        },
+        {
+            "entry": {
+                "id": "350652",
+                "title": "OpenClaw up to 2026.2.17 File Existence tools.exec.safeBins information exposure",
+                "summary": "A vulnerability, which was classified as problematic, was found in OpenClaw up to 2026.2.17. Affected is the function tools.exec.safeBins of the component File Existence Handler. Upgrading to version 2026.2.19-beta.1 eliminates this vulnerability. The upgrade is hosted for download at github.com. Applying the patch bafdbb6f112409a65decd3d4e7350fbd637c7754 is able to eliminate this problem. The bugfix is ready for download at github.com. The best possible mitigation is suggested to be upgrading to the latest version.",
+                "details": {
+                    "affected": "A vulnerability, which was classified as problematic, was found in OpenClaw up to 2026.2.17.",
+                    "vulnerability": "CWE is classifying the issue as CWE-203. The product behaves differently or sends different responses under different circumstances in a way that is observable to an unauthorized actor, which exposes security-relevant information about the state of the product, such as whether a particular operation was successful or not.",
+                    "impact": "This is going to have an impact on confidentiality.",
+                    "countermeasure": "Upgrading to version 2026.2.19-beta.1 eliminates this vulnerability. The upgrade is hosted for download at github.com. Applying the patch bafdbb6f112409a65decd3d4e7350fbd637c7754 is able to eliminate this problem. The bugfix is ready for download at github.com. The best possible mitigation is suggested to be upgrading to the latest version."
+                },
+                "timestamp": {
+                    "create": "1773298284",
+                    "change": "1773298284"
+                }
+            },
+            "software": {
+                "name": "OpenClaw",
+                "version": [
+                    "2026.2.0",
+                    "2026.2.1",
+                    "2026.2.2",
+                    "2026.2.3",
+                    "2026.2.4",
+                    "2026.2.5",
+                    "2026.2.6",
+                    "2026.2.7",
+                    "2026.2.8",
+                    "2026.2.9",
+                    "2026.2.10",
+                    "2026.2.11",
+                    "2026.2.12",
+                    "2026.2.13",
+                    "2026.2.14",
+                    "2026.2.15",
+                    "2026.2.16",
+                    "2026.2.17"
+                ],
+                "component": "File Existence Handler",
+                "function": "tools.exec.safeBins",
+                "website": {
+                    "product": "https://github.com/openclaw/openclaw/"
+                },
+                "license": {
+                    "type": "open-source"
+                },
+                "cpe": [
+                    "cpe:/a:openclaw:openclaw:2026.2.0",
+                    "cpe:/a:openclaw:openclaw:2026.2.1",
+                    "cpe:/a:openclaw:openclaw:2026.2.2",
+                    "cpe:/a:openclaw:openclaw:2026.2.3",
+                    "cpe:/a:openclaw:openclaw:2026.2.4",
+                    "cpe:/a:openclaw:openclaw:2026.2.5",
+                    "cpe:/a:openclaw:openclaw:2026.2.6",
+                    "cpe:/a:openclaw:openclaw:2026.2.7",
+                    "cpe:/a:openclaw:openclaw:2026.2.8",
+                    "cpe:/a:openclaw:openclaw:2026.2.9",
+                    "cpe:/a:openclaw:openclaw:2026.2.10",
+                    "cpe:/a:openclaw:openclaw:2026.2.11",
+                    "cpe:/a:openclaw:openclaw:2026.2.12",
+                    "cpe:/a:openclaw:openclaw:2026.2.13",
+                    "cpe:/a:openclaw:openclaw:2026.2.14",
+                    "cpe:/a:openclaw:openclaw:2026.2.15",
+                    "cpe:/a:openclaw:openclaw:2026.2.16",
+                    "cpe:/a:openclaw:openclaw:2026.2.17"
+                ],
+                "cpe23": [
+                    "cpe:2.3:a:openclaw:openclaw:2026.2.0:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:openclaw:openclaw:2026.2.1:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:openclaw:openclaw:2026.2.2:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:openclaw:openclaw:2026.2.3:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:openclaw:openclaw:2026.2.4:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:openclaw:openclaw:2026.2.5:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:openclaw:openclaw:2026.2.6:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:openclaw:openclaw:2026.2.7:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:openclaw:openclaw:2026.2.8:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:openclaw:openclaw:2026.2.9:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:openclaw:openclaw:2026.2.10:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:openclaw:openclaw:2026.2.11:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:openclaw:openclaw:2026.2.12:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:openclaw:openclaw:2026.2.13:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:openclaw:openclaw:2026.2.14:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:openclaw:openclaw:2026.2.15:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:openclaw:openclaw:2026.2.16:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:openclaw:openclaw:2026.2.17:*:*:*:*:*:*:*"
+                ]
+            },
+            "vulnerability": {
+                "risk": {
+                    "value": "1",
+                    "name": "low"
+                },
+                "class": "information exposure",
+                "cwe": "CWE-203",
+                "capec": [
+                    "19",
+                    "116",
+                    "189"
+                ],
+                "attck": "T1592",
+                "cvss2": {
+                    "vuldb": {
+                        "basescore": "1.7",
+                        "tempscore": "1.5",
+                        "baseseverity": "Low",
+                        "tempseverity": "Low",
+                        "av": "L",
+                        "ac": "L",
+                        "au": "S",
+                        "ci": "P",
+                        "ii": "N",
+                        "ai": "N",
+                        "e": "ND",
+                        "rl": "OF",
+                        "rc": "C"
+                    }
+                },
+                "cvss3": {
+                    "meta": {
+                        "basescore": "3.3",
+                        "tempscore": "3.2",
+                        "baseseverity": "Low",
+                        "tempseverity": "Low"
+                    },
+                    "vuldb": {
+                        "confidence": "High",
+                        "basescore": "3.3",
+                        "tempscore": "3.2",
+                        "basevector": "AV:L/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N",
+                        "tempvector": "E:X/RL:O/RC:C",
+                        "baseseverity": "Low",
+                        "tempseverity": "Low",
+                        "av": "L",
+                        "ac": "L",
+                        "pr": "L",
+                        "ui": "N",
+                        "s": "U",
+                        "c": "L",
+                        "i": "N",
+                        "a": "N",
+                        "e": "X",
+                        "rl": "O",
+                        "rc": "C"
+                    }
+                },
+                "cvss4": {
+                    "vuldb": {
+                        "confidence": "High",
+                        "bscore": "4.8",
+                        "btscore": "4.8",
+                        "bvector": "AV:L/AC:L/AT:N/PR:L/UI:N/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N",
+                        "btvector": "AV:L/AC:L/AT:N/PR:L/UI:N/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N/E:X",
+                        "bseverity": "Medium",
+                        "btseverity": "Medium",
+                        "av": "L",
+                        "ac": "L",
+                        "at": "N",
+                        "pr": "L",
+                        "ui": "N",
+                        "vc": "L",
+                        "vi": "N",
+                        "va": "N",
+                        "sc": "N",
+                        "si": "N",
+                        "sa": "N",
+                        "e": "X"
+                    }
+                },
+                "timeline": [
+                    {
+                        "date": "1773270000",
+                        "event": "Advisory disclosed",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773273600",
+                        "event": "VulDB entry created",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?recent.20260312",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773298284",
+                        "event": "VulDB entry last update",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?id.350652",
+                        "color": "blue"
+                    }
+                ]
+            },
+            "advisory": {
+                "date": "1773270000",
+                "url": "https://github.com/openclaw/openclaw/security/advisories/GHSA-6c9j-x93c-rw6j",
+                "identifier": "GHSA-6c9j-x93c-rw6j",
+                "reportconfidence": "confirmed"
+            },
+            "exploit": {
+                "physical": "Partially",
+                "local": "Yes",
+                "remote": "No",
+                "exploitability": "not defined",
+                "price": {
+                    "0day": "$0-$5k",
+                    "today": "$0-$5k"
+                }
+            },
+            "countermeasure": {
+                "remediationlevel": "official fix",
+                "name": "Upgrade",
+                "upgrade": {
+                    "version": "2026.2.19-beta.1",
+                    "url": "https://github.com/openclaw/openclaw/releases/tag/v2026.2.19-beta.1"
+                },
+                "patch": {
+                    "name": "bafdbb6f112409a65decd3d4e7350fbd637c7754",
+                    "url": "https://github.com/openclaw/openclaw/commit/bafdbb6f112409a65decd3d4e7350fbd637c7754"
+                }
+            },
+            "source": {
+                "cve": {
+                    "id": "CVE-2026-4040"
+                },
+                "gcve": {
+                    "cve": "GCVE-0-2026-4040",
+                    "vuldb": "GCVE-100-350652"
+                }
+            },
+            "cna": {
+                "responsible": "VulDB"
+            }
+        },
+        {
+            "entry": {
+                "id": "350651",
+                "title": "OpenClaw 2026.2.19-2 Skill Env applySkillConfigenvOverrides code injection",
+                "summary": "A vulnerability, which was classified as critical, has been found in OpenClaw 2026.2.19-2. This issue affects the function applySkillConfigenvOverrides of the component Skill Env Handler. Upgrading to version 2026.2.21-beta.1 eliminates this vulnerability. The upgrade is hosted for download at github.com. Applying the patch 8c9f35cdb51692b650ddf05b259ccdd75cc9a83c is able to eliminate this problem. The bugfix is ready for download at github.com. The best possible mitigation is suggested to be upgrading to the latest version.",
+                "details": {
+                    "affected": "A vulnerability, which was classified as critical, has been found in OpenClaw 2026.2.19-2.",
+                    "vulnerability": "Using CWE to declare the problem leads to CWE-94. The product constructs all or part of a code segment using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the syntax or behavior of the intended code segment.",
+                    "impact": "Impacted is confidentiality, integrity, and availability.",
+                    "countermeasure": "Upgrading to version 2026.2.21-beta.1 eliminates this vulnerability. The upgrade is hosted for download at github.com. Applying the patch 8c9f35cdb51692b650ddf05b259ccdd75cc9a83c is able to eliminate this problem. The bugfix is ready for download at github.com. The best possible mitigation is suggested to be upgrading to the latest version."
+                },
+                "timestamp": {
+                    "create": "1773298282",
+                    "change": "1773298282"
+                }
+            },
+            "software": {
+                "name": "OpenClaw",
+                "version": [
+                    "2026.2.19-2"
+                ],
+                "component": "Skill Env Handler",
+                "function": "applySkillConfigenvOverrides",
+                "website": {
+                    "product": "https://github.com/openclaw/openclaw/"
+                },
+                "license": {
+                    "type": "open-source"
+                },
+                "cpe": [
+                    "cpe:/a:openclaw:openclaw:2026.2.19-2"
+                ],
+                "cpe23": [
+                    "cpe:2.3:a:openclaw:openclaw:2026.2.19-2:*:*:*:*:*:*:*"
+                ]
+            },
+            "vulnerability": {
+                "risk": {
+                    "value": "2",
+                    "name": "medium"
+                },
+                "class": "code injection",
+                "cwe": "CWE-94",
+                "capec": [
+                    "10",
+                    "242",
+                    "250"
+                ],
+                "attck": "T1059",
+                "cvss2": {
+                    "vuldb": {
+                        "basescore": "6.5",
+                        "tempscore": "5.7",
+                        "baseseverity": "Medium",
+                        "tempseverity": "Medium",
+                        "av": "N",
+                        "ac": "L",
+                        "au": "S",
+                        "ci": "P",
+                        "ii": "P",
+                        "ai": "P",
+                        "e": "ND",
+                        "rl": "OF",
+                        "rc": "C"
+                    }
+                },
+                "cvss3": {
+                    "meta": {
+                        "basescore": "6.3",
+                        "tempscore": "6.0",
+                        "baseseverity": "Medium",
+                        "tempseverity": "Medium"
+                    },
+                    "vuldb": {
+                        "confidence": "High",
+                        "basescore": "6.3",
+                        "tempscore": "6.0",
+                        "basevector": "AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L",
+                        "tempvector": "E:X/RL:O/RC:C",
+                        "baseseverity": "Medium",
+                        "tempseverity": "Medium",
+                        "av": "N",
+                        "ac": "L",
+                        "pr": "L",
+                        "ui": "N",
+                        "s": "U",
+                        "c": "L",
+                        "i": "L",
+                        "a": "L",
+                        "e": "X",
+                        "rl": "O",
+                        "rc": "C"
+                    }
+                },
+                "cvss4": {
+                    "vuldb": {
+                        "confidence": "High",
+                        "bscore": "5.3",
+                        "btscore": "5.3",
+                        "bvector": "AV:N/AC:L/AT:N/PR:L/UI:N/VC:L/VI:L/VA:L/SC:N/SI:N/SA:N",
+                        "btvector": "AV:N/AC:L/AT:N/PR:L/UI:N/VC:L/VI:L/VA:L/SC:N/SI:N/SA:N/E:X",
+                        "bseverity": "Medium",
+                        "btseverity": "Medium",
+                        "av": "N",
+                        "ac": "L",
+                        "at": "N",
+                        "pr": "L",
+                        "ui": "N",
+                        "vc": "L",
+                        "vi": "L",
+                        "va": "L",
+                        "sc": "N",
+                        "si": "N",
+                        "sa": "N",
+                        "e": "X"
+                    }
+                },
+                "timeline": [
+                    {
+                        "date": "1773270000",
+                        "event": "Advisory disclosed",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773273600",
+                        "event": "VulDB entry created",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?recent.20260312",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773298283",
+                        "event": "VulDB entry last update",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?id.350651",
+                        "color": "blue"
+                    }
+                ]
+            },
+            "advisory": {
+                "date": "1773270000",
+                "url": "https://github.com/openclaw/openclaw/security/advisories/GHSA-82g8-464f-2mv7",
+                "identifier": "GHSA-82g8-464f-2mv7",
+                "reportconfidence": "confirmed"
+            },
+            "exploit": {
+                "physical": "No",
+                "local": "No",
+                "remote": "Yes",
+                "exploitability": "not defined",
+                "price": {
+                    "0day": "$0-$5k",
+                    "today": "$0-$5k"
+                }
+            },
+            "countermeasure": {
+                "remediationlevel": "official fix",
+                "name": "Upgrade",
+                "upgrade": {
+                    "version": "2026.2.21-beta.1",
+                    "url": "https://github.com/openclaw/openclaw/releases/tag/v2026.2.21-beta.1"
+                },
+                "patch": {
+                    "name": "8c9f35cdb51692b650ddf05b259ccdd75cc9a83c",
+                    "url": "https://github.com/openclaw/openclaw/commit/8c9f35cdb51692b650ddf05b259ccdd75cc9a83c"
+                }
+            },
+            "source": {
+                "cve": {
+                    "id": "CVE-2026-4039"
+                },
+                "gcve": {
+                    "cve": "GCVE-0-2026-4039",
+                    "vuldb": "GCVE-100-350651"
+                }
+            },
+            "cna": {
+                "responsible": "VulDB"
+            }
+        }
+    ]
+}

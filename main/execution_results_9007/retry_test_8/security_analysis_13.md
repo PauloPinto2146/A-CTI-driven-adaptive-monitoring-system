@@ -1,0 +1,10 @@
+[BEHAVIOR] EventType: SetValue, Image: *, TargetObject: HKLM\Software\Microsoft\Windows\CurrentVersion\Run\*, Details: DWORD value added or modified for autorun persistence | Source: T1112  
+[BEHAVIOR] EventType: SetValue, Image: *, TargetObject: HKCU\Software\Microsoft\Windows\CurrentVersion\Run\*, Details: DWORD value added or modified for autorun persistence | Source: T1112  
+[BEHAVIOR] EventType: SetValue, Image: *, TargetObject: HKLM\Software\Microsoft\Windows\CurrentVersion\RunOnce\*, Details: DWORD value added or modified for one‑time execution persistence | Source: T1112  
+[BEHAVIOR] EventType: SetValue, Image: *, TargetObject: HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Userinit, Details: String value changed to launch a malicious executable at user logon | Source: T1112  
+[BEHAVIOR] EventType: SetValue, Image: *, TargetObject: HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Shell, Details: String value changed to replace the default shell with malicious code | Source: T1112  
+[BEHAVIOR] EventType: SetValue, Image: *, TargetObject: HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\SafeDllSearchMode, Details: DWORD value set to 0 to disable SafeDllSearchMode for defense evasion | Source: T1112  
+[BEHAVIOR] EventType: SetValue, Image: *, TargetObject: HKLM\SYSTEM\CurrentControlSet\Services\*\ImagePath, Details: String value modified to point to a malicious service binary | Source: T1569.002  
+[BEHAVIOR] EventType: SetValue, Image: *, TargetObject: HKLM\SYSTEM\CurrentControlSet\Services\*\Start, Details: DWORD value altered to change service startup type for persistent execution | Source: T1569.002  
+[BEHAVIOR] EventType: SetValue, Image: *, TargetObject: HKLM\SYSTEM\CurrentControlSet\Services\*\Description, Details: String value altered to disguise malicious service | Source: T1569.002  
+[BEHAVIOR] EventType: SetValue, Image: *, TargetObject: HKLM\SYSTEM\CurrentControlSet\Services\*\ImagePath, Details: String value set to a remote‑access tool binary for establishing a back‑connect channel | Source: T1219

@@ -1,0 +1,320 @@
+{
+    "1":
+    {
+        "sysmon_event_description": "The process creation event provides extended information about a newly created process. The full command line provides context on the process execution. The ProcessGUID field is a unique value for this process across a domain to make event correlation easier. The hash is a full hash of the file with the algorithms in the HashType field.",
+        "sysmon_tags":
+        {
+            "Image": "File path of the process being spawned/created. Considered also the child or source process",
+            "FileVersion": "Protocol being used for the network connection",
+            "Description": "Description of the image associated with the main process (child)",
+            "Product": "Product name the image associated with the main process (child) belongs to",
+            "OriginalFileName": "OriginalFileName from the PE header, added on compilation",
+            "Company": "Company name the image associated with the main process (child) belongs to",
+            "CommandLine": "Arguments which were passed to the executable associated with the main process",
+            "CurrentDirectory": "The path without the name of the image associated with the process",
+            "IntegrityLevel": "Integrity label assigned to a process",
+            "Hashes": "Full hash of the file with the algorithms in the HashType field",
+            "ParentImage": "File path that spawned/created the main process",
+            "ParentCommandLine": "Arguments which were passed to the executable associated with the parent process"
+        }
+    },
+    "2":
+    {
+        "sysmon_event_description": "The change file creation time event is registered when a file creation time is explicitly modified by a process. This event helps tracking the real creation time of a file. Attackers may change the file creation time of a backdoor to make it look like it was installed with the operating system. Note that many processes legitimately change the creation time of a file; it does not necessarily indicate malicious activity.",
+        "sysmon_tags":
+        {
+            "Image": "File path of the process that changed the file creation time",
+            "TargetFilename": "Full path name of the file",
+            "CreationUtcTime": "New creation time of the file"
+        }
+    },
+    "3":
+    {
+        "sysmon_event_description": "The network connection event logs TCP/UDP connections on the machine. It is disabled by default. Each connection is linked to a process through the ProcessId and ProcessGuid fields. The event also contains the source and destination host names IP addresses, port numbers and IPv6 status.",
+        "sysmon_tags":
+        {
+            "Image": "File path of the process that made the network connection",
+            "Protocol": "Protocol being used for the network connection",
+            "Initiated": "Indicates whether the process initiated the TCP connection",
+            "SourceIsIpv6": "Is the source IP an Ipv6 address",
+            "SourceIp": "Source IP address that made the network connection",
+            "SourceHostname": "DNS name of the host that made the network connection",
+            "SourcePort": "Source port number",
+            "SourcePortName": "Name of the source port being used",
+            "DestinationIsIpv6": "Is the destination IP an Ipv6 address",
+            "DestinationIp": "IP address destination",
+            "DestinationHostname": "DNS name of the host that is contacted",
+            "DestinationPort": "Destination port number",
+            "DestinationPortName": "Name of the destination port"
+        }
+    },
+    "5":
+    {
+        "sysmon_event_description": "The process terminate event reports when a process terminates. It provides the UtcTime, ProcessGuid and ProcessId of the process.",
+        "sysmon_tags":
+        {
+            "Image": "File path of the executable of the process that terminated"
+        }
+    },
+    "6":
+    {
+        "sysmon_event_description": "The driver loaded events provides information about a driver being loaded on the system. The configured hashes are provided as well as signature information. The signature is created asynchronously for performance reasons and indicates if the file was removed after loading.",
+        "sysmon_tags":
+        {
+            "ImageLoaded": "File path of the driver loaded",
+            "Hashes": "Hashes captured by Sysmon driver",
+            "Signed": "Is the driver loaded signed",
+            "Signature": "Signer name of the driver",
+            "SignatureStatus": "Status of the signature"
+        }
+    },
+    "7":
+    {
+        "sysmon_event_description": "The image loaded event logs when a module is loaded in a specific process. This event is disabled by default and needs to be configured with the \"–l\" option. It indicates the process in which the module is loaded, hashes and signature information. The signature is created asynchronously for performance reasons and indicates if the file was removed after loading. This event should be configured carefully, as monitoring all image load events will generate a significant amount of logging.",
+        "sysmon_tags":
+        {
+            "Image": "File path of the process that loaded the image",
+            "ImageLoaded": "Path of the image loaded",
+            "FileVersion": "Version of the image loaded",
+            "Product": "Product name the image loaded belongs to",
+            "Company": "Company name the image loaded belongs to",
+            "OriginalFileName": "OriginalFileName from the PE header, added on compilation",
+            "Hashes": "Full hash of the file with the algorithms in the HashType field",
+            "Signed": "State whether the image loaded is signed",
+            "Signature": "The signer name",
+            "SignatureStatus": "status of the signature"
+        }
+    },
+    "8":
+    {
+        "sysmon_event_description": "The CreateRemoteThread event detects when a process creates a thread in another process. This technique is used by malware to inject code and hide in other processes. The event indicates the source and target process. It gives information on the code that will be run in the new thread: StartAddress, StartModule and StartFunction. Note that StartModule and StartFunction fields are inferred, they might be empty if the starting address is outside loaded modules or known exported functions.",
+        "sysmon_tags":
+        {
+            "SourceImage": "File path of the source process that created a thread in another process",
+            "TargetImage": "File path of the target process",
+            "StartAddress": "New thread start address",
+            "StartModule": "Start module determined from thread start address mapping to PEB loaded module list",
+            "StartFunction": "Start function is reported if exact match to function in image export tables"
+        }
+    },
+    "9":
+    {
+        "sysmon_event_description": "The RawAccessRead event detects when a process conducts reading operations from the drive using the \\\\.\\ denotation. This technique is often used by malware for data exfiltration of files that are locked for reading, as well as to avoid file access auditing tools. The event indicates the source process and target device.",
+        "sysmon_tags":
+        {
+            "Image": "File path of the process that conducted reading operations from the drive"
+        },
+        "examples":
+        [
+            "<Sysmon schemaversion=\"4.30\">\r\n\t<EventFiltering>\r\n\t\t<RuleGroup name=\"\" groupRelation=\"or\">\r\n\t\t\t<RawAccessRead onmatch=\"include\">\r\n\t\t\t\t<!--COMMENT:\tMonitor for raw sector-level access to the disk, often used to bypass access control lists or access locked files.\r\n\t\t\t\tDisabled by default since including even one entry here activates this component. Reward/performance/rule maintenance decision.\r\n\t\t\t\tEncourage you to experiment with this feature yourself.-->\r\n\t\t\t\t<!--COMMENT:\tYou will likely want to set this to a full capture on domain controllers, where no process should be doing raw reads.-->\r\n\t\t\t</RawAccessRead>\r\n\t\t</RuleGroup>\r\n\t</EventFiltering>\r\n</Sysmon>"
+        ]
+    },
+    "10":
+    {
+        "sysmon_event_description": "The process accessed event reports when a process opens another process, an operation that’s often followed by information queries or reading and writing the address space of the target process. This enables detection of hacking tools that read the memory contents of processes like Local Security Authority (Lsass.exe) in order to steal credentials for use in Pass-the-Hash attacks. Enabling it can generate significant amounts of logging if there are diagnostic utilities active that repeatedly open processes to query their state, so it generally should only be done so with filters that remove expected accesses.",
+        "sysmon_tags":
+        {
+            "SourceImage": "File path of the source process that created a thread in another process",
+            "TargetImage": "File path of the executable of the target process",
+            "GrantedAccess": "The access flags (bitmask) associated with the process rights requested for the target process",
+            "CallTrace": "Stack trace of where open process is called. Included is the DLL and the relative virtual address of the functions in the call stack right before the open process call"
+        }
+    },
+    "11":
+    {
+        "sysmon_event_description": "File create operations are logged when a file is created or overwritten. This event is useful for monitoring autostart locations, like the Startup folder, as well as temporary and download directories, which are common places malware drops during initial infection.",
+        "sysmon_tags":
+        {
+            "Image": "File path of the process that created the file",
+            "TargetFilename": "Name of the file that was created",
+            "CreationUtcTime": "File creation time"
+        }
+    },
+    "12":
+    {
+        "sysmon_event_description": "Registry key and value create and delete operations map to this event type, which can be useful for monitoring for changes to Registry autostart locations, or specific malware registry modifications. Sysmon uses abbreviated versions of Registry root key names, with the following mappings: Key name  Abbreviation HKEY_LOCAL_MACHINE  HKLM; HKEY_USERS  HKU; HKEY_LOCAL_MACHINE\\System\\ControlSet00x   HKLM\\System\\CurrentControlSet; HKEY_LOCAL_MACHINE\\Classes  HKCR",
+        "sysmon_tags":
+        {
+            "EventType": "CreateKey or DeleteKey",
+            "Image": "File path of the process that created or deleted a registry key",
+            "TargetObject": "Complete path of the registry key"
+        }
+    },
+    "13":
+    {
+        "sysmon_event_description": "This Registry event type identifies Registry value modifications. The event records the value written for Registry values of type DWORD and QWORD.",
+        "sysmon_tags":
+        {
+            "EventType": "SetValue",
+            "Image": "File path of the process that that modified a registry value",
+            "TargetObject": "Complete path of the modified registry key",
+            "Details": "Details added to the registry key"
+        }
+    },
+    "14":
+    {
+        "sysmon_event_description": "Registry key and value rename operations map to this event type, recording the new name of the key or value that was renamed.",
+        "sysmon_tags":
+        {
+            "EventType": "RenameKey",
+            "Image": "File path of the process that renamed a registry value and key",
+            "TargetObject": "Complete path of the renamed registry key",
+            "NewName": "New name of the registry key"
+        }
+    },
+    "15":
+    {
+        "sysmon_event_description": "This event logs when a named file stream is created, and it generates events that log the hash of the contents of the file to which the stream is assigned (the unnamed stream), as well as the contents of the named stream. There are malware variants that drop their executables or configuration settings via browser downloads, and this event is aimed at capturing that based on the browser attaching a Zone.Identifier \"mark of the web\" stream.",
+        "sysmon_tags":
+        {
+            "Image": "File path of the process that created the named file stream",
+            "TargetFilename": "Name of the file",
+            "CreationUtcTime": "File download time",
+            "Hash": "Full hash of the file with the algorithms in the HashType field"
+        }
+    },
+    "17":
+    {
+        "sysmon_event_description": "This event generates when a named pipe is created. Malware often uses named pipes for interprocess communication.",
+        "sysmon_tags":
+        {
+            "EventType": "CreatePipe",
+            "PipeName": "Name of the pipe created",
+            "Image": "File path of the process that created the pipe"
+        }
+    },
+    "18":
+    {
+        "sysmon_event_description": "This event logs when a named pipe connection is made between a client and a server.",
+        "sysmon_tags":
+        {
+            "EventType": "ConnectPipe",
+            "PipeName": "Name of the pipe created",
+            "Image": "File path of the process that created the pipe"
+        }
+    },
+    "19":
+    {
+        "sysmon_event_description": "When a WMI event filter is registered, which is a method used by malware to execute, this event logs the WMI namespace, filter name and filter expression.",
+        "sysmon_tags":
+        {
+            "EventType": "WmiFilterEvent",
+            "Operation": "WMI Event filter operation",
+            "EventNamespace": "Event Namespace of the WMI class",
+            "Name": "Name of the created filter",
+            "Query": "WMI query tied to the filte"
+        }
+    },
+    "20":
+    {
+        "sysmon_event_description": "This event logs the registration of WMI consumers, recording the consumer name, log, and destination.",
+        "sysmon_tags":
+        {
+            "EventType": "WmiConsumerEvent",
+            "Operation": "WMI Event consumer operation",
+            "Name": "Name of the event consumer created",
+            "Type": "Type of event consumer",
+            "Destination": "Process executed by the consume"
+        }
+    },
+    "21":
+    {
+        "sysmon_event_description": "When a consumer binds to a filter, this event logs the consumer name and filter path.",
+        "sysmon_tags":
+        {
+            "EventType": "WmiBindingEvent",
+            "Operation": "WMI Filter to Event consumer binding operation",
+            "Consumer": "Consumer to bind",
+            "Filter": "Filter to bind to the Consumer"
+        }
+    },
+    "22":
+    {
+        "sysmon_event_description": "This event is generated when a process executes a DNS query, whether the result is successful or fails, cached or not. The telemetry for this event was added for Windows 8.1 so it is not available on Windows 7 and earlier.",
+        "sysmon_tags":
+        {
+            "QueryName": "DNS name that was queried",
+            "QueryStatus": "Query result status code",
+            "QueryResults": "Results of the query",
+            "Image": "File path of the process that made the DNS query"
+        }
+    },
+    "23":
+    {
+        "sysmon_event_description": "A file was deleted. Additionally to logging the event, the deleted file is also saved in the ArchiveDirectory (which is C:\\Sysmon by default). Under normal operating conditions this directory might grow to an unreasonable size - see event ID 26: FileDeleteDetected for similar behavior but without saving the deleted files.",
+        "sysmon_tags":
+        {
+            "Image": "File path of the process that deleted the file",
+            "TargetFilename": "The path of the deleted file",
+            "Hashes": "The hashes of the file, types set in the config. This also determines the stored filename",
+            "IsExecutable": "Boolean statement whether the file is a PE file",
+            "Archived": "Boolean statement whether the file was stored in the configured archive folder"
+        }
+    },
+    "24":
+    {
+        "sysmon_event_description": "This event is generated when the system clipboard contents change. This can be a security risk in most environments. You don't what to have copyed password in clear txt into an accessible folder. But this can be very useful in other scenarios, like malware testing.",
+        "sysmon_tags":
+        {
+            "Image": "File path of the process that added data to the clipboard",
+            "ClientInfo": "Username and hostname of the originating RDP host, if capturable",
+            "Hashes": "The hashes of the clipboard data, types set in the config. This also determines the stored filename",
+            "Archived": "Boolean statement whether the file was stored in the configured archive folder"
+        }
+    },
+    "25":
+    {
+        "sysmon_event_description": "This event is generated when process hiding techniques such as \"hollow\" or \"herpaderp\" are being detected.",
+        "sysmon_tags":
+        {
+            "Image": "File path of the process that was tampered with",
+            "Type": "The type of tampering detected"
+        }
+    },
+    "26":
+    {
+        "sysmon_event_description": "A file was deleted.",
+        "sysmon_tags":
+        {
+            "Image": "File path of the process that deleted the file",
+            "TargetFilename": "The path of the deleted file",
+            "Hashes": "The hashes of the file, types set in the config. This also determines the stored filename",
+            "IsExecutable": "Boolean statement whether the file is a PE file"
+        }
+    },
+    "27":
+    {
+        "sysmon_event_description": "This event is generated when Sysmon detects and blocks the creation of executable files (PE format).",
+        "sysmon_tags": {}
+    },
+    "28":
+    {
+        "sysmon_event_description": "This event is generated when Sysmon detects and blocks file shredding from tools such as SDelete.",
+        "sysmon_tags": {}
+    },
+    "29":
+    {
+        "sysmon_event_description": "This event is generated when Sysmon detects the creation of a new executable file (PE format).",
+        "sysmon_tags": {}
+    },
+    "Conditions":
+    {
+        "Condition": "Description",
+        "is": "Default, values are equals",
+        "is any": "The field is one of the ; delimited values",
+        "is not": "Values are different",
+        "contains": "The field contains this value",
+        "contains any": "The field contains any of the ; delimited values",
+        "contains all": "The field contains all of the ; delimited values",
+        "excludes": "The field does not contain this value",
+        "excludes any": "The field does not contain one or more of the ; delimited values",
+        "excludes all": "The field does not contain any of the ; delimited values",
+        "begin with": "The field begins with this value",
+        "end with": "The field ends with this value",
+        "not begin with": "The field does not begin with this value",
+        "not end with": "The field does not end with this value",
+        "less than": "Lexicographical comparison is less than zero",
+        "more than": "Lexicographical comparison is more than zero",
+        "image": "Match an image path (full path or only image name)"
+    }
+}

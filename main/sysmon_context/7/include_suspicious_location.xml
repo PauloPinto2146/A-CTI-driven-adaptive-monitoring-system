@@ -1,0 +1,30 @@
+<Sysmon schemaversion="4.30">
+	<EventFiltering>
+		<RuleGroup name="" groupRelation="or">
+			<ImageLoad onmatch="include">
+				<ImageLoaded name="technique_id=T1574.001,technique_name=DLL" condition="contains any">admin$;c$;\\;\appdata\;\temp\</ImageLoaded>				<!-- loaded from network file share -->
+				<ImageLoaded condition="begin with" name="technique_id=T1574.001,technique_name=DLL">c:\programdata\</ImageLoaded>
+				<ImageLoaded condition="begin with" name="technique_id=T1574.001,technique_name=DLL">C:\Windows\Media\</ImageLoaded>
+				<ImageLoaded condition="begin with" name="technique_id=T1574.001,technique_name=DLL">C:\Windows\addins\</ImageLoaded>
+				<ImageLoaded condition="begin with" name="technique_id=T1574.001,technique_name=DLL">C:\Windows\system32\config\systemprofile\</ImageLoaded>
+				<ImageLoaded condition="begin with" name="technique_id=T1574.001,technique_name=DLL">C:\Windows\Debug\</ImageLoaded>
+				<ImageLoaded condition="begin with" name="technique_id=T1574.001,technique_name=DLL">C:\Windows\Temp</ImageLoaded>
+				<ImageLoaded condition="begin with" name="technique_id=T1574.001,technique_name=DLL">C:\PerfLogs\</ImageLoaded>
+				<ImageLoaded condition="begin with" name="technique_id=T1574.001,technique_name=DLL">C:\Windows\Help\</ImageLoaded>
+				<ImageLoaded condition="begin with" name="technique_id=T1574.001,technique_name=DLL">C:\Intel\Logs\</ImageLoaded>
+				<ImageLoaded condition="begin with" name="technique_id=T1574.001,technique_name=DLL">C:\Temp</ImageLoaded>
+				<ImageLoaded condition="begin with" name="technique_id=T1574.001,technique_name=DLL">C:\Windows\repair\</ImageLoaded>
+				<ImageLoaded condition="begin with" name="technique_id=T1574.001,technique_name=DLL">C:\Windows\security\</ImageLoaded>
+				<ImageLoaded condition="begin with" name="technique_id=T1574.001,technique_name=DLL">C:\Windows\Fonts\</ImageLoaded>
+				<ImageLoaded condition="contains" name="technique_id=T1574.001,technique_name=DLL">Downloads</ImageLoaded>
+				<ImageLoaded condition="contains" name="technique_id=T1574.001,technique_name=DLL">Public</ImageLoaded>
+				<ImageLoaded condition="contains" name="technique_id=T1574.001,technique_name=DLL">Documents</ImageLoaded>
+				<ImageLoaded condition="contains" name="technique_id=T1574.001,technique_name=DLL">Music</ImageLoaded>
+				<ImageLoaded condition="contains" name="technique_id=T1574.001,technique_name=DLL">Video</ImageLoaded>
+				<ImageLoaded condition="begin with" name="technique_id=T1574.001,technique_name=DLL">file:</ImageLoaded>
+				<ImageLoaded name="technique_id=T1574.001,technique_name=DLL" condition="contains">$Recycle.bin\</ImageLoaded>
+				<ImageLoaded name="technique_id=T1574.001,technique_name=DLL" condition="contains">\Windows\IME\</ImageLoaded>
+			</ImageLoad>
+		</RuleGroup>
+	</EventFiltering>
+</Sysmon>

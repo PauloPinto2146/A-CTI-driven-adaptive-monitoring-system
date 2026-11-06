@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environments
+venv/
+.venv/
+
+# Environment variables
+.env
+
+# Attack patterns
+enterprise-attack/
+capec/
+
+analytics_output_*.json
+misp_1000_events*.json
+
+
+# JSON temporary/test/DB data
+enterprise-attack.json
+registry.json
+exemplo*.json
+*config.json
+sysmon_events.json
+
+# VSCode
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# ClamAV
+ClamAV/
+
+reportHTML*/
+run*_sysmon_logs.json
+
+# Test notes
+Test*.md

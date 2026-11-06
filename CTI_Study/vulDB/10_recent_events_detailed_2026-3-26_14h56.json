@@ -1,0 +1,137 @@
+{
+    "response": {
+        "version": "3.86",
+        "format": "json",
+        "status": "200",
+        "lang": "en",
+        "consumption": 10,
+        "remaining": 3,
+        "querylimit": 10,
+        "querylimitmax": 13,
+        "timestamp": "1774537000",
+        "rtt": 6,
+        "etag": "1163-2c55-dcca"
+    },
+    "request": {
+        "timestamp": "1774536994",
+        "apikey": "valid",
+        "userid": "96189",
+        "details": 1,
+        "sort": "timestamp",
+        "cti": 0,
+        "type": "events",
+        "value": "10"
+    },
+    "result": [
+        {
+            "fc68d82f237f78d792c12dacde473130": {
+                "timestamp": "1774533894",
+                "title": "Multiple international Actors review vendor HCL",
+                "summary": "An interesting CTI event has occurred on 15:04. Some activities may be connected to the sector Technology. The activities are primarily focusing on HCL as a vendor. The weight of this event is Slightly Elevated Danger.",
+                "type": "vendor",
+                "focus": "vendor",
+                "object": "HCL",
+                "weight": "220",
+                "risk": "Slightly Elevated Danger",
+                "details": "https://vuldb.com/?vendor.hcl"
+            }
+        },
+        {
+            "7f724702d8f5521319536ded74de431b": {
+                "timestamp": "1774533616",
+                "title": "Local Actors in NL review vendor HCL",
+                "summary": "An interesting CTI event has been identified on 15:00. The country nl saw a peak in activity. The activities are chiefly centered on HCL as a vendor. This event is assigned the severity General Danger.",
+                "type": "country",
+                "country": "nl",
+                "focus": "vendor",
+                "object": "HCL",
+                "weight": "101",
+                "risk": "General Danger",
+                "details": "https://vuldb.com/?vendor.hcl"
+            }
+        },
+        {
+            "671b748aad4dae0abd267ce08d4bae04": {
+                "timestamp": "1774533606",
+                "title": "Local Actors in DE investigate vendor HCL",
+                "summary": "An interesting CTI event has occurred on 15:00. A spike in activity occurred in the country de. Some activities may be connected to the sector Technology. The activities are primarily focusing on HCL as a vendor. The value of this event's weight is Slightly Elevated Danger.",
+                "type": "country",
+                "country": "de",
+                "focus": "vendor",
+                "object": "HCL",
+                "weight": "337",
+                "risk": "Slightly Elevated Danger",
+                "details": "https://vuldb.com/?vendor.hcl"
+            }
+        },
+        {
+            "8b20313ea0c8e638f8632a3d41f647a1": {
+                "timestamp": "1774533507",
+                "title": "Local Actors in FR review type Project Management Software",
+                "summary": "An interesting CTI event has occurred on 14:58. A spike in activity occurred in the country fr. Certain activities could be associated with the sector Technology. The event's weight is General Danger.",
+                "type": "country",
+                "country": "fr",
+                "focus": "type",
+                "object": "Project Management Software",
+                "weight": "154",
+                "risk": "General Danger",
+                "details": "https://vuldb.com/?country.fr"
+            }
+        },
+        {
+            "34b2a5fde49f63b8fbd827ddf6926414": {
+                "timestamp": "1774533481",
+                "title": "Local Actors in CA review vendor HCL",
+                "summary": "An interesting CTI event has been identified on 14:58. The country ca saw a peak in activity. The center of attention is the vendor  HCL. The weight of this event is General Danger.",
+                "type": "country",
+                "country": "ca",
+                "focus": "vendor",
+                "object": "HCL",
+                "weight": "185",
+                "risk": "General Danger",
+                "details": "https://vuldb.com/?vendor.hcl"
+            }
+        },
+        {
+            "0ce49839be0f70a31ec02157d87e969e": {
+                "timestamp": "1774533439",
+                "title": "Multiple international Actors review type WordPress Plugin",
+                "summary": "It was possible to identify an event of interest on 14:57. Certain activities might be attributed to the sector Technology. The weight of this event is Slightly Elevated Danger.",
+                "type": "vendor",
+                "focus": "type",
+                "object": "WordPress Plugin",
+                "weight": "242",
+                "risk": "Slightly Elevated Danger",
+                "details": "https://vuldb.com/?country.us"
+            }
+        },
+        {
+            "4abe565db445aa44c08f6a579107d2cf": {
+                "timestamp": "1774533419",
+                "title": "Local Actors in VN review vendor code-projects",
+                "summary": "An interesting CTI event was observed on 14:56. An increase in activity was noted in the country vn. The primary emphasis of the activities is on code-projects as a vendor. This event is classified as General Danger.",
+                "type": "country",
+                "country": "vn",
+                "focus": "vendor",
+                "object": "code-projects",
+                "weight": "198",
+                "risk": "General Danger",
+                "details": "https://vuldb.com/?vendor.code-projects"
+            }
+        },
+        {
+            "6fbbab98eb3bbde9dce5465d01a87e59": {
+                "timestamp": "1774533401",
+                "title": "Local Actors in US analyze vendor Siemens",
+                "summary": "An interesting CTI event was observed on 14:56. An increase in activity was noted in the country us. It was possible to attribute some activities to the sector Technology. The primary emphasis of the activities is on Siemens as a vendor. The assigned weight for this event is Elevated High Danger.",
+                "type": "country",
+                "country": "us",
+                "focus": "vendor",
+                "object": "Siemens",
+                "weight": "543",
+                "risk": "Elevated High Danger",
+                "details": "https://vuldb.com/?vendor.siemens"
+            }
+        }
+    ]
+}

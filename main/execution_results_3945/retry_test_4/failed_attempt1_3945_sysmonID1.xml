@@ -1,0 +1,74 @@
+<Sysmon schemaversion="4.30">
+  <EventFiltering>
+    <RuleGroup name="" groupRelation="or">
+      <!-- IOC: specific malicious executable -->
+      <ProcessCreate onmatch="include">
+        <Image condition="end with">wiseman.exe</Image>
+        <Hashes condition="is">ebba8f4342b65faccdd2a48be9f2654d3fa523360f17ff68d5498a453f76c205</Hashes>
+      </ProcessCreate>
+
+      <!-- BEHAVIOR: Rundll32 abuse with atypical arguments -->
+      <ProcessCreate onmatch="include">
+        <Image condition="end with">rundll32.exe</Image>
+        <CommandLine condition="contains any">.dll;.cpl;javascript:;mshtml</CommandLine>
+      </ProcessCreate>
+
+      <!-- BEHAVIOR: Service creation/modification (sc.exe or PowerShell) -->
+      <ProcessCreate onmatch="include">
+        <Image condition="is any">C:\Windows\system32\sc.exe;C:\Windows\system32\powershell.exe</Image>
+        <CommandLine condition="contains">create</CommandLine>
+        <CommandLine condition="contains">service</CommandLine>
+      </ProcessCreate>
+
+      <!-- BEHAVIOR: User discovery commands -->
+      <ProcessCreate onmatch="include">
+        <Image condition="end with any">whoami.exe;query.exe;net.exe</Image>
+        <CommandLine condition="contains">user</CommandLine>
+      </ProcessCreate>
+
+      <!-- BEHAVIOR: System information discovery utilities -->
+      <ProcessCreate onmatch="include">
+        <Image condition="end with any">systeminfo.exe;hostname.exe;ver.exe</Image>
+      </ProcessCreate>
+
+      <!-- BEHAVIOR: CertUtil decoding -->
+      <ProcessCreate onmatch="include">
+        <Image condition="end with">certutil.exe</Image>
+        <CommandLine condition="contains any">-decode;-decodehex;-split</CommandLine>
+      </ProcessCreate>
+
+      <!-- BEHAVIOR: CertUtil or PowerShell base64/EncodedCommand -->
+      <ProcessCreate onmatch="include">
+        <Image condition="end with any">certutil.exe;powershell.exe</Image>
+        <CommandLine condition="contains any">-EncodedCommand;base64</CommandLine>
+      </ProcessCreate>
+
+      <!-- BEHAVIOR: Registry query via reg.exe -->
+      <ProcessCreate onmatch="include">
+        <Image condition="end with">reg.exe</Image>
+        <CommandLine condition="contains">query</CommandLine>
+      </ProcessCreate>
+
+      <!-- BEHAVIOR: Runas token manipulation -->
+      <ProcessCreate onmatch="include">
+        <Image condition="end with">runas.exe</Image>
+      </ProcessCreate>
+
+      <!-- BEHAVIOR: Network configuration discovery utilities -->
+      <ProcessCreate onmatch="include">
+        <Image condition="end with any">ipconfig.exe;ifconfig.exe;netsh.exe;route.exe;arp.exe;nbtscan.exe</Image>
+      </ProcessCreate>
+
+      <!-- BEHAVIOR: Remote service access utilities -->
+      <ProcessCreate onmatch="include">
+        <Image condition="end with any">mstsc.exe;ssh.exe;psexec.exe</Image>
+      </ProcessCreate>
+
+      <!-- DERIVED: High‑integrity processes not belonging to known system services -->
+      <ProcessCreate onmatch="include">
+        <IntegrityLevel condition="is">System</IntegrityLevel>
+        <Image condition="not end with any">svchost.exe;services.exe;lsass.exe;winlogon.exe;csrss.exe</Image>
+      </ProcessCreate>
+    </RuleGroup>
+  </EventFiltering>
+</Sysmon>

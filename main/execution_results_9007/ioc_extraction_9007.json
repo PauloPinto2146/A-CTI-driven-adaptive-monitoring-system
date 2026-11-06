@@ -1,0 +1,252 @@
+{
+    "attack_pattern_dict": {
+        "attack_patterns_ids": [
+            "attack-pattern--035bb001-ab69-4a0b-9f6c-2de8b09e1b9d",
+            "attack-pattern--0a3ead4e-6d47-4ccb-854c-a6a4f9d96b22",
+            "attack-pattern--20fb2507-d71c-455d-9b6d-6104461cf26b",
+            "attack-pattern--355be19c-ffc9-46d5-8d50-d6a036c675b6",
+            "attack-pattern--3f886f2a-874f-4333-b794-aa6075009b1c",
+            "attack-pattern--40597f16-0963-4249-bf4c-ac93b7fb9807",
+            "attack-pattern--4061e78c-1284-44b4-9116-73e4ac3912f7",
+            "attack-pattern--4f9ca633-15c5-463c-9724-bdcd54fde541",
+            "attack-pattern--57340c81-c025-4189-8fa0-fc7ede51bae4",
+            "attack-pattern--7bc57495-ea59-4380-be31-a64af124ef18",
+            "attack-pattern--a62a8db3-f23a-4d8f-afd6-9dbc77e7813b",
+            "attack-pattern--ac08589e-ee59-4935-8667-d845e38fe579",
+            "attack-pattern--b17a1a56-e99c-403c-8948-561df0cffe81",
+            "attack-pattern--b80d107d-fa0d-4b60-9684-b0433e8bdba0",
+            "attack-pattern--deb98323-e13f-4b0c-8d94-175379069062",
+            "attack-pattern--e358d692-23c0-4a31-9eb6-ecc13a8d7735",
+            "attack-pattern--eb062747-2193-45de-8fa2-e62549c37ddf",
+            "attack-pattern--f1951e8a-500e-4a26-8803-76d95c4554b4",
+            "attack-pattern--f5d8eed6-48a9-4cdf-a3d7-d1ffa99c3d2a"
+        ],
+        "attack_patterns_names": [
+            "T1557",
+            "T1003",
+            "T1489",
+            "T1071",
+            "T1190",
+            "T1567",
+            "T1219",
+            "T1021.002",
+            "T1112",
+            "T1083",
+            "T1566",
+            "T1562.001",
+            "T1078",
+            "T1486",
+            "T1027.002",
+            "T1018",
+            "T1021.001",
+            "T1569.002",
+            "T1490"
+        ]
+    },
+    "ioc_dict": {
+        "yara": [
+            {
+                "yara": "rule MAL_RANSOM_INC_WINDOWS\r\n{\r\nmeta:\r\n\tdescription = \"Matches INC Ransomware Rust-compiled samples for Windows\"\r\n\tauthor = \"Acronis Threat Research Unit (TRU)\" \r\nstrings:\r\n        $a1 = \"[INC-README.txt..\" ascii wide\r\n        $a2 = \"Successfully added file to queue:\" ascii wide\r\n        $a3 = \"while deleting shadow copies from\" ascii wide\r\n        $a4 = \"Successfully deleted shadow copies from\" ascii wide\r\n        $a5 = \"while killing processes by mask\" ascii wide\r\n        $a6 = \"while killing services by mask\" ascii wide\r\n        $a7 = \"Successfully killed processes by mask\" ascii wide\r\n        $a8 = \"while encrypting file:\" ascii wide\r\n        $a9 = \"INCdirectory(ies)dirEncryption directory(ies)\" ascii wide \r\ncondition:\r\n\t(uint16(0) == 0x5A4D) and (uint32(uint32(0x3C)) == 0x00004550) and all of ($a*)\r\n}"
+            },
+            {
+                "yara": "rule MAL_RANSOM_INC_LINUX\r\n{\r\nmeta:\r\ndescription = \"Matches INC Ransomware Rust-compiled samples for Linux/ESXi\"\r\nauthor = \"Acronis Threat Research Unit (TRU)\" \r\nstrings:\r\n        $a1 = \"[INC-README.txtINC\" ascii wide\r\n        $a2 = \"while running as a daemon\" ascii wide\r\n        $a3 = \"while stopping ESXi machines\" ascii wide\r\n        $a4 = \"while removing ESXi snapshots\" ascii wide\r\n        $a5 = \"while setting motd\" ascii wide\r\n        $a6 = \"fn5+fiBJTkMgUmFuc29tIH5+fn4\" ascii wide \r\ncondition:\r\n(uint32(0) == 0x464C457F) and all of ($a*)\r\n}"
+            }
+        ],
+        "file": [
+            {
+                "md5": "03dd0efa84d145d7d4ed8e240267e5c5",
+                "sha1": "265a8e89464e32b22553ef16edbab703da7176a7",
+                "sha256": "6cd349eda0fa6c8b274a0920852c68f8b727afea1fdbc69ad183cef05d9cf141",
+                "ssdeep": "24576:eqy4VsWHgFJ2EdXFzP+8JpnwBj7AXHTIa+pP9yBn+I:eqy4aWHgFJ2EdXFzP+8JpwBj7A3TIa+i",
+                "filename": "x86_64-unknown-linux-esxi.elf"
+            },
+            {
+                "md5": "dce9ad6317ce147f1f3f74bc93d9252a",
+                "sha1": "16bad42a397db2e075e09b5b9dd53aaa67b495a4",
+                "sha256": "acce811c4fc2a6e3fddd4231e386f1648ca44f039d2d275316bc0a0fc96e0af4",
+                "ssdeep": "49152:/z7mF4kwsjcks87ZSqKOO6H94dD1rWJjnQEEMQp0:77Zp0",
+                "vhash": "0260a76d1555655c0d5d1099za1e1z4hz14z197z",
+                "filename": "h3odp7l2u.exe"
+            },
+            {
+                "md5": "eb37c4fcfc00d3813ab94f4d59378b47",
+                "sha1": "70331fdf528f4f5b75b5e30427e379bc88aa05b4",
+                "sha256": "31800380c359143ae82c4f9011eee653dd22443d03d6a499148203bbfc275502",
+                "ssdeep": "49152:/z7mp4kwsjcks87ZSqKOO6H94dD1rWJjnQErMQp0:772p0",
+                "vhash": "0260a76d1555655c0d5d1099za1e1z4hz14z197z",
+                "filename": "hi9lezv.exe"
+            },
+            {
+                "md5": "6d28d0ad4c7192bf8fccd1be1e10d5d9",
+                "sha1": "4f04f2c98ae0dccf842bd1ab0971b5bd39a7f97a",
+                "sha256": "1898d056463284d849801cbdea6a3dec6c9f568f01569912c3868a5eea9a5449",
+                "ssdeep": "49152:/z7md4kwsjcks87ZSqKOO6H94dD1rWJjnQE2MQp0:77zp0",
+                "vhash": "0260a76d1555655c0d5d1099za1e1z4hz14z197z",
+                "filename": "072wiof7.exe"
+            },
+            {
+                "md5": "10d6e04270806d8547a5a03a912a5dd9",
+                "sha1": "03f94497683ba6db6ba98cbe8070684eb9ebcd13",
+                "sha256": "1d10d8f5a420d0e4683b4cb40bcf0c984d1e7ea1f3b4442a00a525584632ac11",
+                "ssdeep": "49152:/z7mR4kwsjcks87ZSqKOO6H94dD1rWJjnQE6MQp0:77Pp0",
+                "vhash": "0260a76d1555655c0d5d1099za1e1z4hz14z197z",
+                "filename": "k0d649u.exe"
+            },
+            {
+                "md5": "ec37a6c4866b7324fce2f11b0e89c4c2",
+                "sha1": "6c6f13872bb7d18692bfc04757302f98d951217b",
+                "sha256": "24f6c0ca39b2a5593086ff56d818ddfbde121f8e44d54faa762e510397dc9db7",
+                "ssdeep": "49152:/z7md4kwsjcks87ZSqKOO6H94dD1rWJjnQExMQp0:770p0",
+                "vhash": "0260a76d1555655c0d5d1099za1e1z4hz14z197z",
+                "filename": "2026-03-08_ec37a6c4866b7324fce2f11b0e89c4c2_akira_cobalt-strike_glassworm_poet-rat"
+            },
+            {
+                "md5": "e7288f4e4cf20e219a0394d5dabb82b6",
+                "sha1": "abbd165dab5580e1905e87a8ac5139a4232fd908",
+                "sha256": "589d9480fbfec2d8e61638eb0b537183d0f9977411fd1d2c0f8eb611feebe880",
+                "ssdeep": "24576:Gqy4/fatd8Dk/Hj7POo6NSoiBjLee6XPTH/I5UFdy82eI:Gqy4/Ctd8Dk/Hj7P16NSdjLee6fTH/In",
+                "filename": "2qfguc.exe"
+            },
+            {
+                "md5": "efbeeb7c816919d729b74a2ecb909bb6",
+                "sha1": "44af7a778a0089836625b10df1ae91c99a984170",
+                "sha256": "5cc212f84d2bf3fbab165aaf09b16e00fcf2f1ccd880d24b14404c53dcdbf241",
+                "ssdeep": "24576:eqy4VsWHgFJ2EdXFzP+8JpnwBj7gXHTIa+pP9yBn+I:eqy4aWHgFJ2EdXFzP+8JpwBj7g3TIa+i",
+                "filename": "7hhel.exe"
+            },
+            {
+                "md5": "ef88cf8a71b4dfca2c46cc3fedf70246",
+                "sha1": "073bb9994c0688aa092ce81b077199088c9353ce",
+                "sha256": "60aeb9f7bccf377ff02ed64783e66a62c0f976878d9729b067bc7e5b0b9da9d6",
+                "ssdeep": "24576:eqy4VsWHgFJ2EdXFzP+8JpnwBj7rXHTIa+pP9yBn+I:eqy4aWHgFJ2EdXFzP+8JpwBj7r3TIa+i",
+                "filename": "3ctjhm3.exe"
+            },
+            {
+                "md5": "78d359a87ae75ece08976e8b14d877fe",
+                "sha1": "2c1dc7f4f97ea6a9e4d0a2e69aea849655bfc9d5",
+                "sha256": "6bf155b269d452f3c3b62832b27bbebe4da436e228dbf521155b1d5989e3743f",
+                "ssdeep": "49152:/z7mt4kwsjcks87ZSqKOO6H94dD1rWJjnQEZMQp0:77cp0",
+                "vhash": "0260a76d1555655c0d5d1099za1e1z4hz14z197z",
+                "filename": "2026-04-08_78d359a87ae75ece08976e8b14d877fe_akira_cobalt-strike_glassworm_poet-rat"
+            },
+            {
+                "md5": "8875172a0977677ce6e30277ef6fea79",
+                "sha1": "8bd32c26db7ebd8d0764a8292d536a76fd8b1d5e",
+                "sha256": "765508aa2ec6a1b73a76a23f4fa559d32355622748c91a46ed7b315eae2ee60a",
+                "ssdeep": "49152:/z7ml4kwsjcks87ZSqKOO6H94dD1rWJjnQEAMQp0:77lp0",
+                "vhash": "0260a76d1555655c0d5d1099za1e1z4hz14z197z",
+                "filename": "bjiw49.exe"
+            },
+            {
+                "md5": "0ed1f07b1eec40b0452316c842ab3182",
+                "sha1": "81b41cf5effc3b259436d9864e8e2db703ad3743",
+                "sha256": "7f37351979c249417cb180b4ede0ed17e5fe2a1f08add4d72606b589f8fdb245",
+                "ssdeep": "24576:eqy4VsWHgFJ2EdXFzP+8JpnwBj7QXHTIa+pP9yBn+I:eqy4aWHgFJ2EdXFzP+8JpwBj7Q3TIa+i",
+                "filename": "7l73h.exe"
+            },
+            {
+                "md5": "a9bc032353bd246ba50af1b8d4849bfd",
+                "sha1": "9dcfffc9f252189a4ad9d144ccdc8048a4382828",
+                "sha256": "8d1a22c430252f29611766b8e4a82af0fba60d609246463466b384d6d4793df4",
+                "ssdeep": "49152:/z7mV4kwsjcks87ZSqKOO6H94dD1rWJjnQEJMQp0:770p0",
+                "vhash": "0260a76d1555655c0d5d1099za1e1z4hz14z197z",
+                "filename": "2026-04-11_a9bc032353bd246ba50af1b8d4849bfd_akira_cobalt-strike_glassworm_poet-rat"
+            },
+            {
+                "md5": "3511a9aa2acae34aaadd03073fe09e39",
+                "sha1": "02d75d08c89c100685ccb5a72605a22a3cf2460a",
+                "sha256": "90e46e89fec2108a1cb4850bb33e3563e92a14d04e1e613ac8c9311f152d294c",
+                "ssdeep": "49152:/z7mB4kwsjcks87ZSqKOO6H94dD1rWJjnQEpMQp0:77Yp0",
+                "vhash": "0260a76d1555655c0d5d1099za1e1z4hz14z197z",
+                "filename": "0m6m882x2.exe"
+            },
+            {
+                "md5": "2de9c6065dd5c0bcd67cc4d90c10788a",
+                "sha1": "ec5366d5b9e6ef094c1583170c85f4fe4f38e1e2",
+                "sha256": "97aebda5482899fef84a24e456bff055acaa47e5ab4029f768d9e0c62a660ce2",
+                "ssdeep": "49152:/z7mJ4kwsjcks87ZSqKOO6H94dD1rWJjnQEkMQp0:775p0",
+                "vhash": "0260a76d1555655c0d5d1099za1e1z4hz14z197z",
+                "filename": "inc.exe"
+            },
+            {
+                "md5": "fcc3cbe8bfe18f08eadda3acd4258369",
+                "sha1": "f155e31fdde0c66200b717335038faee161c2812",
+                "sha256": "bf8c45e5aa9551a17eefbd1d179422c32b4309c47ee9a3f315bb80ed6d4f7efc",
+                "ssdeep": "49152:/z7mp4kwsjcks87ZSqKOO6H94dD1rWJjnQEhMQp0:77sp0",
+                "vhash": "0260a76d1555655c0d5d1099za1e1z4hz14z197z",
+                "filename": "61pd6n3t.exe"
+            },
+            {
+                "md5": "32827e9bdf630d974531c2f715d2426c",
+                "sha1": "266bab046cf4b7ddd9655416179f07bcab59d409",
+                "sha256": "d26bfb0147f60dc6500a9298d521ee67b49daaf4b8f8be54e7cc8fd86a597570",
+                "ssdeep": "49152:/z7mR4kwsjcks87ZSqKOO6H94dD1rWJjnQEeMQp0:77bp0",
+                "vhash": "0260a76d1555655c0d5d1099za1e1z4hz14z197z",
+                "filename": "mk1yd.exe"
+            },
+            {
+                "md5": "aeebf82422b35c95eff9fe6c188b3044",
+                "sha1": "66b4fe7c167799a53ec793f131a7e387216cc813",
+                "sha256": "d65120291dee76c694f8bea54841f7f68329b499b28f4aee5ea5c9369a7432cb",
+                "ssdeep": "49152:/z7mt4kwsjcks87ZSqKOO6H94dD1rWJjnQETMQp0:77Op0",
+                "vhash": "0260a76d1555655c0d5d1099za1e1z4hz14z197z",
+                "filename": "a3mnw9.exe"
+            },
+            {
+                "md5": "85befc3111bc28dc9715570a068412ba",
+                "sha1": "a088e9ba0a9d8f33bfd8f6294188c58eb01b70d0",
+                "sha256": "dc9938f51150d13a69fc25f3f19052eacb1bf0a086fd5cf39762501fb3ddd7da",
+                "ssdeep": "49152:/z7mh4kwsjcks87ZSqKOO6H94dD1rWJjnQEWMQp0:77Hp0",
+                "vhash": "0260a76d1555655c0d5d1099za1e1z4hz14z197z",
+                "filename": "win.bin"
+            },
+            {
+                "md5": "be3d939747ad05764b2d9dd461697093",
+                "sha1": "c192ef6c4143b8df43ea7855224e77ecd4f34080",
+                "sha256": "ea721240c14e3d14f8d88e0020880448c6c602f1180a1e5dbe40871cfeedcc22",
+                "ssdeep": "49152:/z7mh4kwsjcks87ZSqKOO6H94dD1rWJjnQEFMQp0:77kp0",
+                "vhash": "0260a76d1555655c0d5d1099za1e1z4hz14z197z",
+                "filename": "vw06lg0y.exe"
+            },
+            {
+                "md5": "ce0a95fb73a901a2e3a449e62850f4e5",
+                "sha1": "5b63a1dc187670723d02b4b675255a20a70d10b8",
+                "sha256": "f6a01d0246ce31faf6938ea488086d4358505405a4ef5c5faa482e79e92cb347",
+                "ssdeep": "49152:/z7m54kwsjcks87ZSqKOO6H94dD1rWJjnQEDMQp0:77Kp0",
+                "vhash": "0260a76d1555655c0d5d1099za1e1z4hz14z197z",
+                "filename": "qgp2s6z.exe"
+            },
+            {
+                "md5": "a700329f65470db3b7489005218f3937",
+                "sha1": "7ff4e2df39af1f1b8e726e674e69fca7c280f06a",
+                "sha256": "ff5da8f0330a4c581c37284c74aae2683c007dc6e406e1e2e6803e7bb398b77b",
+                "ssdeep": "49152:/z7ml4kwsjcks87ZSqKOO6H94dD1rWJjnQECMQp0:77np0",
+                "vhash": "0260a76d1555655c0d5d1099za1e1z4hz14z197z",
+                "filename": "tt24n8xsl.exe"
+            }
+        ],
+        "Network activity": [
+            {
+                "domain": "incblog.su"
+            },
+            {
+                "domain": "incblog6qu4y4mm4zvw5nrmue6qbwtgjsxpw6b7ixzssu36tsajldoad.onion"
+            },
+            {
+                "domain": "incpaykabjqc2mtdxq6c23nqh4x6m5dkps5fr6vgdkgzp5njssx6qkid.onion"
+            }
+        ]
+    },
+    "cves": [
+        "CVE-2023-3519",
+        "CVE-2023-48788",
+        "CVE-2024-57727",
+        "CVE-2025-5777"
+    ],
+    "hash_algorithms": [
+        "MD5",
+        "SHA1",
+        "SHA256"
+    ],
+    "threat_description": "INC has evolved from an emerging ransomware-as-a-service operation into one of the most active groups in 2026, claiming over 800 victims since 2023. The disruption of LockBit and BlackCat's shutdown created opportunities for INC to expand as affiliates migrated. Both Windows and Linux/ESXi encryptors have been rewritten in Rust, enabling cross-platform development and increasing analysis complexity. Recent incidents reveal updated tooling, including a modified credential dumper targeting newer Veeam backup deployments with support for salted DPAPI encryption. INC's influence extends beyond its operations; following the 2024 source code sale for $300,000, related families like Lynx and Sinobi emerged. United States organizations account for over 65% of victims, with legal services, manufacturing, construction, technology, and healthcare among the most targeted sectors."
+}

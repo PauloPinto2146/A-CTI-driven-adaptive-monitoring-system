@@ -1,0 +1,14 @@
+<Sysmon schemaversion="4.30">
+  <EventFiltering>
+    <RuleGroup name="" groupRelation="or">
+      <ImageLoad onmatch="exclude">
+          <Rule groupRelation="and">
+            <!--    COMMENT: Removes unnecessary ImageLoaded events. These 4 DLLs flag as Process Injection normally --> 
+            <!--    COMMENT: I consider this to be noise - there are many other notifications PowerShell has been started. -->
+            <Image condition="is any">C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe;C:\Windows\SysWOW64\WindowsPowerShell\v1.0\powershell.exe</Image>
+            <OriginalFileName condition="is any">mscoree.dll;mscoreei.dll;mscoreeis.dll;clr.dll;clrjit.dll</OriginalFileName>
+          </Rule>
+      </ImageLoad>
+    </RuleGroup>
+  </EventFiltering>
+</Sysmon>

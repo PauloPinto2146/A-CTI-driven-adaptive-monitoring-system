@@ -1,0 +1,3 @@
+[IOC] Image: *\wiseman.exe | Source: IOC – wiseman.EXE (sha256 ebba8f4342b65faccdd2a48be9f2654d3fa523360f17ff68d5498a453f76c205)  
+[BEHAVIOR] Image: *\rundll32.exe  Initiated: true  DestinationHostname: any  Protocol: any | Source: T1218.011  
+[BEHAVIOR] Protocol: UDP  Initiated: true  ProcessImageFilter: exclude typical system DNS clients (e.g., svchost.exe, dns.exe)  DestinationHostname: any | Source: T1071.004  

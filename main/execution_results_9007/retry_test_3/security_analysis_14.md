@@ -1,0 +1,8 @@
+[BEHAVIOR] RenameKey where Image ends with "\reg.exe" and TargetObject path under "HKLM\Software\Microsoft\Windows\CurrentVersion\Run\*" (any subkey) | Source: T1112  
+[BEHAVIOR] RenameKey where Image ends with "\powershell.exe" and TargetObject path under "HKLM\Software\Microsoft\Windows\CurrentVersion\Run\*" (any subkey) | Source: T1112  
+[BEHAVIOR] RenameKey where Image ends with "\wmic.exe" and TargetObject path under "HKLM\System\CurrentControlSet\Services\*" (any service key) | Source: T1112  
+[BEHAVIOR] RenameKey where Image ends with "\sc.exe" and TargetObject path under "HKLM\System\CurrentControlSet\Services\*" (any service key) | Source: T1569.002  
+[BEHAVIOR] RenameKey where Image ends with "\reg.exe" and TargetObject path under "HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System\*" (any policy subkey) | Source: T1112  
+[BEHAVIOR] RenameKey where Image ends with "\powershell.exe" and TargetObject path under "HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System\*" (any policy subkey) | Source: T1112  
+
+**Explanation:** The IOC filenames provided (e.g., `h3odp7l2u.exe`, `inc.exe`, etc.) represent malicious executables observed elsewhere, but Sysmon EventID 14 records only registry rename operations. None of those filenames are directly associated with a registry rename action in the supplied ATT&CK or vulnerability descriptions, and therefore they are not included in the monitoring recommendations.

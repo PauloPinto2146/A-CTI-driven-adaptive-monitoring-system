@@ -1,0 +1,408 @@
+{
+  "_shards": {
+    "failed": 0,
+    "skipped": 0,
+    "successful": 5,
+    "total": 5
+  },
+  "hits": {
+    "hits": [
+      {
+        "_id": "oEJZt4gBgHqbhTfSIaGY",
+        "_index": "collection",
+        "_score": 0.0043124706,
+        "_source": {
+          "access": "public",
+          "author": "agomez",
+          "count_email": 0,
+          "count_hostname": 1,
+          "count_ipv4": 2,
+          "count_sample": 75,
+          "count_url": 2,
+          "creation_time": "2023-06-14 00:40:51",
+          "description": "Conti is a Ransomware-as-a-Service (RaaS) that was first observed in December 2019. Conti has been deployed via TrickBot and used against major corporations and government agencies, particularly those in North America. As with other ransomware families, actors using Conti steal sensitive files and information from compromised networks, and threaten to publish this data unless the ransom is paid.",
+          "downloads": 246791,
+          "from": 0,
+          "index_selection": "public",
+          "md5_email": "4d210379b8e664f2597a15706a5061f8",
+          "modification_time": "2026-02-07 19:01:33",
+          "name": "S0575 - Conti",
+          "percolator_id": "n0JZt4gBgHqbhTfSIaF6",
+          "query": "blacklist.external_references.external_id:\"S0575\" AND classification:malicious",
+          "range_field": "creation_time",
+          "size": 50,
+          "sort": "modification_time_desc",
+          "subscription": [],
+          "tag": [
+            "feed",
+            "package:mitre",
+            "package:deprecated"
+          ]
+        },
+        "highlight": {
+          "tag": [
+            "<ins>feed</ins>"
+          ]
+        }
+      },
+      {
+        "_id": "3DyIvYAB4jHUXfKt9SQL",
+        "_index": "collection",
+        "_score": 0.0043124706,
+        "_source": {
+          "access": "public",
+          "author": "agomez",
+          "count_email": 0,
+          "count_hostname": 0,
+          "count_ipv4": 12959,
+          "count_sample": 0,
+          "count_url": 2537,
+          "creation_time": "2022-05-13 13:08:31",
+          "description": "Feed that contains a collection of alive IoCs relate to Internet of Things threats like Mozi or Mirai",
+          "downloads": 420519,
+          "from": 0,
+          "md5_email": "4d210379b8e664f2597a15706a5061f8",
+          "modification_time": "2022-05-13 13:09:42",
+          "name": "IoT",
+          "percolator_id": "2zyIvYAB4jHUXfKt9CTb",
+          "query": "is_iot_threat:true AND classification:malicious",
+          "range_field": "creation_time",
+          "size": 50,
+          "sort": "creation_time_desc",
+          "subscription": [],
+          "tag": [
+            "feed"
+          ],
+          "team_id": 77,
+          "team_name": "Maltiverse Research Team"
+        },
+        "highlight": {
+          "tag": [
+            "<ins>feed</ins>"
+          ]
+        }
+      },
+      {
+        "_id": "9l_E9IkBgHqbhTfSM37p",
+        "_index": "collection",
+        "_score": 0.0043124706,
+        "_source": {
+          "access": "public",
+          "author": "agomez",
+          "count_email": 0,
+          "count_hostname": 2,
+          "count_ipv4": 0,
+          "count_sample": 11,
+          "count_url": 3,
+          "creation_time": "2023-08-14 15:57:26",
+          "description": "Metamorfo is a Latin-American banking trojan operated by a Brazilian cybercrime group that has been active since at least April 2018. The group focuses on targeting banks and cryptocurrency services in Brazil and Mexico.",
+          "downloads": 259694,
+          "from": 0,
+          "index_selection": "public",
+          "md5_email": "4d210379b8e664f2597a15706a5061f8",
+          "modification_time": "2026-02-07 19:01:16",
+          "name": "S0455 - Metamorfo",
+          "percolator_id": "VQ_E9IkBYAdeK0KLMzWm",
+          "query": "classification:malicious AND blacklist.external_references.external_id:\"S0455\"",
+          "range": "now-365d",
+          "range_field": "modification_time",
+          "size": 50,
+          "sort": "modification_time_desc",
+          "subscription": [],
+          "tag": [
+            "feed",
+            "package:mitre",
+            "package:deprecated"
+          ]
+        },
+        "highlight": {
+          "tag": [
+            "<ins>feed</ins>"
+          ]
+        }
+      },
+      {
+        "_id": "VFveEXsBGb1u75L8tCaY",
+        "_index": "collection",
+        "_score": 0.0043124706,
+        "_source": {
+          "access": "public",
+          "author": "agomez",
+          "count_email": 0,
+          "count_hostname": 4,
+          "count_ipv4": 141,
+          "count_sample": 4057,
+          "count_url": 71,
+          "creation_time": "2021-08-04 15:53:32",
+          "description": "This feeds provides IOC's related to well known malware and threat actors that are normally interested in Industrial Sector plus specific malware families targeting these environments.",
+          "downloads": 568958,
+          "from": 0,
+          "md5_email": "4d210379b8e664f2597a15706a5061f8",
+          "modification_time": "2024-04-09 16:57:15",
+          "name": "Industrial Control Systems",
+          "percolator_id": "U1veEXsBGb1u75L8tCYL",
+          "query": "classification:malicious AND (blacklist.description:*industroyer* OR tag:apt33 OR tag:apt34 OR tag:sofacy OR tag:winnti OR tag:lazarus OR \"Gorgon\" OR tag:\"apt10\" OR blacklist.description:\"Mirai\")",
+          "range": "now-30d",
+          "range_field": "creation_time",
+          "size": 50,
+          "sort": "creation_time_desc",
+          "subscription": [],
+          "tag": [
+            "feed"
+          ],
+          "team_id": 77,
+          "team_md5_email": "30b1655da1a0601665c813a67609445a",
+          "team_name": "Maltiverse Research Team"
+        },
+        "highlight": {
+          "tag": [
+            "<ins>feed</ins>"
+          ]
+        }
+      },
+      {
+        "_id": "xROWtIYBgHqbhTfSMD4Z",
+        "_index": "collection",
+        "_score": 0.0043124706,
+        "_source": {
+          "access": "public",
+          "author": "agomez",
+          "count_email": 0,
+          "count_hostname": 11,
+          "count_ipv4": 0,
+          "count_sample": 29,
+          "count_url": 0,
+          "creation_time": "2023-03-06 01:43:06",
+          "description": "Emissary Panda is a Chinese threat group that is believed to be sponsored by the Chinese Government. The group has been active since at least 2010 and has targeted organizations in the aerospace, government, defense, technology, energy, manufacturing and gambling/betting sectors",
+          "downloads": 260639,
+          "from": 0,
+          "index_selection": "public",
+          "md5_email": "4d210379b8e664f2597a15706a5061f8",
+          "modification_time": "2026-02-07 19:00:59",
+          "name": "G0027 - Emissary Panda",
+          "percolator_id": "xBOWtIYBgHqbhTfSLz70",
+          "query": "classification:malicious AND blacklist.external_references.external_id:\"G0027\"",
+          "range_field": "creation_time",
+          "size": 50,
+          "sort": "modification_time_desc",
+          "subscription": [],
+          "tag": [
+            "feed",
+            "package:deprecated",
+            "package:mitre"
+          ]
+        },
+        "highlight": {
+          "tag": [
+            "<ins>feed</ins>"
+          ]
+        }
+      },
+      {
+        "_id": "fl-09IkBgHqbhTfS931H",
+        "_index": "collection",
+        "_score": 0.0043124706,
+        "_source": {
+          "access": "public",
+          "author": "agomez",
+          "count_email": 0,
+          "count_hostname": 32,
+          "count_ipv4": 0,
+          "count_sample": 22,
+          "count_url": 12,
+          "creation_time": "2023-08-14 15:40:47",
+          "description": "APT-C-36 is a suspected South America espionage group that has been active since at least 2018. The group mainly targets Colombian government institutions as well as important corporations in the financial sector, petroleum industry, and professional manufacturing.",
+          "downloads": 311214,
+          "from": 0,
+          "index_selection": "public",
+          "md5_email": "4d210379b8e664f2597a15706a5061f8",
+          "modification_time": "2026-02-07 18:52:34",
+          "name": "G0099 - APT-C-36",
+          "percolator_id": "fV-09IkBgHqbhTfS930L",
+          "query": "classification:malicious AND blacklist.external_references.external_id:\"G0099\"",
+          "range_field": "creation_time",
+          "size": 50,
+          "sort": "modification_time_desc",
+          "subscription": [],
+          "tag": [
+            "feed",
+            "package:mitre",
+            "package:deprecated"
+          ]
+        },
+        "highlight": {
+          "tag": [
+            "<ins>feed</ins>"
+          ]
+        }
+      },
+      {
+        "_id": "zPI4t4gBYAdeK0KLPyvT",
+        "_index": "collection",
+        "_score": 0.0043124706,
+        "_source": {
+          "access": "public",
+          "author": "agomez",
+          "count_email": 0,
+          "count_hostname": 9,
+          "count_ipv4": 0,
+          "count_sample": 434,
+          "count_url": 0,
+          "creation_time": "2023-06-14 00:04:56",
+          "description": "NETWIRE is a publicly available, multiplatform remote administration tool (RAT) that has been used by criminal and APT groups since at least 2012.",
+          "downloads": 225759,
+          "from": 0,
+          "index_selection": "public",
+          "md5_email": "4d210379b8e664f2597a15706a5061f8",
+          "modification_time": "2026-02-07 19:05:49",
+          "name": "S0198 - Netwire",
+          "percolator_id": "y_I4t4gBYAdeK0KLPyut",
+          "query": "blacklist.external_references.external_id:\"S0198\" AND classification:malicious",
+          "range": "now-1y",
+          "range_field": "creation_time",
+          "size": 50,
+          "sort": "modification_time_desc",
+          "subscription": [],
+          "tag": [
+            "feed",
+            "package:mitre",
+            "package:deprecated"
+          ]
+        },
+        "highlight": {
+          "tag": [
+            "<ins>feed</ins>"
+          ]
+        }
+      },
+      {
+        "_id": "aw_F9IkBYAdeK0KL2jWJ",
+        "_index": "collection",
+        "_score": 0.0043124706,
+        "_source": {
+          "access": "public",
+          "author": "agomez",
+          "count_email": 0,
+          "count_hostname": 2,
+          "count_ipv4": 0,
+          "count_sample": 4,
+          "count_url": 0,
+          "creation_time": "2023-08-14 15:59:14",
+          "description": "Crimson is a remote access Trojan that has been used by Transparent Tribe since at least 2016",
+          "downloads": 233822,
+          "from": 0,
+          "index_selection": "public",
+          "md5_email": "4d210379b8e664f2597a15706a5061f8",
+          "modification_time": "2026-02-07 19:02:00",
+          "name": "S0115 - Crimson",
+          "percolator_id": "EF_F9IkBgHqbhTfS2n9F",
+          "query": "classification:malicious AND blacklist.external_references.external_id:\"S0115\"",
+          "range": "now-365d",
+          "range_field": "modification_time",
+          "size": 50,
+          "sort": "modification_time_desc",
+          "subscription": [],
+          "tag": [
+            "feed",
+            "package:mitre",
+            "package:deprecated"
+          ]
+        },
+        "highlight": {
+          "tag": [
+            "<ins>feed</ins>"
+          ]
+        }
+      },
+      {
+        "_id": "kskDSoEB4jHUXfKtb4IZ",
+        "_index": "collection",
+        "_score": 0.0043124706,
+        "_source": {
+          "access": "public",
+          "author": "agomez",
+          "count_email": 0,
+          "count_hostname": 239,
+          "count_ipv4": 65,
+          "count_sample": 292,
+          "count_url": 286,
+          "creation_time": "2022-06-09 19:49:07",
+          "description": "Emotet is a Trojan that is primarily spread through spam emails (malspam). The infection may arrive either via malicious script, macro-enabled document files, or malicious link.",
+          "downloads": 3116672,
+          "from": 0,
+          "md5_email": "4d210379b8e664f2597a15706a5061f8",
+          "modification_time": "2026-02-07 19:18:33",
+          "name": "S0367 - Emotet",
+          "percolator_id": "kckDSoEB4jHUXfKtboKd",
+          "query": "blacklist.external_references.external_id:\"S0367\" AND classification:malicious",
+          "range": "now-30d",
+          "range_field": "modification_time",
+          "size": 50,
+          "sort": "modification_time_desc",
+          "subscription": [],
+          "tag": [
+            "feed",
+            "package:mitre",
+            "package:deprecated"
+          ],
+          "team_id": 77,
+          "team_name": "Maltiverse Research Team"
+        },
+        "highlight": {
+          "tag": [
+            "<ins>feed</ins>"
+          ]
+        }
+      },
+      {
+        "_id": "EIAO4HAB8jmkCY9e8HoL",
+        "_index": "collection",
+        "_score": 0.0043124706,
+        "_source": {
+          "access": "public",
+          "author": "agomez",
+          "count_email": 0,
+          "count_hostname": 167693,
+          "count_ip": 0,
+          "count_ipv4": 89,
+          "count_sample": 0,
+          "count_url": 82211,
+          "creation_time": "2020-03-15 21:17:20",
+          "description": "Contains Phishing URLs that an adversary uses normally via email or other communication channels to trick a victim into providing sensitive information like passwords or to infect a host.",
+          "downloads": 6348124,
+          "from": 0,
+          "md5_email": "4d210379b8e664f2597a15706a5061f8",
+          "modification_time": "2026-02-09 19:15:34",
+          "name": "T1566 - Phishing",
+          "percolator_id": "D4AO4HAB8jmkCY9e73qB",
+          "query": "blacklist.external_references.external_id:T1566 AND classification:malicious",
+          "range": "now-30d",
+          "range_field": "modification_time",
+          "size": 50,
+          "sort": "creation_time_desc",
+          "subscription": [],
+          "tag": [
+            "feed",
+            "package:siem",
+            "package:casb"
+          ],
+          "team_id": 77,
+          "team_md5_email": "30b1655da1a0601665c813a67609445a",
+          "team_name": "Maltiverse Research Team"
+        },
+        "highlight": {
+          "tag": [
+            "<ins>feed</ins>"
+          ]
+        }
+      }
+    ],
+    "max_score": 0.0043124706,
+    "total": {
+      "relation": "eq",
+      "value": 59
+    }
+  },
+  "timed_out": false,
+  "took": 10
+}

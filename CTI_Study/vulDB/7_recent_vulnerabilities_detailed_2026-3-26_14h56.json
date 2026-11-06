@@ -1,0 +1,1349 @@
+{
+    "response": {
+        "version": "3.86",
+        "format": "json",
+        "status": "200",
+        "lang": "en",
+        "items": 7,
+        "consumption": 7,
+        "remaining": 13,
+        "querylimit": 7,
+        "querylimitmax": 20,
+        "timestamp": "1774536976",
+        "rtt": 2,
+        "etag": "31e3-75ee-dcca"
+    },
+    "request": {
+        "timestamp": "1774536974",
+        "apikey": "valid",
+        "userid": "96189",
+        "details": 1,
+        "sort": "entry_timestamp_create",
+        "cti": 0,
+        "type": "recent",
+        "value": "7"
+    },
+    "result": [
+        {
+            "entry": {
+                "id": "353642",
+                "title": "code-projects Online Food Ordering System 1.0 /dbfood/localhost.sql file access",
+                "summary": "A vulnerability was found in code-projects Online Food Ordering System 1.0 (Project Management Software) and classified as problematic. Affected by this issue is some unknown functionality of the file /dbfood/localhost.sql. It is possible to mitigate the problem by applying the configuration setting .",
+                "details": {
+                    "affected": "A vulnerability was found in code-projects Online Food Ordering System 1.0 (Project Management Software) and classified as problematic.",
+                    "vulnerability": "Using CWE to declare the problem leads to CWE-552. The product makes files or directories accessible to unauthorized actors, even though they should not be.",
+                    "impact": "Impacted is confidentiality.",
+                    "exploit": "The exploit is available at github.com. It is declared as proof-of-concept. By approaching the search of inurl:dbfood/localhost.sql it is possible to find vulnerable targets with Google Hacking.",
+                    "countermeasure": "It is possible to mitigate the problem by applying the configuration setting ."
+                },
+                "timestamp": {
+                    "create": "1774535945",
+                    "change": "1774535945"
+                }
+            },
+            "software": {
+                "vendor": "code-projects",
+                "name": "Online Food Ordering System",
+                "version": [
+                    "1.0"
+                ],
+                "file": "/dbfood/localhost.sql",
+                "type": "Project Management Software",
+                "website": {
+                    "vendor": "https://code-projects.org/"
+                },
+                "license": {
+                    "type": "free"
+                },
+                "cpe": [
+                    "cpe:/a:code-projects:online_food_ordering_system:1.0"
+                ],
+                "cpe23": [
+                    "cpe:2.3:a:code-projects:online_food_ordering_system:1.0:*:*:*:*:*:*:*"
+                ]
+            },
+            "vulnerability": {
+                "risk": {
+                    "value": "1",
+                    "name": "low"
+                },
+                "class": "file access",
+                "cwe": "CWE-552",
+                "capec": [
+                    "127",
+                    "150"
+                ],
+                "attck": "T1083",
+                "cvss2": {
+                    "vuldb": {
+                        "basescore": "5.0",
+                        "tempscore": "4.1",
+                        "baseseverity": "Medium",
+                        "tempseverity": "Medium",
+                        "av": "N",
+                        "ac": "L",
+                        "au": "N",
+                        "ci": "P",
+                        "ii": "N",
+                        "ai": "N",
+                        "e": "POC",
+                        "rl": "W",
+                        "rc": "UR"
+                    }
+                },
+                "cvss3": {
+                    "meta": {
+                        "basescore": "5.3",
+                        "tempscore": "4.7",
+                        "baseseverity": "Medium",
+                        "tempseverity": "Medium"
+                    },
+                    "vuldb": {
+                        "confidence": "High",
+                        "basescore": "5.3",
+                        "tempscore": "4.7",
+                        "basevector": "AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N",
+                        "tempvector": "E:P/RL:W/RC:R",
+                        "baseseverity": "Medium",
+                        "tempseverity": "Medium",
+                        "av": "N",
+                        "ac": "L",
+                        "pr": "N",
+                        "ui": "N",
+                        "s": "U",
+                        "c": "L",
+                        "i": "N",
+                        "a": "N",
+                        "e": "P",
+                        "rl": "W",
+                        "rc": "R"
+                    }
+                },
+                "cvss4": {
+                    "vuldb": {
+                        "confidence": "High",
+                        "bscore": "6.9",
+                        "btscore": "5.5",
+                        "bvector": "AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N",
+                        "btvector": "AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N/E:P",
+                        "bseverity": "Medium",
+                        "btseverity": "Medium",
+                        "av": "N",
+                        "ac": "L",
+                        "at": "N",
+                        "pr": "N",
+                        "ui": "N",
+                        "vc": "L",
+                        "vi": "N",
+                        "va": "N",
+                        "sc": "N",
+                        "si": "N",
+                        "sa": "N",
+                        "e": "P"
+                    }
+                },
+                "timeline": [
+                    {
+                        "date": "1774479600",
+                        "event": "Advisory disclosed",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1774483200",
+                        "event": "VulDB entry created",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?recent.20260326",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1774535945",
+                        "event": "VulDB entry last update",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?id.353642",
+                        "color": "blue"
+                    }
+                ]
+            },
+            "advisory": {
+                "date": "1774479600",
+                "url": "https://github.com/ahmadmarz10-hub/CVEsMarz/blob/main/Online%20Food%20Ordering%20System%20in%20PHP%201.0%20%E2%80%93%20Sensitive%20Information%20Disclosure.md",
+                "reportconfidence": "uncorroborated"
+            },
+            "exploit": {
+                "availability": "1",
+                "publicity": "public",
+                "url": "https://github.com/ahmadmarz10-hub/CVEsMarz/blob/main/Online%20Food%20Ordering%20System%20in%20PHP%201.0%20%E2%80%93%20Sensitive%20Information%20Disclosure.md",
+                "physical": "No",
+                "local": "No",
+                "remote": "Yes",
+                "exploitability": "proof-of-concept",
+                "googlehack": "inurl:dbfood/localhost.sql",
+                "price": {
+                    "0day": "$0-$5k",
+                    "today": "$0-$5k"
+                }
+            },
+            "countermeasure": {
+                "remediationlevel": "workaround",
+                "name": "Config"
+            },
+            "source": {
+                "cve": {
+                    "id": "CVE-2026-4900"
+                },
+                "gcve": {
+                    "cve": "GCVE-0-2026-4900",
+                    "vuldb": "GCVE-100-353642"
+                },
+                "sciplabs": {
+                    "url": [
+                        "https://www.scip.ch/en/?labs.20161013"
+                    ]
+                }
+            },
+            "cna": {
+                "responsible": "VulDB"
+            }
+        },
+        {
+            "entry": {
+                "id": "353641",
+                "title": "code-projects Online Food Ordering System 1.0 /dbfood/food.php cuisines cross site scripting",
+                "summary": "A vulnerability has been found in code-projects Online Food Ordering System 1.0 (Project Management Software) and classified as problematic. Affected by this vulnerability is an unknown functionality of the file /dbfood/food.php. There is no information about possible countermeasures known. It may be suggested to replace the affected object with an alternative product.",
+                "details": {
+                    "affected": "A vulnerability has been found in code-projects Online Food Ordering System 1.0 (Project Management Software) and classified as problematic.",
+                    "vulnerability": "The manipulation of the argument cuisines with an unknown input leads to a unknown weakness. The CWE definition for the vulnerability is CWE-79. The product does not neutralize or incorrectly neutralizes user-controllable input before it is placed in output that is used as a web page that is served to other users.",
+                    "impact": "As an impact it is known to affect integrity.",
+                    "exploit": "It is possible to download the exploit at github.com. It is declared as proof-of-concept. By approaching the search of inurl:dbfood/food.php it is possible to find vulnerable targets with Google Hacking.",
+                    "countermeasure": "There is no information about possible countermeasures known. It may be suggested to replace the affected object with an alternative product."
+                },
+                "timestamp": {
+                    "create": "1774535943",
+                    "change": "1774535943"
+                }
+            },
+            "software": {
+                "vendor": "code-projects",
+                "name": "Online Food Ordering System",
+                "version": [
+                    "1.0"
+                ],
+                "file": "/dbfood/food.php",
+                "argument": "cuisines",
+                "type": "Project Management Software",
+                "website": {
+                    "vendor": "https://code-projects.org/"
+                },
+                "license": {
+                    "type": "free"
+                },
+                "cpe": [
+                    "cpe:/a:code-projects:online_food_ordering_system:1.0"
+                ],
+                "cpe23": [
+                    "cpe:2.3:a:code-projects:online_food_ordering_system:1.0:*:*:*:*:*:*:*"
+                ]
+            },
+            "vulnerability": {
+                "risk": {
+                    "value": "1",
+                    "name": "low"
+                },
+                "class": "cross site scripting",
+                "cwe": "CWE-79",
+                "capec": [
+                    "10",
+                    "209",
+                    "242"
+                ],
+                "attck": "T1059.007",
+                "cvss2": {
+                    "vuldb": {
+                        "basescore": "3.3",
+                        "tempscore": "2.8",
+                        "baseseverity": "Low",
+                        "tempseverity": "Low",
+                        "av": "N",
+                        "ac": "L",
+                        "au": "M",
+                        "ci": "N",
+                        "ii": "P",
+                        "ai": "N",
+                        "e": "POC",
+                        "rl": "ND",
+                        "rc": "UR"
+                    }
+                },
+                "cvss3": {
+                    "meta": {
+                        "basescore": "2.4",
+                        "tempscore": "2.2",
+                        "baseseverity": "Low",
+                        "tempseverity": "Low"
+                    },
+                    "vuldb": {
+                        "confidence": "High",
+                        "basescore": "2.4",
+                        "tempscore": "2.2",
+                        "basevector": "AV:N/AC:L/PR:H/UI:R/S:U/C:N/I:L/A:N",
+                        "tempvector": "E:P/RL:X/RC:R",
+                        "baseseverity": "Low",
+                        "tempseverity": "Low",
+                        "av": "N",
+                        "ac": "L",
+                        "pr": "H",
+                        "ui": "R",
+                        "s": "U",
+                        "c": "N",
+                        "i": "L",
+                        "a": "N",
+                        "e": "P",
+                        "rl": "X",
+                        "rc": "R"
+                    }
+                },
+                "cvss4": {
+                    "vuldb": {
+                        "confidence": "High",
+                        "bscore": "4.8",
+                        "btscore": "1.9",
+                        "bvector": "AV:N/AC:L/AT:N/PR:H/UI:P/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N",
+                        "btvector": "AV:N/AC:L/AT:N/PR:H/UI:P/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N/E:P",
+                        "bseverity": "Medium",
+                        "btseverity": "Low",
+                        "av": "N",
+                        "ac": "L",
+                        "at": "N",
+                        "pr": "H",
+                        "ui": "P",
+                        "vc": "N",
+                        "vi": "L",
+                        "va": "N",
+                        "sc": "N",
+                        "si": "N",
+                        "sa": "N",
+                        "e": "P"
+                    }
+                },
+                "timeline": [
+                    {
+                        "date": "1774479600",
+                        "event": "Advisory disclosed",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1774483200",
+                        "event": "VulDB entry created",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?recent.20260326",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1774535943",
+                        "event": "VulDB entry last update",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?id.353641",
+                        "color": "blue"
+                    }
+                ]
+            },
+            "advisory": {
+                "date": "1774479600",
+                "url": "https://github.com/ahmadmarz10-hub/CVEsMarz/blob/main/Stored%20Cross-Site%20Scripting%20(XSS)%20in%20Online%20Food%20Ordering%20System%20in%20PHP%20cuisines%20Parameter.md",
+                "reportconfidence": "uncorroborated"
+            },
+            "exploit": {
+                "availability": "1",
+                "publicity": "public",
+                "url": "https://github.com/ahmadmarz10-hub/CVEsMarz/blob/main/Stored%20Cross-Site%20Scripting%20(XSS)%20in%20Online%20Food%20Ordering%20System%20in%20PHP%20cuisines%20Parameter.md",
+                "physical": "No",
+                "local": "No",
+                "remote": "Yes",
+                "exploitability": "proof-of-concept",
+                "googlehack": "inurl:dbfood/food.php",
+                "price": {
+                    "0day": "$0-$5k",
+                    "today": "$0-$5k"
+                }
+            },
+            "countermeasure": {
+                "remediationlevel": "not defined"
+            },
+            "source": {
+                "cve": {
+                    "id": "CVE-2026-4899"
+                },
+                "gcve": {
+                    "cve": "GCVE-0-2026-4899",
+                    "vuldb": "GCVE-100-353641"
+                },
+                "sciplabs": {
+                    "url": [
+                        "https://www.scip.ch/en/?labs.20161013"
+                    ]
+                }
+            },
+            "cna": {
+                "responsible": "VulDB"
+            }
+        },
+        {
+            "entry": {
+                "id": "353640",
+                "title": "code-projects Online Food Ordering System 1.0 /dbfood/contact.php Name cross site scripting",
+                "summary": "A vulnerability, which was classified as problematic, was found in code-projects Online Food Ordering System 1.0 (Project Management Software). Affected is an unknown function of the file /dbfood/contact.php. There is no information about possible countermeasures known. It may be suggested to replace the affected object with an alternative product.",
+                "details": {
+                    "affected": "A vulnerability, which was classified as problematic, was found in code-projects Online Food Ordering System 1.0 (Project Management Software).",
+                    "vulnerability": "The manipulation of the argument name with an unknown input leads to a unknown weakness. CWE is classifying the issue as CWE-79. The product does not neutralize or incorrectly neutralizes user-controllable input before it is placed in output that is used as a web page that is served to other users.",
+                    "impact": "This is going to have an impact on integrity.",
+                    "exploit": "The exploit is shared for download at github.com. It is declared as proof-of-concept. By approaching the search of inurl:dbfood/contact.php it is possible to find vulnerable targets with Google Hacking.",
+                    "countermeasure": "There is no information about possible countermeasures known. It may be suggested to replace the affected object with an alternative product."
+                },
+                "timestamp": {
+                    "create": "1774535785",
+                    "change": "1774535785"
+                }
+            },
+            "software": {
+                "vendor": "code-projects",
+                "name": "Online Food Ordering System",
+                "version": [
+                    "1.0"
+                ],
+                "file": "/dbfood/contact.php",
+                "argument": "name",
+                "type": "Project Management Software",
+                "website": {
+                    "vendor": "https://code-projects.org/"
+                },
+                "license": {
+                    "type": "free"
+                },
+                "cpe": [
+                    "cpe:/a:code-projects:online_food_ordering_system:1.0"
+                ],
+                "cpe23": [
+                    "cpe:2.3:a:code-projects:online_food_ordering_system:1.0:*:*:*:*:*:*:*"
+                ]
+            },
+            "vulnerability": {
+                "risk": {
+                    "value": "1",
+                    "name": "low"
+                },
+                "class": "cross site scripting",
+                "cwe": "CWE-79",
+                "capec": [
+                    "10",
+                    "209",
+                    "242"
+                ],
+                "attck": "T1059.007",
+                "cvss2": {
+                    "vuldb": {
+                        "basescore": "5.0",
+                        "tempscore": "4.3",
+                        "baseseverity": "Medium",
+                        "tempseverity": "Medium",
+                        "av": "N",
+                        "ac": "L",
+                        "au": "N",
+                        "ci": "N",
+                        "ii": "P",
+                        "ai": "N",
+                        "e": "POC",
+                        "rl": "ND",
+                        "rc": "UR"
+                    }
+                },
+                "cvss3": {
+                    "meta": {
+                        "basescore": "4.3",
+                        "tempscore": "3.9",
+                        "baseseverity": "Medium",
+                        "tempseverity": "Low"
+                    },
+                    "vuldb": {
+                        "confidence": "High",
+                        "basescore": "4.3",
+                        "tempscore": "3.9",
+                        "basevector": "AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:N",
+                        "tempvector": "E:P/RL:X/RC:R",
+                        "baseseverity": "Medium",
+                        "tempseverity": "Low",
+                        "av": "N",
+                        "ac": "L",
+                        "pr": "N",
+                        "ui": "R",
+                        "s": "U",
+                        "c": "N",
+                        "i": "L",
+                        "a": "N",
+                        "e": "P",
+                        "rl": "X",
+                        "rc": "R"
+                    }
+                },
+                "cvss4": {
+                    "vuldb": {
+                        "confidence": "High",
+                        "bscore": "5.3",
+                        "btscore": "2.1",
+                        "bvector": "AV:N/AC:L/AT:N/PR:N/UI:P/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N",
+                        "btvector": "AV:N/AC:L/AT:N/PR:N/UI:P/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N/E:P",
+                        "bseverity": "Medium",
+                        "btseverity": "Low",
+                        "av": "N",
+                        "ac": "L",
+                        "at": "N",
+                        "pr": "N",
+                        "ui": "P",
+                        "vc": "N",
+                        "vi": "L",
+                        "va": "N",
+                        "sc": "N",
+                        "si": "N",
+                        "sa": "N",
+                        "e": "P"
+                    }
+                },
+                "timeline": [
+                    {
+                        "date": "1774479600",
+                        "event": "Advisory disclosed",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1774483200",
+                        "event": "VulDB entry created",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?recent.20260326",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1774535785",
+                        "event": "VulDB entry last update",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?id.353640",
+                        "color": "blue"
+                    }
+                ]
+            },
+            "advisory": {
+                "date": "1774479600",
+                "url": "https://github.com/ahmadmarz10-hub/CVEsMarz/blob/main/Stored%20Cross-Site%20Scripting%20(XSS)%20in%20Online%20Food%20Ordering%20System%20in%20PHP.md",
+                "reportconfidence": "uncorroborated"
+            },
+            "exploit": {
+                "availability": "1",
+                "publicity": "public",
+                "url": "https://github.com/ahmadmarz10-hub/CVEsMarz/blob/main/Stored%20Cross-Site%20Scripting%20(XSS)%20in%20Online%20Food%20Ordering%20System%20in%20PHP.md",
+                "physical": "No",
+                "local": "No",
+                "remote": "Yes",
+                "exploitability": "proof-of-concept",
+                "googlehack": "inurl:dbfood/contact.php",
+                "price": {
+                    "0day": "$0-$5k",
+                    "today": "$0-$5k"
+                }
+            },
+            "countermeasure": {
+                "remediationlevel": "not defined"
+            },
+            "source": {
+                "cve": {
+                    "id": "CVE-2026-4898"
+                },
+                "gcve": {
+                    "cve": "GCVE-0-2026-4898",
+                    "vuldb": "GCVE-100-353640"
+                },
+                "sciplabs": {
+                    "url": [
+                        "https://www.scip.ch/en/?labs.20161013"
+                    ]
+                }
+            },
+            "cna": {
+                "responsible": "VulDB"
+            }
+        },
+        {
+            "entry": {
+                "id": "353639",
+                "title": "Timo 2.0.3 Links Title cross site scripting",
+                "summary": "A vulnerability, which was classified as problematic, has been found in Timo 2.0.3. This issue affects some unknown processing of the component Links Handler. There is no information about possible countermeasures known. It may be suggested to replace the affected object with an alternative product.",
+                "details": {
+                    "affected": "A vulnerability, which was classified as problematic, has been found in Timo 2.0.3.",
+                    "vulnerability": "The manipulation of the argument title with an unknown input leads to a unknown weakness. Using CWE to declare the problem leads to CWE-79. The product does not neutralize or incorrectly neutralizes user-controllable input before it is placed in output that is used as a web page that is served to other users.",
+                    "impact": "Impacted is integrity.",
+                    "countermeasure": "There is no information about possible countermeasures known. It may be suggested to replace the affected object with an alternative product."
+                },
+                "timestamp": {
+                    "create": "1774535598",
+                    "change": "1774535598"
+                }
+            },
+            "software": {
+                "name": "Timo",
+                "version": [
+                    "2.0.3"
+                ],
+                "component": "Links Handler",
+                "argument": "title",
+                "cpe": [
+                    "cpe:/a:timo:timo:2.0.3"
+                ],
+                "cpe23": [
+                    "cpe:2.3:a:timo:timo:2.0.3:*:*:*:*:*:*:*"
+                ]
+            },
+            "vulnerability": {
+                "risk": {
+                    "value": "1",
+                    "name": "low"
+                },
+                "class": "cross site scripting",
+                "cwe": "CWE-79",
+                "capec": [
+                    "10",
+                    "209",
+                    "242"
+                ],
+                "attck": "T1059.007",
+                "cvss2": {
+                    "vuldb": {
+                        "basescore": "4.0",
+                        "tempscore": "3.8",
+                        "baseseverity": "Medium",
+                        "tempseverity": "Low",
+                        "av": "N",
+                        "ac": "L",
+                        "au": "S",
+                        "ci": "N",
+                        "ii": "P",
+                        "ai": "N",
+                        "e": "ND",
+                        "rl": "ND",
+                        "rc": "UR"
+                    }
+                },
+                "cvss3": {
+                    "meta": {
+                        "basescore": "3.5",
+                        "tempscore": "3.4",
+                        "baseseverity": "Low",
+                        "tempseverity": "Low"
+                    },
+                    "vuldb": {
+                        "confidence": "High",
+                        "basescore": "3.5",
+                        "tempscore": "3.4",
+                        "basevector": "AV:N/AC:L/PR:L/UI:R/S:U/C:N/I:L/A:N",
+                        "tempvector": "E:X/RL:X/RC:R",
+                        "baseseverity": "Low",
+                        "tempseverity": "Low",
+                        "av": "N",
+                        "ac": "L",
+                        "pr": "L",
+                        "ui": "R",
+                        "s": "U",
+                        "c": "N",
+                        "i": "L",
+                        "a": "N",
+                        "e": "X",
+                        "rl": "X",
+                        "rc": "R"
+                    }
+                },
+                "cvss4": {
+                    "vuldb": {
+                        "confidence": "High",
+                        "bscore": "5.1",
+                        "btscore": "5.1",
+                        "bvector": "AV:N/AC:L/AT:N/PR:L/UI:P/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N",
+                        "btvector": "AV:N/AC:L/AT:N/PR:L/UI:P/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N/E:X",
+                        "bseverity": "Medium",
+                        "btseverity": "Medium",
+                        "av": "N",
+                        "ac": "L",
+                        "at": "N",
+                        "pr": "L",
+                        "ui": "P",
+                        "vc": "N",
+                        "vi": "L",
+                        "va": "N",
+                        "sc": "N",
+                        "si": "N",
+                        "sa": "N",
+                        "e": "X"
+                    }
+                },
+                "timeline": [
+                    {
+                        "date": "1772578800",
+                        "event": "CVE reserved",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1774479600",
+                        "event": "Advisory disclosed",
+                        "diff": "+22 days",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1774483200",
+                        "event": "VulDB entry created",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?recent.20260326",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1774535598",
+                        "event": "VulDB entry last update",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?id.353639",
+                        "color": "blue"
+                    }
+                ]
+            },
+            "advisory": {
+                "date": "1774479600",
+                "url": "https://github.com/auntvt/Timo/issues/10",
+                "type": "Issue",
+                "reportconfidence": "uncorroborated"
+            },
+            "exploit": {
+                "physical": "No",
+                "local": "No",
+                "remote": "Yes",
+                "exploitability": "not defined",
+                "price": {
+                    "0day": "$0-$5k",
+                    "today": "$0-$5k"
+                }
+            },
+            "countermeasure": {
+                "remediationlevel": "not defined"
+            },
+            "source": {
+                "cve": {
+                    "id": "CVE-2026-30162",
+                    "assigned": "1772578800",
+                    "cna": "MITRE",
+                    "summary": "Cross Site Scripting (xss) vulnerability in Timo 2.0.3 via crafted links in the title field."
+                },
+                "gcve": {
+                    "cve": "GCVE-0-2026-30162",
+                    "vuldb": "GCVE-100-353639"
+                }
+            }
+        },
+        {
+            "entry": {
+                "id": "353638",
+                "title": "SolarWinds Observability Self-Hosted 2025.2/2025.2.1 cross site scripting",
+                "summary": "A vulnerability classified as problematic was found in SolarWinds Observability Self-Hosted 2025.2/2025.2.1. This vulnerability affects an unknown code block. Upgrading to version 2026.1.1 eliminates this vulnerability.",
+                "details": {
+                    "affected": "A vulnerability classified as problematic was found in SolarWinds Observability Self-Hosted 2025.2/2025.2.1.",
+                    "vulnerability": "The CWE definition for the vulnerability is CWE-79. The product does not neutralize or incorrectly neutralizes user-controllable input before it is placed in output that is used as a web page that is served to other users.",
+                    "impact": "As an impact it is known to affect integrity.",
+                    "countermeasure": "Upgrading to version 2026.1.1 eliminates this vulnerability."
+                },
+                "timestamp": {
+                    "create": "1774535589",
+                    "change": "1774535589"
+                }
+            },
+            "software": {
+                "vendor": "SolarWinds",
+                "name": "Observability Self-Hosted",
+                "version": [
+                    "2025.2",
+                    "2025.2.1"
+                ],
+                "website": {
+                    "vendor": "https://www.solarwinds.com/"
+                },
+                "license": {
+                    "type": "commercial"
+                },
+                "cpe": [
+                    "cpe:/a:solarwinds:observability_self-hosted:2025.2",
+                    "cpe:/a:solarwinds:observability_self-hosted:2025.2.1"
+                ],
+                "cpe23": [
+                    "cpe:2.3:a:solarwinds:observability_self-hosted:2025.2.1:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:solarwinds:observability_self-hosted:2025.2:*:*:*:*:*:*:*"
+                ]
+            },
+            "vulnerability": {
+                "risk": {
+                    "value": "1",
+                    "name": "low"
+                },
+                "class": "cross site scripting",
+                "cwe": "CWE-79",
+                "capec": [
+                    "10",
+                    "209",
+                    "242"
+                ],
+                "attck": "T1059.007",
+                "cvss2": {
+                    "vuldb": {
+                        "basescore": "2.2",
+                        "tempscore": "1.9",
+                        "baseseverity": "Low",
+                        "tempseverity": "Low",
+                        "av": "A",
+                        "ac": "L",
+                        "au": "M",
+                        "ci": "N",
+                        "ii": "P",
+                        "ai": "N",
+                        "e": "ND",
+                        "rl": "OF",
+                        "rc": "C"
+                    }
+                },
+                "cvss3": {
+                    "meta": {
+                        "basescore": "4.0",
+                        "tempscore": "3.9",
+                        "baseseverity": "Medium",
+                        "tempseverity": "Low"
+                    },
+                    "vuldb": {
+                        "confidence": "High",
+                        "basescore": "2.1",
+                        "tempscore": "2.0",
+                        "basevector": "AV:A/AC:L/PR:H/UI:R/S:U/C:N/I:L/A:N",
+                        "tempvector": "E:X/RL:O/RC:C",
+                        "baseseverity": "Low",
+                        "tempseverity": "Low",
+                        "av": "A",
+                        "ac": "L",
+                        "pr": "H",
+                        "ui": "R",
+                        "s": "U",
+                        "c": "N",
+                        "i": "L",
+                        "a": "N",
+                        "e": "X",
+                        "rl": "O",
+                        "rc": "C"
+                    },
+                    "cna": {
+                        "basescore": "5.9",
+                        "basevector": "AV:A/AC:L/PR:H/UI:R/S:U/C:H/I:H/A:N",
+                        "baseseverity": "Medium",
+                        "av": "A",
+                        "ac": "L",
+                        "pr": "H",
+                        "ui": "R",
+                        "s": "U",
+                        "c": "H",
+                        "i": "H",
+                        "a": "N"
+                    }
+                },
+                "cvss4": {
+                    "vuldb": {
+                        "confidence": "High",
+                        "bscore": "2.4",
+                        "btscore": "2.4",
+                        "bvector": "AV:A/AC:L/AT:N/PR:H/UI:P/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N",
+                        "btvector": "AV:A/AC:L/AT:N/PR:H/UI:P/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N/E:X",
+                        "bseverity": "Low",
+                        "btseverity": "Low",
+                        "av": "A",
+                        "ac": "L",
+                        "at": "N",
+                        "pr": "H",
+                        "ui": "P",
+                        "vc": "N",
+                        "vi": "L",
+                        "va": "N",
+                        "sc": "N",
+                        "si": "N",
+                        "sa": "N",
+                        "e": "X"
+                    }
+                },
+                "timeline": [
+                    {
+                        "date": "1772060400",
+                        "event": "CVE reserved",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1774479600",
+                        "event": "Advisory disclosed",
+                        "diff": "+28 days",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1774483200",
+                        "event": "VulDB entry created",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?recent.20260326",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1774535591",
+                        "event": "VulDB entry last update",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?id.353638",
+                        "color": "blue"
+                    }
+                ]
+            },
+            "advisory": {
+                "date": "1774479600",
+                "url": "https://www.solarwinds.com/trust-center/security-advisories/CVE-2026-28298",
+                "reportconfidence": "confirmed",
+                "person": {
+                    "name": "James Donlon-Armadin"
+                }
+            },
+            "exploit": {
+                "physical": "No",
+                "local": "No",
+                "remote": "Partially",
+                "exploitability": "not defined",
+                "price": {
+                    "0day": "$0-$5k",
+                    "today": "$0-$5k"
+                }
+            },
+            "countermeasure": {
+                "remediationlevel": "official fix",
+                "name": "Upgrade",
+                "upgrade": {
+                    "version": "2026.1.1"
+                }
+            },
+            "source": {
+                "cve": {
+                    "id": "CVE-2026-28298",
+                    "assigned": "1772060400",
+                    "cna": "SolarWinds",
+                    "summary": "SolarWinds Observability Self-Hosted was found to be affected by a stored cross-site scripting vulnerability, which when exploited, can lead to unintended script execution."
+                },
+                "gcve": {
+                    "cve": "GCVE-0-2026-28298",
+                    "vuldb": "GCVE-100-353638"
+                }
+            }
+        },
+        {
+            "entry": {
+                "id": "353637",
+                "title": "SolarWinds Observability Self-Hosted 2025.2/2025.2.1 cross site scripting",
+                "summary": "A vulnerability classified as problematic has been found in SolarWinds Observability Self-Hosted 2025.2/2025.2.1. This affects an unknown code. Upgrading to version 2026.1.1 eliminates this vulnerability.",
+                "details": {
+                    "affected": "A vulnerability classified as problematic has been found in SolarWinds Observability Self-Hosted 2025.2/2025.2.1.",
+                    "vulnerability": "CWE is classifying the issue as CWE-79. The product does not neutralize or incorrectly neutralizes user-controllable input before it is placed in output that is used as a web page that is served to other users.",
+                    "impact": "This is going to have an impact on integrity.",
+                    "countermeasure": "Upgrading to version 2026.1.1 eliminates this vulnerability."
+                },
+                "timestamp": {
+                    "create": "1774535576",
+                    "change": "1774535576"
+                }
+            },
+            "software": {
+                "vendor": "SolarWinds",
+                "name": "Observability Self-Hosted",
+                "version": [
+                    "2025.2",
+                    "2025.2.1"
+                ],
+                "website": {
+                    "vendor": "https://www.solarwinds.com/"
+                },
+                "license": {
+                    "type": "commercial"
+                },
+                "cpe": [
+                    "cpe:/a:solarwinds:observability_self-hosted:2025.2",
+                    "cpe:/a:solarwinds:observability_self-hosted:2025.2.1"
+                ],
+                "cpe23": [
+                    "cpe:2.3:a:solarwinds:observability_self-hosted:2025.2.1:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:solarwinds:observability_self-hosted:2025.2:*:*:*:*:*:*:*"
+                ]
+            },
+            "vulnerability": {
+                "risk": {
+                    "value": "1",
+                    "name": "low"
+                },
+                "class": "cross site scripting",
+                "cwe": "CWE-79",
+                "capec": [
+                    "10",
+                    "209",
+                    "242"
+                ],
+                "attck": "T1059.007",
+                "cvss2": {
+                    "vuldb": {
+                        "basescore": "2.2",
+                        "tempscore": "1.9",
+                        "baseseverity": "Low",
+                        "tempseverity": "Low",
+                        "av": "A",
+                        "ac": "L",
+                        "au": "M",
+                        "ci": "N",
+                        "ii": "P",
+                        "ai": "N",
+                        "e": "ND",
+                        "rl": "OF",
+                        "rc": "C"
+                    }
+                },
+                "cvss3": {
+                    "meta": {
+                        "basescore": "4.1",
+                        "tempscore": "4.0",
+                        "baseseverity": "Medium",
+                        "tempseverity": "Medium"
+                    },
+                    "vuldb": {
+                        "confidence": "High",
+                        "basescore": "2.1",
+                        "tempscore": "2.0",
+                        "basevector": "AV:A/AC:L/PR:H/UI:R/S:U/C:N/I:L/A:N",
+                        "tempvector": "E:X/RL:O/RC:C",
+                        "baseseverity": "Low",
+                        "tempseverity": "Low",
+                        "av": "A",
+                        "ac": "L",
+                        "pr": "H",
+                        "ui": "R",
+                        "s": "U",
+                        "c": "N",
+                        "i": "L",
+                        "a": "N",
+                        "e": "X",
+                        "rl": "O",
+                        "rc": "C"
+                    },
+                    "cna": {
+                        "basescore": "6.1",
+                        "basevector": "AV:A/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:N",
+                        "baseseverity": "Medium",
+                        "av": "A",
+                        "ac": "L",
+                        "pr": "H",
+                        "ui": "N",
+                        "s": "U",
+                        "c": "H",
+                        "i": "H",
+                        "a": "N"
+                    }
+                },
+                "cvss4": {
+                    "vuldb": {
+                        "confidence": "High",
+                        "bscore": "2.4",
+                        "btscore": "2.4",
+                        "bvector": "AV:A/AC:L/AT:N/PR:H/UI:P/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N",
+                        "btvector": "AV:A/AC:L/AT:N/PR:H/UI:P/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N/E:X",
+                        "bseverity": "Low",
+                        "btseverity": "Low",
+                        "av": "A",
+                        "ac": "L",
+                        "at": "N",
+                        "pr": "H",
+                        "ui": "P",
+                        "vc": "N",
+                        "vi": "L",
+                        "va": "N",
+                        "sc": "N",
+                        "si": "N",
+                        "sa": "N",
+                        "e": "X"
+                    }
+                },
+                "timeline": [
+                    {
+                        "date": "1772060400",
+                        "event": "CVE reserved",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1774479600",
+                        "event": "Advisory disclosed",
+                        "diff": "+28 days",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1774483200",
+                        "event": "VulDB entry created",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?recent.20260326",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1774535580",
+                        "event": "VulDB entry last update",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?id.353637",
+                        "color": "blue"
+                    }
+                ]
+            },
+            "advisory": {
+                "date": "1774479600",
+                "url": "https://www.solarwinds.com/trust-center/security-advisories/CVE-2026-28297",
+                "reportconfidence": "confirmed",
+                "person": {
+                    "name": "Steven Karschnia"
+                }
+            },
+            "exploit": {
+                "physical": "No",
+                "local": "No",
+                "remote": "Partially",
+                "exploitability": "not defined",
+                "price": {
+                    "0day": "$0-$5k",
+                    "today": "$0-$5k"
+                }
+            },
+            "countermeasure": {
+                "remediationlevel": "official fix",
+                "name": "Upgrade",
+                "upgrade": {
+                    "version": "2026.1.1"
+                }
+            },
+            "source": {
+                "cve": {
+                    "id": "CVE-2026-28297",
+                    "assigned": "1772060400",
+                    "cna": "SolarWinds",
+                    "summary": "SolarWinds Observability Self-Hosted was found to be affected by a stored cross-site scripting vulnerability, which when exploited, can lead to unintended script execution."
+                },
+                "gcve": {
+                    "cve": "GCVE-0-2026-28297",
+                    "vuldb": "GCVE-100-353637"
+                }
+            }
+        },
+        {
+            "entry": {
+                "id": "353636",
+                "title": "Siemens CPCI85 Central Processing Communication out-of-bounds write",
+                "summary": "A vulnerability was found in Siemens CPCI85 Central Processing Communication and SICORE Base system (the affected version unknown). It has been rated as critical. Affected by this issue is an unknown part. Upgrading eliminates this vulnerability.",
+                "details": {
+                    "affected": "A vulnerability was found in Siemens CPCI85 Central Processing Communication and SICORE Base system (the affected version unknown). It has been rated as critical.",
+                    "vulnerability": "Using CWE to declare the problem leads to CWE-787. The product writes data past the end, or before the beginning, of the intended buffer.",
+                    "impact": "Impacted is confidentiality, integrity, and availability.",
+                    "countermeasure": "Upgrading eliminates this vulnerability."
+                },
+                "timestamp": {
+                    "create": "1774535562",
+                    "change": "1774535562"
+                }
+            },
+            "software": {
+                "vendor": "Siemens",
+                "name": [
+                    "CPCI85 Central Processing Communication",
+                    "SICORE Base system"
+                ],
+                "website": {
+                    "vendor": "https://www.siemens.com/"
+                },
+                "license": {
+                    "type": "commercial"
+                },
+                "cpe": [
+                    "cpe:/a:siemens:cpci85_central_processing_communication",
+                    "cpe:/a:siemens:sicore_base_system"
+                ],
+                "cpe23": [
+                    "cpe:2.3:a:siemens:cpci85_central_processing_communication:*:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:siemens:sicore_base_system:*:*:*:*:*:*:*:*"
+                ]
+            },
+            "vulnerability": {
+                "risk": {
+                    "value": "2",
+                    "name": "medium"
+                },
+                "class": "out-of-bounds write",
+                "cwe": "CWE-787",
+                "capec": [
+                    "10"
+                ],
+                "cvss2": {
+                    "vuldb": {
+                        "basescore": "9.0",
+                        "tempscore": "7.8",
+                        "baseseverity": "High",
+                        "tempseverity": "High",
+                        "av": "N",
+                        "ac": "L",
+                        "au": "N",
+                        "ci": "P",
+                        "ii": "P",
+                        "ai": "C",
+                        "e": "ND",
+                        "rl": "OF",
+                        "rc": "C"
+                    }
+                },
+                "cvss3": {
+                    "meta": {
+                        "basescore": "8.1",
+                        "tempscore": "7.9",
+                        "baseseverity": "High",
+                        "tempseverity": "High"
+                    },
+                    "vuldb": {
+                        "confidence": "High",
+                        "basescore": "8.6",
+                        "tempscore": "8.2",
+                        "basevector": "AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:H",
+                        "tempvector": "E:X/RL:O/RC:C",
+                        "baseseverity": "High",
+                        "tempseverity": "High",
+                        "av": "N",
+                        "ac": "L",
+                        "pr": "N",
+                        "ui": "N",
+                        "s": "U",
+                        "c": "L",
+                        "i": "L",
+                        "a": "H",
+                        "e": "X",
+                        "rl": "O",
+                        "rc": "C"
+                    },
+                    "cna": {
+                        "basescore": "7.5",
+                        "basevector": "AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+                        "baseseverity": "High",
+                        "av": "N",
+                        "ac": "L",
+                        "pr": "N",
+                        "ui": "N",
+                        "s": "U",
+                        "c": "N",
+                        "i": "N",
+                        "a": "H"
+                    }
+                },
+                "cvss4": {
+                    "vuldb": {
+                        "confidence": "High",
+                        "bscore": "8.8",
+                        "btscore": "8.8",
+                        "bvector": "AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:L/VA:H/SC:N/SI:N/SA:N",
+                        "btvector": "AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:L/VA:H/SC:N/SI:N/SA:N/E:X",
+                        "bseverity": "High",
+                        "btseverity": "High",
+                        "av": "N",
+                        "ac": "L",
+                        "at": "N",
+                        "pr": "N",
+                        "ui": "N",
+                        "vc": "L",
+                        "vi": "L",
+                        "va": "H",
+                        "sc": "N",
+                        "si": "N",
+                        "sa": "N",
+                        "e": "X"
+                    },
+                    "cna": {
+                        "bscore": "8.7",
+                        "btscore": "8.7",
+                        "bvector": "AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N",
+                        "btvector": "AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N/E:X",
+                        "bseverity": "High",
+                        "btseverity": "High",
+                        "av": "N",
+                        "ac": "L",
+                        "at": "N",
+                        "pr": "N",
+                        "ui": "N",
+                        "vc": "N",
+                        "vi": "N",
+                        "va": "H",
+                        "sc": "N",
+                        "si": "N",
+                        "sa": "N",
+                        "e": "X"
+                    }
+                },
+                "timeline": [
+                    {
+                        "date": "1771801200",
+                        "event": "CVE reserved",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1774479600",
+                        "event": "Advisory disclosed",
+                        "diff": "+31 days",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1774483200",
+                        "event": "VulDB entry created",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?recent.20260326",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1774535562",
+                        "event": "VulDB entry last update",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?id.353636",
+                        "color": "blue"
+                    }
+                ]
+            },
+            "advisory": {
+                "date": "1774479600",
+                "url": "https://cert-portal.siemens.com/productcert/html/ssa-246443.html",
+                "identifier": "ssa-246443",
+                "reportconfidence": "confirmed"
+            },
+            "exploit": {
+                "physical": "No",
+                "local": "No",
+                "remote": "Yes",
+                "exploitability": "not defined",
+                "price": {
+                    "0day": "$5k-$25k",
+                    "today": "$5k-$25k"
+                }
+            },
+            "countermeasure": {
+                "remediationlevel": "official fix",
+                "name": "Upgrade"
+            },
+            "source": {
+                "cve": {
+                    "id": "CVE-2026-27664",
+                    "assigned": "1771801200",
+                    "cna": "siemens",
+                    "summary": "A vulnerability has been identified in CPCI85 Central Processing/Communication (All versions < V26.10), SICORE Base system (All versions < V26.10.0). The affected application contains an out-of-bounds write vulnerability while parsing specially crafted XML inputs. This could allow an unauthenticated attacker to exploit this issue by sending a malicious XML request, which may cause the service to crash, resulting in a denial-of-service condition."
+                },
+                "gcve": {
+                    "cve": "GCVE-0-2026-27664",
+                    "vuldb": "GCVE-100-353636"
+                }
+            }
+        }
+    ]
+}

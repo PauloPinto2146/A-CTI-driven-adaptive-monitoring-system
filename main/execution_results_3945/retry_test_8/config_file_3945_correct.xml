@@ -1,0 +1,344 @@
+<Sysmon schemaversion="4.91">
+    <HashAlgorithms>SHA256</HashAlgorithms>
+    <EventFiltering>
+        <!--== Sysmon event 1 ==-->
+        <RuleGroup name="" groupRelation="or">
+            <!-- IOC: Wiseman executable with known SHA‑256 -->
+            <ProcessCreate onmatch="include">
+                <Image condition="end with">\wiseman.exe</Image>
+                <Hashes condition="is">ebba8f4342b65faccdd2a48be9f2654d3fa523360f17ff68d5498a453f76c205</Hashes>
+            </ProcessCreate>
+            <!-- IOC: WinInet DLL -->
+            <ProcessCreate onmatch="include">
+                <Image condition="end with">\wininet.dll</Image>
+            </ProcessCreate>
+            <!-- T1033 – System Owner/User Discovery (whoami) -->
+            <ProcessCreate onmatch="include">
+                <Image condition="end with">\whoami.exe</Image>
+            </ProcessCreate>
+            <!-- T1218.011 – Rundll32 Abuse (loading DLLs) -->
+            <ProcessCreate onmatch="include">
+                <Image condition="end with">\rundll32.exe</Image>
+                <CommandLine condition="contains">.dll</CommandLine>
+            </ProcessCreate>
+            <!-- T1543.003 – Windows Service Creation/Modification (sc.exe) -->
+            <ProcessCreate onmatch="include">
+                <Image condition="end with">\sc.exe</Image>
+                <CommandLine condition="contains">create</CommandLine>
+            </ProcessCreate>
+            <!-- T1082 – System Information Discovery (systeminfo) -->
+            <ProcessCreate onmatch="include">
+                <Image condition="end with">\systeminfo.exe</Image>
+            </ProcessCreate>
+            <!-- T1140 – Deobfuscate/Decode Files (certutil) -->
+            <ProcessCreate onmatch="include">
+                <Image condition="end with">\certutil.exe</Image>
+                <CommandLine condition="contains">-decode</CommandLine>
+            </ProcessCreate>
+            <!-- T1027 – Obfuscated Files or Information (PowerShell Base64) -->
+            <ProcessCreate onmatch="include">
+                <Image condition="end with">\powershell.exe</Image>
+                <CommandLine condition="contains">-EncodedCommand</CommandLine>
+            </ProcessCreate>
+            <!-- T1012 – Query Registry -->
+            <ProcessCreate onmatch="include">
+                <Image condition="end with">\reg.exe</Image>
+                <CommandLine condition="contains">query</CommandLine>
+            </ProcessCreate>
+            <!-- T1134 – Access Token Manipulation (runas) -->
+            <ProcessCreate onmatch="include">
+                <Image condition="end with">\runas.exe</Image>
+            </ProcessCreate>
+            <!-- T1018 – Remote System Discovery (net view) -->
+            <ProcessCreate onmatch="include">
+                <Image condition="end with">\net.exe</Image>
+                <CommandLine condition="contains">view</CommandLine>
+            </ProcessCreate>
+            <!-- T1018 – Remote System Discovery (ping) -->
+            <ProcessCreate onmatch="include">
+                <Image condition="end with">\ping.exe</Image>
+            </ProcessCreate>
+            <!-- T1018 – Remote System Discovery (tracert) -->
+            <ProcessCreate onmatch="include">
+                <Image condition="end with">\tracert.exe</Image>
+            </ProcessCreate>
+            <!-- T1016 – System Network Configuration Discovery (ipconfig) -->
+            <ProcessCreate onmatch="include">
+                <Image condition="end with">\ipconfig.exe</Image>
+            </ProcessCreate>
+            <!-- T1016 – System Network Configuration Discovery (ifconfig) -->
+            <ProcessCreate onmatch="include">
+                <Image condition="end with">\ifconfig.exe</Image>
+            </ProcessCreate>
+            <!-- T1016 – System Network Configuration Discovery (route) -->
+            <ProcessCreate onmatch="include">
+                <Image condition="end with">\route.exe</Image>
+            </ProcessCreate>
+            <!-- T1016 – System Network Configuration Discovery (arp) -->
+            <ProcessCreate onmatch="include">
+                <Image condition="end with">\arp.exe</Image>
+            </ProcessCreate>
+            <!-- T1021 – Remote Services (RDP) -->
+            <ProcessCreate onmatch="include">
+                <Image condition="end with">\mstsc.exe</Image>
+            </ProcessCreate>
+            <!-- T1021 – Remote Services (PsExec) -->
+            <ProcessCreate onmatch="include">
+                <Image condition="end with">\psexec.exe</Image>
+            </ProcessCreate>
+        </RuleGroup>
+        <!--== Sysmon event 3 ==-->
+        <RuleGroup name="" groupRelation="or">
+            <NetworkConnect onmatch="include">
+                <!-- IOC: wiseman.exe -->
+                <Image condition="image">wiseman.exe</Image>
+                <!-- BEHAVIOR: Rundll32 usage -->
+                <Image condition="image">rundll32.exe</Image>
+                <!-- BEHAVIOR: DNS tunneling (UDP to port 53) -->
+                <Rule groupRelation="and">
+                    <Protocol condition="is">udp</Protocol>
+                    <DestinationPort condition="is">53</DestinationPort>
+                </Rule>
+                <!-- BEHAVIOR: Remote Services - RDP -->
+                <DestinationPort condition="is">3389</DestinationPort>
+                <!-- BEHAVIOR: Remote Services - SSH -->
+                <DestinationPort condition="is">22</DestinationPort>
+                <!-- BEHAVIOR: Remote System Discovery / SMB -->
+                <DestinationPort condition="is">445</DestinationPort>
+            </NetworkConnect>
+        </RuleGroup>
+        <!--== Sysmon event 6 ==-->
+        <RuleGroup name="" groupRelation="or">
+            <DriverLoad onmatch="include">
+                <!-- Drivers loaded from user‑writable locations -->
+                <Rule groupRelation="or">
+                    <ImageLoaded condition="begin with">C:\Users\</ImageLoaded>
+                </Rule>
+                <Rule groupRelation="or">
+                    <ImageLoaded condition="begin with">C:\Temp\</ImageLoaded>
+                </Rule>
+                <!-- Unsigned drivers -->
+                <Rule groupRelation="and">
+                    <Signed condition="is">false</Signed>
+                </Rule>
+                <!-- Drivers with invalid or missing signatures -->
+                <Rule groupRelation="and">
+                    <SignatureStatus condition="is not">Valid</SignatureStatus>
+                </Rule>
+            </DriverLoad>
+        </RuleGroup>
+        <!--== Sysmon event 7 ==-->
+        <RuleGroup name="" groupRelation="or">
+            <ImageLoad onmatch="include">
+                <Rule groupRelation="and">
+                    <Hashes condition="is">ebba8f4342b65faccdd2a48be9f2654d3fa523360f17ff68d5498a453f76c205</Hashes>
+                </Rule>
+                <Rule groupRelation="and">
+                    <Hashes condition="is">fda9864b1aa230b60d0c736559415ac9c79e240cce411daed5da2facb9ced87c</Hashes>
+                </Rule>
+                <Rule groupRelation="and">
+                    <Image condition="end with">rundll32.exe</Image>
+                    <ImageLoaded condition="end with">.dll</ImageLoaded>
+                </Rule>
+                <Rule groupRelation="and">
+                    <Image condition="end with">rundll32.exe</Image>
+                    <ImageLoaded condition="end with">.cpl</ImageLoaded>
+                </Rule>
+                <Rule groupRelation="and">
+                    <Image condition="end with">rundll32.exe</Image>
+                    <ImageLoaded condition="contains">javascript:</ImageLoaded>
+                </Rule>
+                <Rule groupRelation="and">
+                    <Image condition="end with">rundll32.exe</Image>
+                    <Signed condition="is">false</Signed>
+                </Rule>
+                <Rule groupRelation="and">
+                    <Image condition="end with">rundll32.exe</Image>
+                    <SignatureStatus condition="is not">Valid</SignatureStatus>
+                </Rule>
+                <Rule groupRelation="and">
+                    <Image condition="end with">rundll32.exe</Image>
+                    <ImageLoaded condition="begin with">\\</ImageLoaded>
+                </Rule>
+                <Rule groupRelation="and">
+                    <Image condition="end with">rundll32.exe</Image>
+                    <ImageLoaded condition="begin with">http://</ImageLoaded>
+                </Rule>
+                <Rule groupRelation="and">
+                    <Image condition="end with">rundll32.exe</Image>
+                    <ImageLoaded condition="begin with">https://</ImageLoaded>
+                </Rule>
+            </ImageLoad>
+        </RuleGroup>
+        <!--== Sysmon event 10 ==-->
+        <RuleGroup name="" groupRelation="or">
+            <!-- IOC: wiseman.exe accessing LSASS -->
+            <ProcessAccess onmatch="include">
+                <Rule groupRelation="and">
+                    <SourceImage condition="is">wiseman.exe</SourceImage>
+                    <TargetImage condition="is">lsass.exe</TargetImage>
+                    <GrantedAccess condition="contains any">PROCESS_VM_READ;PROCESS_DUP_HANDLE</GrantedAccess>
+                </Rule>
+            </ProcessAccess>
+            <!-- BEHAVIOR: Any process accessing LSASS with high‑privilege rights (T1134) -->
+            <ProcessAccess onmatch="include">
+                <Rule groupRelation="and">
+                    <TargetImage condition="is">lsass.exe</TargetImage>
+                    <GrantedAccess condition="contains any">PROCESS_QUERY_INFORMATION;PROCESS_VM_READ;PROCESS_DUP_HANDLE;PROCESS_CREATE_PROCESS</GrantedAccess>
+                </Rule>
+            </ProcessAccess>
+            <!-- DERIVED: Post‑exploit SYSTEM‑level accesses after CVE‑2023‑27350 -->
+            <ProcessAccess onmatch="include">
+                <Rule groupRelation="and">
+                    <TargetImage condition="is">services.exe</TargetImage>
+                    <GrantedAccess condition="contains any">PROCESS_ALL_ACCESS</GrantedAccess>
+                </Rule>
+                <Rule groupRelation="and">
+                    <TargetImage condition="is">winlogon.exe</TargetImage>
+                    <GrantedAccess condition="contains any">PROCESS_ALL_ACCESS</GrantedAccess>
+                </Rule>
+            </ProcessAccess>
+        </RuleGroup>
+        <!--== Sysmon event 11 ==-->
+        <RuleGroup groupRelation="or">
+            <!-- IOC: Specific malicious filenames -->
+            <FileCreate onmatch="include">
+                <TargetFilename condition="is">wiseman.EXE</TargetFilename>
+            </FileCreate>
+            <FileCreate onmatch="include">
+                <TargetFilename condition="is">wininet.dll</TargetFilename>
+            </FileCreate>
+            <!-- BEHAVIOR: Rundll32 abuse with typical payload extensions -->
+            <FileCreate onmatch="include">
+                <Image condition="image">rundll32.exe</Image>
+                <TargetFilename condition="end with">.dll</TargetFilename>
+            </FileCreate>
+            <FileCreate onmatch="include">
+                <Image condition="image">rundll32.exe</Image>
+                <TargetFilename condition="end with">.cpl</TargetFilename>
+            </FileCreate>
+            <FileCreate onmatch="include">
+                <Image condition="image">rundll32.exe</Image>
+                <TargetFilename condition="end with">.sct</TargetFilename>
+            </FileCreate>
+            <FileCreate onmatch="include">
+                <Image condition="image">rundll32.exe</Image>
+                <TargetFilename condition="end with">.hta</TargetFilename>
+            </FileCreate>
+            <!-- BEHAVIOR: Creation of files commonly used for decoding/obfuscation -->
+            <FileCreate onmatch="include">
+                <TargetFilename condition="contains any">.txt;.cer;.b64;.zip;.7z;.enc</TargetFilename>
+            </FileCreate>
+        </RuleGroup>
+        <!--== Sysmon event 13 ==-->
+        <RuleGroup name="" groupRelation="or">
+            <!-- IOC: wiseman.EXE -->
+            <RegistryEvent onmatch="include">
+                <Image condition="end with">wiseman.EXE</Image>
+            </RegistryEvent>
+            <!-- IOC: wininet.dll -->
+            <RegistryEvent onmatch="include">
+                <Image condition="end with">wininet.dll</Image>
+            </RegistryEvent>
+            <!-- BEHAVIOR: Service creation/modification (ImagePath or any value) -->
+            <RegistryEvent onmatch="include">
+                <TargetObject condition="begin with">HKLM\SYSTEM\CurrentControlSet\Services</TargetObject>
+            </RegistryEvent>
+            <!-- BEHAVIOR: HKLM Run / RunOnce keys -->
+            <RegistryEvent onmatch="include">
+                <TargetObject condition="begin with">HKLM\Software\Microsoft\Windows\CurrentVersion\Run</TargetObject>
+            </RegistryEvent>
+            <!-- BEHAVIOR: HKCU Run / RunOnce keys -->
+            <RegistryEvent onmatch="include">
+                <TargetObject condition="begin with">HKCU\Software\Microsoft\Windows\CurrentVersion\Run</TargetObject>
+            </RegistryEvent>
+            <!-- BEHAVIOR: Policy Run key -->
+            <RegistryEvent onmatch="include">
+                <TargetObject condition="begin with">HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run</TargetObject>
+            </RegistryEvent>
+            <!-- BEHAVIOR: BootExecute -->
+            <RegistryEvent onmatch="include">
+                <TargetObject condition="begin with">HKLM\System\CurrentControlSet\Control\Session Manager\BootExecute</TargetObject>
+            </RegistryEvent>
+            <!-- BEHAVIOR: Winlogon Userinit -->
+            <RegistryEvent onmatch="include">
+                <TargetObject condition="begin with">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Userinit</TargetObject>
+            </RegistryEvent>
+            <!-- BEHAVIOR: Winlogon Shell -->
+            <RegistryEvent onmatch="include">
+                <TargetObject condition="begin with">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Shell</TargetObject>
+            </RegistryEvent>
+        </RuleGroup>
+        <!--== Sysmon event 14 ==-->
+        <RuleGroup name="" groupRelation="or">
+            <RegistryEvent onmatch="include">
+                <Image condition="is">wiseman.exe</Image>
+            </RegistryEvent>
+        </RuleGroup>
+        <RuleGroup name="" groupRelation="or">
+            <RegistryEvent onmatch="include">
+                <Image condition="is">wininet.dll</Image>
+            </RegistryEvent>
+        </RuleGroup>
+        <RuleGroup name="" groupRelation="or">
+            <RegistryEvent onmatch="include">
+                <TargetObject condition="begin with">HKLM\Software\Microsoft\Windows\CurrentVersion\Run</TargetObject>
+            </RegistryEvent>
+        </RuleGroup>
+        <RuleGroup name="" groupRelation="or">
+            <RegistryEvent onmatch="include">
+                <TargetObject condition="begin with">HKLM\Software\Microsoft\Windows\CurrentVersion\RunOnce</TargetObject>
+            </RegistryEvent>
+        </RuleGroup>
+        <RuleGroup name="" groupRelation="or">
+            <RegistryEvent onmatch="include">
+                <TargetObject condition="begin with">HKLM\Software\Microsoft\Windows\CurrentVersion\RunServices</TargetObject>
+            </RegistryEvent>
+        </RuleGroup>
+        <RuleGroup name="" groupRelation="or">
+            <RegistryEvent onmatch="include">
+                <TargetObject condition="begin with">HKLM\System\CurrentControlSet\Services\</TargetObject>
+            </RegistryEvent>
+        </RuleGroup>
+        <!--== Sysmon event 22 ==-->
+        <RuleGroup name="" groupRelation="or">
+            <DnsQuery onmatch="include">
+                <Image condition="is">wiseman.EXE</Image>
+            </DnsQuery>
+            <DnsQuery onmatch="include">
+                <Image condition="is">rundll32.exe</Image>
+            </DnsQuery>
+            <DnsQuery onmatch="include">
+                <Image condition="is any">powershell.exe;python.exe;rundll32.exe</Image>
+            </DnsQuery>
+            <DnsQuery onmatch="include">
+                <Image condition="is any">net.exe;ping.exe;tracert.exe</Image>
+            </DnsQuery>
+        </RuleGroup>
+        <!--== Sysmon event 26 ==-->
+        <RuleGroup name="" groupRelation="or">
+            <FileDeleteDetected onmatch="include">
+                <!-- IOC: wiseman.EXE -->
+                <Rule groupRelation="and">
+                    <TargetFilename condition="contains">wiseman.EXE</TargetFilename>
+                    <Hashes condition="is">ebba8f4342b65faccdd2a48be9f2654d3fa523360f17ff68d5498a453f76c205</Hashes>
+                    <IsExecutable condition="is">true</IsExecutable>
+                    <Archived condition="is">true</Archived>
+                </Rule>
+                <!-- IOC: wininet.dll -->
+                <Rule groupRelation="and">
+                    <TargetFilename condition="contains">wininet.dll</TargetFilename>
+                    <Hashes condition="is">fda9864b1aa230b60d0c736559415ac9c79e240cce411daed5da2facb9ced87c</Hashes>
+                    <IsExecutable condition="is">false</IsExecutable>
+                    <Archived condition="is">true</Archived>
+                </Rule>
+                <!-- BEHAVIOR: native file‑deletion utilities -->
+                <Rule groupRelation="and">
+                    <Image condition="contains any">del.exe;erase.exe;SDelete.exe;cmd.exe;powershell.exe</Image>
+                </Rule>
+            </FileDeleteDetected>
+        </RuleGroup>
+        <!--== Sysmon event 5 ==-->
+        <ProcessTerminate onmatch="include" />
+    </EventFiltering>
+</Sysmon>

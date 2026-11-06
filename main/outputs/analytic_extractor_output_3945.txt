@@ -1,0 +1,161 @@
+==============================
+Analysing attack-pattern--03d7999c-1f4c-42cc-8373-e7690d318104 (1/19)
+==============================
+Encontrado ficheiro!
+Going to find "detects" relationships. Analysing 21025 files
+Found relationship:  relationship--8fdf3a18-e1c3-4db4-8f68-15121c910826
+Going to find detection strategies. Analysing 699 files
+Going to find analytics. Analysing 1758 files
+added:  EventCode=1
+==============================
+Analysing attack-pattern--045d0922-2310-4e60-b5e4-3302302cb3c5 (2/19)
+==============================
+Encontrado ficheiro!
+Going to find "detects" relationships. Analysing 21025 files
+Found relationship:  relationship--3b6dd089-2818-4717-9956-8829fe08f252
+Going to find detection strategies. Analysing 699 files
+Going to find analytics. Analysing 1758 files
+added:  EventCode=7
+added:  EventCode=11
+added:  EventCode=3, 22
+==============================
+Analysing attack-pattern--09a60ea3-a8d1-4ae5-976e-5783248b72a4 (3/19)
+==============================
+Encontrado ficheiro!
+Going to find "detects" relationships. Analysing 21025 files
+Found relationship:  relationship--4ebf6dc6-2daf-42e3-8fc3-4f6d5ac4d63d
+Going to find detection strategies. Analysing 699 files
+Going to find analytics. Analysing 1758 files
+added:  EventCode=10
+added:  EventCode=13, 14
+==============================
+Analysing attack-pattern--1996eef1-ced3-4d7f-bf94-33298cabbf72 (4/19)
+==============================
+Encontrado ficheiro!
+Going to find "detects" relationships. Analysing 21025 files
+Found relationship:  relationship--d0253b71-3eef-4c9a-bc0a-b936fbec1ea7
+Going to find detection strategies. Analysing 699 files
+Going to find analytics. Analysing 1758 files
+==============================
+Analysing attack-pattern--2959d63f-73fd-46a1-abd2-109d7dcede32 (5/19)
+==============================
+Encontrado ficheiro!
+Going to find "detects" relationships. Analysing 21025 files
+Found relationship:  relationship--67c2ad46-15c3-45d1-b209-4921f21eb8c3
+Going to find detection strategies. Analysing 699 files
+Going to find analytics. Analysing 1758 files
+added:  EventCode=6
+==============================
+Analysing attack-pattern--354a7f88-63fb-41b5-a801-ce3b377b36f1 (6/19)
+==============================
+Encontrado ficheiro!
+Going to find "detects" relationships. Analysing 21025 files
+Found relationship:  relationship--baaaccfe-3c16-4d6b-8b67-279d74ee8da4
+Going to find detection strategies. Analysing 699 files
+Going to find analytics. Analysing 1758 files
+==============================
+Analysing attack-pattern--3ccef7ae-cb5e-48f6-8302-897105fbf55c (7/19)
+==============================
+Encontrado ficheiro!
+Going to find "detects" relationships. Analysing 21025 files
+Found relationship:  relationship--9c92cb61-d6a7-4dc3-9bf8-1ebcc1b2cc73
+Going to find detection strategies. Analysing 699 files
+Going to find analytics. Analysing 1758 files
+==============================
+Analysing attack-pattern--42e8de7b-37b2-4258-905a-6897815e58e0 (8/19)
+==============================
+Encontrado ficheiro!
+Going to find "detects" relationships. Analysing 21025 files
+Found relationship:  relationship--f6da021e-aaec-4010-baa9-1a02d9e40f9b
+Going to find detection strategies. Analysing 699 files
+Going to find analytics. Analysing 1758 files
+==============================
+Analysing attack-pattern--54a649ff-439a-41a4-9856-8d144a2551ba (9/19)
+==============================
+Encontrado ficheiro!
+Going to find "detects" relationships. Analysing 21025 files
+Found relationship:  relationship--84cda73f-83eb-490a-a7ad-1b72f787ecd9
+Going to find detection strategies. Analysing 699 files
+Going to find analytics. Analysing 1758 files
+==============================
+Analysing attack-pattern--57340c81-c025-4189-8fa0-fc7ede51bae4 (10/19)
+==============================
+Encontrado ficheiro!
+Going to find "detects" relationships. Analysing 21025 files
+Found relationship:  relationship--964280e0-838f-4d22-a1e6-70a853be314a
+Going to find detection strategies. Analysing 699 files
+Going to find analytics. Analysing 1758 files
+==============================
+Analysing attack-pattern--707399d6-ab3e-4963-9315-d9d3818cd6a0 (11/19)
+==============================
+Encontrado ficheiro!
+Going to find "detects" relationships. Analysing 21025 files
+Found relationship:  relationship--229b177b-8a94-4206-b6d9-9c295604df22
+Going to find detection strategies. Analysing 699 files
+Going to find analytics. Analysing 1758 files
+==============================
+Analysing attack-pattern--9efb1ea7-c37b-4595-9640-b7680cd84279 (12/19)
+==============================
+Encontrado ficheiro!
+Going to find "detects" relationships. Analysing 21025 files
+Found relationship:  relationship--78cd373e-443f-46e5-bde8-b05b15ca3d1e
+Going to find detection strategies. Analysing 699 files
+Going to find analytics. Analysing 1758 files
+==============================
+Analysing attack-pattern--b3d682b6-98f2-4fb0-aa3b-b4df007ca70a (13/19)
+==============================
+Encontrado ficheiro!
+Going to find "detects" relationships. Analysing 21025 files
+Found relationship:  relationship--f1b0ce50-319c-455f-a8b2-a90f32310364
+Going to find detection strategies. Analysing 699 files
+Going to find analytics. Analysing 1758 files
+==============================
+Analysing attack-pattern--c32f7008-9fea-41f7-8366-5eb9b74bd896 (14/19)
+==============================
+Encontrado ficheiro!
+Going to find "detects" relationships. Analysing 21025 files
+Found relationship:  relationship--e4fec267-da7b-4c33-bf87-d3b2fc2b0513
+Going to find detection strategies. Analysing 699 files
+Going to find analytics. Analysing 1758 files
+==============================
+Analysing attack-pattern--d1fcf083-a721-4223-aedf-bf8960798d62 (15/19)
+==============================
+Encontrado ficheiro!
+Going to find "detects" relationships. Analysing 21025 files
+Found relationship:  relationship--ebad757b-f342-4ba1-8695-df0c69952904
+Going to find detection strategies. Analysing 699 files
+Going to find analytics. Analysing 1758 files
+==============================
+Analysing attack-pattern--d63a3fb8-9452-4e9d-a60a-54be68d5998c (16/19)
+==============================
+Encontrado ficheiro!
+Going to find "detects" relationships. Analysing 21025 files
+Found relationship:  relationship--835140e8-6e8f-4a51-a555-5b602d7b3390
+Going to find detection strategies. Analysing 699 files
+Going to find analytics. Analysing 1758 files
+added:  EventCode=23
+==============================
+Analysing attack-pattern--dcaa092b-7de9-4a21-977f-7fcb77e89c48 (17/19)
+==============================
+Encontrado ficheiro!
+Going to find "detects" relationships. Analysing 21025 files
+Found relationship:  relationship--d4efc88e-7544-42f4-ae47-a73acc22885a
+Going to find detection strategies. Analysing 699 files
+Going to find analytics. Analysing 1758 files
+==============================
+Analysing attack-pattern--e358d692-23c0-4a31-9eb6-ecc13a8d7735 (18/19)
+==============================
+Encontrado ficheiro!
+Going to find "detects" relationships. Analysing 21025 files
+Found relationship:  relationship--1a34cffa-3bac-4b7f-a011-4d09aca360b6
+Going to find detection strategies. Analysing 699 files
+Going to find analytics. Analysing 1758 files
+==============================
+Analysing attack-pattern--f7827069-0bf2-4764-af4f-23fae0d181b7 (19/19)
+==============================
+Encontrado ficheiro!
+Going to find "detects" relationships. Analysing 21025 files
+Found relationship:  relationship--2dbc5b6f-4cc1-4073-a93b-2b8277263b7f
+Going to find detection strategies. Analysing 699 files
+Going to find analytics. Analysing 1758 files
+Ended data search. Organizing it now.

@@ -1,0 +1,12 @@
+<Sysmon schemaversion="4.30">
+  <EventFiltering>
+		<RuleGroup name="" groupRelation="or">
+			<FileCreate onmatch="include">
+				<Rule groupRelation="and" name="technique_id=T1203,technique_name=Exploitation for Client Execution">
+					<Image condition="end with">\WINWORD.EXE</Image>
+					<TargetFilename condition="contains any">.cab;.inf</TargetFilename>
+				</Rule>
+			</FileCreate>
+		</RuleGroup>
+  </EventFiltering>
+</Sysmon>

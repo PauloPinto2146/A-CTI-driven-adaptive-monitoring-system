@@ -1,0 +1,9 @@
+[BEHAVIOR] EventType: SetValue, Image: reg.exe | TargetObject: HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\*, Details: DWORD/QWORD write (persistence) | Source: T1112  
+[BEHAVIOR] EventType: SetValue, Image: reg.exe | TargetObject: HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\*, Details: DWORD/QWORD write (persistence) | Source: T1112  
+[BEHAVIOR] EventType: SetValue, Image: reg.exe | TargetObject: HKLM\SYSTEM\CurrentControlSet\Services\*\ImagePath, Details: DWORD/QWORD write (service execution) | Source: T1569.002  
+[BEHAVIOR] EventType: SetValue, Image: reg.exe | TargetObject: HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Userinit, Details: DWORD/QWORD write (credential‑stealing / persistence) | Source: T1112  
+[BEHAVIOR] EventType: SetValue, Image: reg.exe | TargetObject: HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\SafeDllSearchMode, Details: DWORD/QWORD write (defense evasion) | Source: T1112  
+[DERIVED] EventType: SetValue, Image: bcdedit.exe | TargetObject: HKLM\System\CurrentControlSet\Control\Recovery\RecoveryEnabled, Details: DWORD/QWORD write (disable recovery) | Source: T1490  
+
+**Explanation for omitted IOC filenames**  
+The provided list of malicious filenames (e.g., *h3odp7l2u.exe*, *inc.exe*, etc.) are file‑based indicators of compromise. Sysmon Event ID 13 records only Registry value changes (SetValue events) and does not capture file creation, execution, or hash information. Consequently, none of those IOC filenames can be observed or correlated via this event type, so they were excluded from the registry‑focused monitoring recommendations.

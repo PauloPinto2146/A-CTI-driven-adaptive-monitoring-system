@@ -1,0 +1,8 @@
+graphviz
+dotenv
+psutil
+requests
+windows_tools
+matplotlib
+mitreattack-python
+ollama

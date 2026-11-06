@@ -1,0 +1,5 @@
+[IOC] Monitor process‑access events where **SourceImage** equals `wiseman.EXE` (any TargetImage, any GrantedAccess) | Source: IOC filename wiseman.EXE  
+[BEHAVIOR] Monitor process‑access events where **TargetImage** is `winlogon.exe` or `osk.exe` and **GrantedAccess** includes high‑privilege flags such as PROCESS_VM_WRITE, PROCESS_CREATE_PROCESS, or PROCESS_VM_OPERATION (indicative of API‑hook injection for keylogging) | Source: ATT&CK T1056.001  
+[BEHAVIOR] Monitor process‑access events where **GrantedAccess** contains token‑related rights (e.g., TOKEN_DUPLICATE, TOKEN_IMPERSONATE, TOKEN_ADJUST_PRIVILEGES) that enable token stealing or impersonation | Source: ATT&CK T1134  
+
+*The indicator `wininet.dll` was omitted because Event ID 10 records inter‑process access, not DLL loading. The deobfuscation technique T1140 was omitted because it involves file/command decoding rather than a process opening another process, which cannot be captured by this event type.*

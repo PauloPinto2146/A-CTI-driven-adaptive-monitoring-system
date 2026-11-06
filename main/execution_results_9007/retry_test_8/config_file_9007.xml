@@ -1,0 +1,274 @@
+<Sysmon schemaversion="4.91">
+    <HashAlgorithms>SHA256</HashAlgorithms>
+    <EventFiltering>
+        <!--== Sysmon event 2 ==-->
+        <RuleGroup name="" groupRelation="or">
+            <FileCreateTime onmatch="include">
+                <!-- IOC filenames -->
+                <TargetFilename condition="end with">x86_64-unknown-linux-esxi.elf</TargetFilename>
+                <TargetFilename condition="end with">h3odp7l2u.exe</TargetFilename>
+                <TargetFilename condition="end with">hi9lezv.exe</TargetFilename>
+                <TargetFilename condition="end with">072wiof7.exe</TargetFilename>
+                <TargetFilename condition="end with">k0d649u.exe</TargetFilename>
+                <TargetFilename condition="end with">2026-03-08_ec37a6c4866b7324fce2f11b0e89c4c2_akira_cobalt-strike_glassworm_poet-rat</TargetFilename>
+                <TargetFilename condition="end with">2qfguc.exe</TargetFilename>
+                <TargetFilename condition="end with">7hhel.exe</TargetFilename>
+                <TargetFilename condition="end with">3ctjhm3.exe</TargetFilename>
+                <TargetFilename condition="end with">2026-04-08_78d359a87ae75ece08976e8b14d877fe_akira_cobalt-strike_glassworm_poet-rat</TargetFilename>
+                <TargetFilename condition="end with">bjiw49.exe</TargetFilename>
+                <TargetFilename condition="end with">7l73h.exe</TargetFilename>
+                <TargetFilename condition="end with">2026-04-11_a9bc032353bd246ba50af1b8d4849bfd_akira_cobalt-strike_glassworm_poet-rat</TargetFilename>
+                <TargetFilename condition="end with">0m6m882x2.exe</TargetFilename>
+                <TargetFilename condition="end with">inc.exe</TargetFilename>
+                <TargetFilename condition="end with">61pd6n3t.exe</TargetFilename>
+                <TargetFilename condition="end with">mk1yd.exe</TargetFilename>
+                <TargetFilename condition="end with">a3mnw9.exe</TargetFilename>
+                <TargetFilename condition="end with">win.bin</TargetFilename>
+                <TargetFilename condition="end with">vw06lg0y.exe</TargetFilename>
+                <TargetFilename condition="end with">qgp2s6z.exe</TargetFilename>
+                <TargetFilename condition="end with">tt24n8xsl.exe</TargetFilename>
+                <!-- BEHAVIOR: monitor timestamp changes on files in user document folders -->
+                <TargetFilename condition="contains">Documents</TargetFilename>
+                <!-- DERIVED: monitor timestamp changes when common ransomware utilities run -->
+                <Image condition="image">cipher.exe</Image>
+                <Image condition="image">vssadmin.exe</Image>
+            </FileCreateTime>
+        </RuleGroup>
+        <!--== Sysmon event 3 ==-->
+        <RuleGroup name="" groupRelation="or">
+            <NetworkConnect onmatch="include">
+                <!-- IOC: known malicious executables -->
+                <Rule name="MaliciousExecutables" groupRelation="or">
+                    <Image condition="image">h3odp7l2u.exe</Image>
+                    <Image condition="image">inc.exe</Image>
+                    <Image condition="image">2026-03-08_ec37a6c4866b7324fce2f11b0e89c4c2_akira_cobalt‑strike_glassworm_poet‑rat.exe</Image>
+                    <Image condition="image">2026-04-08_78d359a87ae75ece08976e8b14d877fe_akira_cobalt‑strike_glassworm_poet‑rat.exe</Image>
+                    <Image condition="image">2026-04-11_a9bc032353bd246ba50af1b8d4849bfd_akira_cobalt‑strike_glassworm_poet‑rat.exe</Image>
+                    <Image condition="image">x86_64-unknown-linux-esxi.elf</Image>
+                    <Image condition="image">hi9lezv.exe</Image>
+                    <Image condition="image">072wiof7.exe</Image>
+                    <Image condition="image">k0d649u.exe</Image>
+                    <Image condition="image">2qfguc.exe</Image>
+                    <Image condition="image">7hhel.exe</Image>
+                    <Image condition="image">3ctjhm3.exe</Image>
+                    <Image condition="image">bjiw49.exe</Image>
+                    <Image condition="image">7l73h.exe</Image>
+                    <Image condition="image">0m6m882x2.exe</Image>
+                    <Image condition="image">61pd6n3t.exe</Image>
+                    <Image condition="image">mk1yd.exe</Image>
+                    <Image condition="image">a3mnw9.exe</Image>
+                    <Image condition="image">win.bin</Image>
+                    <Image condition="image">vw06lg0y.exe</Image>
+                    <Image condition="image">qgp2s6z.exe</Image>
+                    <Image condition="image">tt24n8xsl.exe</Image>
+                </Rule>
+                <!-- IOC: known C2 / exfiltration domains -->
+                <Rule name="SuspiciousDomains" groupRelation="or">
+                    <DestinationHostname condition="is">incblog.su</DestinationHostname>
+                    <DestinationHostname condition="is">incblog6qu4y4mm4zvw5nrmue6qbwtgjsxpw6b7ixzssu36tsajldoad.onion</DestinationHostname>
+                    <DestinationHostname condition="is">incpaykabjqc2mtdxq6c23nqh4x6m5dkps5fr6vgdkgzp5njssx6qkid.onion</DestinationHostname>
+                </Rule>
+                <!-- BEHAVIOR: SMB admin share usage (T1021.002) -->
+                <Rule name="SMB445" groupRelation="and">
+                    <Protocol condition="is">tcp</Protocol>
+                    <DestinationPort condition="is">445</DestinationPort>
+                </Rule>
+                <Rule name="SMB139" groupRelation="and">
+                    <Protocol condition="is">tcp</Protocol>
+                    <DestinationPort condition="is">139</DestinationPort>
+                </Rule>
+                <!-- BEHAVIOR: RDP remote login (T1021.001) -->
+                <Rule name="RDP3389" groupRelation="and">
+                    <Protocol condition="is">tcp</Protocol>
+                    <DestinationPort condition="is">3389</DestinationPort>
+                </Rule>
+                <!-- BEHAVIOR: DNS traffic potentially used for MITM (T1557) -->
+                <Rule name="DNS53" groupRelation="and">
+                    <Protocol condition="is">tcp</Protocol>
+                    <DestinationPort condition="is">53</DestinationPort>
+                </Rule>
+                <!-- DERIVED: HTTP/HTTPS outbound (possible exfil – T1567) -->
+                <Rule name="WebOutbound80" groupRelation="and">
+                    <Protocol condition="is">tcp</Protocol>
+                    <DestinationPort condition="is">80</DestinationPort>
+                </Rule>
+                <Rule name="WebOutbound443" groupRelation="and">
+                    <Protocol condition="is">tcp</Protocol>
+                    <DestinationPort condition="is">443</DestinationPort>
+                </Rule>
+                <!-- DERIVED: Service execution tools (T1569.002) -->
+                <Rule name="ServiceBinaries" groupRelation="or">
+                    <Image condition="image">sc.exe</Image>
+                    <Image condition="image">net.exe</Image>
+                    <Image condition="image">services.exe</Image>
+                </Rule>
+            </NetworkConnect>
+        </RuleGroup>
+        <!--== Sysmon event 7 ==-->
+        <RuleGroup name="MaliciousImageLoad" groupRelation="or">
+            <ImageLoad onmatch="include">
+                <!-- IOC: malicious filenames and hashes -->
+                <Rule groupRelation="and">
+                    <ImageLoaded condition="contains any">x86_64-unknown-linux-esxi.elf;h3odp7l2u.exe;hi9lezv.exe;072wiof7.exe;k0d649u.exe;2026-03-08_ec37a6c4866b7324fce2f11b0e89c4c2_akira_cobalt-strike_glassworm_poet-rat;2qfguc.exe;7hhel.exe;3ctjhm3.exe;2026-04-08_78d359a87ae75ece08976e8b14d877fe_akira_cobalt-strike_glassworm_poet-rat;bjiw49.exe;7l73h.exe;2026-04-11_a9bc032353bd246ba50af1b8d4849bfd_akira_cobalt-strike_glassworm_poet-rat;0m6m882x2.exe;inc.exe;61pd6n3t.exe;mk1yd.exe;a3mnw9.exe;win.bin;vw06lg0y.exe;qgp2s6z.exe;tt24n8xsl.exe</ImageLoaded>
+                    <Hashes condition="contains any">6cd349eda0fa6c8b274a0920852c68f8b727afea1fdbc69ad183cef05d9cf141;acce811c4fc2a6e3fddd4231e386f1648ca44f039d2d275316bc0a0fc96e0af4;31800380c359143ae82c4f9011eee653dd22443d03d6a499148203bbfc275502;1898d056463284d849801cbdea6a3dec6c9f568f01569912c3868a5eea9a5449;1d10d8f5a420d0e4683b4cb40bcf0c984d1e7ea1f3b4442a00a525584632ac11;24f6c0ca39b2a5593086ff56d818ddfbde121f8e44d54faa762e510397dc9db7;589d9480fbfec2d8e61638eb0b537183d0f9977411fd1d2c0f8eb611feebe880;5cc212f84d2bf3fbab165aaf09b16e00fcf2f1ccd880d24b14404c53dcdbf241;60aeb9f7bccf377ff02ed64783e66a62c0f976878d9729b067bc7e5b0b9da9d6;6bf155b269d452f3c3b62832b27bbebe4da436e228dbf521155b1d5989e3743f;765508aa2ec6a1b73a76a23f4fa559d32355622748c91a46ed7b315eae2ee60a;7f37351979c249417cb180b4ede0ed17e5fe2a1f08add4d72606b589f8fdb245;8d1a22c430252f29611766b8e4a82af0fba60d609246463466b384d6d4793df4;90e46e89fec2108a1cb4850bb33e3563e92a14d04e1e613ac8c9311f152d294c;97aebda5482899fef84a24e456bff055acaa47e5ab4029f768d9e0c62a660ce2;bf8c45e5aa9551a17eefbd1d179422c32b4309c47ee9a3f315bb80ed6d4f7efc;d26bfb0147f60dc6500a9298d521ee67b49daaf4b8f8be54e7cc8fd86a597570;d65120291dee76c694f8bea54841f7f68329b499b28f4aee5ea5c9369a7432cb;dc9938f51150d13a69fc25f3f19052eacb1bf0a086fd5cf39762501fb3ddd7da;ea721240c14e3d14f8d88e0020880448c6c602f1180a1e5dbe40871cfeedcc22;f6a01d0246ce31faf6938ea488086d4358505405a4ef5c5faa482e79e92cb347;ff5da8f0330a4c581c37284c74aae2683c007dc6e406e1e2e6803e7bb398b77b</Hashes>
+                </Rule>
+                <!-- BEHAVIOR: vulnerable products -->
+                <Rule groupRelation="and">
+                    <Product condition="is any">SimpleHelp;FortiClientEMS;NetScaler</Product>
+                </Rule>
+                <!-- DERIVED: unsigned modules loaded by internet‑facing services -->
+                <Rule groupRelation="and">
+                    <Image condition="is any">w3wp.exe;httpd.exe;nginx.exe;svchost.exe</Image>
+                    <Signed condition="is">false</Signed>
+                </Rule>
+            </ImageLoad>
+        </RuleGroup>
+        <!--== Sysmon event 10 ==-->
+        <RuleGroup name="" groupRelation="or">
+            <ProcessAccess onmatch="include">
+                <!-- Credential dumping: LSASS access with read/query or full access -->
+                <Rule groupRelation="and">
+                    <TargetImage condition="image">lsass.exe</TargetImage>
+                    <GrantedAccess condition="contains any">0x0010;0x0400;0x1F0FFF;0x1F1FFF;0x1010;0x143A</GrantedAccess>
+                </Rule>
+                <!-- Packing/obfuscation: typical loaders creating threads / writing memory -->
+                <Rule groupRelation="and">
+                    <SourceImage condition="image">rundll32.exe;powershell.exe</SourceImage>
+                    <GrantedAccess condition="contains any">0x0002;0x0020</GrantedAccess>
+                </Rule>
+                <!-- Known malicious executables -->
+                <Rule groupRelation="and">
+                    <TargetImage condition="is any">h3odp7l2u.exe;hi9lezv.exe;072wiof7.exe;k0d649u.exe;2026-03-08_ec37a6c4866b7324fce2f11b0e89c4c2_akira_cobalt-strike_glassworm_poet-rat;2qfguc.exe;7hhel.exe;3ctjhm3.exe;2026-04-08_78d359a87ae75ece08976e8b14d877fe_akira_cobalt-strike_glassworm_poet-rat;bjiw49.exe;7l73h.exe;2026-04-11_a9bc032353bd246ba50af1b8d4849bfd_akira_cobalt-strike_glassworm_poet-rat;0m6m882x2.exe;inc.exe;61pd6n3t.exe;mk1yd.exe;a3mnw9.exe;win.bin;vw06lg0y.exe;qgp2s6z.exe;tt24n8xsl.exe</TargetImage>
+                </Rule>
+            </ProcessAccess>
+        </RuleGroup>
+        <!--== Sysmon event 11 ==-->
+        <RuleGroup name="" groupRelation="or">
+            <!-- IOC: specific malicious filenames -->
+            <FileCreate onmatch="include">
+                <TargetFilename condition="contains any">x86_64-unknown-linux-esxi.elf;h3odp7l2u.exe;hi9lezv.exe;072wiof7.exe;k0d649u.exe;2026-03-08_ec37a6c4866b7324fce2f11b0e89c4c2_akira_cobalt-strike_glassworm_poet-rat;2qfguc.exe;7hhel.exe;3ctjhm3.exe;2026-04-08_78d359a87ae75ece08976e8b14d877fe_akira_cobalt-strike_glassworm_poet-rat;bjiw49.exe;7l73h.exe;2026-04-11_a9bc032353bd246ba50af1b8d4849bfd_akira_cobalt-strike_glassworm_poet-rat;0m6m882x2.exe;inc.exe;61pd6n3t.exe;mk1yd.exe;a3mnw9.exe;win.bin;vw06lg0y.exe;qgp2s6z.exe;tt24n8xsl.exe</TargetFilename>
+            </FileCreate>
+            <!-- BEHAVIOR: Autostart locations (T1219) -->
+            <FileCreate onmatch="include">
+                <TargetFilename condition="contains">AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup</TargetFilename>
+            </FileCreate>
+            <FileCreate onmatch="include">
+                <TargetFilename condition="contains">ProgramData\Microsoft\Windows\Start Menu\Programs\Startup</TargetFilename>
+            </FileCreate>
+            <!-- BEHAVIOR: Temporary directories (T1567) -->
+            <FileCreate onmatch="include">
+                <TargetFilename condition="contains">\Temp\</TargetFilename>
+            </FileCreate>
+            <!-- BEHAVIOR: User Downloads folder (T1566) -->
+            <FileCreate onmatch="include">
+                <TargetFilename condition="contains">\Downloads\</TargetFilename>
+            </FileCreate>
+            <!-- BEHAVIOR: Ransomware encrypted files (T1486) -->
+            <FileCreate onmatch="include">
+                <TargetFilename condition="contains any">.enc;.locked;.rnd</TargetFilename>
+            </FileCreate>
+        </RuleGroup>
+        <!--== Sysmon event 12 ==-->
+        <RuleGroup name="" groupRelation="or">
+            <RegistryEvent onmatch="include">
+                <TargetObject condition="begin with">HKLM\SYSTEM\CurrentControlSet\Services\</TargetObject>
+                <TargetObject condition="begin with">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\</TargetObject>
+                <TargetObject condition="begin with">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce\</TargetObject>
+                <TargetObject condition="begin with">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\</TargetObject>
+                <TargetObject condition="begin with">HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce\</TargetObject>
+            </RegistryEvent>
+        </RuleGroup>
+        <!--== Sysmon event 13 ==-->
+        <!-- Include suspicious registry modifications related to T1112, T1219, and T1569.002 -->
+        <RuleGroup name="include_malicious_registry" groupRelation="or">
+            <RegistryEvent onmatch="include">
+                <TargetObject condition="begin with">HKLM\Software\Microsoft\Windows\CurrentVersion\Run\</TargetObject>
+            </RegistryEvent>
+            <RegistryEvent onmatch="include">
+                <TargetObject condition="begin with">HKCU\Software\Microsoft\Windows\CurrentVersion\Run\</TargetObject>
+            </RegistryEvent>
+            <RegistryEvent onmatch="include">
+                <TargetObject condition="begin with">HKLM\Software\Microsoft\Windows\CurrentVersion\RunOnce\</TargetObject>
+            </RegistryEvent>
+            <RegistryEvent onmatch="include">
+                <TargetObject condition="begin with">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Userinit</TargetObject>
+            </RegistryEvent>
+            <RegistryEvent onmatch="include">
+                <TargetObject condition="begin with">HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Shell</TargetObject>
+            </RegistryEvent>
+            <RegistryEvent onmatch="include">
+                <TargetObject condition="begin with">HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\SafeDllSearchMode</TargetObject>
+            </RegistryEvent>
+            <RegistryEvent onmatch="include">
+                <TargetObject condition="begin with">HKLM\SYSTEM\CurrentControlSet\Services\</TargetObject>
+                <TargetObject condition="end with">\ImagePath</TargetObject>
+            </RegistryEvent>
+            <RegistryEvent onmatch="include">
+                <TargetObject condition="begin with">HKLM\SYSTEM\CurrentControlSet\Services\</TargetObject>
+                <TargetObject condition="end with">\Start</TargetObject>
+            </RegistryEvent>
+            <RegistryEvent onmatch="include">
+                <TargetObject condition="begin with">HKLM\SYSTEM\CurrentControlSet\Services\</TargetObject>
+                <TargetObject condition="end with">\Description</TargetObject>
+            </RegistryEvent>
+        </RuleGroup>
+        <!-- Exclude well‑known benign registry activity -->
+        <RuleGroup name="exclude_benign_noise" groupRelation="or">
+            <RegistryEvent onmatch="exclude">
+                <Image condition="is">System</Image>
+            </RegistryEvent>
+        </RuleGroup>
+        <!--== Sysmon event 14 ==-->
+        <RuleGroup name="" groupRelation="or">
+            <!-- T1569.002 – Service execution via renamed service keys -->
+            <RegistryEvent onmatch="include">
+                <EventType condition="is">RenameKey</EventType>
+                <TargetObject condition="begin with">HKLM\SYSTEM\CurrentControlSet\Services\</TargetObject>
+            </RegistryEvent>
+            <!-- T1112 – Registry modifications for persistence (Run keys) -->
+            <RegistryEvent onmatch="include">
+                <EventType condition="is">RenameKey</EventType>
+                <TargetObject condition="begin with">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run</TargetObject>
+            </RegistryEvent>
+            <!-- T1112 – Registry modifications for security policy changes -->
+            <RegistryEvent onmatch="include">
+                <EventType condition="is">RenameKey</EventType>
+                <TargetObject condition="begin with">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\</TargetObject>
+            </RegistryEvent>
+        </RuleGroup>
+        <!--== Sysmon event 22 ==-->
+        <RuleGroup name="" groupRelation="or">
+            <DnsQuery onmatch="include">
+                <Image condition="end with">x86_64-unknown-linux-esxi.elf</Image>
+                <Image condition="end with">h3odp7l2u.exe</Image>
+                <Image condition="end with">hi9lezv.exe</Image>
+                <Image condition="end with">072wiof7.exe</Image>
+                <Image condition="end with">k0d649u.exe</Image>
+                <Image condition="end with">2026-03-08_ec37a6c4866b7324fce2f11b0e89c4c2_akira_cobalt-strike_glassworm_poet-rat</Image>
+                <Image condition="end with">2qfguc.exe</Image>
+                <Image condition="end with">7hhel.exe</Image>
+                <Image condition="end with">3ctjhm3.exe</Image>
+                <Image condition="end with">2026-04-08_78d359a87ae75ece08976e8b14d877fe_akira_cobalt-strike_glassworm_poet-rat</Image>
+                <Image condition="end with">bjiw49.exe</Image>
+                <Image condition="end with">7l73h.exe</Image>
+                <Image condition="end with">2026-04-11_a9bc032353bd246ba50af1b8d4849bfd_akira_cobalt-strike_glassworm_poet-rat</Image>
+                <Image condition="end with">0m6m882x2.exe</Image>
+                <Image condition="end with">inc.exe</Image>
+                <Image condition="end with">61pd6n3t.exe</Image>
+                <Image condition="end with">mk1yd.exe</Image>
+                <Image condition="end with">a3mnw9.exe</Image>
+                <Image condition="end with">win.bin</Image>
+                <Image condition="end with">vw06lg0y.exe</Image>
+                <Image condition="end with">qgp2s6z.exe</Image>
+                <Image condition="end with">tt24n8xsl.exe</Image>
+                <QueryName condition="is">incblog.su</QueryName>
+                <QueryName condition="is">incblog6qu4y4mm4zvw5nrmue6qbwtgjsxpw6b7ixzssu36tsajldoad.onion</QueryName>
+                <QueryName condition="is">incpaykabjqc2mtdxq6c23nqh4x6m5dkps5fr6vgdkgzp5njssx6qkid.onion</QueryName>
+            </DnsQuery>
+        </RuleGroup>
+        <!--== Sysmon event 1 ==-->
+        <ProcessCreate onmatch="exclude" />
+        <!--== Sysmon event 5 ==-->
+        <ProcessTerminate onmatch="include" />
+    </EventFiltering>
+</Sysmon>

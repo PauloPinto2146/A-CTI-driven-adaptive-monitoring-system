@@ -1,0 +1,926 @@
+{
+    "attack_pattern_names_from_event":
+    [
+        "T1190",
+        "T1059.001",
+        "T1021.001",
+        "T1562.001",
+        "T1497.001",
+        "T1071.001",
+        "T1572",
+        "T1041",
+        "T1486",
+        "T1567"
+    ],
+    "ioc_dict":
+    {
+        "ip-src":
+        [
+            "185.216.70.170",
+            "77.90.38.170",
+            "154.216.19.224",
+            "154.216.17.157",
+            "176.65.141.201",
+            "176.65.141.232",
+            "206.123.145.13"
+        ]
+    },
+    "cves":
+    [
+        "CVE-2023-48788"
+    ],
+    "context_dict":
+    {
+        "attack_pattern_context":
+        [
+            "\n\tThe attack pattern T1190-Exploit Public-Facing Application is described as:\n\t\"Adversaries may attempt to exploit a weakness in an Internet-facing host or system to initially access a network. The weakness in the system can be a software bug, a temporary glitch, or a misconfiguration.\n\"\n\t\t\n\n\t\tThe attack pattern T1190 is detected using DET0080 (Exploit Public-Facing Application – multi-signal correlation (request → error → post-exploit process/egress)) which has the following Windows analytics associated:\n\t\t- AN0219 descibed as: \"Adversary sends crafted HTTP/S (or other service) input to an Internet-facing app (IIS/ASP.NET, API, device portal). Chain: (1) abnormal request patterns to public endpoint → (2) elevated 4xx/5xx or unusual methods/paths → (3) server process (w3wp.exe/other service) spawns shell/LOLbins or loads non-standard modules → (4) optional outbound callback from the host/container.\" With mutable elements:\n\t\t\t. PublicVIPs: List of public IPs/hostnames that front apps; used to scope web log and Zeek/proxy data.\n\t\t\t. SuspiciousPatterns: Regex set for exploit-like inputs (../, union select, cmd=, ${jndi:, rO0AB (Java serialization), %00, ${env:}, ${${::-j}ndi}).\n\t\t\t. ErrorRateThreshold: Spike threshold for HTTP status 5xx/4xx per client or URI (e.g., >5 in 5m).\n\t\t\t. TimeWindow: Correlation horizon between request, error, process spawn, and egress (e.g., 15 minutes).\n\t\t\t. AllowedChildList: Known child processes of app pools (e.g., msbuild.exe in CI) to reduce false positives.\n",
+            "\n\tThe attack pattern T1059.001-PowerShell is described as:\n\t\"Adversaries may abuse PowerShell commands and scripts for execution. PowerShell is a powerful interactive command-line interface and scripting environment included in the Windows operating system.(Citation: TechNet PowerShell) Adversaries can use PowerShell to perform a number of actions, including discovery of information and execution of code. Examples include the <code>Start-Process</code> cmdlet which can be used to run an executable and the <code>Invoke-Command</code> cmdlet which runs a command locally or on a remote computer (though administrator permissions are required to use PowerShell to connect to remote systems).\n\"\n\t\t\n\n\t\tThe attack pattern T1059.001 is detected using DET0455 (Abuse of PowerShell for Arbitrary Execution) which has the following Windows analytics associated:\n\t\t- AN1252 descibed as: \"Detects behavioral chains where PowerShell is launched with encoded commands, unusual parent processes, or suspicious modules loaded, potentially followed by network connections or child process spawning. Supports detection of both direct (powershell.exe) and indirect (.NET automation) invocations.\" With mutable elements:\n\t\t\t. CommandLinePattern: Regex pattern for encoded, obfuscated, or hidden PowerShell arguments (e.g., '-enc', '-nop').\n\t\t\t. ParentProcessName: Filter based on abnormal parents like Excel, WinWord, or mshta spawning PowerShell.\n\t\t\t. TimeWindow: Scope detection to off-hours, lateral movement timeframes, or non-maintenance windows.\n\t\t\t. LoadedModuleList: Tuneable to monitor rare or never-before-seen .NET assemblies tied to PowerShell abuse.\n\t\t\t. ScriptBlockLengthThreshold: Adjustable threshold for length of script blocks logged by Event ID 4104 (useful for filtering noise).\n",
+            "\n\tThe attack pattern T1021.001-Remote Desktop Protocol is described as:\n\t\"Adversaries may use [Valid Accounts](https://attack.mitre.org/techniques/T1078) to log into a computer using the Remote Desktop Protocol (RDP). The adversary may then perform actions as the logged-on user.\n\"\n\t\t\n\n\t\tThe attack pattern T1021.001 is detected using DET0327 (Multi-event Detection Strategy for RDP-Based Remote Logins and Post-Access Activity) which has the following Windows analytics associated:\n\t\t- AN0931 descibed as: \"Remote Desktop (RDP) logon by a user followed by unusual process execution, file access, or lateral movement activity within a short timeframe.\" With mutable elements:\n\t\t\t. TimeWindow: Temporal threshold to correlate login with post-login activity (e.g., 5 minutes)\n\t\t\t. UserContext: Tune for non-admin users or service accounts expected to use RDP\n\t\t\t. ProcessList: Define suspicious post-login processes such as cmd.exe, powershell.exe, certutil.exe\n\t\t\t. HostAccessPatterns: Scope detection to uncommon or first-time access between source and destination hosts\n",
+            "\n\tThe attack pattern T1562.001-Disable or Modify Tools is described as:\n\t\"Adversaries may modify and/or disable security tools to avoid possible detection of their malware/tools and activities. This may take many forms, such as killing security software processes or services, modifying / deleting Registry keys or configuration files so that tools do not operate properly, or other methods to interfere with security tools scanning or reporting information. Adversaries may also disable updates to prevent the latest security patches from reaching tools on victim systems.(Citation: SCADAfence_ransomware)\n\"\n\t\t\n\n\t\t",
+            "\n\tThe attack pattern T1497.001-System Checks is described as:\n\t\"Adversaries may employ various system checks to detect and avoid virtualization and analysis environments. This may include changing behaviors based on the results of checks for the presence of artifacts indicative of a virtual machine environment (VME) or sandbox. If the adversary detects a VME, they may alter their malware to disengage from the victim or conceal the core functions of the implant. They may also search for VME artifacts before dropping secondary or additional payloads. Adversaries may use the information learned from [Virtualization/Sandbox Evasion](https://attack.mitre.org/techniques/T1497) during automated discovery to shape follow-on behaviors.(Citation: Deloitte Environment Awareness)\n\"\n\t\t\n\n\t\tThe attack pattern T1497.001 is detected using DET0168 (Virtualization/Sandbox Evasion via System Checks across Windows, Linux, macOS) which has the following Windows analytics associated:\n\t\t- AN0478 descibed as: \"Script or binary performs a rapid sequence of system discovery checks (e.g., CPU count, RAM size, registry keys, running processes) indicative of VM detection\" With mutable elements:\n\t\t\t. TimeWindow: Sequence of system enumeration events within X seconds\n\t\t\t. ProcessAncestry: Parent-child lineage to identify potentially suspicious launch sources (e.g., Office, browser, WMI, PowerShell)\n\t\t\t. UserContext: Limit to non-admin or interactive sessions if desired\n",
+            "\n\tThe attack pattern T1071.001-Web Protocols is described as:\n\t\"Adversaries may communicate using application layer protocols associated with web traffic to avoid detection/network filtering by blending in with existing traffic. Commands to the remote system, and often the results of those commands, will be embedded within the protocol traffic between the client and server. \n\"\n\t\t\n\n\t\tThe attack pattern T1071.001 is detected using DET0027 (Detection of Web Protocol-Based C2 Over HTTP, HTTPS, or WebSockets) which has the following Windows analytics associated:\n\t\t- AN0075 descibed as: \"Detects unexpected or high-volume HTTP/S/WebSocket communication from suspicious processes (e.g., PowerShell, rundll32) using uncommon user agents or mimicking browser traffic to unusual domains or IPs.\" With mutable elements:\n\t\t\t. ProcessNameExclusions: Filter out legitimate browser/network utilities\n\t\t\t. UserAgentAnomalies: Detect non-browser user-agents or spoofed headers\n\t\t\t. OutboundByteRatioThreshold: Flag when outbound > inbound volume by 90%+\n",
+            "\n\tThe attack pattern T1572-Protocol Tunneling is described as:\n\t\"Adversaries may tunnel network communications to and from a victim system within a separate protocol to avoid detection/network filtering and/or enable access to otherwise unreachable systems. Tunneling involves explicitly encapsulating a protocol within another. This behavior may conceal malicious traffic by blending in with existing traffic and/or provide an outer layer of encryption (similar to a VPN). Tunneling could also enable routing of network packets that would otherwise not reach their intended destination, such as SMB, RDP, or other traffic that would be filtered by network appliances or not routed over the Internet. \n\"\n\t\t\n\n\t\tThe attack pattern T1572 is detected using DET0538 (Detection Strategy for Protocol Tunneling accross OS platforms.) which has the following Windows analytics associated:\n\t\t- AN1483 descibed as: \"Processes such as plink.exe, ssh.exe, or netsh.exe establishing outbound network connections where traffic patterns show encapsulated protocols (e.g., RDP over SSH). Defender observations include anomalous process-to-network relationships, large asymmetric data flows, and port usage mismatches.\" With mutable elements:\n\t\t\t. AllowedTools: Whitelist legitimate tunneling tools (e.g., used by admins).\n\t\t\t. DataAsymmetryThreshold: Ratio of sent vs received bytes that indicates tunneling activity.\n\t\t\t. TimeWindow: Correlate process creation with network connection within N seconds.\n",
+            "\n\tThe attack pattern T1041-Exfiltration Over C2 Channel is described as:\n\t\"Adversaries may steal data by exfiltrating it over an existing command and control channel. Stolen data is encoded into the normal communications channel using the same protocol as command and control communications.\"\n\t\t\n\n\t\tThe attack pattern T1041 is detected using DET0348 (Detection Strategy for Exfiltration Over C2 Channel) which has the following Windows analytics associated:\n\t\t- AN0988 descibed as: \"Identifies suspicious outbound traffic volume mismatches from processes that typically do not generate network activity, particularly over C2 protocols like HTTPS, DNS, or custom TCP/UDP ports, following file or data access.\" With mutable elements:\n\t\t\t. DataVolumeThreshold: Set threshold for outbound transfer size exceeding typical C2 traffic (e.g., >1MB in <5min).\n\t\t\t. KnownBenignProcesses: List of approved processes that may exhibit high outbound traffic (e.g., updates).\n",
+            "\n\tThe attack pattern T1486-Data Encrypted for Impact is described as:\n\t\"Adversaries may encrypt data on target systems or on large numbers of systems in a network to interrupt availability to system and network resources. They can attempt to render stored data inaccessible by encrypting files or data on local and remote drives and withholding access to a decryption key. This may be done in order to extract monetary compensation from a victim in exchange for decryption or a decryption key (ransomware) or to render data permanently inaccessible in cases where the key is not saved or transmitted.(Citation: US-CERT Ransomware 2016)(Citation: FireEye WannaCry 2017)(Citation: US-CERT NotPetya 2017)(Citation: US-CERT SamSam 2018)\n\"\n\t\t\n\n\t\tThe attack pattern T1486 is detected using DET0215 (Detection of Multi-Platform File Encryption for Impact) which has the following Windows analytics associated:\n\t\t- AN0602 descibed as: \"High-frequency file write operations using uncommon extensions, followed by ransom note creation, registry tampering, or shadow copy deletion. Often uses CLI tools like vssadmin, wbadmin, cipher, or PowerShell.\" With mutable elements:\n\t\t\t. FileExtension: Non-standard or randomly generated file extensions may indicate encrypted content.\n\t\t\t. TargetFolder: Focus on user document folders, network shares, or system paths like %System32%.\n\t\t\t. TimeWindow: Correlate rapid writes and renames within seconds across high file count.\n\t\t\t. CommandLine: Flag common ransomware tools or functions (vssadmin delete shadows /all /quiet).\n",
+            "\n\tThe attack pattern T1567-Exfiltration Over Web Service is described as:\n\t\"Adversaries may use an existing, legitimate external Web service to exfiltrate data rather than their primary command and control channel. Popular Web services acting as an exfiltration mechanism may give a significant amount of cover due to the likelihood that hosts within a network are already communicating with them prior to compromise. Firewall rules may also already exist to permit traffic to these services.\n\"\n\t\t\n\n\t\tThe attack pattern T1567 is detected using DET0548 (Detection Strategy for Exfiltration Over Web Service) which has the following Windows analytics associated:\n\t\t- AN1511 descibed as: \"Processes that normally do not initiate network communications suddenly making outbound HTTPS connections with high outbound-to-inbound data ratios. Defender view: correlation between process creation logs (e.g., Word, Excel, PowerShell) and subsequent anomalous network traffic volumes toward common web services (Dropbox, Google Drive, OneDrive).\" With mutable elements:\n\t\t\t. MonitoredServices: List of legitimate web services to baseline (Dropbox, OneDrive, Google Drive).\n\t\t\t. ExfilVolumeThreshold: Outbound data threshold for flagging unusual activity, tunable by environment.\n\t\t\t. TimeWindow: Aggregation period to calculate anomalies in outbound data volume.\n"
+        ],
+        "ioc_context": "The following indicators of compromise have been reported in 1772455068 and with Medium threat level:\n\t- ip-src: 185.216.70.170 (org: Ipxo, AS: AS16509 Amazon.com, Inc.), 77.90.38.170 (org: GHOSTNET GmbH, AS: AS12586 GHOSTnet GmbH), 154.216.19.224 (org: Wave Broadband, AS: AS11404 Wave Broadband), 154.216.17.157 (org: Wave Broadband, AS: AS11404 Wave Broadband), 176.65.141.201 (org: PapilioHost-NL, AS: AS58232 Parsun Network Solutions PTY LTD), 176.65.141.232 (org: PapilioHost-NL, AS: AS58232 Parsun Network Solutions PTY LTD), 206.123.145.13 (org: Internet Security - US OH, AS: AS215460 Felcloud - Dedicated and VPS hosting)",
+        "vul_context": "(EPSS is the measurement of probability that a vulnerability will be exploied in the next 30 days, the percentile provides a measure of an EPSS probability relative to all other scores):\n\n- CVE-2023-48788: A improper neutralization of special elements used in an sql command ('sql injection') in Fortinet FortiClientEMS version 7.2.0 through 7.2.2, FortiClientEMS 7.0.1 through 7.0.10 allows attacker to execute unauthorized code or commands via specially crafted packets.\n\tEPSS = 0.940780000\n\tPercentile = 0.999090000\n\tCVSSv31 Base Score = 9.8\n\tAttack Vector = NETWORK\n\tImpact = HIGH on Confidentiality, HIGH on Integrity and HIGH on Availability. (LOW attack complexity, None privileges required and NONE user interaction).\n\tWeaknesses = CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') (Likelihood of exploit: High). Detections methods: \"\n\nThis weakness can often be detected using automated static analysis tools. Many modern tools use data flow analysis or constraint-based techniques to minimize the number of false positives.\n\n\nAutomated static analysis might not be able to recognize when proper input validation is being performed, leading to false positives - i.e., warnings that do not have any security consequences or do not require any code changes.\n\n\nAutomated static analysis might not be able to detect the usage of custom API functions or third-party libraries that indirectly invoke SQL commands, leading to false negatives - especially if the API/library code is not available for analysis.\n\" (with Unknown effectiveness).\"This weakness can be detected using dynamic tools and techniques that interact with the software using large test suites with many diverse inputs, such as fuzz testing (fuzzing), robustness testing, and fault injection. The software's operation may slow down, but it should not become unstable, crash, or generate incorrect results.\" (with Moderate effectiveness).\"Manual analysis can be useful for finding this weakness, but it might not achieve desired code coverage within limited time constraints. This becomes difficult for weaknesses that must be considered for all inputs, since the attack surface can be too large.\" (with Unknown effectiveness).\"\n\nAccording to SOAR [REF-1479], the following detection techniques may be useful:\n\n```\n\t\tHighly cost effective:\n```\n\n\t\tBytecode Weakness Analysis - including disassembler + source code weakness analysis\n\t\tBinary Weakness Analysis - including disassembler + source code weakness analysis\" (with High effectiveness).\"\n\nAccording to SOAR [REF-1479], the following detection techniques may be useful:\n\n```\n\t\tHighly cost effective:\n```\n\n\t\tDatabase Scanners\n\t```\n\t\tCost effective for partial coverage:\n```\n\n\t\tWeb Application Scanner\n\t\tWeb Services Scanner\" (with High effectiveness).\"\n\nAccording to SOAR [REF-1479], the following detection techniques may be useful:\n\n```\n\t\tCost effective for partial coverage:\n```\n\n\t\tFuzz Tester\n\t\tFramework-based Fuzzer\" (with SOAR Partial effectiveness).\"\n\nAccording to SOAR [REF-1479], the following detection techniques may be useful:\n\n```\n\t\tHighly cost effective:\n```\n\n\t\tManual Source Code Review (not inspections)\n\t```\n\t\tCost effective for partial coverage:\n```\n\n\t\tFocused Manual Spotcheck - Focused manual analysis of source\" (with High effectiveness).\"\n\nAccording to SOAR [REF-1479], the following detection techniques may be useful:\n\n```\n\t\tHighly cost effective:\n```\n\n\t\tSource code Weakness Analyzer\n\t\tContext-configured Source Code Weakness Analyzer\" (with High effectiveness).\"\n\nAccording to SOAR [REF-1479], the following detection techniques may be useful:\n\n```\n\t\tHighly cost effective:\n```\n\n\t\tFormal Methods / Correct-By-Construction\n\t```\n\t\tCost effective for partial coverage:\n```\n\n\t\tInspection (IEEE 1028 standard) (can apply to requirements, design, source code, etc.)\" (with High effectiveness).\n\t",
+    },
+    "ports":
+    {
+        "TIME_WAIT":
+        [
+            {
+                "laddr":
+                [
+                    "192.168.1.147",
+                    52105
+                ]
+            },
+            {
+                "raddr":
+                [
+                    "34.107.243.93",
+                    443
+                ],
+                "laddr":
+                [
+                    "192.168.1.147",
+                    52090
+                ]
+            },
+            {
+                "raddr":
+                [
+                    "2606:4700:78::90:0:181",
+                    443
+                ],
+                "laddr":
+                [
+                    "2001:818:ea21:2800:ddba:1937:9c4b:a0ac",
+                    52103
+                ]
+            },
+            {
+                "raddr":
+                [
+                    "208.95.112.1",
+                    80
+                ],
+                "laddr":
+                [
+                    "192.168.1.147",
+                    52101
+                ]
+            },
+            {
+                "raddr":
+                [
+                    "2606:4700:78::90:0:181",
+                    443
+                ],
+                "laddr":
+                [
+                    "2001:818:ea21:2800:ddba:1937:9c4b:a0ac",
+                    52098
+                ]
+            },
+            {
+                "raddr":
+                [
+                    "208.95.112.1",
+                    80
+                ],
+                "laddr":
+                [
+                    "192.168.1.147",
+                    52096
+                ]
+            },
+            {
+                "raddr":
+                [
+                    "208.95.112.1",
+                    80
+                ],
+                "laddr":
+                [
+                    "192.168.1.147",
+                    52110
+                ]
+            }
+        ],
+        "LISTEN":
+        [
+            {
+                "laddr":
+                [
+                    "::",
+                    49664
+                ]
+            },
+            {
+                "laddr":
+                [
+                    "::",
+                    623
+                ]
+            },
+            {
+                "laddr":
+                [
+                    "0.0.0.0",
+                    49665
+                ]
+            },
+            {
+                "laddr":
+                [
+                    "0.0.0.0",
+                    49687
+                ]
+            },
+            {
+                "laddr":
+                [
+                    "0.0.0.0",
+                    49668
+                ]
+            },
+            {
+                "laddr":
+                [
+                    "0.0.0.0",
+                    7680
+                ]
+            },
+            {
+                "laddr":
+                [
+                    "::",
+                    7680
+                ]
+            },
+            {
+                "laddr":
+                [
+                    "::",
+                    135
+                ]
+            },
+            {
+                "laddr":
+                [
+                    "127.0.0.1",
+                    11434
+                ]
+            },
+            {
+                "laddr":
+                [
+                    "0.0.0.0",
+                    445
+                ]
+            },
+            {
+                "laddr":
+                [
+                    "::",
+                    49667
+                ]
+            },
+            {
+                "laddr":
+                [
+                    "127.0.0.1",
+                    63262
+                ]
+            },
+            {
+                "laddr":
+                [
+                    "0.0.0.0",
+                    49666
+                ]
+            },
+            {
+                "laddr":
+                [
+                    "172.21.32.1",
+                    139
+                ]
+            },
+            {
+                "laddr":
+                [
+                    "::",
+                    49666
+                ]
+            },
+            {
+                "laddr":
+                [
+                    "::",
+                    16992
+                ]
+            },
+            {
+                "laddr":
+                [
+                    "0.0.0.0",
+                    5040
+                ]
+            },
+            {
+                "laddr":
+                [
+                    "::",
+                    49665
+                ]
+            },
+            {
+                "laddr":
+                [
+                    "::1",
+                    49669
+                ]
+            },
+            {
+                "laddr":
+                [
+                    "::1",
+                    42050
+                ]
+            },
+            {
+                "laddr":
+                [
+                    "192.168.1.147",
+                    139
+                ]
+            },
+            {
+                "laddr":
+                [
+                    "0.0.0.0",
+                    49664
+                ]
+            },
+            {
+                "laddr":
+                [
+                    "0.0.0.0",
+                    623
+                ]
+            },
+            {
+                "laddr":
+                [
+                    "0.0.0.0",
+                    16992
+                ]
+            },
+            {
+                "laddr":
+                [
+                    "::",
+                    445
+                ]
+            },
+            {
+                "laddr":
+                [
+                    "::",
+                    49687
+                ]
+            },
+            {
+                "laddr":
+                [
+                    "0.0.0.0",
+                    135
+                ]
+            },
+            {
+                "laddr":
+                [
+                    "::",
+                    49668
+                ]
+            },
+            {
+                "laddr":
+                [
+                    "0.0.0.0",
+                    49667
+                ]
+            }
+        ],
+        "ESTABLISHED":
+        [
+            {
+                "laddr":
+                [
+                    "2001:818:ea21:2800:ddba:1937:9c4b:a0ac",
+                    61485
+                ]
+            },
+            {
+                "raddr":
+                [
+                    "2a04:4e42:86::347",
+                    443
+                ],
+                "laddr":
+                [
+                    "2001:818:ea21:2800:ddba:1937:9c4b:a0ac",
+                    52107
+                ]
+            },
+            {
+                "raddr":
+                [
+                    "127.0.0.1",
+                    49671
+                ],
+                "laddr":
+                [
+                    "127.0.0.1",
+                    49670
+                ]
+            },
+            {
+                "raddr":
+                [
+                    "127.0.0.1",
+                    55552
+                ],
+                "laddr":
+                [
+                    "127.0.0.1",
+                    55551
+                ]
+            },
+            {
+                "raddr":
+                [
+                    "34.78.13.176",
+                    8925
+                ],
+                "laddr":
+                [
+                    "192.168.1.147",
+                    49345
+                ]
+            },
+            {
+                "raddr":
+                [
+                    "127.0.0.1",
+                    49670
+                ],
+                "laddr":
+                [
+                    "127.0.0.1",
+                    49671
+                ]
+            },
+            {
+                "raddr":
+                [
+                    "20.42.73.25",
+                    443
+                ],
+                "laddr":
+                [
+                    "192.168.1.147",
+                    52094
+                ]
+            },
+            {
+                "raddr":
+                [
+                    "34.107.243.93",
+                    443
+                ],
+                "laddr":
+                [
+                    "192.168.1.147",
+                    52091
+                ]
+            },
+            {
+                "raddr":
+                [
+                    "127.0.0.1",
+                    55551
+                ],
+                "laddr":
+                [
+                    "127.0.0.1",
+                    55552
+                ]
+            },
+            {
+                "raddr":
+                [
+                    "140.82.112.26",
+                    443
+                ],
+                "laddr":
+                [
+                    "192.168.1.147",
+                    52068
+                ]
+            },
+            {
+                "raddr":
+                [
+                    "104.18.38.47",
+                    443
+                ],
+                "laddr":
+                [
+                    "192.168.1.147",
+                    52317
+                ]
+            },
+            {
+                "raddr":
+                [
+                    "35.187.28.144",
+                    443
+                ],
+                "laddr":
+                [
+                    "192.168.1.147",
+                    52106
+                ]
+            },
+            {
+                "raddr":
+                [
+                    "2603:1063:12::2f5",
+                    443
+                ],
+                "laddr":
+                [
+                    "2001:818:ea21:2800:ddba:1937:9c4b:a0ac",
+                    54732
+                ]
+            },
+            {
+                "raddr":
+                [
+                    "2603:1063:12::2f6",
+                    443
+                ],
+                "laddr":
+                [
+                    "2001:818:ea21:2800:ddba:1937:9c4b:a0ac",
+                    59673
+                ]
+            },
+            {
+                "raddr":
+                [
+                    "127.0.0.1",
+                    55549
+                ],
+                "laddr":
+                [
+                    "127.0.0.1",
+                    55550
+                ]
+            },
+            {
+                "raddr":
+                [
+                    "127.0.0.1",
+                    55550
+                ],
+                "laddr":
+                [
+                    "127.0.0.1",
+                    55549
+                ]
+            },
+            {
+                "raddr":
+                [
+                    "2a04:4e42:86::347",
+                    443
+                ],
+                "laddr":
+                [
+                    "2001:818:ea21:2800:ddba:1937:9c4b:a0ac",
+                    52108
+                ]
+            },
+            {
+                "raddr":
+                [
+                    "2603:1020:5:9::402",
+                    443
+                ],
+                "laddr":
+                [
+                    "2001:818:ea21:2800:ddba:1937:9c4b:a0ac",
+                    49615
+                ]
+            }
+        ]
+    },
+    "ip_context":
+    [
+        {
+            "raddr": "34.107.243.93",
+            "org": "Google Cloud",
+            "AS": "AS396982 Google LLC",
+            "port": 443
+        },
+        {
+            "raddr": "2606:4700:78::90:0:181",
+            "org": "Cloudflare, Inc.",
+            "AS": "AS13335 Cloudflare, Inc.",
+            "port": 443
+        },
+        {
+            "raddr": "208.95.112.1",
+            "org": "Total Uptime Technologies, LLC",
+            "AS": "AS53334 Total Uptime Technologies, LLC",
+            "port": 80
+        },
+        {
+            "raddr": "2a04:4e42:86::347",
+            "org": "Fastly, Inc",
+            "AS": "AS54113 Fastly, Inc.",
+            "port": 443
+        },
+        {
+            "raddr": "34.78.13.176",
+            "org": "Google Cloud (europe-west1)",
+            "AS": "AS396982 Google LLC",
+            "port": 8925
+        },
+        {
+            "raddr": "20.42.73.25",
+            "org": "Microsoft Azure One Ds Collector (eastus)",
+            "AS": "AS8075 Microsoft Corporation",
+            "port": 443
+        },
+        {
+            "raddr": "140.82.112.26",
+            "org": "GitHub, Inc.",
+            "AS": "AS36459 GitHub, Inc.",
+            "port": 443
+        },
+        {
+            "raddr": "104.18.38.47",
+            "org": "Cloudflare, Inc.",
+            "AS": "AS13335 Cloudflare, Inc.",
+            "port": 443
+        },
+        {
+            "raddr": "35.187.28.144",
+            "org": "Google Cloud (europe-west1)",
+            "AS": "AS396982 Google LLC",
+            "port": 443
+        },
+        {
+            "raddr": "2603:1063:12::2f5",
+            "org": "Microsoft Azure Cloud (francecentral)",
+            "AS": "AS8075 Microsoft Corporation",
+            "port": 443
+        },
+        {
+            "raddr": "2603:1063:12::2f6",
+            "org": "Microsoft Azure Cloud (francecentral)",
+            "AS": "AS8075 Microsoft Corporation",
+            "port": 443
+        },
+        {
+            "raddr": "2603:1020:5:9::402",
+            "org": "Microsoft Azure Cloud (northeurope)",
+            "AS": "AS8075 Microsoft Corporation",
+            "port": 443
+        }
+    ],
+    "query": "\nConsider:\nThese attack patterns: ['T1190', 'T1059.001', 'T1021.001', 'T1562.001', 'T1497.001', 'T1071.001', 'T1572', 'T1041', 'T1486', 'T1567']\nThese indicators of compromise: {'ip-src': ['185.216.70.170', '77.90.38.170', '154.216.19.224', '154.216.17.157', '176.65.141.201', '176.65.141.232', '206.123.145.13']}\nThese vulnerabilities: ['CVE-2023-48788']\n\nCreate a contexted security analysis that details what information to monitor with sysmon, sepcifically for the NetworkConnect snippet.\nDo NOT introduce anything that does not have to do with monitoring that could be noise, since your result will be used by another LLM.\nConsider that the host being monitored is a server with HIGH network exposure.\n\t",
+    "get_network_connect_examples":
+    [
+        "<Sysmon schemaversion=\"4.30\">\r\n  <EventFiltering>\r\n    <RuleGroup name=\"\" groupRelation=\"or\">\r\n      <NetworkConnect onmatch=\"exclude\">\r\n        <Image condition=\"end with\">AppData\\Roaming\\Dropbox\\bin\\Dropbox.exe</Image>        <!--Dropbox-->\r\n      </NetworkConnect>\r\n    </RuleGroup>\r\n  </EventFiltering>\r\n</Sysmon>",
+        "<Sysmon schemaversion=\"4.40\">\n  <EventFiltering>\n    <RuleGroup name=\"\" groupRelation=\"or\">\n      <NetworkConnect onmatch=\"exclude\">\n        <Image condition=\"end with\">winlogbeat.exe</Image> <!--Credit d4ph1l -->\n        <Image condition=\"end with\">packetbeat.exe</Image>\n      </NetworkConnect>\n    </RuleGroup>\n  </EventFiltering>\n</Sysmon>\n",
+        "<Sysmon schemaversion=\"4.30\">\r\n  <EventFiltering>\r\n    <RuleGroup name=\"\" groupRelation=\"or\">\r\n      <NetworkConnect onmatch=\"exclude\">\r\n        <Image condition=\"is\">C:\\Program Files\\ESET\\ESET Nod32 Antivirus\\ekrn.exe</Image>        <!--Credit d4ph1l -->\r\n      </NetworkConnect>\r\n    </RuleGroup>\r\n  </EventFiltering>\r\n</Sysmon>\r\n",
+        "<Sysmon schemaversion=\"4.30\">\r\n  <EventFiltering>\r\n    <RuleGroup name=\"\" groupRelation=\"or\">\r\n      <NetworkConnect onmatch=\"exclude\">\r\n        <Rule groupRelation=\"and\">\r\n          <Image condition=\"is\">C:\\Windows\\System32\\lsass.exe</Image>\r\n          <DestinationPort condition=\"is\">88</DestinationPort>          <!--Kerberos protocol-->\r\n        </Rule>\r\n      </NetworkConnect>\r\n    </RuleGroup>\r\n  </EventFiltering>\r\n</Sysmon>\r\n",
+        "<Sysmon schemaversion=\"4.30\">\r\n\t<EventFiltering>\r\n\t\t<RuleGroup name=\"\" groupRelation=\"or\">\r\n\t\t\t<NetworkConnect onmatch=\"exclude\">\r\n\t\t\t\t<Image condition=\"image\">OneDrive.exe</Image>\t\t\t\t<!--Microsoft:OneDrive-->\r\n\t\t\t\t<Image condition=\"image\">OneDriveStandaloneUpdater.exe</Image>\t\t\t\t<!--Microsoft:OneDrive-->\r\n\t\t\t</NetworkConnect>\r\n\t\t</RuleGroup>\r\n\t</EventFiltering>\r\n</Sysmon>",
+        "<Sysmon schemaversion=\"4.30\">\n    <EventFiltering>\n        <RuleGroup name=\"\" groupRelation=\"or\">\n            <NetworkConnect onmatch=\"exclude\">\n                <Image condition=\"end with\">ownCloud\\owncloud.exe</Image>                <!--Owncloud-->\n            </NetworkConnect>\n        </RuleGroup>\n    </EventFiltering>\n</Sysmon>",
+        "<Sysmon schemaversion=\"4.30\">\n  <EventFiltering>\n    <RuleGroup name=\"\" groupRelation=\"or\">\n      <NetworkConnect onmatch=\"exclude\">\n        <Image condition=\"is\">C:\\Program Files\\Palo Alto Networks\\Traps\\cyserver.exe</Image>        <!--Credit d4ph1l -->\n      </NetworkConnect>\n    </RuleGroup>\n  </EventFiltering>\n</Sysmon>\n",
+        "<Sysmon schemaversion=\"4.30\">\r\n  <EventFiltering>\r\n    <RuleGroup name=\"Exclude_UDP\" groupRelation=\"or\">\r\n      <NetworkConnect onmatch=\"exclude\">\r\n        <Rule groupRelation=\"and\">\r\n          <Protocol condition=\"is\">udp</Protocol>\r\n          <DestinationPort condition=\"is\">3389</DestinationPort>\r\n        </Rule>\r\n      </NetworkConnect>\r\n    </RuleGroup>\r\n  </EventFiltering>\r\n</Sysmon>",
+        "<Sysmon schemaversion=\"4.30\">\r\n  <EventFiltering>\r\n    <RuleGroup name=\"\" groupRelation=\"or\">\r\n      <NetworkConnect onmatch=\"exclude\">\r\n        <Image condition=\"is\">C:\\Program Files (x86)\\Sophos\\Sophos Anti-Virus\\Web Intelligence\\swi_service.exe</Image>        <!--Credit d4ph1l -->\r\n        <Image condition=\"is\">C:\\Program Files (x86)\\Sophos\\AutoUpdate\\ALsvc.exe</Image>        <!--Credit d4ph1l -->\r\n        <Image condition=\"is\">C:\\Program Files (x86)\\Sophos\\Remote Management System\\RouterNT.exe</Image>        <!--Credit d4ph1l -->\r\n        <Image condition=\"is\">C:\\Program Files (x86)\\Sophos\\Sophos Anti-Virus\\Web Control\\swc_service.exe</Image>        <!--Credit d4ph1l -->\r\n        <Image condition=\"is\">C:\\Program Files (x86)\\Sophos\\Sophos Anti-Virus\\Web Intelligence\\swi_service.exe</Image>        <!--Credit d4ph1l -->\r\n        <Image condition=\"is\">C:\\Program Files\\Sophos\\Sophos Network Threat Protection\\bin\\SntpService.exe</Image>        <!--Credit d4ph1l -->\r\n      </NetworkConnect>\r\n    </RuleGroup>\r\n  </EventFiltering>\r\n</Sysmon>\r\n",
+        "<Sysmon schemaversion=\"4.30\">\r\n  <EventFiltering>\r\n    <RuleGroup name=\"\" groupRelation=\"or\">\r\n      <NetworkConnect onmatch=\"exclude\">\r\n        <Image condition=\"end with\">AppData\\Roaming\\Spotify\\Spotify.exe</Image>        <!--Spotify-->\r\n      </NetworkConnect>\r\n    </RuleGroup>\r\n  </EventFiltering>\r\n</Sysmon>",
+        "<Sysmon schemaversion=\"4.30\">\n    <EventFiltering>\n        <RuleGroup name=\"\" groupRelation=\"or\">\n            <NetworkConnect onmatch=\"exclude\">\n                <Image condition=\"end with\">AppData\\Local\\SynologyDrive\\SynologyDrive.app\\bin\\cloud-drive-ui.exe</Image>                <!--SynologyDrive-->\n                <Image condition=\"end with\">AppData\\Local\\SynologyDrive\\SynologyDrive.app\\bin\\cloud-drive-daemon.exe</Image>                <!--SynologyDrive-->\n            </NetworkConnect>\n        </RuleGroup>\n    </EventFiltering>\n</Sysmon>",
+        "<Sysmon schemaversion=\"4.30\">\r\n  <EventFiltering>\r\n    <RuleGroup name=\"\" groupRelation=\"or\">\r\n      <NetworkConnect onmatch=\"exclude\">\r\n        <Image condition=\"is\">C:\\Program files (x86)\\Trend Micro\\OfficeScan Client\\tmlisten.exe</Image>        <!--Credit d4ph1l -->\r\n        <Image condition=\"is\">C:\\Program Files (x86)\\Trend Micro\\BM\\TMBMSRV.exe</Image>        <!--Credit d4ph1l -->\r\n      </NetworkConnect>\r\n    </RuleGroup>\r\n  </EventFiltering>\r\n</Sysmon>\r\n",
+        "<Sysmon schemaversion=\"4.30\">\r\n\t<EventFiltering>\r\n\t\t<RuleGroup name=\"\" groupRelation=\"or\">\r\n\t\t\t<NetworkConnect onmatch=\"exclude\">\r\n\t\t\t\t<!--SECTION: Microsoft-->\r\n\t\t\t\t<DestinationHostname condition=\"end with\">.windowsupdate.microsoft.com</DestinationHostname>\t\t\t\t<!--Microsoft:Update delivery-->\r\n\t\t\t\t<DestinationHostname condition=\"end with\">.windowsupdate.com</DestinationHostname>\t\t\t\t<!--Microsoft:Update delivery-->\r\n\t\t\t\t<DestinationHostname condition=\"end with\">wustat.windows.com</DestinationHostname>\t\t\t\t<!--Microsoft:Update delivery-->\r\n\t\t\t\t<DestinationHostname condition=\"end with\">go.microsoft.com</DestinationHostname>\t\t\t\t<!--Microsoft:Update delivery-->\r\n\t\t\t\t<DestinationHostname condition=\"end with\">.update.microsoft.com</DestinationHostname>\t\t\t\t<!--Microsoft:Update delivery-->\r\n\t\t\t\t<DestinationHostname condition=\"end with\">download.microsoft.com</DestinationHostname>\t\t\t\t<!--Microsoft:Update delivery-->\r\n\t\t\t\t<DestinationHostname condition=\"end with\">microsoft.com.akadns.net</DestinationHostname>\t\t\t\t<!--Microsoft:Update delivery-->\r\n\t\t\t\t<DestinationHostname condition=\"end with\">microsoft.com.nsatc.net</DestinationHostname>\t\t\t\t<!--Microsoft:Update delivery-->\r\n\t\t\t</NetworkConnect>\r\n\t\t</RuleGroup>\r\n\t</EventFiltering>\r\n</Sysmon>",
+        "<Sysmon schemaversion=\"4.30\">\r\n\t<EventFiltering>\r\n\t\t<RuleGroup name=\"\" groupRelation=\"or\">\r\n\t\t\t<NetworkConnect onmatch=\"include\">\r\n\t\t\t\t<!--3rd Party Remote Management tools-->\r\n\t\t\t\t<Image name=\"technique_id=T1021,technique_name=Remote Services\" condition=\"image\">vnc.exe</Image>\t\t\t\t<!-- VNC client | Credit @Cyb3rOps -->\r\n\t\t\t\t<Image name=\"technique_id=T1021,technique_name=Remote Services\" condition=\"image\">vncviewer.exe</Image>\t\t\t\t<!-- VNC client | Credit @Cyb3rOps -->\r\n\t\t\t\t<Image name=\"technique_id=T1021,technique_name=Remote Services\" condition=\"image\">vncservice.exe</Image>\t\t\t\t<!-- VNC server | Credit @Cyb3rOps -->\r\n\t\t\t\t<Image name=\"technique_id=T1569.002,technique_name=Service Execution\" condition=\"image\">winexesvc.exe</Image>\t\t\t\t<!-- Winexe service executable | Credit @Cyb3rOps -->\r\n\t\t\t</NetworkConnect>\r\n\t\t</RuleGroup>\r\n\t</EventFiltering>\r\n</Sysmon>\r\n",
+        "<Sysmon schemaversion=\"4.30\">\r\n  <EventFiltering>\r\n    <RuleGroup name=\"\" groupRelation=\"or\">\r\n      <NetworkConnect onmatch=\"include\">\r\n        <Image name=\"technique_id=T1197,technique_name=BITS Jobs\" condition=\"image\">bitsadmin.exe</Image>\r\n      </NetworkConnect>\r\n    </RuleGroup>\r\n  </EventFiltering>\r\n</Sysmon>\r\n",
+        "<Sysmon schemaversion=\"4.30\">\n  <EventFiltering>\n    <RuleGroup name=\"technique_id=T1571,technique_name=Non-Standard Port\" groupRelation=\"or\">\n      <NetworkConnect onmatch=\"include\">\n        <DestinationPort name=\"technique_id=T1571,technique_name=Non-Standard Port\" condition=\"is\">4444</DestinationPort>      <!--Metasploit-based reverse shells-->\n        <DestinationPort name=\"technique_id=T1571,technique_name=Non-Standard Port\" condition=\"is\">31337</DestinationPort>     <!--Back Orifice, BO2K-->\n        <DestinationPort name=\"technique_id=T1571,technique_name=Non-Standard Port\" condition=\"is\">6667</DestinationPort>     <!--IRC-based botnets-->\n        <DestinationPort name=\"technique_id=T1571,technique_name=Non-Standard Port\" condition=\"is\">5555</DestinationPort>     <!--Satori, ADB.Miner-->\n        <DestinationPort name=\"technique_id=T1571,technique_name=Non-Standard Port\" condition=\"is\">5353</DestinationPort>     <!--DNSMessenger-->\n      </NetworkConnect>\n    </RuleGroup>\n  </EventFiltering>\n</Sysmon>\n",
+        "<Sysmon schemaversion=\"4.30\">\r\n\t<EventFiltering>\r\n\t\t<RuleGroup name=\"\" groupRelation=\"or\">\r\n\t\t\t<NetworkConnect onmatch=\"include\">\r\n\t\t\t\t<!--Critical HP services-->\r\n\t\t\t\t<Image name=\"technique_id=T1021,technique_name=Remote Services\" condition=\"image\">omniinet.exe</Image>\t\t\t\t<!-- HP Data Protector https://www.cvedetails.com/vulnerability-list/vendor_id-10/product_id-20499/HP-Data-Protector.html | Credit @Cyb3rOps -->\r\n\t\t\t\t<Image name=\"technique_id=T1021,technique_name=Remote Services\" condition=\"image\">hpsmhd.exe</Image>\t\t\t\t<!-- HP System Management Homepage https://www.cvedetails.com/vulnerability-list/vendor_id-10/product_id-7244/HP-System-Management-Homepage.html | Credit @Cyb3rOps -->\r\n\t\t\t</NetworkConnect>\r\n\t\t</RuleGroup>\r\n\t</EventFiltering>\r\n</Sysmon>\r\n",
+        "<Sysmon schemaversion=\"4.30\">\n  <EventFiltering>\n    <RuleGroup name=\"\" groupRelation=\"or\">\n      <NetworkConnect onmatch=\"include\">\n        <Image name=\"technique_id=T1102,technique_name=Web Service\" condition=\"begin with\">C:\\Program Files\\Microsoft\\HybridConnectionManager</Image>        <!--https://twitter.com/_dirkjan/status/1381591080207015936-->\n      </NetworkConnect>\n    </RuleGroup>\n  </EventFiltering>\n</Sysmon>\n",
+        "<Sysmon schemaversion=\"4.40\">\n  <EventFiltering>\n    <RuleGroup name=\"\" groupRelation=\"or\">\n      <NetworkConnect onmatch=\"include\">\n        <!-- Native Windows tools - Living off the land -->\n        <!-- Research needed on how many of these tools are capable of making a network connection - see ipconfig.exe -->\n        <Rule name=\"Unusual Connection\" groupRelation=\"or\">\n          <Image condition=\"image\">dllhost.exe</Image>\n          <Image condition=\"image\">hh.exe</Image>          <!--Microsoft:Windows: HTML Helper-->\n          <Image condition=\"image\">klist.exe</Image>          <!--Microsoft:Windows: show cached kerberos tickets -->\n          <Image condition=\"image\">schtasks.exe</Image>          <!--Microsoft:Windows: Command and Scripting Interpreter to local and remote tasks -->\n          <Image condition=\"image\">taskkill.exe</Image>          <!--Microsoft:Windows: Kill processes, has remote ability -->\n          <Image name=\"technique_id=T1218.005,technique_name=Mshta\" condition=\"image\">mshta.exe</Image>\n          <Image name=\"technique_id=T1218.010,technique_name=Regsvr32\" condition=\"image\">regsvr32.exe</Image>          <!--Mitre T1218.010-->          <!--Mitre T1218.011-->          <!--Microsoft:Windows: [ https://subt0x10.blogspot.com/2016/04/bypass-application-whitelisting-script.html ] -->\n          <Image name=\"technique_id=T1518.001,technique_name=Security Software Discovery\" condition=\"image\">netsh.exe</Image>          <!--Mitre T1016-->          <!--Mitre T1546.007-->          <!--Mitre T1518.001-->          <!--Microsoft:Windows: manipulate the firewall -->\n          <Image name=\"technique_id=T1548.002,technique_name=Bypass User Access Control\" condition=\"image\">xwizard.exe</Image>          <!--https://bohops.com/2018/08/18/abusing-the-com-registry-structure-part-2-loading-techniques-for-evasion-and-persistence/ -->\n          <Image name=\"technique_id=T1564.004,technique_name=NTFS File Attributes\" condition=\"image\">esentutl.exe</Image>          <!--https://lolbas-project.github.io/lolbas/Binaries/Esentutl/ Multiple options-->\n          <Image name=\"technique_id=T1112,technique_name=Modify Registry\" condition=\"image\">reg.exe</Image>          <!--Mitre T1552.002-->          <!--Mitre T1012-->          <!--Mitre T1112-->          <!--Microsoft:Windows: reads and modifies the Windows register -->\n          <Image name=\"technique_id=T1134,technique_name=Access Token Manipulation\" condition=\"image\">runas.exe</Image>          <!--Microsoft:Windows: run a process as another user -->\n          <Image name=\"technique_id=T1069,technique_name=Permission Groups Discovery\" condition=\"image\">net1.exe</Image>          <!--Mitre T1018-->          <!--Mitre T1021.002-->          <!--Mitre T1087-->          <!--Mitre T1135-->          <!--Mitre T1069-->          <!--Mitre T1016-->          <!--Microsoft:Windows: Launched by \"net.exe\", but it may not detect connections either -->\n          <Image name=\"technique_id=T1070,technique_name=Indicator Removal on Host\" condition=\"image\">wevtutil.exe</Image>          <!--Microsoft:Windows: read and modify the Windows Eventlog -->\n        </Rule>\n        <Image name=\"technique_id=T1003,technique_name=Credential Dumping\" condition=\"image\">RpcPing.exe</Image>        <!--https://lolbas-project.github.io/lolbas/Binaries/Rpcping/ -->\n        <Rule name=\"Discovery\" groupRelation=\"or\">\n          <Image name=\"technique_id=T1016,technique_name=System Network Configuration Discovery\" condition=\"image\">ipconfig.exe</Image>          <!--Microsoft:Windows: shows ip configuration -->\n          <Image name=\"technique_id=T1016,technique_name=System Network Configuration Discovery\" condition=\"image\">nbtstat.exe</Image>          <!--Microsoft:Windows: NetBIOS statistics, attackers use to enumerate local network -->\n          <Image name=\"technique_id=T1016,technique_name=System Network Configuration Discovery\" condition=\"image\">nslookup.exe</Image>          <!--Microsoft:Windows: shows DNS configuration and enables quering -->\n          <Image name=\"technique_id=T1018,technique_name=Remote System Discovery\" condition=\"image\">net.exe</Image>          <!--Mitre T1201-->          <!--Mitre T1007-->          <!--Mitre T1124-->          <!--Mitre T1018-->          <!--Mitre T1049-->          <!--Mitre T1087-->          <!--Mitre T1135-->          <!--Mitre T1069-->          <!--Mitre T1016-->          <!--Mitre T1021.002-->          <!--Microsoft:Windows: \"net use\"/\"net view\" used by attackers to surveil and connect with file shares from command line | Credit @ion-storm -->\n          <Image name=\"technique_id=T1018,technique_name=Remote System Discovery\" condition=\"image\">nslookup.exe</Image>          <!--Microsoft:Windows: Retrieve data over DNS -->\n          <Image name=\"technique_id=T1033,technique_name=System Owner/User Discovery\" condition=\"image\">nltest.exe</Image>          <!-- netlogon testing utility-->\n          <Image name=\"technique_id=T1033,technique_name=System Owner/User Discovery\" condition=\"image\">quser.exe</Image>          <!--Microsoft:Windows: shows logged-on users -->\n          <Image name=\"technique_id=T1049,technique_name=System Network Connections Discovery\" condition=\"image\">netstat.exe</Image>          <!--Mitre T1016-->          <!--Mitre T1049-->          <!--Microsoft:Windows: shows protocol statistics and current TCP/IP network connections -->\n          <Image name=\"technique_id=T1057,technique_name=Process Discovery\" condition=\"image\">qprocess.exe</Image>          <!--Microsoft:Windows: shows information about processes -->\n          <Image name=\"technique_id=T1057,technique_name=Process Discovery\" condition=\"image\">query.exe</Image>          <!--Microsoft:Windows: shows information about processes -->\n          <Image name=\"technique_id=T1057,technique_name=Process Discovery\" condition=\"image\">qwinsta.exe</Image>          <!--Microsoft:Windows: Remotely query login sessions on a server or workstation | Credit @ion-storm -->\n          <Image name=\"technique_id=T1057,technique_name=Process Discovery\" condition=\"image\">rwinsta.exe</Image>          <!--Microsoft:Windows: Disconnect remote sessions | Credit @ion-storm -->\n          <Image name=\"technique_id=T1057,technique_name=Process Discovery\" condition=\"image\">tasklist.exe</Image>          <!--Mitre T1057-->          <!--Mitre T1007-->          <!--Microsoft:Windows: shows current running processes-->\n        </Rule>\n        <Rule name=\"Ingress Tool Transfer\" groupRelation=\"or\">\n          <Image name=\"technique_id=T1105,technique_name=Ingress Tool Transfer\" condition=\"image\">expand.exe</Image>\n          <Image name=\"technique_id=T1105,technique_name=Ingress Tool Transfer\" condition=\"image\">extrac32.exe</Image>\n          <Image name=\"technique_id=T1105,technique_name=Ingress Tool Transfer\" condition=\"image\">IEExec.exe</Image>\n          <Image name=\"technique_id=T1105,technique_name=Ingress Tool Transfer\" condition=\"image\">Print.Exe</Image>\n        </Rule>\n        <Rule name=\"Execution\" groupRelation=\"or\">\n          <Image name=\"technique_id=T1202,technique_name=Indirect Command Execution\" condition=\"image\">cscript.exe</Image>\n          <Image name=\"technique_id=T1202,technique_name=Indirect Command Execution\" condition=\"image\">desktopimgdownldr.exe</Image>          <!--https://labs.sentinelone.com/living-off-windows-land-a-new-native-file-downldr/-->\n          <Image name=\"technique_id=T1202,technique_name=Indirect Command Execution\" condition=\"image\">pcalua.exe</Image>          <!--Microsoft:Windows: Program Compatibility Assistant)-->\n          <Image name=\"technique_id=T1202,technique_name=Indirect Command Execution\" condition=\"image\">winrs.exe</Image>\n          <Image name=\"technique_id=T1202,technique_name=Indirect Command Execution\" condition=\"image\">wscript.exe</Image>\n          <Image name=\"technique_id=T1218,technique_name=Signed Binary Proxy Execution\" condition=\"image\">Msdt.exe</Image>          <!--https://lolbas-project.github.io/lolbas/Binaries/Msdt/-->\n          <Image name=\"technique_id=T1218,technique_name=Signed Binary Proxy Execution\" condition=\"image\">msiexec.exe</Image>\n          <Image name=\"technique_id=T1218,technique_name=Signed Binary Proxy Execution\" condition=\"image\">RegisterCimProvider.exe</Image>\n          <Image name=\"technique_id=T1218,technique_name=Signed Binary Proxy Execution\" condition=\"image\">ScriptRunner.exe</Image>\n          <Image name=\"technique_id=T1127,technique_name=Trusted Developer Utilities Proxy Execution\" condition=\"image\">dfsvc.exe</Image>          <!--https://lolbas-project.github.io/lolbas/Binaries/Dfsvc/-->\n        </Rule>\n        <Rule name=\"Services\" groupRelation=\"or\">\n          <Image name=\"technique_id=T1569.002,technique_name=Service Execution\" condition=\"image\">dnscmd.exe</Image>          <!-- Service Execution https://lolbas-project.github.io/lolbas/Binaries/Dnscmd/ -->\n          <Image name=\"technique_id=T1543.003,technique_name=Windows Service\" condition=\"image\">sc.exe</Image>\n          <Image name=\"technique_id=T1053,technique_name=Scheduled Task/Job\" condition=\"image\">taskeng.exe</Image>          <!--Microsoft:Windows: taskscheduler -->\n        </Rule>\n        <Rule name=\"Shells and Terminals\" groupRelation=\"or\">\n          <Image name=\"technique_id=T1059.001,technique_name=PowerShell\" condition=\"image\">OpenConsole.exe</Image>          <!--Microsoft Windows Terminal-->\n          <Image name=\"technique_id=T1059.001,technique_name=PowerShell\" condition=\"image\">powershell.exe</Image>          <!--Microsoft:Windows: PowerShell interface-->\n          <Image name=\"technique_id=T1059.001,technique_name=PowerShell\" condition=\"image\">WindowsTerminal.exe</Image>          <!--Microsoft Windows Terminal-->\n          <Image name=\"technique_id=T1059.003,technique_name=Windows Command Shell\" condition=\"image\">cmd.exe</Image>          <!--Microsoft:Windows: Command prompt-->\n          <Image name=\"technique_id=T1202,technique_name=Indirect Command Execution\" condition=\"image\">bash.exe</Image>          <!--Microsoft:Windows: bash on Windows, Linux subsystem-->\n        </Rule>\n      </NetworkConnect>\n    </RuleGroup>\n  </EventFiltering>\n</Sysmon>\n",
+        "<Sysmon schemaversion=\"4.30\">\n  <EventFiltering>\n    <RuleGroup name=\"\" groupRelation=\"or\">\n      <NetworkConnect onmatch=\"include\">\n        <Image name=\"technique_id=T1218,technique_name=Signed Binary Proxy Execution\" condition=\"image\">Mavinject.exe</Image>\n      </NetworkConnect>\n    </RuleGroup>\n  </EventFiltering>\n</Sysmon>\n",
+        "<Sysmon schemaversion=\"4.30\">\r\n\t<EventFiltering>\r\n\t\t<RuleGroup name=\"\" groupRelation=\"or\">\r\n\t\t\t<NetworkConnect onmatch=\"include\">\r\n\t\t\t\t<!--Native Windows tools - Living off the land-->\r\n\t\t\t\t<Image name=\"technique_id=T1053,technique_name=Scheduled Task\" condition=\"image\">at.exe</Image>\t\t\t\t<!--Microsoft:Windows: Remote task scheduling | Credit @ion-storm -->\r\n\t\t\t\t<Image name=\"technique_id=T1218,technique_name=Signed Binary Proxy Execution\" condition=\"image\">certutil.exe</Image>\t\t\t\t<!--Microsoft:Windows: Certificate tool can contact outbound | Credit @ion-storm and @FVT [ https://twitter.com/FVT/status/834433734602530817 ] -->\r\n\t\t\t\t<Image name=\"technique_id=T1218,technique_name=Signed Script Proxy Execution\" condition=\"image\">cscript.exe</Image>\t\t\t\t<!--Microsoft:WindowsScriptingHost: | Credit @Cyb3rOps [ https://gist.github.com/Neo23x0/a4b4af9481e01e749409 ] -->\r\n\t\t\t\t<Image condition=\"image\">java.exe</Image>\t\t\t\t<!--Java: Monitor usage of vulnerable application | Credit @ion-storm -->\r\n\t\t\t\t<Image name=\"technique_id=T1218.005,technique_name=Mshta\" condition=\"image\">mshta.exe</Image>\t\t\t\t<!--Microsoft:Windows: HTML application executes scripts without IE protections | Credit @ion-storm [ https://en.wikipedia.org/wiki/HTML_Application ] -->\r\n\t\t\t\t<Image name=\"technique_id=T1218,technique_name=Signed Binary Proxy Execution\" condition=\"image\">msiexec.exe</Image>\t\t\t\t<!--Microsoft:Windows: Can install from http:// paths | Credit @vector-sec -->\r\n\t\t\t\t<Image name=\"technique_id=T1069,technique_name=Permission Groups Discovery\" condition=\"image\">net.exe</Image>\t\t\t\t<!--Mitre T1018-->\t\t\t\t<!--Mitre T1021.002-->\t\t\t\t<!--Mitre T1087-->\t\t\t\t<!--Mitre T1135-->\t\t\t\t<!--Mitre T1069-->\t\t\t\t<!--Mitre T1016-->\t\t\t\t<!--Microsoft:Windows: \"net use\"/\"net view\" used by attackers to surveil and connect with file shares from command line | Credit @ion-storm -->\r\n\t\t\t\t<Image name=\"technique_id=T1218,technique_name=Signed Binary Proxy Execution\" condition=\"image\">notepad.exe</Image>\t\t\t\t<!--Microsoft:Windows: [ https://blog.cobaltstrike.com/2013/08/08/why-is-notepad-exe-connecting-to-the-internet/ ] -->\r\n\t\t\t\t<Image name=\"technique_id=T1012,technique_name=Query Registry\" condition=\"image\">reg.exe</Image>\t\t\t\t<!--Mitre T1012-->\t\t\t\t<!--Mitre T1112-->\t\t\t\t<!--Microsoft:Windows: Remote Registry | Credit @ion-storm -->\r\n\t\t\t\t<Image name=\"technique_id=T1218,technique_name=Regsvr32\" condition=\"image\">regsvr32.exe</Image>\t\t\t\t<!--Microsoft:Windows: [ https://subt0x10.blogspot.com/2016/04/bypass-application-whitelisting-script.html ] -->\r\n\t\t\t\t<Image name=\"technique_id=T1218.011,technique_name=Rundll32\" condition=\"image\">rundll32.exe</Image>\t\t\t\t<!--Microsoft:Windows: [ https://blog.cobaltstrike.com/2016/07/22/why-is-rundll32-exe-connecting-to-the-internet/ ] -->\r\n\t\t\t\t<Image name=\"technique_id=T1543.003,technique_name=Windows Service\" condition=\"image\">sc.exe</Image>\t\t\t\t<!--Microsoft:Windows: Remotely change Windows service settings from command line | Credit @ion-storm -->\r\n\t\t\t\t<Image name=\"technique_id=T1047,technique_name=Windows Management Instrumentation\" condition=\"image\">wmic.exe</Image>\t\t\t\t<!--T1047-->\t\t\t\t<!--Mitre T1135-->\t\t\t\t<!--Microsoft:WindowsManagementInstrumentation: Credit @Cyb3rOps [ https://gist.github.com/Neo23x0/a4b4af9481e01e749409 ] -->\r\n\t\t\t\t<Image name=\"technique_id=T1218,technique_name=Signed Script Proxy Execution\" condition=\"image\">wscript.exe</Image>\t\t\t\t<!--Microsoft:WindowsScriptingHost: | Credit @arekfurt -->\r\n\t\t\t\t<Image condition=\"image\">driverquery.exe</Image>\t\t\t\t<!--Microsoft:Windows: Remote recognisance of system configuration, oudated/vulnerable drivers -->\r\n\t\t\t\t<Image name=\"technique_id=T1069,technique_name=Permission Groups Discovery\" condition=\"image\">dsquery.exe</Image>\t\t\t\t<!--Microsoft: Query Active Directory -->\r\n\t\t\t\t<Image name=\"technique_id=T1069,technique_name=Permission Groups Discovery\" condition=\"image\">AdFind.exe</Image>\r\n\t\t\t\t<Image condition=\"image\">hh.exe</Image>\t\t\t\t<!--Microsoft:Windows: HTML Help Executable, opens CHM files -->\r\n\t\t\t\t<Image condition=\"image\">infDefaultInstall.exe</Image>\t\t\t\t<!--Microsoft: [ https://github.com/huntresslabs/evading-autoruns ] | Credit @KyleHanslovan -->\r\n\t\t\t\t<Image condition=\"image\">javaw.exe</Image>\t\t\t\t<!--Java: Monitor usage of vulnerable application and init from JAR files -->\r\n\t\t\t\t<Image condition=\"image\">javaws.exe</Image>\t\t\t\t<!--Java: Monitor usage of vulnerable application and init from JAR files -->\r\n\t\t\t\t<Image name=\"technique_id=T1543.003,technique_name=Windows Service\" condition=\"image\">mmc.exe</Image>\t\t\t\t<!--Microsoft:Windows: -->\r\n\t\t\t\t<Image name=\"technique_id=T1218,technique_name=Signed Binary Proxy Execution\" condition=\"image\">msbuild.exe</Image>\t\t\t\t<!--Microsoft:Windows: [ https://www.hybrid-analysis.com/sample/a314f6106633fba4b70f9d6ddbee452e8f8f44a72117749c21243dc93c7ed3ac?environmentId=100 ] -->\r\n\t\t\t\t<Image name=\"technique_id=T1016,technique_name=System Network Configuration Discovery\" condition=\"image\">nbtstat.exe</Image>\t\t\t\t<!--Microsoft:Windows: NetBIOS statistics, attackers use to enumerate local network -->\r\n\t\t\t\t<Image name=\"technique_id=T1018,technique_name=Remote System Discovery\" condition=\"image\">nslookup.exe</Image>\t\t\t\t<!--Microsoft:Windows: Retrieve data over DNS -->\r\n\t\t\t\t<Image name=\"technique_id=T1057,technique_name=Process Discovery\" condition=\"image\">qprocess.exe</Image>\t\t\t\t<!--Microsoft:Windows: [ https://www.first.org/resources/papers/conf2017/APT-Log-Analysis-Tracking-Attack-Tools-by-Audit-Policy-and-Sysmon.pdf ] -->\r\n\t\t\t\t<Image name=\"technique_id=T1057,technique_name=Process Discovery\" condition=\"image\">qwinsta.exe</Image>\t\t\t\t<!--Microsoft:Windows: Remotely query login sessions on a server or workstation | Credit @ion-storm -->\r\n\t\t\t\t<Image name=\"technique_id=T1218.009,technique_name=Regsvcs/Regasm\" condition=\"image\">regsvcs.exe</Image>\t\t\t\t<!--Microsoft:Windows: [ https://www.hybrid-analysis.com/sample/3f94d7080e6c5b8f59eeecc3d44f7e817b31562caeba21d02ad705a0bfc63d67?environmentId=100 ] -->\r\n\t\t\t\t<Image name=\"technique_id=T1057,technique_name=Process Discovery\" condition=\"image\">rwinsta.exe</Image>\t\t\t\t<!--Microsoft:Windows: Disconnect remote sessions | Credit @ion-storm -->\r\n\t\t\t\t<Image name=\"technique_id=T1053,technique_name=Scheduled Task/Job\" condition=\"image\">schtasks.exe</Image>\t\t\t\t<!--Microsoft:Windows: Command and Scripting Interpreter to local and remote tasks -->\r\n\t\t\t\t<Image name=\"technique_id=T1562.001,technique_name=Disable or Modify Tools\" condition=\"image\">taskkill.exe</Image>\t\t\t\t<!--Microsoft:Windows: Kill processes, has remote ability -->\r\n\t\t\t\t<Image name=\"technique_id=T1218,technique_name=Signed Binary Proxy Execution\" condition=\"image\">replace.exe</Image>\r\n\t\t\t</NetworkConnect>\r\n\t\t</RuleGroup>\r\n\t</EventFiltering>\r\n</Sysmon>\r\n",
+        "<Sysmon schemaversion=\"4.30\">\r\n\t<EventFiltering>\r\n\t\t<RuleGroup name=\"\" groupRelation=\"or\">\r\n\t\t\t<NetworkConnect onmatch=\"include\">\r\n\t\t\t\t<!--Ports: Proxy-->\r\n\t\t\t\t<DestinationPort name=\"technique_id=T1571,technique_name=Non-Standard Port\" condition=\"is\">1080</DestinationPort>\t\t\t\t<!--Socks proxy port | Credit @ion-storm-->\r\n\t\t\t\t<DestinationPort name=\"technique_id=T1571,technique_name=Non-Standard Port\" condition=\"is\">3128</DestinationPort>\t\t\t\t<!--Socks proxy port | Credit @ion-storm-->\r\n\t\t\t\t<DestinationPort name=\"technique_id=T1571,technique_name=Non-Standard Port\" condition=\"is\">8080</DestinationPort>\t\t\t\t<!--Socks proxy port | Credit @ion-storm-->\r\n\t\t\t</NetworkConnect>\r\n\t\t</RuleGroup>\r\n\t</EventFiltering>\r\n</Sysmon>\r\n",
+        "<Sysmon schemaversion=\"4.30\">\r\n\t<EventFiltering>\r\n\t\t<RuleGroup name=\"\" groupRelation=\"or\">\r\n\t\t\t<NetworkConnect onmatch=\"include\">\r\n\t\t\t\t<!--Eventhough DNS is a commmon exfil channel, you should monitor that via some other way, Sysmon is not ideal for that-->\r\n\t\t\t\t<DestinationPort name=\"technique_id=T1021,technique_name=Remote Services\" condition=\"is\">22</DestinationPort>\t\t\t\t<!--SSH protocol-->\r\n\t\t\t\t<DestinationPort name=\"technique_id=T1021,technique_name=Remote Services\" condition=\"is\">23</DestinationPort>\t\t\t\t<!--Telnet protocol-->\r\n\t\t\t\t<DestinationPort name=\"technique_id=T1571,technique_name=Non-Standard Port\" condition=\"is\">25</DestinationPort>\t\t\t\t<!--SMTP mail protocol-->\r\n\t\t\t\t<Rule groupRelation=\"and\">\r\n\t\t\t\t\t<DestinationPort name=\"technique_id=T1021,technique_name=Remote Services\" condition=\"is\">88</DestinationPort>\t\t\t\t<!--Kerberos protocol-->\r\n\t\t\t\t\t<Image condition=\"is not\">C:\\Windows\\System32\\lsass.exe</Image>\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<!--exclude LSASS for Kerberos protocol-->\r\n        \t\t</Rule>\r\n\t\t\t\t<DestinationPort name=\"technique_id=T1021,technique_name=Remote Services\" condition=\"is\">3389</DestinationPort>\t\t\t\t<!--Microsoft:Windows:RDP-->\r\n\t\t\t\t<DestinationPort name=\"technique_id=T1021,technique_name=Remote Services\" condition=\"is\">5800</DestinationPort>\t\t\t\t<!--VNC protocol-->\r\n\t\t\t\t<DestinationPort name=\"technique_id=T1021,technique_name=Remote Services\" condition=\"is\">5900</DestinationPort>\t\t\t\t<!--VNC protocol-->\r\n\t\t\t\t<DestinationPort name=\"technique_id=T1021,technique_name=Remote Services\" condition=\"is\">5985</DestinationPort>\t\t\t\t<!--WinRM protocol-->\r\n\t\t\t\t<DestinationPort name=\"technique_id=T1021,technique_name=Remote Services\" condition=\"is\">5986</DestinationPort>\t\t\t\t<!--WinRM protocol-->\r\n\t\t\t\t<DestinationPort name=\"technique_id=T1087.002,technique_name=Account Discovery: Domain Account\" condition=\"is\">9389</DestinationPort>\t\t\t\t<!--ADWS port-->\r\n\t\t\t</NetworkConnect>\r\n\t\t</RuleGroup>\r\n\t</EventFiltering>\r\n</Sysmon>\r\n",
+        "<Sysmon schemaversion=\"4.30\">\r\n  <EventFiltering>\r\n    <RuleGroup name=\"\" groupRelation=\"or\">\r\n      <NetworkConnect onmatch=\"include\">\r\n        <Image name=\"technique_id=T1569.002,technique_name=Service Execution\" condition=\"image\">psexec.exe</Image>        <!--Sysinternals:PsExec client side | Credit @Cyb3rOps -->\r\n        <Image name=\"technique_id=T1569.002,technique_name=Service Execution\" condition=\"image\">psexesvc.exe</Image>        <!--Sysinternals:PsExec server side | Credit @Cyb3rOps -->\r\n      </NetworkConnect>\r\n    </RuleGroup>\r\n  </EventFiltering>\r\n</Sysmon>\r\n",
+        "<Sysmon schemaversion=\"4.30\">\r\n\t<EventFiltering>\r\n\t\t<RuleGroup name=\"\" groupRelation=\"or\">\r\n\t\t\t<NetworkConnect onmatch=\"include\">\r\n\t\t\t\t<Rule groupRelation=\"and\">\r\n\t\t\t\t\t<SourcePort name=\"technique_id=T1557,technique_name=Adversary-in-the-Middle\" condition=\"is any\">445;389;8492;636;3268;3269</SourcePort>\r\n\t\t\t\t\t<Image condition=\"is not\">C:\\Windows\\System32\\lsass.exe</Image>\r\n        \t\t\t<Image condition=\"is not\">c:\\Windows\\System32\\dsamain.exe</Image>\r\n        \t\t\t<ProcessId condition=\"is not\">4</ProcessId>\r\n        \t\t</Rule>\r\n\t\t\t</NetworkConnect>\r\n\t\t</RuleGroup>\r\n\t</EventFiltering>\r\n</Sysmon>",
+        "<Sysmon schemaversion=\"4.30\">\r\n  <EventFiltering>\r\n    <RuleGroup name=\"\" groupRelation=\"or\">\r\n      <NetworkConnect onmatch=\"include\">\r\n        <Image name=\"technique_id=T1036,technique_name=Masquerading\" condition=\"begin with\">C:\\Users</Image>        <!--Tools downloaded by users can use other processes for networking, but this is a very valuable indicator.-->\r\n        <Image name=\"technique_id=T1036,technique_name=Masquerading\" condition=\"begin with\">C:\\ProgramData</Image>        <!--Normally, network communications should be sourced from \"Program Files\" not from ProgramData, something to look at-->\r\n        <Image name=\"technique_id=T1036,technique_name=Masquerading\" condition=\"begin with\">C:\\Windows\\Temp</Image>        <!--Suspicious anything would communicate from the system-level temp directory-->\r\n        <Image name=\"technique_id=T1036,technique_name=Masquerading\" condition=\"begin with\">C:\\Temp</Image>        <!--Suspicious anything would communicate from the temp directory-->\r\n        <Image name=\"technique_id=T1036,technique_name=Masquerading\" condition=\"begin with\">C:\\PerfLogs\\</Image>\r\n        <Image name=\"technique_id=T1036,technique_name=Masquerading\" condition=\"begin with\">C:\\$Recycle.bin\\</Image>\r\n        <Image name=\"technique_id=T1036,technique_name=Masquerading\" condition=\"begin with\">C:\\Intel\\Logs\\</Image>\r\n        <Image name=\"technique_id=T1036,technique_name=Masquerading\" condition=\"begin with\">C:\\Users\\Default\\</Image>\r\n        <Image name=\"technique_id=T1036,technique_name=Masquerading\" condition=\"begin with\">C:\\Users\\Public\\</Image>\r\n        <Image name=\"technique_id=T1036,technique_name=Masquerading\" condition=\"begin with\">C:\\Users\\NetworkService\\</Image>\r\n        <Image name=\"technique_id=T1036,technique_name=Masquerading\" condition=\"begin with\">C:\\Windows\\Fonts\\</Image>\r\n        <Image name=\"technique_id=T1036,technique_name=Masquerading\" condition=\"begin with\">C:\\Windows\\Debug\\</Image>\r\n        <Image name=\"technique_id=T1036,technique_name=Masquerading\" condition=\"begin with\">C:\\Windows\\Media\\</Image>\r\n        <Image name=\"technique_id=T1036,technique_name=Masquerading\" condition=\"begin with\">C:\\Windows\\Help\\</Image>\r\n        <Image name=\"technique_id=T1036,technique_name=Masquerading\" condition=\"begin with\">C:\\Windows\\addins\\</Image>\r\n        <Image name=\"technique_id=T1036,technique_name=Masquerading\" condition=\"begin with\">C:\\Windows\\repair\\</Image>\r\n        <Image name=\"technique_id=T1036,technique_name=Masquerading\" condition=\"begin with\">C:\\Windows\\security\\</Image>\r\n        <Image name=\"technique_id=T1036,technique_name=Masquerading\" condition=\"begin with\">C:\\Windows\\system32\\config\\systemprofile\\</Image>\r\n        <Image name=\"technique_id=T1036,technique_name=Masquerading\" condition=\"contains\">\\htdocs\\</Image>\r\n        <Image name=\"technique_id=T1036,technique_name=Masquerading\" condition=\"contains\">\\wwwroot\\</Image>\r\n        <Image name=\"technique_id=T1036,technique_name=Masquerading\" condition=\"contains\">\\AppData\\Local\\</Image>\r\n        <Image name=\"technique_id=T1036,technique_name=Masquerading\" condition=\"contains\">\\AppData\\Local\\Temp\\</Image>\r\n        <Image name=\"technique_id=T1036,technique_name=Masquerading\" condition=\"contains\">\\AppData\\Roaming\\</Image>\r\n        <Image name=\"technique_id=T1036,technique_name=Masquerading\" condition=\"contains\">\\AppData\\LocalLow\\</Image>\r\n        <Image name=\"technique_id=T1036,technique_name=Masquerading\" condition=\"contains\">C:\\Windows\\SysWOW64</Image>\r\n      </NetworkConnect>\r\n    </RuleGroup>\r\n  </EventFiltering>\r\n</Sysmon>\r\n",
+        "<Sysmon schemaversion=\"4.30\">\n  <EventFiltering>\n    <RuleGroup name=\"\" groupRelation=\"or\">\n      <NetworkConnect onmatch=\"include\">\n        <Image name=\"technique_id=T1218,technique_name=Signed Binary Proxy Execution\" condition=\"image\">SyncAppvPublishingServer.exe</Image>\n      </NetworkConnect>\n    </RuleGroup>\n  </EventFiltering>\n</Sysmon>\n",
+        "<Sysmon schemaversion=\"4.30\">\r\n\t<EventFiltering>\r\n\t\t<RuleGroup name=\"\" groupRelation=\"or\">\r\n\t\t\t<NetworkConnect onmatch=\"include\">\r\n\t\t\t\t<!--TOR - Frequently used by malware-->\r\n\t\t\t\t<Image condition=\"image\">tor.exe</Image>\t\t\t\t<!--Tor [ https://www.hybrid-analysis.com/sample/800bf028a23440134fc834efc5c1e02cc70f05b2e800bbc285d7c92a4b126b1c?environmentId=100 ] -->\r\n\t\t\t\t<!--Ports: Tor-->\r\n\t\t\t\t<DestinationPort name=\"technique_id=T1571,technique_name=Non-Standard Port\" condition=\"is\">1723</DestinationPort>\t\t\t\t<!--Tor protocol | Credit @ion-storm-->\r\n\t\t\t\t<DestinationPort name=\"technique_id=T1571,technique_name=Non-Standard Port\" condition=\"is\">4500</DestinationPort>\t\t\t\t<!--Tor protocol | Credit @ion-storm-->\r\n\t\t\t\t<DestinationPort name=\"technique_id=T1571,technique_name=Non-Standard Port\" condition=\"is\">9001</DestinationPort>\t\t\t\t<!--Tor protocol [ http://www.computerworlduk.com/tutorial/security/tor-enterprise-2016-blocking-malware-darknet-use-rogue-nodes-3633907/ ] -->\r\n\t\t\t\t<DestinationPort name=\"technique_id=T1571,technique_name=Non-Standard Port\" condition=\"is\">9030</DestinationPort>\t\t\t\t<!--Tor protocol [ http://www.computerworlduk.com/tutorial/security/tor-enterprise-2016-blocking-malware-darknet-use-rogue-nodes-3633907/ ] -->\r\n\t\t\t</NetworkConnect>\r\n\t\t</RuleGroup>\r\n\t</EventFiltering>\r\n</Sysmon>\r\n",
+        "<Sysmon schemaversion=\"4.30\">\r\n  <EventFiltering>\r\n    <RuleGroup name=\"\" groupRelation=\"or\">\r\n      <NetworkConnect onmatch=\"include\">\r\n        <DestinationPort name=\"technique_id=T1021.006,technique_name=Windows Remote Management\" condition=\"is\">5985</DestinationPort>\r\n        <DestinationPort name=\"technique_id=T1021.006,technique_name=Windows Remote Management\" condition=\"is\">5986</DestinationPort>\r\n      </NetworkConnect>\r\n    </RuleGroup>\r\n  </EventFiltering>\r\n</Sysmon>\r\n"
+    ],
+    "host_programs":
+    [
+        "Docker Desktop (v4.75.0)",
+        "Git (v2.54.0)",
+        "Mozilla Firefox (x64 en-GB) (v151.0.3)",
+        "Mozilla Maintenance Service (v150.0.3)",
+        "Microsoft 365 Apps for enterprise - en-us (v16.0.20026.20140)",
+        "Microsoft OneDrive (v26.095.0519.0003)",
+        "Sublime Text ",
+        "TeXstudio - TeXstudio is a fully featured LaTeX editor. (v4.9.4)",
+        "Zotero (v9.0.4)",
+        "Windows Subsystem for Linux (v2.7.3.0)",
+        "Microsoft Visual C++ 2022 X64 Minimum Runtime - 14.44.35211 (v14.44.35211)",
+        "Microsoft Visual C++ 2022 X64 Additional Runtime - 14.44.35211 (v14.44.35211)",
+        "Office 16 Click-to-Run Extensibility Component (v16.0.20026.20076)",
+        "Microsoft Teams Meeting Add-in for Microsoft Office (v1.26.11802)",
+        "Copilot (v149.0.4022.62)",
+        "Microsoft Edge (v149.0.4022.62)",
+        "Microsoft Edge WebView2 Runtime (v149.0.4022.62)",
+        "Microsoft Visual C++ 2015-2022 Redistributable (x86) - 14.44.35211 (v14.44.35211.0)",
+        "Microsoft Visual C++ 2022 X86 Minimum Runtime - 14.44.35211 (v14.44.35211)",
+        "Microsoft Visual C++ 2022 X86 Additional Runtime - 14.44.35211 (v14.44.35211)",
+        "Microsoft Visual C++ 2015-2022 Redistributable (x64) - 14.44.35211 (v14.44.35211.0)",
+        "MiKTeX (v25.12)",
+        "Python 3.14.5 (v3.14-64)",
+        "Ollama version 0.30.7 (v0.30.7)",
+        "MiKTeX (v25.12)",
+        "Python 3.14.5 (v3.14-64)",
+        "Ollama version 0.30.7 (v0.30.7)"
+    ],
+    "host_services":
+    [
+        "AppIDSvc",
+        "Appinfo",
+        "AppXSvc",
+        "AudioEndpointBuilder",
+        "Audiosrv",
+        "BFE",
+        "BrokerInfrastructure",
+        "BTAGService",
+        "BthAvctpSvc",
+        "bthserv",
+        "camsvc",
+        "CDPSvc",
+        "CertPropSvc",
+        "ClickToRunSvc",
+        "ClipSVC",
+        "CoreMessagingRegistrar",
+        "cplspcon",
+        "CryptSvc",
+        "DcomLaunch",
+        "DeviceAssociationService",
+        "DevQueryBroker",
+        "Dhcp",
+        "DiagTrack",
+        "DispBrokerDesktopSvc",
+        "DisplayEnhancementService",
+        "Dnscache",
+        "DolbyDAXAPI",
+        "DolbyFusionAPI",
+        "DoSvc",
+        "DPS",
+        "dptftcs",
+        "DsSvc",
+        "DusmSvc",
+        "EPDService",
+        "EventLog",
+        "EventSystem",
+        "FontCache",
+        "gpsvc",
+        "hidserv",
+        "hns",
+        "HvHost",
+        "IBMPMSVC",
+        "InstallService",
+        "IntelAudioService",
+        "IntelCstService",
+        "InventorySvc",
+        "ipfsvc",
+        "iphlpsvc",
+        "jhi_service",
+        "KeyIso",
+        "LanmanServer",
+        "LanmanWorkstation",
+        "LenovoSmartStandby",
+        "lfsvc",
+        "LicenseManager",
+        "LITSSVC",
+        "lmhosts",
+        "LMS",
+        "LSM",
+        "LvfInstallService",
+        "MDCoreSvc",
+        "mpssvc",
+        "NcbService",
+        "netprofm",
+        "nsi",
+        "nvagent",
+        "PcaSvc",
+        "PhoneSvc",
+        "PlugPlay",
+        "Power",
+        "ProfSvc",
+        "RasMan",
+        "RmSvc",
+        "RpcEptMapper",
+        "RpcSs",
+        "RtkAudioUniversalService",
+        "SamSs",
+        "SCardSvr",
+        "Schedule",
+        "SecurityHealthService",
+        "SENS",
+        "SensorService",
+        "SharedAccess",
+        "ShellHWDetection",
+        "SmartSense",
+        "Spooler",
+        "sppsvc",
+        "SSDPSRV",
+        "SstpSvc",
+        "StateRepository",
+        "StorSvc",
+        "SynHsaService",
+        "SysMain",
+        "Sysmon64",
+        "SystemEventsBroker",
+        "TextInputManagementService",
+        "Themes",
+        "TimeBrokerSvc",
+        "TokenBroker",
+        "TPHKLOAD",
+        "TrkWks",
+        "UserManager",
+        "UsoSvc",
+        "VaultSvc",
+        "vmcompute",
+        "Wcmsvc",
+        "WdiSystemHost",
+        "WdNisSvc",
+        "WebClient",
+        "webthreatdefsvc",
+        "whesvc",
+        "WinDefend",
+        "WinHttpAutoProxySvc",
+        "Winmgmt",
+        "WlanSvc",
+        "WMIRegistrationService",
+        "WpnService",
+        "WSAIFabricSvc",
+        "wscsvc",
+        "WSearch",
+        "WSLService",
+        "wuqisvc",
+        "BluetoothUserService_6997520",
+        "cbdhsvc_6997520",
+        "CDPUserSvc_6997520",
+        "DevicesFlowUserSvc_6997520",
+        "NPSMSvc_6997520",
+        "UdkUserSvc_6997520",
+        "webthreatdefusersvc_6997520",
+        "WpnUserService_6997520"
+    ],
+    "host_running_processes":
+    [
+        null,
+        "",
+        "Registry",
+        "C:\\Windows\\System32\\backgroundTaskHost.exe",
+        "C:\\Windows\\System32\\smss.exe",
+        "C:\\Windows\\SystemApps\\ShellExperienceHost_cw5n1h2txyewy\\ShellExperienceHost.exe",
+        "C:\\Program Files\\Mozilla Firefox\\firefox.exe",
+        "C:\\Windows\\System32\\csrss.exe",
+        "C:\\Windows\\System32\\svchost.exe",
+        "C:\\Windows\\System32\\wininit.exe",
+        "C:\\Windows\\SystemApps\\Microsoft.LockApp_cw5n1h2txyewy\\LockApp.exe",
+        "C:\\Windows\\System32\\services.exe",
+        "C:\\Windows\\System32\\LsaIso.exe",
+        "C:\\Windows\\System32\\lsass.exe",
+        "C:\\Windows\\System32\\vmcompute.exe",
+        "C:\\Windows\\System32\\fontdrvhost.exe",
+        "C:\\Windows\\System32\\WUDFHost.exe",
+        "C:\\Program Files\\WindowsApps\\RealtekSemiconductorCorp.RealtekAudioControl_1.1.137.0_x64__dt26b99r8h8gj\\RtkUWP.exe",
+        "C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\149.0.4022.52\\msedgewebview2.exe",
+        "C:\\Windows\\System32\\conhost.exe",
+        "C:\\Windows\\System32\\RuntimeBroker.exe",
+        "C:\\Windows\\System32\\DriverStore\\FileRepository\\iigd_dch.inf_amd64_6c0a5016a1917804\\IntelCpHDCPSvc.exe",
+        "C:\\Program Files\\WindowsApps\\Microsoft.WindowsTerminal_1.24.11321.0_x64__8wekyb3d8bbwe\\OpenConsole.exe",
+        "MemCompression",
+        "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\CrossDeviceResume.exe",
+        "C:\\Windows\\System32\\EPDService.exe",
+        "C:\\Windows\\System32\\wbem\\WmiPrvSE.exe",
+        "C:\\Windows\\System32\\spoolsv.exe",
+        "C:\\Windows\\System32\\AggregatorHost.exe",
+        "C:\\Windows\\System32\\DriverStore\\FileRepository\\lnvsst.inf_amd64_e8bc61a910ff2d5f\\SmartSense.exe",
+        "C:\\Windows\\System32\\DriverStore\\FileRepository\\fusion_swc_aposvc.inf_amd64_210bb9e65957d54a\\FusionAPI.exe",
+        "C:\\Windows\\System32\\DriverStore\\FileRepository\\dax3_swc_aposvc.inf_amd64_6c19a4caad42dde0\\DAX3API.exe",
+        "C:\\Windows\\System32\\DriverStore\\FileRepository\\intcoed.inf_amd64_5e376a2004e773e8\\AS\\IAS\\IntelAudioService.exe",
+        "C:\\Windows\\System32\\DriverStore\\FileRepository\\litsdrv.inf_amd64_0fefde8b58482d0b\\x64\\LITSSvc.exe",
+        "C:\\Windows\\System32\\DriverStore\\FileRepository\\dal.inf_amd64_8a3f88e34f6b8385\\jhi_service.exe",
+        "C:\\Windows\\System32\\DriverStore\\FileRepository\\smartstandbycomponent.inf_amd64_3d585c065d8f0236\\SmartStandby.exe",
+        "C:\\Windows\\System32\\DriverStore\\FileRepository\\ibmpmdrv.inf_amd64_317aadafb86018c3\\x64\\ibmpmsvc.exe",
+        "C:\\Windows\\System32\\DriverStore\\FileRepository\\ipf_cpu.inf_amd64_049e38a37c46edc4\\ipf_uf.exe",
+        "C:\\Windows\\System32\\DriverStore\\FileRepository\\lms.inf_amd64_a0f482a0fd3e2e74\\LMS.exe",
+        "C:\\Windows\\System32\\DriverStore\\FileRepository\\dtt_sw.inf_amd64_5ecafabf5082a9c7\\ipfsvc.exe",
+        "C:\\Windows\\System32\\DriverStore\\FileRepository\\lnvvsndmft.inf_amd64_f6d79d78edcb4315\\LvfInstallService.exe",
+        "C:\\Windows\\System32\\DriverStore\\FileRepository\\realtekservice.inf_amd64_6477ac83bad98f87\\RtkAudUService64.exe",
+        "C:\\Windows\\System32\\DriverStore\\FileRepository\\synawudfbiousbuwp.inf_amd64_2b0e80551ca8c54d\\SynRpcServer.exe",
+        "C:\\Windows\\System32\\DriverStore\\FileRepository\\mewmiprov.inf_amd64_d7a222f6ce13d429\\WMIRegistrationService.exe",
+        "C:\\Windows\\Sysmon64.exe",
+        "C:\\Program Files\\WSL\\wslservice.exe",
+        "C:\\Windows\\System32\\DriverStore\\FileRepository\\lnvsst.inf_amd64_e8bc61a910ff2d5f\\UserSSCtrl.exe",
+        "C:\\ProgramData\\Microsoft\\Windows Defender\\Platform\\4.18.26050.15-0\\NisSrv.exe",
+        "C:\\Program Files\\Sublime Text\\plugin_host-3.8.exe",
+        "C:\\Windows\\System32\\ctfmon.exe",
+        "C:\\Program Files\\WindowsApps\\MicrosoftWindows.Client.WebExperience_526.11701.50.0_x64__cw5n1h2txyewy\\WidgetBoard.exe",
+        "C:\\Windows\\System32\\ShellHost.exe",
+        "C:\\Windows\\System32\\DriverStore\\FileRepository\\fn.inf_amd64_8e91a39d67d49dc4\\driver\\tphkload.exe",
+        "C:\\Windows\\System32\\SecurityHealthSystray.exe",
+        "C:\\Windows\\System32\\wbem\\unsecapp.exe",
+        "C:\\Windows\\SystemApps\\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\\StartMenuExperienceHost.exe",
+        "C:\\Windows\\System32\\wlanext.exe",
+        "C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\SearchHost.exe",
+        "C:\\Windows\\ImmersiveControlPanel\\SystemSettings.exe",
+        "C:\\Windows\\System32\\winlogon.exe",
+        "C:\\Program Files\\Mozilla Firefox\\crashhelper.exe",
+        "C:\\Program Files\\WindowsApps\\PythonSoftwareFoundation.PythonManager_26.2.240.0_x64__3847v3x7pw1km\\python.exe",
+        "C:\\Program Files\\Common Files\\microsoft shared\\ClickToRun\\OfficeClickToRun.exe",
+        "C:\\ProgramData\\Microsoft\\Windows Defender\\Platform\\4.18.26050.15-0\\MsMpEng.exe",
+        "C:\\Program Files\\WindowsApps\\Microsoft.StartExperiencesApp_1.302.5.0_x64__8wekyb3d8bbwe\\MicrosoftStartFeedProvider\\MicrosoftStartFeedProvider.exe",
+        "C:\\Program Files\\Sublime Text\\sublime_text.exe",
+        "C:\\Windows\\System32\\cmd.exe",
+        "C:\\Windows\\System32\\DriverStore\\FileRepository\\ipf_cpu.inf_amd64_049e38a37c46edc4\\ipf_helper.exe",
+        "C:\\Users\\Paulo\\AppData\\Local\\Programs\\Ollama\\ollama app.exe",
+        "C:\\Windows\\System32\\DriverStore\\FileRepository\\icst_service.inf_amd64_f498e59a9fa69db3\\intel_cst_service_standalone.exe",
+        "C:\\Windows\\System32\\EPDCtrl.exe",
+        "C:\\Program Files\\WindowsApps\\MSTeams_26134.1702.4747.7366_x64__8wekyb3d8bbwe\\ms-teams.exe",
+        "C:\\Windows\\System32\\sihost.exe",
+        "C:\\Users\\Paulo\\AppData\\Local\\Programs\\Ollama\\ollama.exe",
+        "C:\\Windows\\SysWOW64\\Lenovo\\PowerMgr\\PowerMgr.exe",
+        "C:\\Windows\\System32\\DriverStore\\FileRepository\\DAX3_S~1.INF\\DAX3API.exe",
+        "C:\\Windows\\System32\\DriverStore\\FileRepository\\FN2033~1.INF\\driver\\tposd.exe",
+        "C:\\Program Files\\Microsoft OneDrive\\26.095.0519.0003\\OneDrive.Sync.Service.exe",
+        "C:\\Windows\\System32\\SecurityHealthService.exe",
+        "C:\\Windows\\System32\\DriverStore\\FileRepository\\FN2033~1.INF\\driver\\shtctky.exe",
+        "C:\\Windows\\System32\\SearchIndexer.exe",
+        "C:\\Windows\\System32\\ApplicationFrameHost.exe",
+        "C:\\Windows\\System32\\sppsvc.exe",
+        "C:\\Windows\\System32\\dwm.exe",
+        "C:\\Program Files\\WindowsApps\\Microsoft.WindowsTerminal_1.24.11321.0_x64__8wekyb3d8bbwe\\WindowsTerminal.exe",
+        "C:\\Program Files (x86)\\Microsoft\\EdgeUpdate\\MicrosoftEdgeUpdate.exe",
+        "C:\\Users\\Paulo\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+        "C:\\Program Files\\Sublime Text\\plugin_host-3.3.exe",
+        "C:\\Program Files\\Sublime Text\\crash_handler.exe",
+        "C:\\ProgramData\\Microsoft\\Windows Defender\\Platform\\4.18.26050.15-0\\MpDefenderCoreService.exe",
+        "C:\\Windows\\System32\\taskhostw.exe",
+        "C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\AppActions.exe",
+        "C:\\Windows\\explorer.exe",
+        "C:\\Windows\\System32\\audiodg.exe",
+        "C:\\Program Files\\Microsoft OneDrive\\OneDrive.exe",
+        "C:\\Program Files\\WindowsApps\\Microsoft.WidgetsPlatformRuntime_1.6.19.0_x64__8wekyb3d8bbwe\\WidgetService\\WidgetService.exe"
+    ]
+}

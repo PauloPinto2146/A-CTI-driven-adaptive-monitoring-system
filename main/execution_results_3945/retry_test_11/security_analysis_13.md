@@ -1,0 +1,5 @@
+[IOC] Detect SetValue events where the Details (value data) contains “wiseman.exe” | Source: filename wiseman.EXE  
+[IOC] Detect SetValue events where the Details (value data) contains “wininet.dll” | Source: filename wininet.dll  
+[BEHAVIOR] Detect SetValue events that modify any Run/RunOnce registry keys (e.g., HKLM\Software\Microsoft\Windows\CurrentVersion\Run*, HKCU\Software\Microsoft\Windows\CurrentVersion\Run*) | Source: T1547.001  
+[BEHAVIOR] Detect SetValue events that write or change the ImagePath value of services under HKLM\System\CurrentControlSet\Services\* (including paths to .sys driver files) | Source: T1543.003  
+[BEHAVIOR] Detect SetValue events that modify persistence‑related registry values such as RunServices, RunServicesOnce, and BootExecute (e.g., HKLM\Software\Microsoft\Windows\CurrentVersion\RunServices*, HKLM\System\CurrentControlSet\Control\Session Manager\BootExecute) | Source: T1112

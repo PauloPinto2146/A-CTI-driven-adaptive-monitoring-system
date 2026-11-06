@@ -1,0 +1,9 @@
+[IOC] SourceImage = *\wiseman.exe, TargetImage = *\lsass.exe, GrantedAccess contains PROCESS_VM_READ (0x0010) | PROCESS_QUERY_INFORMATION (0x0400) | PROCESS_DUP_HANDLE (0x0040) | Source: filename (wiseman.EXE)  
+[BEHAVIOR] SourceImage = *\*, TargetImage = *\lsass.exe | *\winlogon.exe | *\services.exe | *\csrss.exe, GrantedAccess includes PROCESS_ALL_ACCESS (0x1F0FFF) or any combination of PROCESS_VM_READ, PROCESS_QUERY_INFORMATION, PROCESS_DUP_HANDLE | Source: T1134 (Access Token Manipulation) & T1056.001 (Keylogging – credential‑access via LSASS)  
+[BEHAVIOR] SourceImage = *\certutil.exe | *\powershell.exe | *\copy.exe, TargetImage = *\*.exe (newly spawned payload), GrantedAccess contains PROCESS_CREATE_PROCESS (0x0080) | Source: T1140 (Deobfuscate/Decode Files or Information)  
+[DERIVED] SourceImage = *\PaperCutNG.exe (or any process originating from the PaperCut NG service), TargetImage = *\svchost.exe | *\services.exe, GrantedAccess includes PROCESS_ALL_ACCESS or PROCESS_SET_INFORMATION, indicating post‑exploitation escalation after CVE‑2023‑27350 exploitation | Source: CVE‑2023‑27350  
+
+**Explanation of omitted items**  
+- *wininet.dll* was not included because Sysmon Event ID 10 tracks process‑to‑process access events; loading or using a DLL does not generate this event, so there is no observable SourceImage/TargetImage pair for the DLL itself.  
+- The ATT&CK technique **T1056.001 (Keylogging)** primarily relies on API hooking and input‑device monitoring, which are not captured by Process Access events. Consequently, no direct recommendation can be made for pure keylogging; instead, a derived behavior concerning injection into credential‑handling processes (e.g., LSASS) was provided.  
+- No additional IOC beyond *wiseman.exe* could be mapped to a Process Access event; therefore, the only IOC‑based rule is the first line.

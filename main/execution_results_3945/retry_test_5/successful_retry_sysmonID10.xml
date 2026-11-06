@@ -1,0 +1,27 @@
+<Sysmon schemaversion="4.60">
+  <EventFiltering>
+    <RuleGroup name="" groupRelation="or">
+      <ProcessAccess onmatch="include">
+        <Rule groupRelation="and">
+          <SourceImage condition="image">wiseman.exe</SourceImage>
+          <TargetImage condition="image">lsass.exe</TargetImage>
+          <GrantedAccess condition="contains any">0x0010;0x0400;0x0040</GrantedAccess>
+        </Rule>
+        <Rule groupRelation="and">
+          <TargetImage condition="is any">lsass.exe;winlogon.exe;services.exe;csrss.exe</TargetImage>
+          <GrantedAccess condition="contains any">0x1F0FFF;0x0010;0x0400;0x0040</GrantedAccess>
+        </Rule>
+        <Rule groupRelation="and">
+          <SourceImage condition="is any">certutil.exe;powershell.exe;copy.exe</SourceImage>
+          <TargetImage condition="end with">.exe</TargetImage>
+          <GrantedAccess condition="contains">0x0080</GrantedAccess>
+        </Rule>
+        <Rule groupRelation="and">
+          <SourceImage condition="image">PaperCutNG.exe</SourceImage>
+          <TargetImage condition="is any">svchost.exe;services.exe</TargetImage>
+          <GrantedAccess condition="contains">0x1F0FFF</GrantedAccess>
+        </Rule>
+      </ProcessAccess>
+    </RuleGroup>
+  </EventFiltering>
+</Sysmon>

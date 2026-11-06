@@ -1,0 +1,47 @@
+<Sysmon schemaversion="4.91">
+  <HashAlgorithms>*</HashAlgorithms>
+  <EventFiltering>
+    
+    <RuleGroup name="App-for-sysmon file created in storage" groupRelation="or">
+        <ProcessCreate onmatch="include">
+            <CommandLine condition="contains">application-for-sysmon\app\storage</CommandLine>
+        </ProcessCreate>
+    </RuleGroup>
+
+    
+    <FileCreateTime onmatch="include" />
+    <NetworkConnect onmatch="include" />
+
+    <RuleGroup name="App-for-sysmon file created in storage" groupRelation="or">
+        <ProcessTerminate onmatch="include">
+            <Image condition="contains">application-for-sysmon</Image>
+            <Image condition="contains">C:\Users\PauloPinto\AppData\Local\Programs\Python\Python314\python.exe</Image>
+        </ProcessTerminate>
+    </RuleGroup>
+
+    <DriverLoad onmatch="include" />
+    <ImageLoad onmatch="include" />
+    <CreateRemoteThread onmatch="include" />
+    <RawAccessRead onmatch="include" />
+    <ProcessAccess onmatch="include" />
+
+    <RuleGroup name="App-for-sysmon file created in storage" groupRelation="or">
+        <FileCreate onmatch="include">
+            <TargetFilename condition="contains">application-for-sysmon\app\storage</TargetFilename>
+        </FileCreate>
+    </RuleGroup>
+
+    <RegistryEvent onmatch="include" />
+    <FileCreateStreamHash onmatch="include" />
+    <PipeEvent onmatch="include" />
+    <WmiEvent onmatch="include" />
+    <DnsQuery onmatch="include" />
+    <FileDelete onmatch="include" />
+    <ClipboardChange onmatch="include" />
+    <ProcessTampering onmatch="include" />
+    <FileDeleteDetected onmatch="include" />
+    <FileBlockExecutable onmatch="include" />
+    <FileBlockShredding onmatch="include" />
+    <FileExecutableDetected onmatch="include" />
+  </EventFiltering>
+</Sysmon>

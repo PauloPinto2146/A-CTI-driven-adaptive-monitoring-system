@@ -1,0 +1,6 @@
+[IOC] SourceImage: *\wiseman.exe* ; TargetImage: * ; GrantedAccess: * ; CallTrace: * | Source: IOC filename wiseman.EXE  
+[BEHAVIOR] SourceImage: * ; TargetImage: *\lsass.exe* ; GrantedAccess: includes PROCESS_VM_READ (0x0010) or PROCESS_QUERY_INFORMATION (0x0400) ; CallTrace: *advapi32.dll!* or *kernel32.dll!* before OpenProcess | Source: ATT&CK T1134  
+[BEHAVIOR] SourceImage: * ; TargetImage: *\winlogon.exe* or *\osk.exe* ; GrantedAccess: PROCESS_ALL_ACCESS (0x1F0FFF) or any high‑privilege access (e.g., PROCESS_VM_WRITE) ; CallTrace: *user32.dll!* (e.g., SetWindowsHookEx) or *kernel32.dll!* before OpenProcess | Source: ATT&CK T1056.001  
+
+The IOC “wininet.dll” was not included because Sysmon Event ID 10 records process‑to‑process access events; it does not capture DLL load events, which are reported by Event ID 7.  
+The attack pattern T1140 (Deobfuscate/Decode Files) was omitted because its typical behaviors involve use of decoding utilities (certutil, PowerShell, copy) and file manipulation, not the opening of other processes, and therefore cannot be observed via Event ID 10.

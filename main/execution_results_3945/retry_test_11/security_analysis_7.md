@@ -1,0 +1,4 @@
+[IOC] ImageLoaded hash = ebba8f4342b65faccdd2a48be9f2654d3fa523360f17ff68d5498a453f76c205 (wiseman.EXE) | Source: IoC sha256‑wiseman.EXE  
+[IOC] ImageLoaded hash = fda9864b1aa230b60d0c736559415ac9c79e240cce411daed5da2facb9ced87c (wininet.dll) | Source: IoC sha256‑wininet.dll  
+[BEHAVIOR] Process Image = rundll32.exe loading an image with extension .cpl, .dll (non‑standard for the environment) or a script via “javascript:” or “mshtml” | Source: T1218.011  
+[DERIVED] Process Image running under the SYSTEM account loading an unsigned image (Signed = false) from a path outside of allowed system directories (e.g., not under C:\Windows\System32) | Source: CVE‑2023‑27350

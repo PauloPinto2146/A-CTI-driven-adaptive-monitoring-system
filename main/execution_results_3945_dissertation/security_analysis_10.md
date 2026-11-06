@@ -1,0 +1,3 @@
+[IOC] SourceImage equals *\wiseman.EXE* opening any target process (any TargetImage) | Source: filename:wiseman.EXE  
+[DERIVED] TargetImage equals *\lsass.exe* with GrantedAccess containing PROCESS_VM_READ (0x0010) or PROCESS_QUERY_INFORMATION (0x0400) – indicative of memory reading for credential harvesting | Source: T1056.001  
+[DERIVED] TargetImage equals *\winlogon.exe* with GrantedAccess containing PROCESS_DUP_HANDLE (0x0040) or PROCESS_CREATE_PROCESS (0x0080) – indicative of token manipulation or impersonation activity | Source: T1134

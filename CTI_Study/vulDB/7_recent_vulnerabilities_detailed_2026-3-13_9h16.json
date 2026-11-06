@@ -1,0 +1,1587 @@
+{
+    "response": {
+        "version": "3.86",
+        "format": "json",
+        "status": "200",
+        "lang": "en",
+        "items": 7,
+        "consumption": 7,
+        "remaining": 6,
+        "querylimit": 7,
+        "querylimitmax": 13,
+        "timestamp": "1773393394",
+        "rtt": 1,
+        "etag": "5ca6-eec3-dcca"
+    },
+    "request": {
+        "timestamp": "1773393393",
+        "apikey": "valid",
+        "userid": "96189",
+        "details": 1,
+        "sort": "entry_timestamp_create",
+        "cti": 0,
+        "type": "recent",
+        "value": "7"
+    },
+    "result": [
+        {
+            "entry": {
+                "id": "350824",
+                "title": "flash-oss graphql-upload-minimal 1.6.1 processRequest operations.variables prototype pollution",
+                "summary": "A vulnerability has been found in flash-oss graphql-upload-minimal 1.6.1 and classified as critical. This vulnerability affects the function processRequest. There is no information about possible countermeasures known. It may be suggested to replace the affected object with an alternative product.",
+                "details": {
+                    "affected": "A vulnerability has been found in flash-oss graphql-upload-minimal 1.6.1 and classified as critical.",
+                    "vulnerability": "The manipulation of the argument operations.variables with an unknown input leads to a unknown weakness. The CWE definition for the vulnerability is CWE-1321. The product receives input from an upstream component that specifies attributes that are to be initialized or updated in an object, but it does not properly control modifications of attributes of the object prototype.",
+                    "impact": "As an impact it is known to affect confidentiality, integrity, and availability.",
+                    "countermeasure": "There is no information about possible countermeasures known. It may be suggested to replace the affected object with an alternative product."
+                },
+                "timestamp": {
+                    "create": "1773389001",
+                    "change": "1773389001"
+                }
+            },
+            "software": {
+                "vendor": "flash-oss",
+                "name": "graphql-upload-minimal",
+                "version": [
+                    "1.6.1"
+                ],
+                "function": "processRequest",
+                "argument": "operations.variables",
+                "cpe": [
+                    "cpe:/a:flash-oss:graphql-upload-minimal:1.6.1"
+                ],
+                "cpe23": [
+                    "cpe:2.3:a:flash-oss:graphql-upload-minimal:1.6.1:*:*:*:*:*:*:*"
+                ]
+            },
+            "vulnerability": {
+                "risk": {
+                    "name": "medium"
+                },
+                "class": "prototype pollution",
+                "cwe": "CWE-1321",
+                "capec": [
+                    "1",
+                    "10",
+                    "242"
+                ],
+                "attck": "T1059",
+                "cvss2": {
+                    "vuldb": {
+                        "basescore": "6.5",
+                        "tempscore": "6.5",
+                        "baseseverity": "Medium",
+                        "tempseverity": "Medium",
+                        "av": "N",
+                        "ac": "L",
+                        "au": "S",
+                        "ci": "P",
+                        "ii": "P",
+                        "ai": "P",
+                        "e": "ND",
+                        "rl": "ND",
+                        "rc": "ND"
+                    }
+                },
+                "cvss3": {
+                    "meta": {
+                        "basescore": "6.3",
+                        "tempscore": "6.3",
+                        "baseseverity": "Medium",
+                        "tempseverity": "Medium"
+                    },
+                    "vuldb": {
+                        "confidence": "High",
+                        "basescore": "6.3",
+                        "tempscore": "6.3",
+                        "basevector": "AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L",
+                        "tempvector": "E:X/RL:X/RC:X",
+                        "baseseverity": "Medium",
+                        "tempseverity": "Medium",
+                        "av": "N",
+                        "ac": "L",
+                        "pr": "L",
+                        "ui": "N",
+                        "s": "U",
+                        "c": "L",
+                        "i": "L",
+                        "a": "L",
+                        "e": "X",
+                        "rl": "X",
+                        "rc": "X"
+                    }
+                },
+                "cvss4": {
+                    "vuldb": {
+                        "confidence": "High",
+                        "bscore": "5.3",
+                        "btscore": "5.3",
+                        "bvector": "AV:N/AC:L/AT:N/PR:L/UI:N/VC:L/VI:L/VA:L/SC:N/SI:N/SA:N",
+                        "btvector": "AV:N/AC:L/AT:N/PR:L/UI:N/VC:L/VI:L/VA:L/SC:N/SI:N/SA:N/E:X",
+                        "bseverity": "Medium",
+                        "btseverity": "Medium",
+                        "av": "N",
+                        "ac": "L",
+                        "at": "N",
+                        "pr": "L",
+                        "ui": "N",
+                        "vc": "L",
+                        "vi": "L",
+                        "va": "L",
+                        "sc": "N",
+                        "si": "N",
+                        "sa": "N",
+                        "e": "X"
+                    }
+                },
+                "timeline": [
+                    {
+                        "date": "1773356400",
+                        "event": "Advisory disclosed",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773360000",
+                        "event": "VulDB entry created",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?recent.20260313",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773389001",
+                        "event": "VulDB entry last update",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?id.350824",
+                        "color": "blue"
+                    }
+                ]
+            },
+            "advisory": {
+                "date": "1773356400",
+                "url": "https://www.kb.cert.org/vuls/id/907705",
+                "type": "ID",
+                "identifier": "907705",
+                "reportconfidence": "not defined"
+            },
+            "exploit": {
+                "physical": "No",
+                "local": "No",
+                "remote": "Yes",
+                "exploitability": "not defined",
+                "price": {
+                    "0day": "$0-$5k",
+                    "today": "$0-$5k"
+                }
+            },
+            "countermeasure": {
+                "remediationlevel": "not defined"
+            },
+            "source": {
+                "cve": {
+                    "id": "CVE-2025-65587"
+                },
+                "gcve": {
+                    "cve": "GCVE-0-2025-65587",
+                    "vuldb": "GCVE-100-350824"
+                }
+            }
+        },
+        {
+            "entry": {
+                "id": "350823",
+                "title": "Vivo Easyshare missing authentication",
+                "summary": "A vulnerability, which was classified as critical, was found in Vivo Easyshare (the affected version is unknown). This affects an unknown code. There is no information about possible countermeasures known. It may be suggested to replace the affected object with an alternative product.",
+                "details": {
+                    "affected": "A vulnerability, which was classified as critical, was found in Vivo Easyshare (the affected version is unknown).",
+                    "vulnerability": "CWE is classifying the issue as CWE-306. The product does not perform any authentication for functionality that requires a provable user identity or consumes a significant amount of resources.",
+                    "impact": "This is going to have an impact on confidentiality.",
+                    "countermeasure": "There is no information about possible countermeasures known. It may be suggested to replace the affected object with an alternative product."
+                },
+                "timestamp": {
+                    "create": "1773388820",
+                    "change": "1773388820"
+                }
+            },
+            "software": {
+                "vendor": "Vivo",
+                "name": "Easyshare",
+                "cpe": [
+                    "cpe:/a:vivo:easyshare"
+                ],
+                "cpe23": [
+                    "cpe:2.3:a:vivo:easyshare:*:*:*:*:*:*:*:*"
+                ]
+            },
+            "vulnerability": {
+                "risk": {
+                    "value": "2",
+                    "name": "medium"
+                },
+                "class": "missing authentication",
+                "cwe": "CWE-306",
+                "capec": [
+                    "12",
+                    "114"
+                ],
+                "cvss2": {
+                    "vuldb": {
+                        "basescore": "3.3",
+                        "tempscore": "3.3",
+                        "baseseverity": "Low",
+                        "tempseverity": "Low",
+                        "av": "A",
+                        "ac": "L",
+                        "au": "N",
+                        "ci": "P",
+                        "ii": "N",
+                        "ai": "N",
+                        "e": "ND",
+                        "rl": "ND",
+                        "rc": "C"
+                    }
+                },
+                "cvss3": {
+                    "meta": {
+                        "basescore": "4.3",
+                        "tempscore": "4.3",
+                        "baseseverity": "Medium",
+                        "tempseverity": "Medium"
+                    },
+                    "vuldb": {
+                        "confidence": "High",
+                        "basescore": "4.3",
+                        "tempscore": "4.3",
+                        "basevector": "AV:A/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N",
+                        "tempvector": "E:X/RL:X/RC:C",
+                        "baseseverity": "Medium",
+                        "tempseverity": "Medium",
+                        "av": "A",
+                        "ac": "L",
+                        "pr": "N",
+                        "ui": "N",
+                        "s": "U",
+                        "c": "L",
+                        "i": "N",
+                        "a": "N",
+                        "e": "X",
+                        "rl": "X",
+                        "rc": "C"
+                    }
+                },
+                "cvss4": {
+                    "vuldb": {
+                        "confidence": "High",
+                        "bscore": "5.3",
+                        "btscore": "5.3",
+                        "bvector": "AV:A/AC:L/AT:N/PR:N/UI:N/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N",
+                        "btvector": "AV:A/AC:L/AT:N/PR:N/UI:N/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N/E:X",
+                        "bseverity": "Medium",
+                        "btseverity": "Medium",
+                        "av": "A",
+                        "ac": "L",
+                        "at": "N",
+                        "pr": "N",
+                        "ui": "N",
+                        "vc": "L",
+                        "vi": "N",
+                        "va": "N",
+                        "sc": "N",
+                        "si": "N",
+                        "sa": "N",
+                        "e": "X"
+                    },
+                    "cna": {
+                        "bscore": "6.9",
+                        "btscore": "6.9",
+                        "bvector": "AV:A/AC:L/AT:N/PR:N/UI:P/VC:H/VI:N/VA:N/SC:N/SI:N/SA:N",
+                        "btvector": "AV:A/AC:L/AT:N/PR:N/UI:P/VC:H/VI:N/VA:N/SC:N/SI:N/SA:N/E:X",
+                        "bseverity": "Medium",
+                        "btseverity": "Medium",
+                        "av": "A",
+                        "ac": "L",
+                        "at": "N",
+                        "pr": "N",
+                        "ui": "P",
+                        "vc": "H",
+                        "vi": "N",
+                        "va": "N",
+                        "sc": "N",
+                        "si": "N",
+                        "sa": "N",
+                        "e": "X"
+                    }
+                },
+                "timeline": [
+                    {
+                        "date": "1768258800",
+                        "event": "CVE reserved",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773356400",
+                        "event": "Advisory disclosed",
+                        "diff": "+59 days",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773360000",
+                        "event": "VulDB entry created",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?recent.20260313",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773388820",
+                        "event": "VulDB entry last update",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?id.350823",
+                        "color": "blue"
+                    }
+                ]
+            },
+            "advisory": {
+                "date": "1773356400",
+                "url": "https://www.vivo.com/en/support/security-advisory-detail?id=21",
+                "type": "Advisory",
+                "reportconfidence": "confirmed"
+            },
+            "exploit": {
+                "physical": "No",
+                "local": "No",
+                "remote": "Partially",
+                "exploitability": "not defined",
+                "price": {
+                    "0day": "$0-$5k",
+                    "today": "$0-$5k"
+                }
+            },
+            "countermeasure": {
+                "remediationlevel": "not defined"
+            },
+            "source": {
+                "cve": {
+                    "id": "CVE-2025-15515",
+                    "assigned": "1768258800",
+                    "cna": "Vivo",
+                    "summary": "The authentication mechanism for a specific feature in the EasyShare module contains a vulnerability. If specific conditions are met on a local network, it can cause data leakage"
+                },
+                "gcve": {
+                    "cve": "GCVE-0-2025-15515",
+                    "vuldb": "GCVE-100-350823"
+                }
+            }
+        },
+        {
+            "entry": {
+                "id": "350822",
+                "title": "croixhaug Appointment Booking Calendar Plugin up to 1.6.9.29 on WordPress REST Endpoint embed-inner get_item authorization",
+                "summary": "A vulnerability, which was classified as problematic, has been found in croixhaug Appointment Booking Calendar Plugin up to 1.6.9.29 on WordPress (Appointment Software). Affected by this issue is the function get_item of the file /wp-json/ssa/v1/embed-inner of the component REST Endpoint. There is no information about possible countermeasures known. It may be suggested to replace the affected object with an alternative product.",
+                "details": {
+                    "affected": "A vulnerability, which was classified as problematic, has been found in croixhaug Appointment Booking Calendar Plugin up to 1.6.9.29 on WordPress (Appointment Software).",
+                    "vulnerability": "Using CWE to declare the problem leads to CWE-862. The product does not perform an authorization check when an actor attempts to access a resource or perform an action.",
+                    "impact": "Impacted is confidentiality.",
+                    "countermeasure": "There is no information about possible countermeasures known. It may be suggested to replace the affected object with an alternative product."
+                },
+                "timestamp": {
+                    "create": "1773388786",
+                    "change": "1773388786"
+                }
+            },
+            "software": {
+                "vendor": "croixhaug",
+                "name": "Appointment Booking Calendar Plugin",
+                "version": [
+                    "1.6.9.0",
+                    "1.6.9.1",
+                    "1.6.9.2",
+                    "1.6.9.3",
+                    "1.6.9.4",
+                    "1.6.9.5",
+                    "1.6.9.6",
+                    "1.6.9.7",
+                    "1.6.9.8",
+                    "1.6.9.9",
+                    "1.6.9.10",
+                    "1.6.9.11",
+                    "1.6.9.12",
+                    "1.6.9.13",
+                    "1.6.9.14",
+                    "1.6.9.15",
+                    "1.6.9.16",
+                    "1.6.9.17",
+                    "1.6.9.18",
+                    "1.6.9.19",
+                    "1.6.9.20",
+                    "1.6.9.21",
+                    "1.6.9.22",
+                    "1.6.9.23",
+                    "1.6.9.24",
+                    "1.6.9.25",
+                    "1.6.9.26",
+                    "1.6.9.27",
+                    "1.6.9.28",
+                    "1.6.9.29"
+                ],
+                "platform": "WordPress",
+                "component": "REST Endpoint",
+                "file": "/wp-json/ssa/v1/embed-inner",
+                "function": "get_item",
+                "type": "Appointment Software",
+                "cpe": [
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.0",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.1",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.2",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.3",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.4",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.5",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.6",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.7",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.8",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.9",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.10",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.11",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.12",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.13",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.14",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.15",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.16",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.17",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.18",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.19",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.20",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.21",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.22",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.23",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.24",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.25",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.26",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.27",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.28",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.29"
+                ],
+                "cpe23": [
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.0:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.1:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.2:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.3:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.4:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.5:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.6:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.7:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.8:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.9:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.10:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.11:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.12:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.13:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.14:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.15:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.16:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.17:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.18:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.19:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.20:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.21:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.22:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.23:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.24:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.25:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.26:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.27:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.28:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.29:*:*:*:*:*:*:*"
+                ]
+            },
+            "vulnerability": {
+                "risk": {
+                    "name": "low"
+                },
+                "class": "authorization",
+                "cwe": "CWE-862",
+                "capec": [
+                    "1",
+                    "665"
+                ],
+                "cvss2": {
+                    "vuldb": {
+                        "basescore": "5.0",
+                        "tempscore": "4.8",
+                        "baseseverity": "Medium",
+                        "tempseverity": "Medium",
+                        "av": "N",
+                        "ac": "L",
+                        "au": "N",
+                        "ci": "P",
+                        "ii": "N",
+                        "ai": "N",
+                        "e": "ND",
+                        "rl": "ND",
+                        "rc": "UR"
+                    }
+                },
+                "cvss3": {
+                    "meta": {
+                        "basescore": "6.4",
+                        "tempscore": "6.3",
+                        "baseseverity": "Medium",
+                        "tempseverity": "Medium"
+                    },
+                    "vuldb": {
+                        "confidence": "High",
+                        "basescore": "5.3",
+                        "tempscore": "5.1",
+                        "basevector": "AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N",
+                        "tempvector": "E:X/RL:X/RC:R",
+                        "baseseverity": "Medium",
+                        "tempseverity": "Medium",
+                        "av": "N",
+                        "ac": "L",
+                        "pr": "N",
+                        "ui": "N",
+                        "s": "U",
+                        "c": "L",
+                        "i": "N",
+                        "a": "N",
+                        "e": "X",
+                        "rl": "X",
+                        "rc": "R"
+                    },
+                    "cna": {
+                        "basescore": "7.5",
+                        "basevector": "AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+                        "baseseverity": "High",
+                        "av": "N",
+                        "ac": "L",
+                        "pr": "N",
+                        "ui": "N",
+                        "s": "U",
+                        "c": "H",
+                        "i": "N",
+                        "a": "N"
+                    }
+                },
+                "cvss4": {
+                    "vuldb": {
+                        "confidence": "High",
+                        "bscore": "6.9",
+                        "btscore": "6.9",
+                        "bvector": "AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N",
+                        "btvector": "AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N/E:X",
+                        "bseverity": "Medium",
+                        "btseverity": "Medium",
+                        "av": "N",
+                        "ac": "L",
+                        "at": "N",
+                        "pr": "N",
+                        "ui": "N",
+                        "vc": "L",
+                        "vi": "N",
+                        "va": "N",
+                        "sc": "N",
+                        "si": "N",
+                        "sa": "N",
+                        "e": "X"
+                    }
+                },
+                "timeline": [
+                    {
+                        "date": "1771801200",
+                        "event": "CVE reserved",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773356400",
+                        "event": "Advisory disclosed",
+                        "diff": "+18 days",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773360000",
+                        "event": "VulDB entry created",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?recent.20260313",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773388787",
+                        "event": "VulDB entry last update",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?id.350822",
+                        "color": "blue"
+                    }
+                ]
+            },
+            "advisory": {
+                "date": "1773356400",
+                "url": "https://www.wordfence.com/threat-intel/vulnerabilities/id/5970b8d6-0041-4c30-a6ce-fe67ebf415f5?source=cve",
+                "reportconfidence": "uncorroborated",
+                "person": {
+                    "name": "Muhammad Sharief"
+                }
+            },
+            "exploit": {
+                "physical": "No",
+                "local": "No",
+                "remote": "Yes",
+                "exploitability": "not defined",
+                "price": {
+                    "0day": "$0-$5k",
+                    "today": "$0-$5k"
+                }
+            },
+            "countermeasure": {
+                "remediationlevel": "not defined"
+            },
+            "source": {
+                "cve": {
+                    "id": "CVE-2026-3045",
+                    "assigned": "1771801200",
+                    "cna": "Wordfence",
+                    "summary": "The Appointment Booking Calendar — Simply Schedule Appointments plugin for WordPress is vulnerable to unauthorized access of sensitive data in all versions up to and including 1.6.9.29. This is due to two compounding weaknesses: (1) a non-user-bound `public_nonce` is exposed to unauthenticated users through the public `/wp-json/ssa/v1/embed-inner` REST endpoint, and (2) the `get_item()` method in `SSA_Settings_Api` relies on `nonce_permissions_check()` for authorization (which accepts the public nonce) but does not call `remove_unauthorized_settings_for_current_user()` to filter restricted fields. This makes it possible for unauthenticated attackers to access admin-only plugin settings including the administrator email, phone number, internal access tokens, notification configurations, and developer settings via the `/wp-json/ssa/v1/settings/{section}` endpoint. The exposure of appointment tokens also allows an attacker to modify or cancel appointments."
+                },
+                "gcve": {
+                    "cve": "GCVE-0-2026-3045",
+                    "vuldb": "GCVE-100-350822"
+                }
+            }
+        },
+        {
+            "entry": {
+                "id": "350821",
+                "title": "strategy11team Formidable Forms Plugin up to 6.28 on WordPress verify_intent authorization",
+                "summary": "A vulnerability classified as problematic was found in strategy11team Formidable Forms Plugin up to 6.28 on WordPress (WordPress Plugin). Affected by this vulnerability is the function verify_intent. There is no information about possible countermeasures known. It may be suggested to replace the affected object with an alternative product.",
+                "details": {
+                    "affected": "A vulnerability classified as problematic was found in strategy11team Formidable Forms Plugin up to 6.28 on WordPress (WordPress Plugin).",
+                    "vulnerability": "The CWE definition for the vulnerability is CWE-862. The product does not perform an authorization check when an actor attempts to access a resource or perform an action.",
+                    "impact": "As an impact it is known to affect integrity.",
+                    "countermeasure": "There is no information about possible countermeasures known. It may be suggested to replace the affected object with an alternative product."
+                },
+                "timestamp": {
+                    "create": "1773388775",
+                    "change": "1773388775"
+                }
+            },
+            "software": {
+                "vendor": "strategy11team",
+                "name": "Formidable Forms Plugin",
+                "version": [
+                    "6.0",
+                    "6.1",
+                    "6.2",
+                    "6.3",
+                    "6.4",
+                    "6.5",
+                    "6.6",
+                    "6.7",
+                    "6.8",
+                    "6.9",
+                    "6.10",
+                    "6.11",
+                    "6.12",
+                    "6.13",
+                    "6.14",
+                    "6.15",
+                    "6.16",
+                    "6.17",
+                    "6.18",
+                    "6.19",
+                    "6.20",
+                    "6.21",
+                    "6.22",
+                    "6.23",
+                    "6.24",
+                    "6.25",
+                    "6.26",
+                    "6.27",
+                    "6.28"
+                ],
+                "platform": "WordPress",
+                "function": "verify_intent",
+                "type": "WordPress Plugin",
+                "cpe": [
+                    "cpe:/a:strategy11team:formidable_forms_plugin:6.0",
+                    "cpe:/a:strategy11team:formidable_forms_plugin:6.1",
+                    "cpe:/a:strategy11team:formidable_forms_plugin:6.2",
+                    "cpe:/a:strategy11team:formidable_forms_plugin:6.3",
+                    "cpe:/a:strategy11team:formidable_forms_plugin:6.4",
+                    "cpe:/a:strategy11team:formidable_forms_plugin:6.5",
+                    "cpe:/a:strategy11team:formidable_forms_plugin:6.6",
+                    "cpe:/a:strategy11team:formidable_forms_plugin:6.7",
+                    "cpe:/a:strategy11team:formidable_forms_plugin:6.8",
+                    "cpe:/a:strategy11team:formidable_forms_plugin:6.9",
+                    "cpe:/a:strategy11team:formidable_forms_plugin:6.10",
+                    "cpe:/a:strategy11team:formidable_forms_plugin:6.11",
+                    "cpe:/a:strategy11team:formidable_forms_plugin:6.12",
+                    "cpe:/a:strategy11team:formidable_forms_plugin:6.13",
+                    "cpe:/a:strategy11team:formidable_forms_plugin:6.14",
+                    "cpe:/a:strategy11team:formidable_forms_plugin:6.15",
+                    "cpe:/a:strategy11team:formidable_forms_plugin:6.16",
+                    "cpe:/a:strategy11team:formidable_forms_plugin:6.17",
+                    "cpe:/a:strategy11team:formidable_forms_plugin:6.18",
+                    "cpe:/a:strategy11team:formidable_forms_plugin:6.19",
+                    "cpe:/a:strategy11team:formidable_forms_plugin:6.20",
+                    "cpe:/a:strategy11team:formidable_forms_plugin:6.21",
+                    "cpe:/a:strategy11team:formidable_forms_plugin:6.22",
+                    "cpe:/a:strategy11team:formidable_forms_plugin:6.23",
+                    "cpe:/a:strategy11team:formidable_forms_plugin:6.24",
+                    "cpe:/a:strategy11team:formidable_forms_plugin:6.25",
+                    "cpe:/a:strategy11team:formidable_forms_plugin:6.26",
+                    "cpe:/a:strategy11team:formidable_forms_plugin:6.27",
+                    "cpe:/a:strategy11team:formidable_forms_plugin:6.28"
+                ],
+                "cpe23": [
+                    "cpe:2.3:a:strategy11team:formidable_forms_plugin:6.0:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:strategy11team:formidable_forms_plugin:6.1:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:strategy11team:formidable_forms_plugin:6.2:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:strategy11team:formidable_forms_plugin:6.3:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:strategy11team:formidable_forms_plugin:6.4:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:strategy11team:formidable_forms_plugin:6.5:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:strategy11team:formidable_forms_plugin:6.6:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:strategy11team:formidable_forms_plugin:6.7:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:strategy11team:formidable_forms_plugin:6.8:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:strategy11team:formidable_forms_plugin:6.9:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:strategy11team:formidable_forms_plugin:6.10:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:strategy11team:formidable_forms_plugin:6.11:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:strategy11team:formidable_forms_plugin:6.12:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:strategy11team:formidable_forms_plugin:6.13:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:strategy11team:formidable_forms_plugin:6.14:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:strategy11team:formidable_forms_plugin:6.15:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:strategy11team:formidable_forms_plugin:6.16:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:strategy11team:formidable_forms_plugin:6.17:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:strategy11team:formidable_forms_plugin:6.18:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:strategy11team:formidable_forms_plugin:6.19:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:strategy11team:formidable_forms_plugin:6.20:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:strategy11team:formidable_forms_plugin:6.21:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:strategy11team:formidable_forms_plugin:6.22:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:strategy11team:formidable_forms_plugin:6.23:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:strategy11team:formidable_forms_plugin:6.24:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:strategy11team:formidable_forms_plugin:6.25:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:strategy11team:formidable_forms_plugin:6.26:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:strategy11team:formidable_forms_plugin:6.27:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:strategy11team:formidable_forms_plugin:6.28:*:*:*:*:*:*:*"
+                ]
+            },
+            "vulnerability": {
+                "risk": {
+                    "name": "low"
+                },
+                "class": "authorization",
+                "cwe": "CWE-862",
+                "capec": [
+                    "1",
+                    "665"
+                ],
+                "cvss2": {
+                    "vuldb": {
+                        "basescore": "5.0",
+                        "tempscore": "4.8",
+                        "baseseverity": "Medium",
+                        "tempseverity": "Medium",
+                        "av": "N",
+                        "ac": "L",
+                        "au": "N",
+                        "ci": "N",
+                        "ii": "P",
+                        "ai": "N",
+                        "e": "ND",
+                        "rl": "ND",
+                        "rc": "UR"
+                    }
+                },
+                "cvss3": {
+                    "meta": {
+                        "basescore": "6.4",
+                        "tempscore": "6.3",
+                        "baseseverity": "Medium",
+                        "tempseverity": "Medium"
+                    },
+                    "vuldb": {
+                        "confidence": "High",
+                        "basescore": "5.3",
+                        "tempscore": "5.1",
+                        "basevector": "AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N",
+                        "tempvector": "E:X/RL:X/RC:R",
+                        "baseseverity": "Medium",
+                        "tempseverity": "Medium",
+                        "av": "N",
+                        "ac": "L",
+                        "pr": "N",
+                        "ui": "N",
+                        "s": "U",
+                        "c": "N",
+                        "i": "L",
+                        "a": "N",
+                        "e": "X",
+                        "rl": "X",
+                        "rc": "R"
+                    },
+                    "cna": {
+                        "basescore": "7.5",
+                        "basevector": "AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N",
+                        "baseseverity": "High",
+                        "av": "N",
+                        "ac": "L",
+                        "pr": "N",
+                        "ui": "N",
+                        "s": "U",
+                        "c": "N",
+                        "i": "H",
+                        "a": "N"
+                    }
+                },
+                "cvss4": {
+                    "vuldb": {
+                        "confidence": "High",
+                        "bscore": "6.9",
+                        "btscore": "6.9",
+                        "bvector": "AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N",
+                        "btvector": "AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N/E:X",
+                        "bseverity": "Medium",
+                        "btseverity": "Medium",
+                        "av": "N",
+                        "ac": "L",
+                        "at": "N",
+                        "pr": "N",
+                        "ui": "N",
+                        "vc": "N",
+                        "vi": "L",
+                        "va": "N",
+                        "sc": "N",
+                        "si": "N",
+                        "sa": "N",
+                        "e": "X"
+                    }
+                },
+                "timeline": [
+                    {
+                        "date": "1771542000",
+                        "event": "CVE reserved",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773356400",
+                        "event": "Advisory disclosed",
+                        "diff": "+21 days",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773360000",
+                        "event": "VulDB entry created",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?recent.20260313",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773388776",
+                        "event": "VulDB entry last update",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?id.350821",
+                        "color": "blue"
+                    }
+                ]
+            },
+            "advisory": {
+                "date": "1773356400",
+                "url": "https://www.wordfence.com/threat-intel/vulnerabilities/id/ebb4bc5a-9469-4733-acf3-d2dda5edb7af?source=cve",
+                "reportconfidence": "uncorroborated",
+                "person": {
+                    "name": "Andres Cruciani"
+                }
+            },
+            "exploit": {
+                "physical": "No",
+                "local": "No",
+                "remote": "Yes",
+                "exploitability": "not defined",
+                "price": {
+                    "0day": "$0-$5k",
+                    "today": "$0-$5k"
+                }
+            },
+            "countermeasure": {
+                "remediationlevel": "not defined"
+            },
+            "source": {
+                "cve": {
+                    "id": "CVE-2026-2890",
+                    "assigned": "1771542000",
+                    "cna": "Wordfence",
+                    "summary": "The Formidable Forms plugin for WordPress is vulnerable to a payment integrity bypass in all versions up to, and including, 6.28. This is due to the Stripe Link return handler (`handle_one_time_stripe_link_return_url`) marking payment records as complete based solely on the Stripe PaymentIntent status without comparing the intent's charged amount against the expected payment amount, and the `verify_intent()` function validating only client secret ownership without binding intents to specific forms or actions. This makes it possible for unauthenticated attackers to reuse a PaymentIntent from a completed low-value payment to mark a high-value payment as complete, effectively bypassing payment for goods or services."
+                },
+                "gcve": {
+                    "cve": "GCVE-0-2026-2890",
+                    "vuldb": "GCVE-100-350821"
+                }
+            }
+        },
+        {
+            "entry": {
+                "id": "350820",
+                "title": "croixhaug Appointment Booking Calendar Plugin up to 1.6.9.29 on WordPress get_item_permissions_check ID authorization",
+                "summary": "A vulnerability classified as problematic has been found in croixhaug Appointment Booking Calendar Plugin up to 1.6.9.29 on WordPress (Appointment Software). Affected is the function get_item_permissions_check. There is no information about possible countermeasures known. It may be suggested to replace the affected object with an alternative product.",
+                "details": {
+                    "affected": "A vulnerability classified as problematic has been found in croixhaug Appointment Booking Calendar Plugin up to 1.6.9.29 on WordPress (Appointment Software).",
+                    "vulnerability": "The manipulation of the argument ID with an unknown input leads to a unknown weakness. CWE is classifying the issue as CWE-639. The system's authorization functionality does not prevent one user from gaining access to another user's data or record by modifying the key value identifying the data.",
+                    "impact": "This is going to have an impact on confidentiality.",
+                    "countermeasure": "There is no information about possible countermeasures known. It may be suggested to replace the affected object with an alternative product."
+                },
+                "timestamp": {
+                    "create": "1773388753",
+                    "change": "1773388753"
+                }
+            },
+            "software": {
+                "vendor": "croixhaug",
+                "name": "Appointment Booking Calendar Plugin",
+                "version": [
+                    "1.6.9.0",
+                    "1.6.9.1",
+                    "1.6.9.2",
+                    "1.6.9.3",
+                    "1.6.9.4",
+                    "1.6.9.5",
+                    "1.6.9.6",
+                    "1.6.9.7",
+                    "1.6.9.8",
+                    "1.6.9.9",
+                    "1.6.9.10",
+                    "1.6.9.11",
+                    "1.6.9.12",
+                    "1.6.9.13",
+                    "1.6.9.14",
+                    "1.6.9.15",
+                    "1.6.9.16",
+                    "1.6.9.17",
+                    "1.6.9.18",
+                    "1.6.9.19",
+                    "1.6.9.20",
+                    "1.6.9.21",
+                    "1.6.9.22",
+                    "1.6.9.23",
+                    "1.6.9.24",
+                    "1.6.9.25",
+                    "1.6.9.26",
+                    "1.6.9.27",
+                    "1.6.9.28",
+                    "1.6.9.29"
+                ],
+                "platform": "WordPress",
+                "function": "get_item_permissions_check",
+                "argument": "ID",
+                "type": "Appointment Software",
+                "cpe": [
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.0",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.1",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.2",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.3",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.4",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.5",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.6",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.7",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.8",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.9",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.10",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.11",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.12",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.13",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.14",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.15",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.16",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.17",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.18",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.19",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.20",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.21",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.22",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.23",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.24",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.25",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.26",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.27",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.28",
+                    "cpe:/a:croixhaug:appointment_booking_calendar_plugin:1.6.9.29"
+                ],
+                "cpe23": [
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.0:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.1:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.2:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.3:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.4:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.5:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.6:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.7:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.8:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.9:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.10:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.11:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.12:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.13:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.14:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.15:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.16:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.17:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.18:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.19:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.20:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.21:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.22:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.23:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.24:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.25:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.26:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.27:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.28:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:croixhaug:appointment_booking_calendar_plugin:1.6.9.29:*:*:*:*:*:*:*"
+                ]
+            },
+            "vulnerability": {
+                "risk": {
+                    "name": "low"
+                },
+                "class": "authorization",
+                "cwe": "CWE-639",
+                "capec": [
+                    "1"
+                ],
+                "cvss2": {
+                    "vuldb": {
+                        "basescore": "4.0",
+                        "tempscore": "3.8",
+                        "baseseverity": "Medium",
+                        "tempseverity": "Low",
+                        "av": "N",
+                        "ac": "L",
+                        "au": "S",
+                        "ci": "P",
+                        "ii": "N",
+                        "ai": "N",
+                        "e": "ND",
+                        "rl": "ND",
+                        "rc": "UR"
+                    }
+                },
+                "cvss3": {
+                    "meta": {
+                        "basescore": "4.3",
+                        "tempscore": "4.2",
+                        "baseseverity": "Medium",
+                        "tempseverity": "Medium"
+                    },
+                    "vuldb": {
+                        "confidence": "High",
+                        "basescore": "4.3",
+                        "tempscore": "4.2",
+                        "basevector": "AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N",
+                        "tempvector": "E:X/RL:X/RC:R",
+                        "baseseverity": "Medium",
+                        "tempseverity": "Medium",
+                        "av": "N",
+                        "ac": "L",
+                        "pr": "L",
+                        "ui": "N",
+                        "s": "U",
+                        "c": "L",
+                        "i": "N",
+                        "a": "N",
+                        "e": "X",
+                        "rl": "X",
+                        "rc": "R"
+                    },
+                    "cna": {
+                        "basescore": "4.3",
+                        "basevector": "AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N",
+                        "baseseverity": "Medium",
+                        "av": "N",
+                        "ac": "L",
+                        "pr": "L",
+                        "ui": "N",
+                        "s": "U",
+                        "c": "L",
+                        "i": "N",
+                        "a": "N"
+                    }
+                },
+                "cvss4": {
+                    "vuldb": {
+                        "confidence": "High",
+                        "bscore": "5.3",
+                        "btscore": "5.3",
+                        "bvector": "AV:N/AC:L/AT:N/PR:L/UI:N/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N",
+                        "btvector": "AV:N/AC:L/AT:N/PR:L/UI:N/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N/E:X",
+                        "bseverity": "Medium",
+                        "btseverity": "Medium",
+                        "av": "N",
+                        "ac": "L",
+                        "at": "N",
+                        "pr": "L",
+                        "ui": "N",
+                        "vc": "L",
+                        "vi": "N",
+                        "va": "N",
+                        "sc": "N",
+                        "si": "N",
+                        "sa": "N",
+                        "e": "X"
+                    }
+                },
+                "timeline": [
+                    {
+                        "date": "1769727600",
+                        "event": "CVE reserved",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773356400",
+                        "event": "Advisory disclosed",
+                        "diff": "+42 days",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773360000",
+                        "event": "VulDB entry created",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?recent.20260313",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773388753",
+                        "event": "VulDB entry last update",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?id.350820",
+                        "color": "blue"
+                    }
+                ]
+            },
+            "advisory": {
+                "date": "1773356400",
+                "url": "https://www.wordfence.com/threat-intel/vulnerabilities/id/c82f3864-13af-4ff6-824a-4c799a98f3f6?source=cve",
+                "reportconfidence": "uncorroborated",
+                "person": {
+                    "name": "Itthidej Aramsri"
+                }
+            },
+            "exploit": {
+                "physical": "No",
+                "local": "No",
+                "remote": "Yes",
+                "exploitability": "not defined",
+                "price": {
+                    "0day": "$0-$5k",
+                    "today": "$0-$5k"
+                }
+            },
+            "countermeasure": {
+                "remediationlevel": "not defined"
+            },
+            "source": {
+                "cve": {
+                    "id": "CVE-2026-1704",
+                    "assigned": "1769727600",
+                    "cna": "Wordfence",
+                    "summary": "The Appointment Booking Calendar — Simply Schedule Appointments Booking Plugin plugin for WordPress is vulnerable to Insecure Direct Object Reference in all versions up to, and including, 1.6.9.29. This is due to the `get_item_permissions_check` method granting access to users with the `ssa_manage_appointments` capability without validating staff ownership of the requested appointment. This makes it possible for authenticated attackers, with custom-level access and above (users granted the ssa_manage_appointments capability, such as Team Members), to view appointment records belonging to other staff members and access sensitive customer personally identifiable information via the appointment ID parameter."
+                },
+                "gcve": {
+                    "cve": "GCVE-0-2026-1704",
+                    "vuldb": "GCVE-100-350820"
+                }
+            }
+        },
+        {
+            "entry": {
+                "id": "350819",
+                "title": "linknacional Pix for WooCommerce Plugin up to 1.5.0 on WordPress Setting lkn_pix_for_woocommerce_c6_save_settings unrestricted upload",
+                "summary": "A vulnerability was found in linknacional Pix for WooCommerce Plugin up to 1.5.0 on WordPress (E-Commerce Management Software). It has been rated as critical. This issue affects the function lkn_pix_for_woocommerce_c6_save_settings of the component Setting Handler. There is no information about possible countermeasures known. It may be suggested to replace the affected object with an alternative product.",
+                "details": {
+                    "affected": "A vulnerability was found in linknacional Pix for WooCommerce Plugin up to 1.5.0 on WordPress (E-Commerce Management Software). It has been rated as critical.",
+                    "vulnerability": "Using CWE to declare the problem leads to CWE-434. The product allows the attacker to upload or transfer files of dangerous types that can be automatically processed within the product's environment.",
+                    "impact": "Impacted is confidentiality, integrity, and availability.",
+                    "countermeasure": "There is no information about possible countermeasures known. It may be suggested to replace the affected object with an alternative product."
+                },
+                "timestamp": {
+                    "create": "1773388735",
+                    "change": "1773388735"
+                }
+            },
+            "software": {
+                "vendor": "linknacional",
+                "name": "Pix for WooCommerce Plugin",
+                "version": [
+                    "1.0",
+                    "1.1",
+                    "1.2",
+                    "1.3",
+                    "1.4",
+                    "1.5.0"
+                ],
+                "platform": "WordPress",
+                "component": "Setting Handler",
+                "function": "lkn_pix_for_woocommerce_c6_save_settings",
+                "type": "E-Commerce Management Software",
+                "cpe": [
+                    "cpe:/a:linknacional:pix_for_woocommerce_plugin:1.0",
+                    "cpe:/a:linknacional:pix_for_woocommerce_plugin:1.1",
+                    "cpe:/a:linknacional:pix_for_woocommerce_plugin:1.2",
+                    "cpe:/a:linknacional:pix_for_woocommerce_plugin:1.3",
+                    "cpe:/a:linknacional:pix_for_woocommerce_plugin:1.4",
+                    "cpe:/a:linknacional:pix_for_woocommerce_plugin:1.5.0"
+                ],
+                "cpe23": [
+                    "cpe:2.3:a:linknacional:pix_for_woocommerce_plugin:1.0:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:linknacional:pix_for_woocommerce_plugin:1.1:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:linknacional:pix_for_woocommerce_plugin:1.2:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:linknacional:pix_for_woocommerce_plugin:1.3:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:linknacional:pix_for_woocommerce_plugin:1.4:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:linknacional:pix_for_woocommerce_plugin:1.5.0:*:*:*:*:*:*:*"
+                ]
+            },
+            "vulnerability": {
+                "risk": {
+                    "value": "2",
+                    "name": "medium"
+                },
+                "class": "unrestricted upload",
+                "cwe": "CWE-434",
+                "capec": [
+                    "1",
+                    "19"
+                ],
+                "attck": "T1608.002",
+                "cvss2": {
+                    "vuldb": {
+                        "basescore": "7.5",
+                        "tempscore": "7.1",
+                        "baseseverity": "High",
+                        "tempseverity": "High",
+                        "av": "N",
+                        "ac": "L",
+                        "au": "N",
+                        "ci": "P",
+                        "ii": "P",
+                        "ai": "P",
+                        "e": "ND",
+                        "rl": "ND",
+                        "rc": "UR"
+                    }
+                },
+                "cvss3": {
+                    "meta": {
+                        "basescore": "8.5",
+                        "tempscore": "8.4",
+                        "baseseverity": "High",
+                        "tempseverity": "High"
+                    },
+                    "vuldb": {
+                        "confidence": "High",
+                        "basescore": "7.3",
+                        "tempscore": "7.1",
+                        "basevector": "AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+                        "tempvector": "E:X/RL:X/RC:R",
+                        "baseseverity": "High",
+                        "tempseverity": "High",
+                        "av": "N",
+                        "ac": "L",
+                        "pr": "N",
+                        "ui": "N",
+                        "s": "U",
+                        "c": "L",
+                        "i": "L",
+                        "a": "L",
+                        "e": "X",
+                        "rl": "X",
+                        "rc": "R"
+                    },
+                    "cna": {
+                        "basescore": "9.8",
+                        "basevector": "AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+                        "baseseverity": "Critical",
+                        "av": "N",
+                        "ac": "L",
+                        "pr": "N",
+                        "ui": "N",
+                        "s": "U",
+                        "c": "H",
+                        "i": "H",
+                        "a": "H"
+                    }
+                },
+                "cvss4": {
+                    "vuldb": {
+                        "confidence": "High",
+                        "bscore": "6.9",
+                        "btscore": "6.9",
+                        "bvector": "AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:L/VA:L/SC:N/SI:N/SA:N",
+                        "btvector": "AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:L/VA:L/SC:N/SI:N/SA:N/E:X",
+                        "bseverity": "Medium",
+                        "btseverity": "Medium",
+                        "av": "N",
+                        "ac": "L",
+                        "at": "N",
+                        "pr": "N",
+                        "ui": "N",
+                        "vc": "L",
+                        "vi": "L",
+                        "va": "L",
+                        "sc": "N",
+                        "si": "N",
+                        "sa": "N",
+                        "e": "X"
+                    }
+                },
+                "timeline": [
+                    {
+                        "date": "1773097200",
+                        "event": "CVE reserved",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773356400",
+                        "event": "Advisory disclosed",
+                        "diff": "+3 days",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773360000",
+                        "event": "VulDB entry created",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?recent.20260313",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773388735",
+                        "event": "VulDB entry last update",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?id.350819",
+                        "color": "blue"
+                    }
+                ]
+            },
+            "advisory": {
+                "date": "1773356400",
+                "url": "https://www.wordfence.com/threat-intel/vulnerabilities/id/20188fd3-c330-4c76-912b-72731e14c450?source=cve",
+                "reportconfidence": "uncorroborated",
+                "person": {
+                    "name": "Alexis Lafontaine"
+                }
+            },
+            "exploit": {
+                "physical": "No",
+                "local": "No",
+                "remote": "Yes",
+                "exploitability": "not defined",
+                "price": {
+                    "0day": "$0-$5k",
+                    "today": "$0-$5k"
+                }
+            },
+            "countermeasure": {
+                "remediationlevel": "not defined"
+            },
+            "source": {
+                "cve": {
+                    "id": "CVE-2026-3891",
+                    "assigned": "1773097200",
+                    "cna": "Wordfence",
+                    "summary": "The Pix for WooCommerce plugin for WordPress is vulnerable to arbitrary file uploads due to missing capability check and missing file type validation in the 'lkn_pix_for_woocommerce_c6_save_settings' function in all versions up to, and including, 1.5.0. This makes it possible for unauthenticated attackers to upload arbitrary files on the affected site's server which may make remote code execution possible."
+                },
+                "gcve": {
+                    "cve": "GCVE-0-2026-3891",
+                    "vuldb": "GCVE-100-350819"
+                }
+            }
+        },
+        {
+            "entry": {
+                "id": "350818",
+                "title": "Statamic CMS up to 6.6.1 cross site scripting",
+                "summary": "A vulnerability was found in Statamic CMS up to 6.6.1 (Content Management System). It has been declared as problematic. This vulnerability affects some unknown processing. Upgrading to version 6.6.2 eliminates this vulnerability.",
+                "details": {
+                    "affected": "A vulnerability was found in Statamic CMS up to 6.6.1 (Content Management System). It has been declared as problematic.",
+                    "vulnerability": "The CWE definition for the vulnerability is CWE-79. The product does not neutralize or incorrectly neutralizes user-controllable input before it is placed in output that is used as a web page that is served to other users.",
+                    "impact": "As an impact it is known to affect integrity.",
+                    "countermeasure": "Upgrading to version 6.6.2 eliminates this vulnerability."
+                },
+                "timestamp": {
+                    "create": "1773383400",
+                    "change": "1773383400"
+                }
+            },
+            "software": {
+                "vendor": "Statamic",
+                "name": "CMS",
+                "version": [
+                    "6.6.0",
+                    "6.6.1"
+                ],
+                "type": "Content Management System",
+                "website": {
+                    "product": "https://github.com/statamic/cms/"
+                },
+                "cpe": [
+                    "cpe:/a:statamic:cms:6.6.0",
+                    "cpe:/a:statamic:cms:6.6.1"
+                ],
+                "cpe23": [
+                    "cpe:2.3:a:statamic:cms:6.6.0:*:*:*:*:*:*:*",
+                    "cpe:2.3:a:statamic:cms:6.6.1:*:*:*:*:*:*:*"
+                ]
+            },
+            "vulnerability": {
+                "risk": {
+                    "value": "1",
+                    "name": "low"
+                },
+                "class": "cross site scripting",
+                "cwe": "CWE-79",
+                "capec": [
+                    "10",
+                    "209",
+                    "242"
+                ],
+                "attck": "T1059.007",
+                "cvss2": {
+                    "vuldb": {
+                        "basescore": "4.0",
+                        "tempscore": "3.5",
+                        "baseseverity": "Medium",
+                        "tempseverity": "Low",
+                        "av": "N",
+                        "ac": "L",
+                        "au": "S",
+                        "ci": "N",
+                        "ii": "P",
+                        "ai": "N",
+                        "e": "ND",
+                        "rl": "OF",
+                        "rc": "C"
+                    }
+                },
+                "cvss3": {
+                    "meta": {
+                        "basescore": "4.4",
+                        "tempscore": "4.4",
+                        "baseseverity": "Medium",
+                        "tempseverity": "Medium"
+                    },
+                    "vuldb": {
+                        "confidence": "High",
+                        "basescore": "3.5",
+                        "tempscore": "3.4",
+                        "basevector": "AV:N/AC:L/PR:L/UI:R/S:U/C:N/I:L/A:N",
+                        "tempvector": "E:X/RL:O/RC:C",
+                        "baseseverity": "Low",
+                        "tempseverity": "Low",
+                        "av": "N",
+                        "ac": "L",
+                        "pr": "L",
+                        "ui": "R",
+                        "s": "U",
+                        "c": "N",
+                        "i": "L",
+                        "a": "N",
+                        "e": "X",
+                        "rl": "O",
+                        "rc": "C"
+                    },
+                    "cna": {
+                        "basescore": "5.4",
+                        "basevector": "AV:N/AC:L/PR:L/UI:R/S:C/C:L/I:L/A:N",
+                        "baseseverity": "Medium",
+                        "av": "N",
+                        "ac": "L",
+                        "pr": "L",
+                        "ui": "R",
+                        "s": "C",
+                        "c": "L",
+                        "i": "L",
+                        "a": "N"
+                    }
+                },
+                "cvss4": {
+                    "vuldb": {
+                        "confidence": "High",
+                        "bscore": "5.1",
+                        "btscore": "5.1",
+                        "bvector": "AV:N/AC:L/AT:N/PR:L/UI:P/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N",
+                        "btvector": "AV:N/AC:L/AT:N/PR:L/UI:P/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N/E:X",
+                        "bseverity": "Medium",
+                        "btseverity": "Medium",
+                        "av": "N",
+                        "ac": "L",
+                        "at": "N",
+                        "pr": "L",
+                        "ui": "P",
+                        "vc": "N",
+                        "vi": "L",
+                        "va": "N",
+                        "sc": "N",
+                        "si": "N",
+                        "sa": "N",
+                        "e": "X"
+                    }
+                },
+                "timeline": [
+                    {
+                        "date": "1773270000",
+                        "event": "CVE reserved",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773356400",
+                        "event": "Advisory disclosed",
+                        "diff": "+1 days",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773360000",
+                        "event": "VulDB entry created",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?recent.20260313",
+                        "color": "blue"
+                    },
+                    {
+                        "date": "1773383401",
+                        "event": "VulDB entry last update",
+                        "diff": "+0 days",
+                        "link": "https://vuldb.com/?id.350818",
+                        "color": "blue"
+                    }
+                ]
+            },
+            "advisory": {
+                "date": "1773356400",
+                "url": "https://github.com/statamic/cms/security/advisories/GHSA-hcch-w73c-jp4m",
+                "reportconfidence": "confirmed"
+            },
+            "exploit": {
+                "physical": "No",
+                "local": "No",
+                "remote": "Yes",
+                "exploitability": "not defined",
+                "price": {
+                    "0day": "$0-$5k",
+                    "today": "$0-$5k"
+                }
+            },
+            "countermeasure": {
+                "remediationlevel": "official fix",
+                "name": "Upgrade",
+                "upgrade": {
+                    "version": "6.6.2"
+                }
+            },
+            "source": {
+                "cve": {
+                    "id": "CVE-2026-32612",
+                    "assigned": "1773270000",
+                    "cna": "GitHub_M",
+                    "summary": "Statmatic is a Laravel and Git powered content management system (CMS). Prior to 6.6.2, stored XSS in the control panel color mode preference allows authenticated users with control panel access to inject malicious JavaScript that executes when a higher-privileged user impersonates their account. This has been fixed in 6.6.2."
+                },
+                "gcve": {
+                    "cve": "GCVE-0-2026-32612",
+                    "vuldb": "GCVE-100-350818"
+                }
+            }
+        }
+    ]
+}

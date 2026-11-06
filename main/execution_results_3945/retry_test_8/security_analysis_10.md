@@ -1,0 +1,5 @@
+[IOC] SourceImage="wiseman.exe", TargetImage="lsass.exe", GrantedAccess includes PROCESS_VM_READ or PROCESS_DUP_HANDLE | Source: filename 'wiseman.EXE'  
+[BEHAVIOR] SourceImage="*", TargetImage="lsass.exe", GrantedAccess includes PROCESS_QUERY_INFORMATION, PROCESS_VM_READ, PROCESS_DUP_HANDLE, or PROCESS_CREATE_PROCESS (any high‑privilege access used for token duplication or impersonation) | Source: T1134  
+[DERIVED] SourceImage="*", TargetImage="services.exe" OR TargetImage="winlogon.exe", GrantedAccess includes PROCESS_ALL_ACCESS or any combination that enables full memory read/write, token duplication, or process creation (indicative of post‑exploit actions after gaining SYSTEM via CVE‑2023‑27350) | Source: CVE-2023-27350  
+
+*The indicator “wininet.dll” was not included because Sysmon Event ID 10 records process‑to‑process access events; it does not capture module load activity, and therefore cannot directly observe a DLL file name in this event type.*
